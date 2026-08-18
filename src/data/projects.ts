@@ -7,6 +7,12 @@ export interface HostedProject {
 
 export const hostedProjects: HostedProject[] = [
   {
+    name: 'UBMS — Unified Business Management System',
+    description: 'All-in-one business management platform with inventory tracking, purchase orders, sales trading, printing orders, invoicing, payments, receivables, and audit trail.',
+    url: 'https://ubms-prototype.pages.dev/',
+    tags: ['Full-Stack', 'Business', 'React'],
+  },
+  {
     name: 'AI SaaS Landing Page',
     description: 'AI-powered intelligence platform for modern teams. Features autonomous agents, predictive analytics, and SaaS landing page.',
     url: 'https://ai-saas-landing.pages.dev/',
