@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Manolito Almaden Jr.
+
+Personal portfolio website showcasing my work as an AI Solution Developer. Built with Next.js 16, React 19, and Tailwind CSS 4, featuring glassmorphism design, dark/light theme, and particle effects.
+
+**Live:** [https://portfolio-8af.pages.dev](https://portfolio-8af.pages.dev)
+**Repo:** [https://github.com/Manolito016/Portfolio](https://github.com/Manolito016/Portfolio)
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router, Turbopack, Static Export)
+- **UI:** React 19, Tailwind CSS 4, Framer Motion
+- **Styling:** Glassmorphism design system with CSS custom properties
+- **Data Fetching:** TanStack React Query, GitHub REST API
+- **Forms:** React Hook Form + Zod validation
+- **Effects:** tsParticles (connected-dots background)
+- **Theme:** next-themes (dark/light/system)
+- **Deployment:** Cloudflare Pages with GitHub Actions CI/CD
+
+## Pages
+
+| Section | Description |
+|---------|-------------|
+| Home | Hero with cover photo, tech stack marquee, GitHub stats, featured projects |
+| About | Personal background and introduction |
+| Skills | Technical skills and competencies |
+| Projects | Hosted live applications and project showcase |
+| Stats | GitHub statistics, contribution graph, language breakdown |
+| Experience | Work history and professional timeline |
+| Contact | Contact form with validation |
+| Blog | Technical articles on AI and web development |
+| Education | Academic background and certifications |
+| Resume | Downloadable resume |
+| Uses | Development setup and tools |
+| Now | Current focus and activities |
+
+## Featured Projects
+
+- **UBMS** — Unified Business Management System (inventory, trading, invoicing)
+- **Barangay Digital Portal** — Community services and document processing platform
+- **AI SaaS Landing Page** — AI-powered intelligence platform
+- **Dish Manager** — Recipe and meal planning application
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production (static export to out/)
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Pushes to `main` automatically trigger a build and deploy to Cloudflare Pages via GitHub Actions.
 
-## Learn More
+Manual deploy:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npx wrangler pages deploy out --project-name portfolio
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/                  # Next.js App Router pages
+├── components/
+│   ├── layout/           # Header, Footer
+│   ├── sections/         # Hero, FeaturedProjects, StatsOverview, etc.
+│   └── shared/           # Reusable components (particles, theme toggle)
+├── config/               # Site config, navigation
+├── data/                 # Static data (projects, skills, experience, etc.)
+└── lib/                  # Utilities, GitHub API, types
+```
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
