@@ -83,7 +83,7 @@ export default function ContactPage() {
               <h3 className="font-semibold mb-4">Connect</h3>
               <div className="space-y-3">
                 <a href={siteConfig.email} className="flex items-center gap-3 text-sm hover:text-primary transition-colors"><Mail className="h-4 w-4" />manolitoalmadenjr@gmail.com</a>
-                <a href={siteConfig.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:text-primary transition-colors"><GithubIcon className="h-4 w-4" />github.com/Manolito016</a>
+                <a href={siteConfig.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:text-primary transition-colors"><GithubIcon className="h-4 w-4" />github.com/Lito016</a>
               </div>
             </div>
             <div className="rounded-lg border bg-card p-6">

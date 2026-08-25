@@ -3,7 +3,7 @@
 Personal portfolio website showcasing my work as an AI Solution Developer. Built with Next.js 16, React 19, and Tailwind CSS 4, featuring glassmorphism design, dark/light theme, and particle effects.
 
 **Live:** [https://portfolio-8af.pages.dev](https://portfolio-8af.pages.dev)
-**Repo:** [https://github.com/Manolito016/Portfolio](https://github.com/Manolito016/Portfolio)
+**Repo:** [https://github.com/Lito016/Portfolio](https://github.com/Lito016/Portfolio)
 
 ## Tech Stack
 
