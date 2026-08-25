@@ -6,6 +6,13 @@ import { SectionHeading } from '@/components/shared/section-heading';
 import { experiences } from '@/data/experience';
 import { Briefcase, Calendar } from 'lucide-react';
 
+function formatDate(dateStr: string): string {
+  if (dateStr === 'Present') return 'Present';
+  const [year, month] = dateStr.split('-');
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return `${months[parseInt(month, 10) - 1]} ${year}`;
+}
+
 export default function ExperiencePage() {
   return (
     <PageTransition>
@@ -21,7 +28,7 @@ export default function ExperiencePage() {
                   <p className="text-primary font-medium">{exp.company}</p>
                 </div>
                 <span className="text-sm text-muted-foreground flex items-center gap-1 shrink-0">
-                  <Calendar className="h-3 w-3" />{exp.startDate} - {exp.endDate}
+                  <Calendar className="h-3 w-3" />{formatDate(exp.startDate)} - {formatDate(exp.endDate)}
                 </span>
               </div>
               <p className="text-sm text-muted-foreground mb-3 flex items-center gap-1"><Briefcase className="h-3 w-3" />{exp.location} &middot; {exp.type}</p>

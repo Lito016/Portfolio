@@ -38,8 +38,8 @@ export const experiences: Experience[] = [
     company: 'OJT Program',
     location: 'Philippines',
     type: 'internship',
-    startDate: '2024-06',
-    endDate: '2024-09',
+    startDate: '2026-02',
+    endDate: '2026-04',
     description: [
       'Developed a digital journaling platform for students to document internship experiences',
       'Implemented AI-powered insights and progress tracking features',
