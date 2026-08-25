@@ -7,7 +7,7 @@ export const education: Education[] = [
     school: 'University',
     location: 'Philippines',
     startDate: '2021',
-    endDate: '2025',
+    endDate: '2026-05',
     description: 'Focused on web development, software engineering, and artificial intelligence.',
     courses: [
       'Web Development',

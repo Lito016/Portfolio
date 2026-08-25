@@ -18,21 +18,6 @@ export const experiences: Experience[] = [
     technologies: ['Next.js', 'TypeScript', 'React', 'Python', 'AI/ML', 'LLM APIs'],
   },
   {
-    id: 'freelance-dev',
-    role: 'AI Solution Developer',
-    company: 'Freelance',
-    location: 'Philippines',
-    type: 'freelance',
-    startDate: '2024-01',
-    endDate: '2026-05',
-    description: [
-      'Built AI-integrated web platforms with agentic workflows for clients',
-      'Designed and implemented RAG architectures and LLM-powered features',
-      'Developed full-stack applications using Next.js, TypeScript, and modern web technologies',
-    ],
-    technologies: ['Next.js', 'TypeScript', 'React', 'Python', 'AI/ML', 'LLM APIs'],
-  },
-  {
     id: 'ojt-intern',
     role: 'Web Developer Intern',
     company: 'OJT Program',

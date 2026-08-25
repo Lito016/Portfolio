@@ -6,6 +6,15 @@ import { SectionHeading } from '@/components/shared/section-heading';
 import { education } from '@/data/education';
 import { GraduationCap } from 'lucide-react';
 
+function formatDate(dateStr: string): string {
+  if (dateStr.includes('-')) {
+    const [year, month] = dateStr.split('-');
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return `${months[parseInt(month, 10) - 1]} ${year}`;
+  }
+  return dateStr;
+}
+
 export default function EducationPage() {
   return (
     <PageTransition>
@@ -20,7 +29,7 @@ export default function EducationPage() {
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold">{edu.degree}</h3>
                   <p className="text-primary font-medium">{edu.school}</p>
-                  <p className="text-sm text-muted-foreground">{edu.location} &middot; {edu.startDate} - {edu.endDate}</p>
+                  <p className="text-sm text-muted-foreground">{edu.location} &middot; {formatDate(edu.startDate)} - {formatDate(edu.endDate)}</p>
                   {edu.description && <p className="text-sm text-muted-foreground mt-2">{edu.description}</p>}
                   {edu.courses && edu.courses.length > 0 && (
                     <div className="mt-3"><p className="text-sm font-medium mb-1">Key Courses:</p>
