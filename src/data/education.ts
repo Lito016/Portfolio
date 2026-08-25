@@ -6,8 +6,8 @@ export const education: Education[] = [
     degree: 'Bachelor of Science in Information Technology',
     school: 'University',
     location: 'Philippines',
-    startDate: '2021',
-    endDate: '2026-05',
+    startDate: '2022',
+    endDate: '2026',
     description: 'Focused on web development, software engineering, and artificial intelligence.',
     courses: [
       'Web Development',
