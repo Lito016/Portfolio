@@ -22,15 +22,15 @@ type ContactForm = z.infer<typeof contactSchema>;
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
-  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<ContactForm>({
-    resolver: zodResolver(contactSchema) as any,
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactForm>({
+    resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (data: ContactForm) => {
-    try {
-      const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-      if (res.ok) { setSubmitted(true); reset(); }
-    } catch { /* handled by form state */ }
+  const onSubmit = (data: ContactForm) => {
+    const mailtoLink = `mailto:${siteConfig.email.replace('mailto:', '')}?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`From: ${data.name} <${data.email}>\n\n${data.message}`)}`;
+    window.location.assign(mailtoLink);
+    setSubmitted(true);
+    reset();
   };
 
   return (
@@ -53,24 +53,24 @@ export default function ContactPage() {
                 <div>
                   <label htmlFor="name" className="text-sm font-medium">Name</label>
                   <input {...register('name')} id="name" className="w-full mt-1 px-3 py-2 rounded-md border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
-                  {errors.name && <p className="text-xs text-destructive mt-1">{errors.name.message}</p>}
+                  {errors.name && <p role="alert" className="text-xs text-destructive mt-1">{errors.name.message}</p>}
                 </div>
                 <div>
                   <label htmlFor="email" className="text-sm font-medium">Email</label>
                   <input {...register('email')} id="email" type="email" className="w-full mt-1 px-3 py-2 rounded-md border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
-                  {errors.email && <p className="text-xs text-destructive mt-1">{errors.email.message}</p>}
+                  {errors.email && <p role="alert" className="text-xs text-destructive mt-1">{errors.email.message}</p>}
                 </div>
                 <div>
                   <label htmlFor="subject" className="text-sm font-medium">Subject</label>
                   <input {...register('subject')} id="subject" className="w-full mt-1 px-3 py-2 rounded-md border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
-                  {errors.subject && <p className="text-xs text-destructive mt-1">{errors.subject.message}</p>}
+                  {errors.subject && <p role="alert" className="text-xs text-destructive mt-1">{errors.subject.message}</p>}
                 </div>
                 <div>
                   <label htmlFor="message" className="text-sm font-medium">Message</label>
                   <textarea {...register('message')} id="message" rows={5} className="w-full mt-1 px-3 py-2 rounded-md border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none" />
-                  {errors.message && <p className="text-xs text-destructive mt-1">{errors.message.message}</p>}
+                  {errors.message && <p role="alert" className="text-xs text-destructive mt-1">{errors.message.message}</p>}
                 </div>
-                <button type="submit" disabled={isSubmitting} className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors disabled:opacity-50">
+                <button type="submit" className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors">
                   <Send className="h-4 w-4" />Send Message
                 </button>
               </form>

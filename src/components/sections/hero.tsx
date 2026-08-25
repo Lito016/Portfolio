@@ -10,15 +10,18 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden pt-2">
       {/* ===== Cover Banner ===== */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden w-full h-48 md:h-64">
         {/* Cover photo — full image, no cropping */}
-        <img
+        <Image
           src={`${basePath}/cover.png`}
           alt="Cover banner"
-          className="w-full h-auto block"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         {/* Dark overlay for contrast */}
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
       </div>
 
       {/* ===== Profile Info Area — overlaps cover ===== */}

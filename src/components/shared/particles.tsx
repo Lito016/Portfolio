@@ -1,16 +1,17 @@
 'use client';
 
-import { useMemo, useEffect, useState } from 'react';
+import { useMemo } from 'react';
+import { useSyncExternalStore } from 'react';
 import { useTheme } from 'next-themes';
 import { Particles } from '@tsparticles/react';
 import type { ISourceOptions } from '@tsparticles/engine';
 
+const emptySubscribe = () => () => {};
+
 /** Connected-dots particle background — adapts to dark/light mode */
 export function ParticlesBackground() {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   const options = useMemo<ISourceOptions>(() => {
     const isDark = resolvedTheme === 'dark';

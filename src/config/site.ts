@@ -6,8 +6,8 @@ export const siteConfig: SiteConfig = {
   title: 'Manolito Almaden Jr. - AI Solution Developer',
   description:
     'AI Solution Developer passionate about building intelligent web applications, agentic workflows, and open-source contributions. Explore my projects, skills, and GitHub activity.',
-  url: 'https://manolito016.dev',
-  ogImage: 'https://manolito016.dev/og.png',
+  url: 'https://portfolio-8af.pages.dev',
+  ogImage: 'https://portfolio-8af.pages.dev/og.png',
   github: 'https://github.com/Manolito016',
   email: 'mailto:manolitoalmadenjr@gmail.com',
   linkedin: 'https://linkedin.com/in/manolito016',

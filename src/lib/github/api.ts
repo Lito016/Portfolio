@@ -12,7 +12,7 @@ interface FetchOptions {
   revalidate?: number | false;
 }
 
-/** Core GitHub API fetcher with caching */
+/** Core GitHub API fetcher with caching and retry logic */
 async function githubFetch<T>(
   endpoint: string,
   options: FetchOptions = {}
@@ -32,20 +32,39 @@ async function githubFetch<T>(
 
   const url = endpoint.startsWith('http') ? endpoint : `${GITHUB_API}${endpoint}`;
 
-  const response = await fetch(url, {
-    headers,
-    next: revalidate !== false ? { revalidate } : undefined,
-    cache: revalidate === false ? 'no-store' : undefined,
-  });
+  const maxRetries = 3;
+  let lastError: Error | null = null;
 
-  if (!response.ok) {
-    const errorBody = await response.text();
-    throw new Error(
-      `GitHub API error: ${response.status} ${response.statusText} - ${errorBody}`
-    );
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    try {
+      const response = await fetch(url, {
+        headers,
+        next: revalidate !== false ? { revalidate } : undefined,
+        cache: revalidate === false ? 'no-store' : undefined,
+      });
+
+      if (!response.ok) {
+        const errorBody = await response.text();
+        throw new Error(
+          `GitHub API error: ${response.status} ${response.statusText} - ${errorBody}`
+        );
+      }
+
+      return response.json() as Promise<T>;
+    } catch (err) {
+      lastError = err instanceof Error ? err : new Error(String(err));
+      // Don't retry on 4xx client errors
+      if (lastError.message.includes('GitHub API error: 4')) {
+        throw lastError;
+      }
+      // Wait before retry (exponential backoff: 1s, 2s, 4s)
+      if (attempt < maxRetries - 1) {
+        await new Promise((resolve) => setTimeout(resolve, 1000 * Math.pow(2, attempt)));
+      }
+    }
   }
 
-  return response.json() as Promise<T>;
+  throw lastError ?? new Error('GitHub API request failed');
 }
 
 /** Fetch GitHub user profile */

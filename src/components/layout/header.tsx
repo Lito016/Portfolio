@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,7 +8,6 @@ import { Menu, X } from 'lucide-react';
 import { SiGithub } from 'react-icons/si';
 import { cn } from '@/lib/utils';
 import { mainNavItems } from '@/config/navigation';
-import { siteConfig } from '@/config/site';
 import { ThemeToggle } from '@/components/shared/theme-toggle';
 
 /** Main site header with glassmorphic navigation */
@@ -16,12 +15,51 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const mobileNavRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Focus trap for mobile navigation
+  useEffect(() => {
+    if (!mobileOpen || !mobileNavRef.current) return;
+
+    const nav = mobileNavRef.current;
+    const focusableElements = nav.querySelectorAll<HTMLElement>(
+      'a[href], button, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+
+    // Focus first element when menu opens
+    firstFocusable?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMobileOpen(false);
+        return;
+      }
+      if (e.key !== 'Tab') return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstFocusable) {
+          e.preventDefault();
+          lastFocusable?.focus();
+        }
+      } else {
+        if (document.activeElement === lastFocusable) {
+          e.preventDefault();
+          firstFocusable?.focus();
+        }
+      }
+    };
+
+    nav.addEventListener('keydown', handleKeyDown);
+    return () => nav.removeEventListener('keydown', handleKeyDown);
+  }, [mobileOpen]);
 
   return (
     <header
@@ -83,6 +121,7 @@ export function Header() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.nav
+            ref={mobileNavRef}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}

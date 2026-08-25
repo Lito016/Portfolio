@@ -105,7 +105,7 @@ export function generateContributionCalendar(): ContributionCalendar {
   // Align to start of week (Sunday)
   startDate.setDate(startDate.getDate() - startDate.getDay());
 
-  let currentDate = new Date(startDate);
+  const currentDate = new Date(startDate);
   let totalContributions = 0;
 
   while (currentDate <= now) {

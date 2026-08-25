@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { PageTransition } from '@/components/shared/page-transition';
 import { SectionHeading } from '@/components/shared/section-heading';
 import { generateContributionCalendar, calculateStreaks } from '@/lib/github/stats';

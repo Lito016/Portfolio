@@ -4,7 +4,8 @@ import { Providers } from '@/components/providers';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { BackToTop } from '@/components/shared/back-to-top';
-import { ParticlesBackground } from '@/components/shared/particles';
+import { ErrorBoundary } from '@/components/shared/error-boundary';
+import { LazyParticles } from '@/components/shared/lazy-particles';
 import { siteConfig } from '@/config/site';
 import './globals.css';
 
@@ -54,6 +55,7 @@ export const metadata: Metadata = {
     },
   },
   icons: { icon: '/favicon.ico' },
+  alternates: { canonical: siteConfig.url },
 };
 
 export const viewport: Viewport = {
@@ -70,8 +72,43 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Person',
+        '@id': siteConfig.url,
+        name: 'Manolito Almaden Jr.',
+        alternateName: 'Lito_016',
+        url: siteConfig.url,
+        email: 'mailto:manolitoalmadenjr@gmail.com',
+        sameAs: [
+          siteConfig.github,
+          siteConfig.linkedin,
+        ],
+        jobTitle: 'AI Solution Developer',
+        description: siteConfig.description,
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${siteConfig.url}/#website`,
+        url: siteConfig.url,
+        name: siteConfig.displayName,
+        description: siteConfig.description,
+        publisher: { '@id': siteConfig.url },
+        inLanguage: 'en-US',
+      },
+    ],
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col antialiased`}
       >
@@ -79,11 +116,13 @@ export default function RootLayout({
           Skip to content
         </a>
         <Providers>
-          <ParticlesBackground />
+          <LazyParticles />
           <Header />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
+          <ErrorBoundary>
+            <main id="main-content" className="flex-1">
+              {children}
+            </main>
+          </ErrorBoundary>
           <Footer />
           <BackToTop />
         </Providers>

@@ -1,17 +1,15 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useEffect, useState, useCallback } from 'react';
+import { useSyncExternalStore, useCallback } from 'react';
 import { Moon, Sun } from 'lucide-react';
+
+const emptySubscribe = () => () => {};
 
 /** Dark/light mode toggle button */
 export function ThemeToggle() {
   const { theme, setTheme, systemTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   const currentTheme = theme === 'system' ? systemTheme : theme;
 

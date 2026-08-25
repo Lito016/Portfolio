@@ -2,7 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
-import { Star, GitFork, BookOpen, GitCommit, Code, GitPullRequest, AlertCircle } from 'lucide-react';
+import { Star, GitFork, BookOpen, GitCommit, GitPullRequest, AlertCircle } from 'lucide-react';
 import { PageTransition } from '@/components/shared/page-transition';
 import { SectionHeading } from '@/components/shared/section-heading';
 import { CardGridSkeleton } from '@/components/shared/loading-skeleton';

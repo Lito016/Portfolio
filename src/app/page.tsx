@@ -4,7 +4,7 @@ import { TechStackMarquee } from '@/components/sections/tech-stack-marquee';
 import { StatsOverview } from '@/components/sections/stats-overview';
 import { ContactCTA } from '@/components/sections/contact-cta';
 import { fetchRepos } from '@/lib/github/api';
-import { computeGitHubStats, generateContributionCalendar, calculateStreaks } from '@/lib/github/stats';
+import { computeGitHubStats, generateContributionCalendar } from '@/lib/github/stats';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
