@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { PageTransition } from '@/components/shared/page-transition';
 import { SectionHeading } from '@/components/shared/section-heading';
-import { Mail, Send } from 'lucide-react';
+import { Mail, Send, AlertCircle, Loader2 } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 import { SiGithub as GithubIcon } from 'react-icons/si';
 
@@ -20,17 +20,55 @@ const contactSchema = z.object({
 
 type ContactForm = z.infer<typeof contactSchema>;
 
+const WEB3FORMS_API = 'https://api.web3forms.com/submit';
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactForm>({
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = (data: ContactForm) => {
-    const mailtoLink = `mailto:${siteConfig.email.replace('mailto:', '')}?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(`From: ${data.name} <${data.email}>\n\n${data.message}`)}`;
-    window.location.assign(mailtoLink);
-    setSubmitted(true);
-    reset();
+  const onSubmit = async (data: ContactForm) => {
+    setLoading(true);
+    setError(null);
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (!accessKey || accessKey === 'your-access-key-here') {
+      setError('Contact form is not configured. Please set NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY in .env.local');
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const res = await fetch(WEB3FORMS_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: data.name,
+          email: data.email,
+          subject: data.subject,
+          message: data.message,
+          from_name: siteConfig.displayName,
+        }),
+      });
+
+      const json = await res.json();
+
+      if (json.success) {
+        setSubmitted(true);
+        reset();
+      } else {
+        setError(json.message || 'Something went wrong. Please try again.');
+      }
+    } catch {
+      setError('Network error. Please check your connection and try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -50,6 +88,12 @@ export default function ContactPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                {error && (
+                  <div className="flex items-start gap-2 rounded-lg border border-destructive/30 bg-destructive/10 p-3 text-sm text-destructive">
+                    <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                    <p>{error}</p>
+                  </div>
+                )}
                 <div>
                   <label htmlFor="name" className="text-sm font-medium">Name</label>
                   <input {...register('name')} id="name" className="w-full mt-1 px-3 py-2 rounded-md border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
@@ -70,8 +114,20 @@ export default function ContactPage() {
                   <textarea {...register('message')} id="message" rows={5} className="w-full mt-1 px-3 py-2 rounded-md border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none" />
                   {errors.message && <p role="alert" className="text-xs text-destructive mt-1">{errors.message.message}</p>}
                 </div>
-                <button type="submit" className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors">
-                  <Send className="h-4 w-4" />Send Message
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="h-4 w-4" />Send Message
+                    </>
+                  )}
                 </button>
               </form>
             )}
