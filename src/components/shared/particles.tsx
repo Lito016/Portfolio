@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react';
 import { useSyncExternalStore } from 'react';
-import { useTheme } from 'next-themes';
+import { useTheme } from '@/components/theme-provider';
 import { Particles } from '@tsparticles/react';
 import type { ISourceOptions } from '@tsparticles/engine';
 

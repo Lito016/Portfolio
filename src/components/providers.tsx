@@ -1,6 +1,6 @@
 'use client';
 
-import { ThemeProvider } from 'next-themes';
+import { CustomThemeProvider } from '@/components/theme-provider';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ParticlesProvider } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
@@ -25,15 +25,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <ParticlesProvider init={loadSlim}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <CustomThemeProvider>
           {children}
           <ThemePersistence />
-        </ThemeProvider>
+        </CustomThemeProvider>
       </ParticlesProvider>
     </QueryClientProvider>
   );

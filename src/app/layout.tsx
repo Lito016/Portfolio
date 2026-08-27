@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next';
-import Script from 'next/script';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Providers } from '@/components/providers';
 import { Header } from '@/components/layout/header';
@@ -73,52 +72,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'Person',
-        '@id': siteConfig.url,
-        name: 'Manolito Almaden Jr.',
-        alternateName: 'Lito_016',
-        url: siteConfig.url,
-        email: 'mailto:manolitoalmadenjr@gmail.com',
-        sameAs: [
-          siteConfig.github,
-          siteConfig.linkedin,
-        ],
-        jobTitle: 'AI Solution Developer',
-        description: siteConfig.description,
-      },
-      {
-        '@type': 'WebSite',
-        '@id': `${siteConfig.url}/#website`,
-        url: siteConfig.url,
-        name: siteConfig.displayName,
-        description: siteConfig.description,
-        publisher: { '@id': siteConfig.url },
-        inLanguage: 'en-US',
-      },
-    ],
-  };
-
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t){var r=t==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):t;document.documentElement.classList.remove("light","dark");document.documentElement.classList.add(r);document.documentElement.style.colorScheme=r}}catch(e){}})()`,
+          }}
         />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col antialiased`}
       >
-        <Script
-          id="theme-init"
-          strategy="beforeInteractive"
-        >
-          {`(function(){try{var t=localStorage.getItem('portfolio-theme');if(t&&t!=='default')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()`}
-        </Script>
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>
