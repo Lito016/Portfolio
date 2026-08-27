@@ -38,12 +38,23 @@ export function ThemeDrawer({ open, onClose }: ThemeDrawerProps) {
   }, [open]);
 
   const selectTheme = (themeId: string) => {
+    // Disable transitions during theme switch to prevent blinking
+    document.documentElement.classList.add('theme-switching');
+
     if (themeId === 'default') {
       document.documentElement.removeAttribute('data-theme');
     } else {
       document.documentElement.setAttribute('data-theme', themeId);
     }
     localStorage.setItem(THEME_STORAGE_KEY, themeId);
+
+    // Re-enable transitions after paint
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove('theme-switching');
+      });
+    });
+
     onClose();
   };
 
@@ -69,13 +80,13 @@ export function ThemeDrawer({ open, onClose }: ThemeDrawerProps) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 250 }}
-            className="fixed top-0 right-0 z-[61] h-full w-80 max-w-full glass-card border-l border-white/10 shadow-2xl"
+            className="fixed top-0 right-0 z-[61] h-full w-80 max-w-full bg-[var(--background)] border-l-2 border-[var(--border)] shadow-2xl"
             role="dialog"
             aria-modal="true"
             aria-label="Theme settings"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
+            <div className="flex items-center justify-between px-5 py-4 border-b-2 border-[var(--border)]">
               <h2 className="text-lg font-semibold">Themes</h2>
               <button
                 onClick={onClose}
