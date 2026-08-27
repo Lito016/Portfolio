@@ -80,7 +80,7 @@ export function ThemeDrawer({ open, onClose }: ThemeDrawerProps) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 250 }}
-            className="fixed top-0 right-0 z-[61] h-full w-80 max-w-full bg-[var(--background)] border-l-2 border-[var(--border)] shadow-2xl"
+            className="theme-drawer-panel fixed top-0 right-0 z-[61] h-full w-80 max-w-full border-l-2 border-[var(--border)] shadow-2xl"
             role="dialog"
             aria-modal="true"
             aria-label="Theme settings"

@@ -17,7 +17,7 @@ const categoryIcons: Record<string, React.ComponentType<{ className?: string }>>
 export default function SkillsPage() {
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-12 md:py-16 max-w-5xl">
+      <div className="container mx-auto px-4 py-16 md:py-20 max-w-5xl">
         <SectionHeading
           title="Skills"
           description="Technologies and tools I work with"
@@ -29,7 +29,7 @@ export default function SkillsPage() {
             const Icon = categoryIcons[category.name] || Code;
             return (
               <StaggerItem key={category.name}>
-                <div className="rounded-lg border bg-card p-6">
+                <div className="glass-card rounded-xl p-6">
                   <div className="flex items-center gap-3 mb-5">
                     <div className="rounded-md bg-primary/10 p-2">
                       <Icon className="h-5 w-5 text-primary" />

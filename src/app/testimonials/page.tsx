@@ -9,12 +9,12 @@ import { Quote } from 'lucide-react';
 export default function TestimonialsPage() {
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-12 md:py-16 max-w-5xl">
+      <div className="container mx-auto px-4 py-16 md:py-20 max-w-5xl">
         <SectionHeading title="Testimonials" description="What people say about working with me" align="center" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <motion.div key={t.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              className="rounded-lg border bg-card p-6 flex flex-col">
+              className="glass-card rounded-xl p-6 flex flex-col">
               <Quote className="h-6 w-6 text-primary/30 mb-3" />
               <p className="text-sm text-muted-foreground flex-1 italic">&ldquo;{t.content}&rdquo;</p>
               <div className="mt-4 pt-4 border-t">

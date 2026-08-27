@@ -12,12 +12,12 @@ export default async function OpenSourcePage() {
 
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-12 md:py-16 max-w-5xl">
+      <div className="container mx-auto px-4 py-16 md:py-20 max-w-5xl">
         <SectionHeading title="Open Source" description="My public repositories and contributions" align="center" />
         <div className="space-y-4">
           {repos.map((repo) => (
             <a key={repo.id} href={repo.html_url} target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-between rounded-lg border bg-card p-5 hover:border-primary/50 transition-all group">
+              className="flex items-center justify-between glass-card rounded-xl p-5 hover:border-primary/50 transition-all group">
               <div className="flex-1 min-w-0">
                 <h3 className="font-semibold group-hover:text-primary transition-colors truncate">{repo.name}</h3>
                 <p className="text-sm text-muted-foreground mt-1 truncate">{repo.description || 'No description'}</p>

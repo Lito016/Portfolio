@@ -7,7 +7,7 @@ import { Mail, ArrowRight } from 'lucide-react';
 /** Contact call-to-action with gradient background and glass card */
 export function ContactCTA() {
   return (
-    <section className="py-16 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute inset-0 -z-10">
         <div className="glow-orb glow-orb-purple w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />

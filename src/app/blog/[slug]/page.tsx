@@ -28,7 +28,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <PageTransition>
-      <article className="container mx-auto px-4 py-12 md:py-16 max-w-3xl">
+      <article className="container mx-auto px-4 py-16 md:py-20 max-w-3xl">
         <Link href="/blog" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-8">
           <ArrowLeft className="h-4 w-4" /> Back to Blog
         </Link>

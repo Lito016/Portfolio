@@ -12,7 +12,7 @@ import { Briefcase, GraduationCap, Award, Code } from 'lucide-react';
 export default function ResumePage() {
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-12 md:py-16 max-w-4xl">
+      <div className="container mx-auto px-4 py-16 md:py-20 max-w-4xl">
         <SectionHeading title="Resume" description="Professional experience, education, and skills" align="center" />
         <div className="space-y-10">
           <section>
@@ -20,7 +20,7 @@ export default function ResumePage() {
             <div className="space-y-4">
               {experiences.map((exp, i) => (
                 <motion.div key={exp.id} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                  className="rounded-lg border bg-card p-5">
+                  className="glass-card rounded-xl p-5">
                   <h3 className="font-semibold">{exp.role}</h3>
                   <p className="text-sm text-primary">{exp.company}</p>
                   <p className="text-xs text-muted-foreground">{exp.startDate} - {exp.endDate}</p>
@@ -34,7 +34,7 @@ export default function ResumePage() {
             <div className="space-y-4">
               {education.map((edu, i) => (
                 <motion.div key={edu.id} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                  className="rounded-lg border bg-card p-5">
+                  className="glass-card rounded-xl p-5">
                   <h3 className="font-semibold">{edu.degree}</h3>
                   <p className="text-sm text-primary">{edu.school}</p>
                   <p className="text-xs text-muted-foreground">{edu.startDate} - {edu.endDate}</p>
@@ -47,7 +47,7 @@ export default function ResumePage() {
             <div className="space-y-4">
               {certifications.map((cert, i) => (
                 <motion.div key={cert.id} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                  className="rounded-lg border bg-card p-5">
+                  className="glass-card rounded-xl p-5">
                   <h3 className="font-semibold">{cert.name}</h3>
                   <p className="text-sm text-primary">{cert.issuer}</p>
                   <p className="text-xs text-muted-foreground">{cert.date}</p>

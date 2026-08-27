@@ -47,7 +47,7 @@ const timeline = [
 export function AboutPageClient() {
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-12 md:py-16 max-w-4xl">
+      <div className="container mx-auto px-4 py-16 md:py-20 max-w-4xl">
         <SectionHeading
           title="About Me"
           description="My journey in technology and software development"

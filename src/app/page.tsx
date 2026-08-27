@@ -30,7 +30,7 @@ export default async function HomePage() {
   }));
 
   return (
-    <>
+    <div className="space-y-0">
       <Hero />
       <TechStackMarquee />
       <StatsOverview
@@ -41,6 +41,6 @@ export default async function HomePage() {
       />
       <FeaturedProjects />
       <ContactCTA />
-    </>
+    </div>
   );
 }

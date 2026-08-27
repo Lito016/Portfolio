@@ -10,12 +10,12 @@ import { Calendar, Clock } from 'lucide-react';
 export default function BlogPage() {
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-12 md:py-16 max-w-4xl">
+      <div className="container mx-auto px-4 py-16 md:py-20 max-w-4xl">
         <SectionHeading title="Blog" description="Thoughts, tutorials, and technical articles" align="center" />
         <div className="space-y-6">
           {blogPosts.map((post, i) => (
             <motion.article key={post.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              className="rounded-lg border bg-card p-6">
+              className="glass-card rounded-xl p-6">
               <Link href={`/blog/${post.slug}`} className="group">
                 <h2 className="text-xl font-semibold group-hover:text-primary transition-colors">{post.title}</h2>
                 <p className="text-sm text-muted-foreground mt-2">{post.excerpt}</p>

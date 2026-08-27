@@ -16,12 +16,12 @@ export default async function FeaturedPage() {
 
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-12 md:py-16 max-w-5xl">
+      <div className="container mx-auto px-4 py-16 md:py-20 max-w-5xl">
         <SectionHeading title="Featured Projects" description="My most popular repositories" align="center" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {featured.map((repo) => (
             <a key={repo.id} href={repo.html_url} target="_blank" rel="noopener noreferrer"
-              className="group block rounded-lg border bg-card p-6 hover:border-primary/50 transition-all hover:shadow-md">
+              className="group block glass-card rounded-xl p-6 hover:border-primary/50 transition-all">
               <div className="flex items-start justify-between mb-3">
                 <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">{repo.name}</h3>
                 <ExternalLink className="h-4 w-4 text-muted-foreground shrink-0" />

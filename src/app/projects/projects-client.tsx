@@ -30,7 +30,7 @@ export function ProjectsPageClient() {
 
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-12 md:py-16 max-w-6xl">
+      <div className="container mx-auto px-4 py-16 md:py-20 max-w-6xl">
         <SectionHeading
           title="Live Applications"
           description={`${hostedProjects.length} hosted project${hostedProjects.length !== 1 ? 's' : ''}`}

@@ -9,12 +9,12 @@ import { Award, ExternalLink } from 'lucide-react';
 export default function CertificationsPage() {
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-12 md:py-16 max-w-5xl">
+      <div className="container mx-auto px-4 py-16 md:py-20 max-w-5xl">
         <SectionHeading title="Certifications" description="Professional certifications and training" align="center" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {certifications.map((cert, i) => (
             <motion.div key={cert.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              className="rounded-lg border bg-card p-6">
+              className="glass-card rounded-xl p-6">
               <div className="flex items-start gap-3">
                 <div className="rounded-md bg-primary/10 p-2"><Award className="h-5 w-5 text-primary" /></div>
                 <div className="flex-1">

@@ -7,7 +7,7 @@ export function TechStackMarquee() {
   const doubled = [...techStackItems, ...techStackItems];
 
   return (
-    <section className="relative py-8 overflow-hidden">
+    <section className="relative overflow-hidden py-6 sm:py-7">
       {/* Top and bottom gradient borders */}
       <div className="absolute top-0 left-0 right-0 gradient-line" />
       <div className="absolute bottom-0 left-0 right-0 gradient-line" />

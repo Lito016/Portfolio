@@ -237,3 +237,19 @@ export interface SiteConfig {
   linkedin?: string;
   resumeUrl?: string;
 }
+
+/** Person displayed by the reusable team banner. */
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  handle: string;
+  profileImage?: string;
+  bio?: string;
+  availability?: string;
+  phone?: string;
+  phoneLabel?: string;
+  email?: string;
+  website?: string;
+  websiteLabel?: string;
+}

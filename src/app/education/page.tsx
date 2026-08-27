@@ -18,12 +18,12 @@ function formatDate(dateStr: string): string {
 export default function EducationPage() {
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-12 md:py-16 max-w-4xl">
+      <div className="container mx-auto px-4 py-16 md:py-20 max-w-4xl">
         <SectionHeading title="Education" description="My academic background" align="center" />
         <div className="space-y-6">
           {education.map((edu, i) => (
             <motion.div key={edu.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              className="rounded-lg border bg-card p-6">
+              className="glass-card rounded-xl p-6">
               <div className="flex items-start gap-4">
                 <div className="rounded-md bg-primary/10 p-3"><GraduationCap className="h-6 w-6 text-primary" /></div>
                 <div className="flex-1">

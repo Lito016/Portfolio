@@ -8,7 +8,7 @@ import { techStackItems } from '@/data/skills';
 export default function TechStackPage() {
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-12 md:py-16 max-w-5xl">
+      <div className="container mx-auto px-4 py-16 md:py-20 max-w-5xl">
         <SectionHeading
           title="Tech Stack"
           description="The technologies I use daily"
@@ -22,7 +22,7 @@ export default function TechStackPage() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.03 }}
-              className="rounded-lg border bg-card p-4 text-center hover:border-primary/50 transition-colors"
+              className="glass-card rounded-xl p-4 text-center hover:border-primary/50 transition-colors"
             >
               <div
                 className="w-3 h-3 rounded-full mx-auto mb-2"

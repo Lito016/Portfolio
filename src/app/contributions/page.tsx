@@ -14,7 +14,7 @@ export default function ContributionsPage() {
 
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-12 md:py-16 max-w-6xl">
+      <div className="container mx-auto px-4 py-16 md:py-20 max-w-6xl">
         <SectionHeading title="Contributions" description={`${formatNumber(calendar.totalContributions)} contributions in the last year`} align="center" />
 
         {/* Stats */}
@@ -25,7 +25,7 @@ export default function ContributionsPage() {
         </div>
 
         {/* Contribution graph */}
-        <div className="rounded-lg border bg-card p-4 overflow-x-auto">
+        <div className="glass-card rounded-xl p-4 overflow-x-auto">
           <div className="flex gap-[3px] min-w-fit">
             {calendar.weeks.map((week, wi) => (
               <div key={wi} className="flex flex-col gap-[3px]">

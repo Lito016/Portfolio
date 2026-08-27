@@ -22,7 +22,7 @@ export function StatsPageClient() {
 
   if (isLoading || !stats) {
     return (
-      <div className="container mx-auto px-4 py-12 max-w-5xl">
+      <div className="container mx-auto px-4 py-16 max-w-5xl">
         <CardGridSkeleton count={4} />
       </div>
     );
@@ -39,14 +39,14 @@ export function StatsPageClient() {
 
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-12 md:py-16 max-w-5xl">
+      <div className="container mx-auto px-4 py-16 md:py-20 max-w-5xl">
         <SectionHeading title="GitHub Statistics" description="Overview of my GitHub activity" align="center" />
 
         {/* Stat cards */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
           {statCards.map((stat, i) => (
             <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}
-              className="rounded-lg border bg-card p-5 text-center">
+              className="glass-card rounded-xl p-5 text-center">
               <stat.icon className="h-5 w-5 mx-auto mb-2 text-muted-foreground" />
               <div className="text-2xl font-bold">{formatNumber(stat.value)}</div>
               <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
@@ -58,7 +58,7 @@ export function StatsPageClient() {
         {stats.topLanguages.length > 0 && (
           <>
             <SectionHeading title="Language Distribution" />
-            <div className="rounded-lg border bg-card p-6 mb-12">
+            <div className="glass-card rounded-xl p-6 mb-12">
               <div className="space-y-3">
                 {stats.topLanguages.map((lang) => (
                   <div key={lang.name} className="space-y-1">
@@ -83,12 +83,12 @@ export function StatsPageClient() {
         {/* Streaks */}
         <div className="grid grid-cols-2 gap-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="rounded-lg border bg-card p-6 text-center">
+            className="glass-card rounded-xl p-6 text-center">
             <div className="text-3xl font-bold text-primary">{stats.currentStreak}</div>
             <div className="text-sm text-muted-foreground mt-1">Current Streak (days)</div>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-            className="rounded-lg border bg-card p-6 text-center">
+            className="glass-card rounded-xl p-6 text-center">
             <div className="text-3xl font-bold text-primary">{stats.longestStreak}</div>
             <div className="text-sm text-muted-foreground mt-1">Longest Streak (days)</div>
           </motion.div>

@@ -16,12 +16,12 @@ function formatDate(dateStr: string): string {
 export default function ExperiencePage() {
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-12 md:py-16 max-w-4xl">
+      <div className="container mx-auto px-4 py-16 md:py-20 max-w-4xl">
         <SectionHeading title="Experience" description="My professional journey" align="center" />
         <div className="space-y-6">
           {experiences.map((exp, i) => (
             <motion.div key={exp.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              className="rounded-lg border bg-card p-6">
+              className="glass-card rounded-xl p-6">
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <h3 className="text-lg font-semibold">{exp.role}</h3>

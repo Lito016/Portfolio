@@ -26,9 +26,8 @@ export function RecentActivity({ events }: { events: GitHubEvent[] }) {
   const filteredEvents = events.slice(0, 5);
 
   return (
-    <section className="py-16">
-      <div className="container mx-auto px-4">
-        <motion.div
+    <section>
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -98,7 +97,6 @@ export function RecentActivity({ events }: { events: GitHubEvent[] }) {
             No recent activity to display.
           </p>
         )}
-      </div>
     </section>
   );
 }

@@ -35,14 +35,14 @@ export default function ContactPage() {
 
   return (
     <PageTransition>
-      <div className="container mx-auto px-4 py-12 md:py-16 max-w-4xl">
+      <div className="container mx-auto px-4 py-16 md:py-20 max-w-4xl">
         <SectionHeading title="Contact" description="Get in touch with me" align="center" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Form */}
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
             {submitted ? (
-              <div className="rounded-lg border bg-card p-8 text-center">
+              <div className="glass-card rounded-xl p-8 text-center">
                 <div className="text-4xl mb-4">&#10003;</div>
                 <h3 className="text-lg font-semibold">Message Sent!</h3>
                 <p className="text-sm text-muted-foreground mt-2">Thank you for reaching out. I&apos;ll get back to you soon.</p>
@@ -79,14 +79,14 @@ export default function ContactPage() {
 
           {/* Info */}
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
-            <div className="rounded-lg border bg-card p-6">
+            <div className="glass-card rounded-xl p-6">
               <h3 className="font-semibold mb-4">Connect</h3>
               <div className="space-y-3">
                 <a href={siteConfig.email} className="flex items-center gap-3 text-sm hover:text-primary transition-colors"><Mail className="h-4 w-4" />manolitoalmadenjr@gmail.com</a>
                 <a href={siteConfig.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:text-primary transition-colors"><GithubIcon className="h-4 w-4" />github.com/Lito016</a>
               </div>
             </div>
-            <div className="rounded-lg border bg-card p-6">
+            <div className="glass-card rounded-xl p-6">
               <h3 className="font-semibold mb-2">Let&apos;s Collaborate</h3>
               <p className="text-sm text-muted-foreground">I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of something great.</p>
             </div>
