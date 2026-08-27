@@ -4,16 +4,18 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Settings } from 'lucide-react';
 import { SiGithub } from 'react-icons/si';
 import { cn } from '@/lib/utils';
 import { mainNavItems } from '@/config/navigation';
 import { ThemeToggle } from '@/components/shared/theme-toggle';
+import { ThemeDrawer } from '@/components/shared/theme-drawer';
 
 /** Main site header with glassmorphic navigation */
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [themeDrawerOpen, setThemeDrawerOpen] = useState(false);
   const pathname = usePathname();
   const mobileNavRef = useRef<HTMLElement>(null);
 
@@ -105,6 +107,14 @@ export function Header() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
 
+          <button
+            onClick={() => setThemeDrawerOpen(true)}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md hover:bg-accent transition-colors"
+            aria-label="Theme settings"
+          >
+            <Settings className="h-4 w-4" />
+          </button>
+
           {/* Mobile menu button */}
           <button
             className="md:hidden p-2 rounded-full hover:bg-[var(--accent)] transition-colors"
@@ -149,6 +159,8 @@ export function Header() {
           </motion.nav>
         )}
       </AnimatePresence>
+
+      <ThemeDrawer open={themeDrawerOpen} onClose={() => setThemeDrawerOpen(false)} />
     </header>
   );
 }

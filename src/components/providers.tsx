@@ -4,7 +4,8 @@ import { ThemeProvider } from 'next-themes';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ParticlesProvider } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { THEME_STORAGE_KEY } from '@/config/themes';
 
 /** Application providers wrapper */
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -31,8 +32,36 @@ export function Providers({ children }: { children: React.ReactNode }) {
           disableTransitionOnChange
         >
           {children}
+          <ThemePersistence />
         </ThemeProvider>
       </ParticlesProvider>
     </QueryClientProvider>
   );
+}
+
+/** Syncs data-theme attribute with localStorage */
+function ThemePersistence() {
+  useEffect(() => {
+    const saved = localStorage.getItem(THEME_STORAGE_KEY);
+    if (saved && saved !== 'default') {
+      document.documentElement.setAttribute('data-theme', saved);
+    }
+  }, []);
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const current =
+        document.documentElement.getAttribute('data-theme') || 'default';
+      localStorage.setItem(THEME_STORAGE_KEY, current);
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return null;
 }
