@@ -10,7 +10,7 @@ export const siteConfig: SiteConfig = {
   ogImage: 'https://portfolio-8af.pages.dev/og.png',
   github: 'https://github.com/Lito016',
   email: 'mailto:manolitoalmadenjr@gmail.com',
-  linkedin: 'https://linkedin.com/in/lito016',
+  linkedin: 'https://linkedin.com/in/manolito-almaden-jr-a54a6634a',
 };
 
 export const GITHUB_USERNAME = 'Lito016';

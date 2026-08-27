@@ -1,15 +1,49 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { SiGithub } from 'react-icons/si';
-import { Bot, Mail, Heart, Globe } from 'lucide-react';
+import { Mail, Heart, Globe } from 'lucide-react';
 import { siteConfig } from '@/config/site';
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const SHIMEJI_WALK_START = 7;
+const SHIMEJI_WALK_END = 12;
+
+function shimejiFrameSource(frame: number) {
+  return `${basePath}/shimeji/frame_${String(frame).padStart(2, '0')}.png`;
+}
 
 /** Site footer with darker glassmorphic styling */
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const [mascotWalk, setMascotWalk] = useState(0);
+  const [mascotFrame, setMascotFrame] = useState(SHIMEJI_WALK_START);
+  const [mascotDistance, setMascotDistance] = useState(0);
+
+  useEffect(() => {
+    if (mascotWalk === 0) return;
+
+    const frameTimer = window.setInterval(() => {
+      setMascotFrame((frame) =>
+        frame >= SHIMEJI_WALK_END ? SHIMEJI_WALK_START : frame + 1
+      );
+    }, 120);
+
+    return () => window.clearInterval(frameTimer);
+  }, [mascotWalk]);
+
+  const startMascotWalk = () => {
+    for (let frame = SHIMEJI_WALK_START; frame <= SHIMEJI_WALK_END; frame += 1) {
+      const sprite = new window.Image();
+      sprite.src = shimejiFrameSource(frame);
+    }
+    setMascotFrame(SHIMEJI_WALK_START);
+    setMascotDistance(window.innerWidth + 112);
+    setMascotWalk((walk) => walk + 1);
+  };
 
   return (
     <footer className="relative overflow-hidden border-t border-[var(--border)]">
@@ -22,7 +56,17 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
-            <h3 className="font-bold text-lg mb-2 gradient-text">{siteConfig.displayName}</h3>
+            <h3 className="mb-2 text-lg font-bold">
+              <button
+                type="button"
+                className="gradient-text cursor-pointer focus-visible:rounded-sm"
+                onClick={startMascotWalk}
+                aria-label={`${siteConfig.displayName}: play the mascot walk, then visit GitHub`}
+                title="Psst... click me"
+              >
+                {siteConfig.displayName}
+              </button>
+            </h3>
             <p className="text-sm text-muted-foreground">
               AI Solution Developer building intelligent web applications and
               open-source contributions.
@@ -90,8 +134,8 @@ export function Footer() {
             <button
               type="button"
               className="gradient-text cursor-pointer font-medium focus-visible:rounded-sm"
-              onClick={() => setMascotWalk((walk) => walk + 1)}
-              aria-label={`${siteConfig.displayName}: send the footer mascot for a walk`}
+              onClick={startMascotWalk}
+              aria-label={`${siteConfig.displayName}: play the mascot walk, then visit GitHub`}
               title="Psst... click me"
             >
               {siteConfig.displayName}
@@ -102,19 +146,29 @@ export function Footer() {
       </div>
 
       {mascotWalk > 0 && (
-        <div
+        <motion.div
           key={mascotWalk}
           className="footer-shimeji"
-          onAnimationEnd={(event) => {
-            if (event.animationName === 'footer-shimeji-walk') setMascotWalk(0);
+          initial={{ transform: 'translate3d(-112px, 0, 0)' }}
+          animate={{ transform: `translate3d(${mascotDistance}px, 0, 0)` }}
+          transition={{ duration: 3.6, ease: 'linear' }}
+          onAnimationComplete={() => {
+            setMascotWalk(0);
+            window.location.assign('https://github.com/Lito016');
           }}
           aria-hidden="true"
         >
           <span className="footer-shimeji-body">
-            <Bot />
+            <Image
+              src={shimejiFrameSource(mascotFrame)}
+              alt=""
+              width={323}
+              height={278}
+              unoptimized
+            />
           </span>
           <span className="footer-shimeji-shadow" />
-        </div>
+        </motion.div>
       )}
     </footer>
   );

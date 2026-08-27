@@ -12,7 +12,7 @@ export const mainNavItems: NavItem[] = [
 
 export const footerNavItems: NavItem[] = [
   { title: 'GitHub', href: 'https://github.com/Lito016' },
-  { title: 'LinkedIn', href: 'https://linkedin.com/in/lito016' },
+  { title: 'LinkedIn', href: 'https://linkedin.com/in/manolito-almaden-jr-a54a6634a' },
   { title: 'Resume', href: '/resume' },
   { title: 'Uses', href: '/uses' },
   { title: 'Now', href: '/now' },

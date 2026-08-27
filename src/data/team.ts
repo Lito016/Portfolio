@@ -13,5 +13,6 @@ export const teamMembers: TeamMember[] = [
     phone: 'tel:+639275345229',
     phoneLabel: '+63 927 534 5229',
     email: 'mailto:manolitoalmadenjr@gmail.com',
+    linkedin: 'https://linkedin.com/in/manolito-almaden-jr-a54a6634a',
   },
 ];

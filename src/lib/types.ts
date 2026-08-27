@@ -250,6 +250,7 @@ export interface TeamMember {
   phone?: string;
   phoneLabel?: string;
   email?: string;
+  linkedin?: string;
   website?: string;
   websiteLabel?: string;
 }

@@ -4,17 +4,17 @@ export const education: Education[] = [
   {
     id: 'bs-it',
     degree: 'Bachelor of Science in Information Technology',
-    school: 'University',
-    location: 'Philippines',
-    startDate: '2022',
+    school: 'Ilocos Sur Polytechnic State College',
+    location: 'Ilocos Sur, Philippines',
+    startDate: '2025',
     endDate: '2026',
-    description: 'Focused on web development, software engineering, and artificial intelligence.',
+    description: 'Fresh graduate. Focused on web development, mobile development, and information technology.',
     courses: [
       'Web Development',
-      'Data Structures & Algorithms',
+      'Mobile Development',
       'Database Management',
       'Software Engineering',
-      'Artificial Intelligence',
+      'Information Technology',
     ],
   },
 ];

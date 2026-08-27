@@ -2,34 +2,18 @@ import type { Experience } from '@/lib/types';
 
 export const experiences: Experience[] = [
   {
-    id: 'ai-solution-dev',
-    role: 'AI Solution Developer',
-    company: 'Bayanaihan Network Inc',
-    location: 'Philippines',
-    type: 'full-time',
-    startDate: '2026-06',
-    endDate: 'Present',
-    description: [
-      'Building AI-integrated web platforms with agentic workflows for real-world applications',
-      'Designing and implementing RAG architectures and LLM-powered features',
-      'Developing full-stack applications using Next.js, TypeScript, and modern web technologies',
-      'Creating open-source tools and contributing to the developer community',
-    ],
-    technologies: ['Next.js', 'TypeScript', 'React', 'Python', 'AI/ML', 'LLM APIs'],
-  },
-  {
-    id: 'ojt-intern',
-    role: 'Web Developer Intern',
-    company: 'OJT Program',
+    id: 'bayanihan-intern',
+    role: 'Software Developer Intern',
+    company: 'Bayanaihan Network Inc.',
     location: 'Philippines',
     type: 'internship',
-    startDate: '2026-02',
-    endDate: '2026-04',
+    startDate: 'Feb 18, 2026',
+    endDate: 'Apr 18, 2026',
     description: [
-      'Developed a digital journaling platform for students to document internship experiences',
-      'Implemented AI-powered insights and progress tracking features',
-      'Collaborated with team members using Git and agile methodologies',
+      'Assisted in the design and development of software applications using AI-powered tools as part of the internship curriculum',
+      'Applied AI tools to support web and mobile development tasks, including code generation and problem-solving',
+      'Collaborated with the development team and leveraged AI to perform testing, debugging, and documentation of software features',
     ],
-    technologies: ['JavaScript', 'PHP', 'MySQL', 'HTML', 'CSS'],
+    technologies: ['HTML & CSS', 'PHP', 'SQL', 'AI Tools', 'Mobile Development'],
   },
 ];
