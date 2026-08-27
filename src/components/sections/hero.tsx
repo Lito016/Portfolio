@@ -89,6 +89,13 @@ export function Hero() {
                   <span>{member.email.replace('mailto:', '')}</span>
                 </a>
               )}
+              {member.linkedin && (
+                <a className="team-contact-link" href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                  <Globe2 aria-hidden="true" />
+                  <span>LinkedIn</span>
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              )}
               {member.website && member.websiteLabel && (
                 <a className="team-contact-link" href={member.website} target="_blank" rel="noopener noreferrer">
                   <Globe2 aria-hidden="true" />
