@@ -8,21 +8,28 @@ import type { ISourceOptions } from '@tsparticles/engine';
 
 const emptySubscribe = () => () => {};
 
-/** Connected-dots particle background — adapts to dark/light mode */
+/** Read a CSS custom property from :root */
+function getCSSColor(prop: string): string {
+  if (typeof window === 'undefined') return '#3b82f6';
+  return getComputedStyle(document.documentElement).getPropertyValue(prop).trim() || '#3b82f6';
+}
+
+/** Connected-dots particle background — adapts to theme and dark/light mode */
 export function ParticlesBackground() {
   const { resolvedTheme } = useTheme();
   const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   const options = useMemo<ISourceOptions>(() => {
     const isDark = resolvedTheme === 'dark';
+    const primaryColor = getCSSColor('--gradient-start');
     return {
       fullScreen: { enable: false },
       fpsLimit: 60,
       particles: {
-        color: { value: isDark ? '#60a5fa' : '#3b82f6' },
+        color: { value: primaryColor },
         links: {
           enable: true,
-          color: isDark ? '#60a5fa' : '#3b82f6',
+          color: primaryColor,
           distance: 150,
           opacity: isDark ? 0.15 : 0.2,
           width: 1,

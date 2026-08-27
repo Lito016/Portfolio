@@ -63,6 +63,10 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --glow-primary: #3b82f6;
+  --glow-secondary: #06b6d4;
+  --glow-tertiary: #f093fb;
+  --drop-shadow: drop-shadow(0 0 6px rgba(59, 130, 246, 0.3));
 }
 
 .dark {
@@ -94,6 +98,10 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
   --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --glow-primary: #60a5fa;
+  --glow-secondary: #22d3ee;
+  --glow-tertiary: #f0abfc;
+  --drop-shadow: drop-shadow(0 0 8px rgba(96, 165, 250, 0.4));
 }
 
 /* ===== Neomorphism Theme ===== */
@@ -123,6 +131,10 @@ html[data-theme="neomorphism"] {
   --shadow-md: 5px 5px 10px #b8bec9, -5px -5px 10px #ffffff;
   --shadow-lg: 8px 8px 16px #b8bec9, -8px -8px 16px #ffffff;
   --shadow-card: 8px 8px 16px #b8bec9, -8px -8px 16px #ffffff;
+  --glow-primary: #6c5ce7;
+  --glow-secondary: #a29bfe;
+  --glow-tertiary: #fd79a8;
+  --drop-shadow: drop-shadow(0 0 6px rgba(108, 92, 231, 0.3));
 }
 html[data-theme="neomorphism"].dark {
   --background: #2d3436;
@@ -150,6 +162,10 @@ html[data-theme="neomorphism"].dark {
   --shadow-md: 5px 5px 10px #1e2325, -5px -5px 10px #3c4547;
   --shadow-lg: 8px 8px 16px #1e2325, -8px -8px 16px #3c4547;
   --shadow-card: 8px 8px 16px #1e2325, -8px -8px 16px #3c4547;
+  --glow-primary: #a29bfe;
+  --glow-secondary: #6c5ce7;
+  --glow-tertiary: #fd79a8;
+  --drop-shadow: drop-shadow(0 0 8px rgba(162, 155, 254, 0.4));
 }
 html[data-theme="neomorphism"] .glass-card,
 html[data-theme="neomorphism"] .glass-card-hover {
@@ -194,6 +210,10 @@ html[data-theme="brutalism"] {
   --shadow-lg: 8px 8px 0px #000000;
   --shadow-card: 5px 5px 0px #000000;
   --radius: 0rem;
+  --glow-primary: #ff3333;
+  --glow-secondary: #ffff00;
+  --glow-tertiary: #ff3333;
+  --drop-shadow: drop-shadow(0 0 6px rgba(255, 51, 51, 0.3));
 }
 html[data-theme="brutalism"].dark {
   --background: #0a0a0a;
@@ -221,6 +241,10 @@ html[data-theme="brutalism"].dark {
   --shadow-md: 5px 5px 0px #ffffff;
   --shadow-lg: 8px 8px 0px #ffffff;
   --shadow-card: 5px 5px 0px #ffffff;
+  --glow-primary: #ff3333;
+  --glow-secondary: #00ff00;
+  --glow-tertiary: #ff3333;
+  --drop-shadow: drop-shadow(0 0 8px rgba(255, 51, 51, 0.4));
 }
 html[data-theme="brutalism"] .glass-card,
 html[data-theme="brutalism"] .glass-card-hover {
@@ -265,6 +289,10 @@ html[data-theme="minimalism"] {
   --shadow-md: none;
   --shadow-lg: none;
   --shadow-card: none;
+  --glow-primary: transparent;
+  --glow-secondary: transparent;
+  --glow-tertiary: transparent;
+  --drop-shadow: none;
 }
 html[data-theme="minimalism"].dark {
   --background: #0f0f0f;
@@ -292,6 +320,10 @@ html[data-theme="minimalism"].dark {
   --shadow-md: none;
   --shadow-lg: none;
   --shadow-card: none;
+  --glow-primary: transparent;
+  --glow-secondary: transparent;
+  --glow-tertiary: transparent;
+  --drop-shadow: none;
 }
 html[data-theme="minimalism"] .glass-card,
 html[data-theme="minimalism"] .glass-card-hover {
@@ -343,6 +375,10 @@ html[data-theme="claymorphism"] {
   --shadow-lg: 6px 6px 15px rgba(74, 25, 66, 0.12), -4px -4px 10px rgba(255, 255, 255, 0.7), inset 3px 3px 6px rgba(255, 255, 255, 0.4);
   --shadow-card: 4px 4px 10px rgba(74, 25, 66, 0.1), -2px -2px 6px rgba(255, 255, 255, 0.7), inset 2px 2px 4px rgba(255, 255, 255, 0.4);
   --radius: 1.25rem;
+  --glow-primary: #d946ef;
+  --glow-secondary: #f0abfc;
+  --glow-tertiary: #c084fc;
+  --drop-shadow: drop-shadow(0 0 6px rgba(217, 70, 239, 0.3));
 }
 html[data-theme="claymorphism"].dark {
   --background: #2e1029;
@@ -370,6 +406,10 @@ html[data-theme="claymorphism"].dark {
   --shadow-md: 4px 4px 10px rgba(0, 0, 0, 0.25), -2px -2px 6px rgba(232, 121, 249, 0.08), inset 2px 2px 4px rgba(255, 255, 255, 0.08);
   --shadow-lg: 6px 6px 15px rgba(0, 0, 0, 0.3), -4px -4px 10px rgba(232, 121, 249, 0.08), inset 3px 3px 6px rgba(255, 255, 255, 0.08);
   --shadow-card: 4px 4px 10px rgba(0, 0, 0, 0.25), -2px -2px 6px rgba(232, 121, 249, 0.08), inset 2px 2px 4px rgba(255, 255, 255, 0.08);
+  --glow-primary: #e879f9;
+  --glow-secondary: #c084fc;
+  --glow-tertiary: #f0abfc;
+  --drop-shadow: drop-shadow(0 0 8px rgba(232, 121, 249, 0.4));
 }
 html[data-theme="claymorphism"] .glass-card,
 html[data-theme="claymorphism"] .glass-card-hover {
@@ -396,7 +436,7 @@ html[data-theme="claymorphism"] .glass-card-hover:hover {
     font-family: var(--font-sans), system-ui, sans-serif;
   }
   .dark body {
-    background: linear-gradient(135deg, #0a0a1a 0%, #0f172a 50%, #0c1929 100%);
+    background: linear-gradient(135deg, var(--background) 0%, color-mix(in srgb, var(--background) 80%, var(--primary)) 50%, var(--background) 100%);
     background-attachment: fixed;
   }
 }
@@ -433,11 +473,7 @@ body {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-}
-
-.dark .glass-card {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-card);
 }
 
 .glass-card-hover {
@@ -445,14 +481,14 @@ body {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-card);
   transition: all 0.3s ease;
 }
 
 .glass-card-hover:hover {
   background: var(--glass-hover);
-  border-color: rgba(59, 130, 246, 0.3);
-  box-shadow: 0 8px 40px rgba(59, 130, 246, 0.15);
+  border-color: color-mix(in srgb, var(--primary) 30%, transparent);
+  box-shadow: 0 8px 40px color-mix(in srgb, var(--primary) 15%, transparent);
   transform: translateY(-2px);
 }
 
@@ -500,15 +536,15 @@ body {
 }
 
 .glow-orb-purple {
-  background: radial-gradient(circle, #3b82f6, transparent 70%);
+  background: radial-gradient(circle, var(--glow-primary), transparent 70%);
 }
 
 .glow-orb-blue {
-  background: radial-gradient(circle, #06b6d4, transparent 70%);
+  background: radial-gradient(circle, var(--glow-secondary), transparent 70%);
 }
 
 .glow-orb-pink {
-  background: radial-gradient(circle, #f093fb, transparent 70%);
+  background: radial-gradient(circle, var(--glow-tertiary), transparent 70%);
 }
 
 /* Gradient button */
@@ -520,7 +556,7 @@ body {
 }
 
 .btn-gradient:hover {
-  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--primary) 40%, transparent);
   transform: translateY(-1px);
 }
 
@@ -565,7 +601,7 @@ body {
 
 /* Selection */
 ::selection {
-  background-color: rgba(59, 130, 246, 0.3);
+  background-color: color-mix(in srgb, var(--primary) 30%, transparent);
   color: inherit;
 }
 

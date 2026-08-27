@@ -68,7 +68,7 @@ export function Header() {
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
         scrolled
-          ? 'glass-card border-b border-white/10 shadow-lg shadow-black/5'
+          ? 'glass-card border-b border-[var(--border)] shadow-lg shadow-black/5'
           : 'bg-transparent'
       )}
       style={{ backdropFilter: scrolled ? 'blur(20px)' : 'none' }}
@@ -136,7 +136,7 @@ export function Header() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-white/10 overflow-hidden glass-card"
+            className="md:hidden border-t border-[var(--border)] overflow-hidden glass-card"
             aria-label="Mobile navigation"
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-1">

@@ -8,7 +8,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-white/5">
+    <footer className="relative border-t border-[var(--border)]">
       {/* Gradient top border */}
       <div className="absolute top-0 left-0 right-0 h-px">
         <div className="h-full bg-gradient-to-r from-transparent via-[var(--gradient-start)] to-transparent opacity-20" />
@@ -80,7 +80,7 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-8 pt-6 border-t border-white/5 text-center">
+        <div className="mt-8 pt-6 border-t border-[var(--border)] text-center">
           <p className="text-sm text-muted-foreground flex items-center justify-center gap-1">
             Built with <Heart className="h-3 w-3 text-red-500" fill="currentColor" /> by{' '}
             <span className="gradient-text font-medium">{siteConfig.displayName}</span> &copy; {currentYear}

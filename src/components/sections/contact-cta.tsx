@@ -25,7 +25,7 @@ export function ContactCTA() {
 
           <div className="relative z-10">
             <div className="inline-flex p-3 rounded-full bg-gradient-to-br from-[var(--gradient-start)]/10 to-[var(--gradient-end)]/10 border border-[var(--glass-border)] mb-4">
-              <Mail className="h-8 w-8 text-[var(--gradient-start)]" style={{ filter: 'drop-shadow(0 0 8px rgba(59, 130, 246, 0.4))' }} />
+              <Mail className="h-8 w-8 text-[var(--gradient-start)]" style={{ filter: 'var(--drop-shadow)' }} />
             </div>
             <h2 className="text-2xl md:text-3xl font-bold mb-3">
               <span className="gradient-text">Let&apos;s Work Together</span>

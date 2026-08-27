@@ -36,7 +36,7 @@ export function StatsOverview({ totalStars, totalForks, totalRepos, totalCommits
               {/* Gradient accent line at top */}
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] opacity-60 group-hover:opacity-100 transition-opacity" />
 
-              <stat.icon className="h-5 w-5 mx-auto mb-2 text-[var(--gradient-start)]" style={{ filter: 'drop-shadow(0 0 6px rgba(59, 130, 246, 0.3))' }} />
+              <stat.icon className="h-5 w-5 mx-auto mb-2 text-[var(--gradient-start)]" style={{ filter: 'var(--drop-shadow)' }} />
               <div className="text-2xl font-bold gradient-text">{formatNumber(stat.value)}</div>
               <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
             </motion.div>
