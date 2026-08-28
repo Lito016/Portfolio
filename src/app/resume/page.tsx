@@ -9,11 +9,9 @@ import { teamMembers } from '@/data/team';
 import {
   Briefcase,
   GraduationCap,
-  Award,
   Code2,
   Trophy,
   Mail,
-  Phone,
   Globe,
   MapPin,
   Printer,
@@ -62,7 +60,7 @@ export default function ResumePage() {
                 </p>
                 <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
                   <MapPin className="h-3.5 w-3.5" />
-                  Galimuyod, Ilocos Sur
+                  Philippines
                 </p>
               </div>
 
@@ -73,13 +71,6 @@ export default function ResumePage() {
                 >
                   <Mail className="h-3.5 w-3.5 shrink-0" />
                   manolitoalmadenjr@gmail.com
-                </a>
-                <a
-                  href="tel:+639275345229"
-                  className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
-                >
-                  <Phone className="h-3.5 w-3.5 shrink-0" />
-                  09275345229
                 </a>
                 <a
                   href="https://github.com/Lito016"

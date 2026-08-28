@@ -24,12 +24,6 @@ async function githubFetch<T>(
     'User-Agent': GITHUB_USERNAME,
   };
 
-  // Optional token for higher rate limits
-  const token = process.env.GITHUB_TOKEN;
-  if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
-  }
-
   const url = endpoint.startsWith('http') ? endpoint : `${GITHUB_API}${endpoint}`;
 
   const maxRetries = 3;

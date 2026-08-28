@@ -10,8 +10,6 @@ export const teamMembers: TeamMember[] = [
     profileImage: '/profile.png',
     bio: 'I build intelligent web applications, agentic AI workflows, and practical digital products that turn complex ideas into useful experiences.',
     availability: 'Available for work',
-    phone: 'tel:+639275345229',
-    phoneLabel: '+63 927 534 5229',
     email: 'mailto:manolitoalmadenjr@gmail.com',
     linkedin: 'https://linkedin.com/in/manolito-almaden-jr-a54a6634a',
   },
