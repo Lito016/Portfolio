@@ -35,8 +35,8 @@ export const themes: ThemeConfig[] = [
   {
     id: 'claymorphism',
     name: 'Claymorphism',
-    description: 'Puffy, rounded, playful',
-    previewColors: ['#f0abfc', '#c084fc'],
+    description: 'Soft lavender clay with sculpted depth',
+    previewColors: ['#e4e7fb', '#6366f1'],
   },
 ];
 

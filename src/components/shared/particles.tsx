@@ -21,10 +21,12 @@ export function ParticlesBackground() {
 
   const options = useMemo<ISourceOptions>(() => {
     const isDark = resolvedTheme === 'dark';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const compactPointer = window.matchMedia('(max-width: 767px), (pointer: coarse)').matches;
     const primaryColor = getCSSColor('--gradient-start');
     return {
       fullScreen: { enable: false },
-      fpsLimit: 60,
+      fpsLimit: compactPointer ? 30 : 45,
       particles: {
         color: { value: primaryColor },
         links: {
@@ -35,18 +37,18 @@ export function ParticlesBackground() {
           width: 1,
         },
         move: {
-          enable: true,
-          speed: 0.8,
+          enable: !reduceMotion,
+          speed: 0.55,
           direction: 'none',
           outModes: { default: 'bounce' },
         },
         number: {
           density: { enable: true, area: 900 },
-          value: 60,
+          value: compactPointer ? 18 : 36,
         },
         opacity: {
           value: { min: isDark ? 0.05 : 0.1, max: isDark ? 0.2 : 0.3 },
-          animation: { enable: true, speed: 0.5, sync: false },
+          animation: { enable: !reduceMotion, speed: 0.35, sync: false },
         },
         size: {
           value: { min: 1, max: 3 },
@@ -54,7 +56,7 @@ export function ParticlesBackground() {
       },
       interactivity: {
         events: {
-          onHover: { enable: true, mode: 'grab' },
+          onHover: { enable: !compactPointer && !reduceMotion, mode: 'grab' },
         },
         modes: {
           grab: { distance: 140, links: { opacity: 0.4 } },

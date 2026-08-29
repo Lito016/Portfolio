@@ -6,6 +6,7 @@ import { ContactCTA } from '@/components/sections/contact-cta';
 import { fetchRepos } from '@/lib/github/api';
 import { computeGitHubStats, generateContributionCalendar } from '@/lib/github/stats';
 import type { Metadata } from 'next';
+import { PageTransition } from '@/components/shared/page-transition';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -30,17 +31,19 @@ export default async function HomePage() {
   }));
 
   return (
-    <div className="space-y-0">
-      <Hero />
-      <TechStackMarquee />
-      <StatsOverview
-        totalStars={stats.totalStars}
-        totalForks={stats.totalForks}
-        totalRepos={stats.totalRepos}
-        totalCommits={stats.totalCommits}
-      />
-      <FeaturedProjects />
-      <ContactCTA />
-    </div>
+    <PageTransition>
+      <div className="space-y-0">
+        <Hero />
+        <TechStackMarquee />
+        <StatsOverview
+          totalStars={stats.totalStars}
+          totalForks={stats.totalForks}
+          totalRepos={stats.totalRepos}
+          totalCommits={stats.totalCommits}
+        />
+        <FeaturedProjects />
+        <ContactCTA />
+      </div>
+    </PageTransition>
   );
 }

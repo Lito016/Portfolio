@@ -14,7 +14,19 @@ export function ThemeToggle() {
   const currentTheme = theme === 'system' ? systemTheme : theme;
 
   const toggleTheme = useCallback(() => {
-    setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    const apply = () => {
+      document.documentElement.classList.remove('light', 'dark');
+      document.documentElement.classList.add(nextTheme);
+      document.documentElement.style.colorScheme = nextTheme;
+      setTheme(nextTheme);
+    };
+
+    if (document.startViewTransition) {
+      document.startViewTransition(apply);
+    } else {
+      apply();
+    }
   }, [currentTheme, setTheme]);
 
   if (!mounted) {

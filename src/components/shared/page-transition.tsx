@@ -6,10 +6,11 @@ import { motion } from 'framer-motion';
 export function PageTransition({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      className="page-transition"
+      initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 10 }}
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      exit={{ opacity: 0, y: -4 }}
+      transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>
@@ -54,8 +55,8 @@ export function StaggerItem({
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+        hidden: { opacity: 0, y: 12 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.42, ease: [0.22, 1, 0.36, 1] } },
       }}
       className={className}
     >

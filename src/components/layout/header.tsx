@@ -10,14 +10,21 @@ import { cn } from '@/lib/utils';
 import { mainNavItems } from '@/config/navigation';
 import { ThemeToggle } from '@/components/shared/theme-toggle';
 import { ThemeDrawer } from '@/components/shared/theme-drawer';
+import { siteConfig } from '@/config/site';
 
-/** Main site header with glassmorphic navigation */
+/** Main site header */
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [themeDrawerOpen, setThemeDrawerOpen] = useState(false);
   const pathname = usePathname();
   const mobileNavRef = useRef<HTMLElement>(null);
+  const settingsButtonRef = useRef<HTMLButtonElement>(null);
+
+  const closeThemeDrawer = () => {
+    setThemeDrawerOpen(false);
+    window.requestAnimationFrame(() => settingsButtonRef.current?.focus());
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -68,21 +75,16 @@ export function Header() {
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
         scrolled
-          ? 'glass-card border-b border-[var(--border)] shadow-lg shadow-black/5'
+          ? 'border-b border-[var(--border)] bg-[var(--background)]/95'
           : 'bg-transparent'
       )}
       style={{ backdropFilter: scrolled ? 'blur(20px)' : 'none' }}
     >
-      {/* Gradient bottom line */}
-      <div className="absolute bottom-0 left-0 right-0 h-px">
-        <div className="h-full bg-gradient-to-r from-transparent via-[var(--gradient-start)] to-transparent opacity-30" />
-      </div>
-
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-bold text-lg group">
-          <SiGithub className="h-6 w-6 text-[var(--gradient-start)] group-hover:text-[var(--gradient-end)] transition-colors" />
-          <span className="gradient-text">Hello World!</span>
+          <SiGithub className="h-6 w-6 text-[var(--foreground)] group-hover:text-muted-foreground transition-colors" />
+          <span className="font-mono text-sm tracking-tight">{siteConfig.displayName}</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -97,6 +99,7 @@ export function Header() {
                   ? 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-sm'
                   : 'text-muted-foreground hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)]'
               )}
+              aria-current={pathname === item.href ? 'page' : undefined}
             >
               {item.title}
             </Link>
@@ -108,6 +111,7 @@ export function Header() {
           <ThemeToggle />
 
           <button
+            ref={settingsButtonRef}
             onClick={() => setThemeDrawerOpen(true)}
             className="inline-flex h-9 w-9 items-center justify-center rounded-md hover:bg-accent transition-colors"
             aria-label="Theme settings"
@@ -136,7 +140,7 @@ export function Header() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-[var(--border)] overflow-hidden glass-card"
+            className="md:hidden border-t border-[var(--border)] overflow-hidden bg-[var(--background)]"
             aria-label="Mobile navigation"
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-1">
@@ -151,6 +155,7 @@ export function Header() {
                       ? 'bg-[var(--accent)] text-[var(--accent-foreground)]'
                       : 'text-muted-foreground hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)]'
                   )}
+                  aria-current={pathname === item.href ? 'page' : undefined}
                 >
                   {item.title}
                 </Link>
@@ -160,7 +165,7 @@ export function Header() {
         )}
       </AnimatePresence>
 
-      <ThemeDrawer open={themeDrawerOpen} onClose={() => setThemeDrawerOpen(false)} />
+      <ThemeDrawer open={themeDrawerOpen} onClose={closeThemeDrawer} />
     </header>
   );
 }

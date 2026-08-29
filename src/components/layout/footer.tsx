@@ -16,7 +16,7 @@ function shimejiFrameSource(frame: number) {
   return `${basePath}/shimeji/frame_${String(frame).padStart(2, '0')}.png`;
 }
 
-/** Site footer with darker glassmorphic styling */
+/** Site footer */
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const [mascotWalk, setMascotWalk] = useState(0);
@@ -46,11 +46,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden border-t border-[var(--border)]">
-      {/* Gradient top border */}
-      <div className="absolute top-0 left-0 right-0 h-px">
-        <div className="h-full bg-gradient-to-r from-transparent via-[var(--gradient-start)] to-transparent opacity-20" />
-      </div>
+    <footer className="border-t border-[var(--border)]">
 
       <div className="container mx-auto px-4 py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -59,7 +55,7 @@ export function Footer() {
             <h3 className="mb-2 text-lg font-bold">
               <button
                 type="button"
-                className="gradient-text cursor-pointer focus-visible:rounded-sm"
+                className="cursor-pointer font-bold text-[var(--foreground)] focus-visible:rounded-sm"
                 onClick={startMascotWalk}
                 aria-label={`${siteConfig.displayName}: play the mascot walk, then visit GitHub`}
                 title="Psst... click me"
@@ -86,7 +82,7 @@ export function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-muted-foreground hover:text-[var(--gradient-start)] transition-colors"
+                  className="text-sm text-muted-foreground hover:text-[var(--foreground)] transition-colors"
                 >
                   {link.title}
                 </Link>
@@ -102,26 +98,26 @@ export function Footer() {
                 href={siteConfig.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-full glass-card-hover"
+                className="p-2.5 rounded-full border border-[var(--border)] transition-colors hover:border-[var(--foreground)]/20"
                 aria-label="GitHub profile"
               >
-                <SiGithub className="h-5 w-5 text-[var(--gradient-start)]" />
+                <SiGithub className="h-5 w-5" />
               </a>
               <a
                 href={siteConfig.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-full glass-card-hover"
+                className="p-2.5 rounded-full border border-[var(--border)] transition-colors hover:border-[var(--foreground)]/20"
                 aria-label="LinkedIn profile"
               >
-                <Globe className="h-5 w-5 text-[var(--gradient-start)]" />
+                <Globe className="h-5 w-5" />
               </a>
               <a
                 href={siteConfig.email}
-                className="p-2.5 rounded-full glass-card-hover"
+                className="p-2.5 rounded-full border border-[var(--border)] transition-colors hover:border-[var(--foreground)]/20"
                 aria-label="Send email"
               >
-                <Mail className="h-5 w-5 text-[var(--gradient-start)]" />
+                <Mail className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -133,7 +129,7 @@ export function Footer() {
             Built with <Heart className="h-3 w-3 text-red-500" fill="currentColor" /> by{' '}
             <button
               type="button"
-              className="gradient-text cursor-pointer font-medium focus-visible:rounded-sm"
+              className="cursor-pointer font-medium text-[var(--foreground)] focus-visible:rounded-sm"
               onClick={startMascotWalk}
               aria-label={`${siteConfig.displayName}: play the mascot walk, then visit GitHub`}
               title="Psst... click me"

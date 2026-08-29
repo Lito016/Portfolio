@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ParticlesProvider } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 import { useState, useEffect } from 'react';
+import { MotionConfig } from 'framer-motion';
 import { THEME_STORAGE_KEY } from '@/config/themes';
 
 /** Application providers wrapper */
@@ -26,8 +27,13 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <QueryClientProvider client={queryClient}>
       <ParticlesProvider init={loadSlim}>
         <CustomThemeProvider>
-          {children}
-          <ThemePersistence />
+          <MotionConfig
+            reducedMotion="user"
+            transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {children}
+            <ThemePersistence />
+          </MotionConfig>
         </CustomThemeProvider>
       </ParticlesProvider>
     </QueryClientProvider>
@@ -38,8 +44,12 @@ export function Providers({ children }: { children: React.ReactNode }) {
 function ThemePersistence() {
   useEffect(() => {
     const saved = localStorage.getItem(THEME_STORAGE_KEY);
-    if (saved && saved !== 'default') {
+    const availableThemes = new Set(['neomorphism', 'brutalism', 'minimalism', 'claymorphism']);
+    if (saved && availableThemes.has(saved)) {
       document.documentElement.setAttribute('data-theme', saved);
+    } else if (saved && saved !== 'default') {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem(THEME_STORAGE_KEY, 'default');
     }
   }, []);
 
