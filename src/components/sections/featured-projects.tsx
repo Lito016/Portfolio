@@ -2,11 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { hostedProjects } from '@/data/projects';
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const homepageProjects = hostedProjects.slice(0, 3);
 
 /** Featured projects section */
@@ -36,18 +33,6 @@ export function FeaturedProjects() {
               transition={{ delay: i * 0.08 }}
               className={`group relative block overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)] transition-colors hover:border-[var(--foreground)]/20 ${i === 0 ? 'lg:col-span-12' : 'lg:col-span-6'}`}
             >
-              {project.image && (
-                <div className="relative aspect-video w-full overflow-hidden border-b border-[var(--border)]">
-                  <Image
-                    src={`${basePath}${project.image}`}
-                    alt={`${project.name} preview`}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    sizes={i === 0 ? '(max-width: 1023px) 100vw, 100vw' : '(max-width: 1023px) 100vw, 50vw'}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--card)] via-transparent to-transparent opacity-60" />
-                </div>
-              )}
               <div className="p-6 sm:p-8">
                 <div className="mb-6 flex items-start justify-between gap-4">
                   <div>

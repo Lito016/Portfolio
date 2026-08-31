@@ -2,14 +2,11 @@
 
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { ExternalLink, Search } from 'lucide-react';
 import { PageTransition } from '@/components/shared/page-transition';
 import { SectionHeading } from '@/components/shared/section-heading';
 import { EmptyState } from '@/components/shared/empty-state';
 import { hostedProjects } from '@/data/projects';
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export function ProjectsPageClient() {
   const [search, setSearch] = useState('');
@@ -78,21 +75,9 @@ export function ProjectsPageClient() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
-                className="group block rounded-xl glass-card-hover overflow-hidden"
+                className="group block rounded-xl glass-card-hover p-5 relative overflow-hidden"
               >
-                {project.image && (
-                  <div className="relative aspect-video w-full overflow-hidden">
-                    <Image
-                      src={`${basePath}${project.image}`}
-                      alt={`${project.name} preview`}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
-                      sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--card)] via-transparent to-transparent opacity-40" />
-                  </div>
-                )}
-                <div className="p-5">
+                <div className="relative z-10">
                   <div className="flex items-start justify-between mb-2">
                     <h3 className="font-semibold text-sm group-hover:text-[var(--gradient-start)] transition-colors truncate">
                       {project.name}
