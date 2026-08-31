@@ -5,7 +5,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: 'manolito-almaden-jr',
     name: 'Manolito Almaden Jr.',
-    role: 'IT Specialist Certified · AI Solution Developer · Junior Developer · Full Stack Developer',
+    role: 'AI Solution Developer',
     handle: 'Lito_016',
     profileImage: '/profile.png',
     bio: 'I build intelligent web applications, agentic AI workflows, and practical digital products that turn complex ideas into useful experiences.',

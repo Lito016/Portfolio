@@ -10,7 +10,7 @@ const homepageProjects = hostedProjects.slice(0, 3);
 /** Featured projects section */
 export function FeaturedProjects() {
   return (
-    <section className="py-20">
+    <section id="featured-projects" className="py-20">
       <div className="container mx-auto px-4">
         <div className="mb-10">
           <h2 className="text-3xl font-bold tracking-tight">

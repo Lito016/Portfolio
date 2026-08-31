@@ -37,23 +37,14 @@ export default function SkillsPage() {
                     <h3 className="text-lg font-semibold">{category.name}</h3>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill) => (
-                      <div key={skill.name} className="space-y-1.5">
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="font-medium">{skill.name}</span>
-                          <span className="text-muted-foreground text-xs">{skill.level}%</span>
-                        </div>
-                        <div className="h-1.5 rounded-full bg-muted overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, ease: 'easeOut' }}
-                            className="h-full rounded-full bg-primary"
-                          />
-                        </div>
-                      </div>
+                      <span
+                        key={skill.name}
+                        className="rounded-full border border-[var(--border)] bg-[var(--accent)] px-3.5 py-1.5 text-sm font-medium text-[var(--accent-foreground)]"
+                      >
+                        {skill.name}
+                      </span>
                     ))}
                   </div>
                 </div>

@@ -3,7 +3,7 @@ import { techStackItems } from '@/data/skills';
 /** Scrolling tech stack marquee */
 export function TechStackMarquee() {
   return (
-    <section className="relative overflow-hidden border-y border-[var(--border)] py-6 sm:py-7">
+    <section className="relative overflow-hidden border-y border-[var(--border)] py-6 sm:py-7" aria-label="Technology stack">
       {/* Fade edges */}
       <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[var(--background)] to-transparent z-10" />
       <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[var(--background)] to-transparent z-10" />

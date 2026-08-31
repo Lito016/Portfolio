@@ -6,7 +6,7 @@ import { Mail, ArrowRight } from 'lucide-react';
 /** Contact call-to-action */
 export function ContactCTA() {
   return (
-    <section className="py-20">
+    <section id="contact-cta" className="py-20">
       <div className="container mx-auto px-4">
         <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-8 md:p-12 text-center">
           <div className="inline-flex p-3 rounded-full bg-[var(--accent)] mb-4">

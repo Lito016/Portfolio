@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { SiGithub } from 'react-icons/si';
 import { Mail, Heart, Globe } from 'lucide-react';
 import { siteConfig } from '@/config/site';
+import { footerNavItems, footerSocialItems } from '@/config/navigation';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const SHIMEJI_WALK_START = 7;
@@ -69,31 +70,39 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Explore */}
           <div>
-            <h4 className="font-semibold text-sm mb-3 text-muted-foreground">Quick Links</h4>
+            <h4 className="font-semibold text-sm mb-3 text-muted-foreground">Explore</h4>
             <nav className="flex flex-col gap-2" aria-label="Footer navigation">
-              {[
-                { title: 'About', href: '/about' },
-                { title: 'Projects', href: '/projects' },
-                { title: 'Contact', href: '/contact' },
-                { title: 'Resume', href: '/resume' },
-              ].map((link) => (
+              {footerNavItems.map((item) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  key={item.href}
+                  href={item.href}
                   className="text-sm text-muted-foreground hover:text-[var(--foreground)] transition-colors"
                 >
-                  {link.title}
+                  {item.title}
                 </Link>
               ))}
             </nav>
           </div>
 
-          {/* Social */}
+          {/* Connect */}
           <div>
             <h4 className="font-semibold text-sm mb-3 text-muted-foreground">Connect</h4>
-            <div className="flex gap-3">
+            <nav className="flex flex-col gap-2" aria-label="Social links">
+              {footerSocialItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target={item.href.startsWith('http') ? '_blank' : undefined}
+                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="text-sm text-muted-foreground hover:text-[var(--foreground)] transition-colors"
+                >
+                  {item.title}
+                </a>
+              ))}
+            </nav>
+            <div className="flex gap-3 mt-4">
               <a
                 href={siteConfig.github}
                 target="_blank"

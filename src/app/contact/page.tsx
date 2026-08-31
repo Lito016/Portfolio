@@ -22,6 +22,8 @@ type ContactForm = z.infer<typeof contactSchema>;
 
 const WEB3FORMS_API = 'https://api.web3forms.com/submit';
 
+const isConfigured = !!process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY && process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY !== 'your-access-key-here';
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -34,13 +36,13 @@ export default function ContactPage() {
     setLoading(true);
     setError(null);
 
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
-
-    if (!accessKey || accessKey === 'your-access-key-here') {
-      setError('Contact form is not configured. Please set NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY in .env.local');
+    if (!isConfigured) {
+      setError('Contact form is currently unavailable. Please reach out directly.');
       setLoading(false);
       return;
     }
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
     try {
       const res = await fetch(WEB3FORMS_API, {
@@ -79,7 +81,17 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Form */}
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-            {submitted ? (
+            {!isConfigured ? (
+              <div className="glass-card rounded-xl p-8 text-center">
+                <div className="text-4xl mb-4">&#9993;</div>
+                <h3 className="text-lg font-semibold">Get in Touch</h3>
+                <p className="text-sm text-muted-foreground mt-2">The contact form is currently unavailable. Please reach out directly via email or GitHub.</p>
+                <div className="mt-4 space-y-2">
+                  <a href={siteConfig.email} className="block text-sm text-primary hover:underline">{siteConfig.email.replace('mailto:', '')}</a>
+                  <a href={siteConfig.github} target="_blank" rel="noopener noreferrer" className="block text-sm text-primary hover:underline">github.com/Lito016</a>
+                </div>
+              </div>
+            ) : submitted ? (
               <div className="glass-card rounded-xl p-8 text-center">
                 <div className="text-4xl mb-4">&#10003;</div>
                 <h3 className="text-lg font-semibold">Message Sent!</h3>

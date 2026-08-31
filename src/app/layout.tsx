@@ -80,11 +80,7 @@ export default function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem("theme");if(t){var r=t==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):t;document.documentElement.classList.remove("light","dark");document.documentElement.classList.add(r);document.documentElement.style.colorScheme=r}}catch(e){}})()`,
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("portfolio-theme"),a=["neomorphism","brutalism","minimalism","claymorphism"];if(a.indexOf(t)>-1)document.documentElement.setAttribute("data-theme",t);else if(t&&t!=="default")localStorage.setItem("portfolio-theme","default")}catch(e){}})()`,
-          }}
-        />
+
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col antialiased`}
