@@ -2,6 +2,7 @@ export interface HostedProject {
   name: string;
   description: string;
   url: string;
+  image?: string;
   tags: string[];
   caseStudy?: {
     problem: string;
@@ -16,6 +17,7 @@ export const hostedProjects: HostedProject[] = [
     name: 'UBMS — Unified Business Management System',
     description: 'All-in-one business management platform with inventory tracking, purchase orders, sales trading, printing orders, invoicing, payments, receivables, and audit trail.',
     url: 'https://ubms-prototype.pages.dev/',
+    image: '/ubms-thumbnail.png',
     tags: ['Full-Stack', 'Business', 'React'],
     caseStudy: {
       problem: 'Core business operations were fragmented across separate inventory, sales, payment, and audit workflows.',
@@ -28,6 +30,7 @@ export const hostedProjects: HostedProject[] = [
     name: 'Barangay Digital Portal',
     description: 'Community platform for digital barangay services, online document requests with real-time tracking, announcements, and resident engagement.',
     url: 'https://barangay-portal-prototype.pages.dev/',
+    image: '/barangay-thumbnail.png',
     tags: ['Full-Stack', 'Government', 'React'],
     caseStudy: {
       problem: 'Residents lacked a clear digital path for requesting documents and following the status of local services.',
@@ -40,6 +43,7 @@ export const hostedProjects: HostedProject[] = [
     name: 'AI SaaS Landing Page',
     description: 'AI-powered intelligence platform for modern teams. Features autonomous agents, predictive analytics, and SaaS landing page.',
     url: 'https://ai-saas-landing.pages.dev/',
+    image: '/ai-saas-thumbnail.png',
     tags: ['AI', 'SaaS', 'Next.js'],
     caseStudy: {
       problem: 'AI products often communicate complex capabilities without helping teams understand their immediate value.',
@@ -52,6 +56,7 @@ export const hostedProjects: HostedProject[] = [
     name: 'Dish Manager',
     description: 'Recipe and meal planning management application.',
     url: 'https://dish-manager.pages.dev/',
+    image: '/dish-manager-thumbnail.png',
     tags: ['React', 'Full-Stack', 'Meal Planning'],
   },
 ];
