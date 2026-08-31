@@ -37,16 +37,29 @@ export default function SkillsPage() {
                     <h3 className="text-lg font-semibold">{category.name}</h3>
                   </div>
 
-                  <div className="flex flex-wrap gap-2">
+                  <motion.div
+                    className="flex flex-wrap gap-2"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-30px' }}
+                    variants={{
+                      hidden: {},
+                      visible: { transition: { staggerChildren: 0.04 } },
+                    }}
+                  >
                     {category.skills.map((skill) => (
-                      <span
+                      <motion.span
                         key={skill.name}
+                        variants={{
+                          hidden: { opacity: 0, scale: 0.85 },
+                          visible: { opacity: 1, scale: 1, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
+                        }}
                         className="rounded-full border border-[var(--border)] bg-[var(--accent)] px-3.5 py-1.5 text-sm font-medium text-[var(--accent-foreground)]"
                       >
                         {skill.name}
-                      </span>
+                      </motion.span>
                     ))}
-                  </div>
+                  </motion.div>
                 </div>
               </StaggerItem>
             );
