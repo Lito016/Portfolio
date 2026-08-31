@@ -2,21 +2,46 @@ import type { SkillCategory } from '@/lib/types';
 
 export const skillCategories: SkillCategory[] = [
   {
-    name: 'Web Development',
+    name: 'Languages',
     icon: 'code',
     skills: [
-      { name: 'HTML & CSS', level: 85, category: 'Web Development' },
-      { name: 'Basic PHP', level: 60, category: 'Web Development' },
-      { name: 'Basic SQL', level: 55, category: 'Web Development' },
+      { name: 'HTML & CSS', icon: 'SiHtml5', category: 'Languages' },
+      { name: 'JavaScript', icon: 'SiJavascript', category: 'Languages' },
+      { name: 'TypeScript', icon: 'SiTypescript', category: 'Languages' },
+      { name: 'Python', icon: 'SiPython', category: 'Languages' },
+      { name: 'PHP', icon: 'SiPhp', category: 'Languages' },
+      { name: 'SQL', icon: 'SiMysql', category: 'Languages' },
     ],
   },
   {
-    name: 'Other Skills',
+    name: 'Frameworks & Libraries',
+    icon: 'layers',
+    skills: [
+      { name: 'React', icon: 'SiReact', category: 'Frameworks & Libraries' },
+      { name: 'Next.js', icon: 'SiNextdotjs', category: 'Frameworks & Libraries' },
+      { name: 'Node.js', icon: 'SiNodedotjs', category: 'Frameworks & Libraries' },
+      { name: 'Tailwind CSS', icon: 'SiTailwindcss', category: 'Frameworks & Libraries' },
+      { name: 'Framer Motion', icon: 'SiFramer', category: 'Frameworks & Libraries' },
+    ],
+  },
+  {
+    name: 'Databases & Backend',
+    icon: 'database',
+    skills: [
+      { name: 'PostgreSQL', icon: 'SiPostgresql', category: 'Databases & Backend' },
+      { name: 'MySQL', icon: 'SiMysql', category: 'Databases & Backend' },
+      { name: 'MongoDB', icon: 'SiMongodb', category: 'Databases & Backend' },
+      { name: 'Firebase', icon: 'SiFirebase', category: 'Databases & Backend' },
+    ],
+  },
+  {
+    name: 'Tools & Platforms',
     icon: 'wrench',
     skills: [
-      { name: 'Mobile Development', level: 65, category: 'Other Skills' },
-      { name: 'Problem Solving', level: 80, category: 'Other Skills' },
-      { name: 'Technical Troubleshooting', level: 75, category: 'Other Skills' },
+      { name: 'Git', icon: 'SiGit', category: 'Tools & Platforms' },
+      { name: 'Docker', icon: 'SiDocker', category: 'Tools & Platforms' },
+      { name: 'Vercel', icon: 'SiVercel', category: 'Tools & Platforms' },
+      { name: 'Cloudflare', icon: 'SiCloudflare', category: 'Tools & Platforms' },
     ],
   },
 ];

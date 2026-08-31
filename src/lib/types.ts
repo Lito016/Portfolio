@@ -108,8 +108,8 @@ export interface GitHubStats {
 /** Skill item */
 export interface Skill {
   name: string;
-  level?: number;
   icon?: string;
+  level?: number;
   category: string;
 }
 
