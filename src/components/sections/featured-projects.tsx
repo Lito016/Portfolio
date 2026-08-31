@@ -36,7 +36,7 @@ export function FeaturedProjects() {
               <div className="p-6 sm:p-8">
                 <div className="mb-6 flex items-start justify-between gap-4">
                   <div>
-                    <p className="mb-2 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">Case study · 0{i + 1}</p>
+                    <p className="mb-2 text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">Project · 0{i + 1}</p>
                     <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
                       {project.name}
                     </h3>
