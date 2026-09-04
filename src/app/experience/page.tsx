@@ -17,7 +17,7 @@ export default function ExperiencePage() {
   return (
     <PageTransition>
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-4xl">
-        <SectionHeading title="Experience" description="My professional journey" align="center" />
+        <SectionHeading title="Experience" description="Where I&apos;ve worked and what I shipped" align="center" />
         <div className="space-y-6">
           {experiences.map((exp, i) => (
             <motion.div key={exp.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}

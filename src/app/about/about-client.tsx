@@ -49,8 +49,8 @@ export function AboutPageClient() {
     <PageTransition>
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-4xl">
         <SectionHeading
-          title="About Me"
-          description="My journey in technology and software development"
+          title="About"
+          description="Background and what drives my work"
         />
 
         {/* Bio */}
@@ -61,20 +61,20 @@ export function AboutPageClient() {
           className="max-w-none mb-12 space-y-4"
         >
           <p className="text-lg text-muted-foreground leading-relaxed">
-            I&apos;m Manolito Almaden Jr. (Lito_016), an AI Solution Developer from the Philippines
-            passionate about building intelligent web applications. I specialize in combining
-            modern web technologies with AI capabilities to create innovative solutions.
+            I&apos;m Manolito Almaden Jr. — I go by Lito_016 online. I build AI-integrated
+            web platforms: RAG pipelines, agentic workflows, and the occasional open-source
+            tool that makes a developer&apos;s life easier.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            My journey started with a curiosity for how things work, which led me to pursue
-            Information Technology. Along the way, I discovered a passion for AI and machine
-            learning, completing multiple intensive programs in Agentic AI, Generative AI,
-            and Prompt Engineering.
+            I studied Information Technology and picked up practical AI skills through
+            the Bayanaihan AI program, an Agentic AI Bootcamp, and a Generative AI
+            Intensive. My OJT project — a digital journaling platform with AI-powered
+            insights — was where theory met production constraints.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            Today, I focus on building AI-integrated web platforms, exploring LLM fine-tuning,
-            RAG architectures, and contributing to the open-source community. I believe in
-            writing clean, maintainable code and creating solutions that make a real impact.
+            These days I&apos;m focused on LLM integration, fine-tuning, and shipping
+            software that people actually use. I care about clean code, but I care
+            more about whether the thing works for the person clicking the button.
           </p>
         </motion.div>
 

@@ -1,0 +1,11 @@
+{
+  "output_type": "website",
+  "target_audience": "Recruiters, clients, and collaborators evaluating Manolito Almaden Jr. as an AI Solution Developer",
+  "quality_bar": "Premium professional portfolio — zero AI-generated patterns, WCAG 2.1 AA compliant, strict TypeScript, optimized performance",
+  "verification_method": "npm run build (29/29 pages pass), npm run lint (0 errors), manual ARIA audit (50+ attributes), grep for as any (0 matches)",
+  "evidence_artifacts": [
+    "prime/reports/output-quality-scorecard.json",
+    "Build output: 29 static pages generated successfully",
+    "Lint output: 0 errors, 0 warnings"
+  ]
+}

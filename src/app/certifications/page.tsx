@@ -10,7 +10,7 @@ export default function CertificationsPage() {
   return (
     <PageTransition>
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-5xl">
-        <SectionHeading title="Certifications" description="Professional certifications and training" align="center" />
+        <SectionHeading title="Certifications" description="Verified credentials and completed training programs" align="center" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {certifications.map((cert, i) => (
             <motion.div key={cert.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}

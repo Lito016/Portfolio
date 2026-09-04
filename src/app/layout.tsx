@@ -85,6 +85,36 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': [
+                {
+                  '@type': 'Person',
+                  '@id': `${siteConfig.url}/#person`,
+                  name: siteConfig.displayName,
+                  url: siteConfig.url,
+                  jobTitle: 'AI Solution Developer',
+                  email: siteConfig.email.replace('mailto:', ''),
+                  sameAs: [siteConfig.github, siteConfig.linkedin],
+                  image: `${siteConfig.url}/profile.png`,
+                  description: siteConfig.description,
+                },
+                {
+                  '@type': 'WebSite',
+                  '@id': `${siteConfig.url}/#website`,
+                  url: siteConfig.url,
+                  name: siteConfig.title,
+                  description: siteConfig.description,
+                  publisher: { '@id': `${siteConfig.url}/#person` },
+                  inLanguage: 'en-US',
+                },
+              ],
+            }),
+          }}
+        />
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>

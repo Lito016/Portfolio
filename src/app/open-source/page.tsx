@@ -5,7 +5,7 @@ import { fetchRepos } from '@/lib/github/api';
 import { Star, GitFork, ExternalLink } from 'lucide-react';
 import { getLanguageColor, formatNumber } from '@/lib/utils';
 
-export const metadata: Metadata = { title: 'Open Source', description: 'My open source contributions' };
+export const metadata: Metadata = { title: 'Open Source', description: 'Public repositories and open-source projects I maintain' };
 
 export default async function OpenSourcePage() {
   const repos = await fetchRepos().catch(() => []);
@@ -13,7 +13,7 @@ export default async function OpenSourcePage() {
   return (
     <PageTransition>
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-5xl">
-        <SectionHeading title="Open Source" description="My public repositories and contributions" align="center" />
+        <SectionHeading title="Open Source" description="Repositories I maintain and welcome contributions to" align="center" />
         <div className="space-y-4">
           {repos.map((repo) => (
             <a key={repo.id} href={repo.html_url} target="_blank" rel="noopener noreferrer"

@@ -22,12 +22,12 @@ export function StatsOverview({ totalStars, totalForks, totalRepos, totalCommits
   ];
 
   return (
-    <section className="py-20 bg-[var(--muted)]/30">
+    <section aria-labelledby="stats-heading" className="py-20 bg-[var(--muted)]/30">
       <div className="container mx-auto px-4">
         <div className="mb-8 text-center">
-          <h2 className="text-2xl font-bold tracking-tight">GitHub Activity</h2>
+          <h2 id="stats-heading" className="text-2xl font-bold tracking-tight">Open-Source Activity</h2>
           <p className="mt-1 text-sm text-muted-foreground">
-            Real-time stats from my open-source work
+            From my GitHub repositories and contributions
           </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">

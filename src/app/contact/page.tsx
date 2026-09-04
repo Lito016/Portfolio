@@ -101,30 +101,30 @@ export default function ContactPage() {
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 {error && (
-                  <div className="flex items-start gap-2 rounded-lg border border-destructive/30 bg-destructive/10 p-3 text-sm text-destructive">
-                    <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                  <div role="alert" className="flex items-start gap-2 rounded-lg border border-destructive/30 bg-destructive/10 p-3 text-sm text-destructive">
+                    <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" aria-hidden="true" />
                     <p>{error}</p>
                   </div>
                 )}
                 <div>
                   <label htmlFor="name" className="text-sm font-medium">Name</label>
-                  <input {...register('name')} id="name" className="w-full mt-1 px-3 py-2 rounded-md border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
-                  {errors.name && <p role="alert" className="text-xs text-destructive mt-1">{errors.name.message}</p>}
+                  <input {...register('name')} id="name" aria-describedby={errors.name ? 'name-error' : undefined} className="w-full mt-1 px-3 py-2 rounded-md border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
+                  {errors.name && <p id="name-error" role="alert" className="text-xs text-destructive mt-1">{errors.name.message}</p>}
                 </div>
                 <div>
                   <label htmlFor="email" className="text-sm font-medium">Email</label>
-                  <input {...register('email')} id="email" type="email" className="w-full mt-1 px-3 py-2 rounded-md border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
-                  {errors.email && <p role="alert" className="text-xs text-destructive mt-1">{errors.email.message}</p>}
+                  <input {...register('email')} id="email" type="email" aria-describedby={errors.email ? 'email-error' : undefined} className="w-full mt-1 px-3 py-2 rounded-md border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
+                  {errors.email && <p id="email-error" role="alert" className="text-xs text-destructive mt-1">{errors.email.message}</p>}
                 </div>
                 <div>
                   <label htmlFor="subject" className="text-sm font-medium">Subject</label>
-                  <input {...register('subject')} id="subject" className="w-full mt-1 px-3 py-2 rounded-md border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
-                  {errors.subject && <p role="alert" className="text-xs text-destructive mt-1">{errors.subject.message}</p>}
+                  <input {...register('subject')} id="subject" aria-describedby={errors.subject ? 'subject-error' : undefined} className="w-full mt-1 px-3 py-2 rounded-md border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
+                  {errors.subject && <p id="subject-error" role="alert" className="text-xs text-destructive mt-1">{errors.subject.message}</p>}
                 </div>
                 <div>
                   <label htmlFor="message" className="text-sm font-medium">Message</label>
-                  <textarea {...register('message')} id="message" rows={5} className="w-full mt-1 px-3 py-2 rounded-md border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none" />
-                  {errors.message && <p role="alert" className="text-xs text-destructive mt-1">{errors.message.message}</p>}
+                  <textarea {...register('message')} id="message" rows={5} aria-describedby={errors.message ? 'message-error' : undefined} className="w-full mt-1 px-3 py-2 rounded-md border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none" />
+                  {errors.message && <p id="message-error" role="alert" className="text-xs text-destructive mt-1">{errors.message.message}</p>}
                 </div>
                 <button
                   type="submit"
@@ -150,13 +150,13 @@ export default function ContactPage() {
             <div className="glass-card rounded-xl p-6">
               <h3 className="font-semibold mb-4">Connect</h3>
               <div className="space-y-3">
-                <a href={siteConfig.email} className="flex items-center gap-3 text-sm hover:text-primary transition-colors"><Mail className="h-4 w-4" />manolitoalmadenjr@gmail.com</a>
-                <a href={siteConfig.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:text-primary transition-colors"><GithubIcon className="h-4 w-4" />github.com/Lito016</a>
+                <a href={siteConfig.email} className="flex items-center gap-3 text-sm hover:text-primary transition-colors"><Mail className="h-4 w-4" aria-hidden="true" />manolitoalmadenjr@gmail.com</a>
+                <a href={siteConfig.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:text-primary transition-colors"><GithubIcon className="h-4 w-4" aria-hidden="true" />github.com/Lito016<span className="sr-only"> (opens in a new tab)</span></a>
               </div>
             </div>
             <div className="glass-card rounded-xl p-6">
-              <h3 className="font-semibold mb-2">Let&apos;s Collaborate</h3>
-              <p className="text-sm text-muted-foreground">I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of something great.</p>
+              <h3 className="font-semibold mb-2">Collaborate</h3>
+              <p className="text-sm text-muted-foreground">Whether it&apos;s an AI integration, a full-stack build, or an open-source effort — I&apos;m interested in work that solves real problems.</p>
             </div>
           </motion.div>
         </div>

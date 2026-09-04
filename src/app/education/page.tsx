@@ -19,7 +19,7 @@ export default function EducationPage() {
   return (
     <PageTransition>
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-4xl">
-        <SectionHeading title="Education" description="My academic background" align="center" />
+        <SectionHeading title="Education" description="Formal training and coursework" align="center" />
         <div className="space-y-6">
           {education.map((edu, i) => (
             <motion.div key={edu.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}

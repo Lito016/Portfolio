@@ -11,7 +11,7 @@ export default function TechStackPage() {
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-5xl">
         <SectionHeading
           title="Tech Stack"
-          description="The technologies I use daily"
+          description="Tools and frameworks in my regular rotation"
           align="center"
         />
 

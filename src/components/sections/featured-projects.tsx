@@ -9,14 +9,14 @@ const homepageProjects = hostedProjects.slice(0, 3);
 /** Featured projects section */
 export function FeaturedProjects() {
   return (
-    <section id="featured-projects" className="py-20">
+    <section id="featured-projects" aria-labelledby="featured-heading" className="py-20">
       <div className="container mx-auto px-4">
         <div className="mb-10">
-          <h2 className="text-3xl font-bold tracking-tight">
+          <h2 id="featured-heading" className="text-3xl font-bold tracking-tight">
             Live Applications
           </h2>
           <p className="mt-2 text-muted-foreground">
-            Hosted projects I&apos;ve built and deployed
+            Projects I&apos;ve built, shipped, and maintain in production
           </p>
         </div>
 

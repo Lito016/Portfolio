@@ -11,7 +11,7 @@ export default function BlogPage() {
   return (
     <PageTransition>
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-4xl">
-        <SectionHeading title="Blog" description="Thoughts, tutorials, and technical articles" align="center" />
+        <SectionHeading title="Blog" description="Notes on things I&apos;ve learned building software" align="center" />
         <div className="space-y-6">
           {blogPosts.map((post, i) => (
             <motion.article key={post.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}

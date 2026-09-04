@@ -10,7 +10,7 @@ export default function AchievementsPage() {
   return (
     <PageTransition>
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-5xl">
-        <SectionHeading title="Achievements" description="Milestones and accomplishments" align="center" />
+        <SectionHeading title="Achievements" description="Things I&apos;m proud of" align="center" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {achievements.map((a, i) => (
             <motion.div key={a.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}

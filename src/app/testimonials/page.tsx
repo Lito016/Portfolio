@@ -10,7 +10,7 @@ export default function TestimonialsPage() {
   return (
     <PageTransition>
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-5xl">
-        <SectionHeading title="Testimonials" description="What people say about working with me" align="center" />
+        <SectionHeading title="Testimonials" description="Feedback from people I&apos;ve worked with" align="center" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
             <motion.div key={t.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}

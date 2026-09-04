@@ -3,7 +3,7 @@ import { ProjectsPageClient } from './projects-client';
 
 export const metadata: Metadata = {
   title: 'Projects',
-  description: 'Live applications and projects I\'ve built and deployed',
+  description: 'Projects I\'ve built and shipped — from AI integrations to full-stack applications',
 };
 
 export default function ProjectsPage() {

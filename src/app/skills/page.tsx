@@ -20,7 +20,7 @@ export default function SkillsPage() {
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-5xl">
         <SectionHeading
           title="Skills"
-          description="Technologies and tools I work with"
+          description="What I reach for when building production software"
           align="center"
         />
 

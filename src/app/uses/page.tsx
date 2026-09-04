@@ -9,7 +9,7 @@ export default function UsesPage() {
   return (
     <PageTransition>
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-4xl">
-        <SectionHeading title="Uses" description="My development setup and tools" align="center" />
+        <SectionHeading title="Uses" description="Hardware, software, and config I use daily" align="center" />
         <div className="space-y-8">
           {usesItems.map((cat, i) => (
             <motion.div key={cat.category} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { SiGithub } from 'react-icons/si';
-import { Mail, Heart, Globe } from 'lucide-react';
+import { Mail, Globe } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 import { footerNavItems, footerSocialItems } from '@/config/navigation';
 
@@ -65,8 +65,8 @@ export function Footer() {
               </button>
             </h3>
             <p className="text-sm text-muted-foreground">
-              AI Solution Developer building intelligent web applications and
-              open-source contributions.
+              AI Solution Developer — building useful software with intelligent
+              features, one commit at a time.
             </p>
           </div>
 
@@ -135,7 +135,6 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-10 pt-8 border-t border-[var(--border)] text-center">
           <p className="text-sm text-muted-foreground flex items-center justify-center gap-1">
-            Built with <Heart className="h-3 w-3 text-red-500" fill="currentColor" /> by{' '}
             <button
               type="button"
               className="cursor-pointer font-medium text-[var(--foreground)] focus-visible:rounded-sm"
@@ -144,7 +143,7 @@ export function Footer() {
               title="Psst... click me"
             >
               {siteConfig.displayName}
-            </button>{' '}
+            </button>
             &copy; {currentYear}
           </p>
         </div>
