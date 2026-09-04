@@ -55,7 +55,7 @@ export const hostedProjects: HostedProject[] = [
   {
     name: 'Dish Manager',
     description: 'Recipe and meal planning management application.',
-    url: 'https://dish-manager.pages.dev/',
+    url: 'https://dish-manager-prototype.pages.dev/',
     image: '/project-dish-manager.png',
     tags: ['React', 'Full-Stack', 'Meal Planning'],
   },
