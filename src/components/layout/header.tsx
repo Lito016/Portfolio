@@ -74,26 +74,29 @@ export function Header() {
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 font-bold text-lg group">
-          <SiGithub className="h-6 w-6 text-[var(--foreground)] group-hover:text-muted-foreground transition-colors" />
-          <span className="font-mono text-sm tracking-tight">{siteConfig.displayName}</span>
+        <Link href="/" className="flex items-center gap-2 font-semibold text-sm group">
+          <SiGithub className="h-5 w-5 text-[var(--foreground)] group-hover:text-muted-foreground transition-colors" />
+          <span className="font-mono tracking-tight">{siteConfig.displayName}</span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
+        <nav className="hidden md:flex items-center gap-0.5" aria-label="Main navigation">
           {mainNavItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                'px-3 py-2 text-sm font-medium rounded-full transition-all duration-200',
+                'relative px-3.5 py-2 text-[13px] font-medium transition-colors duration-200',
                 pathname === item.href
-                  ? 'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-sm'
-                  : 'text-muted-foreground hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)]'
+                  ? 'text-[var(--foreground)]'
+                  : 'text-muted-foreground hover:text-[var(--foreground)]'
               )}
               aria-current={pathname === item.href ? 'page' : undefined}
             >
               {item.title}
+              {pathname === item.href && (
+                <span className="absolute bottom-0 left-3.5 right-3.5 h-[1.5px] rounded-full bg-[var(--foreground)]" />
+              )}
             </Link>
           ))}
         </nav>
@@ -104,7 +107,7 @@ export function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 rounded-full hover:bg-[var(--accent)] transition-colors"
+            className="md:hidden cursor-pointer p-2 rounded-md hover:bg-[var(--muted)] transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
@@ -126,17 +129,17 @@ export function Header() {
             className="md:hidden border-t border-[var(--border)] overflow-hidden bg-[var(--background)]"
             aria-label="Mobile navigation"
           >
-            <div className="container mx-auto px-4 py-4 flex flex-col gap-1">
+            <div className="container mx-auto px-4 py-3 flex flex-col gap-0.5">
               {mainNavItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
                   className={cn(
-                    'px-4 py-3 text-sm font-medium rounded-full transition-all duration-200',
+                    'px-4 py-2.5 text-sm font-medium rounded-md transition-colors',
                     pathname === item.href
-                      ? 'bg-[var(--accent)] text-[var(--accent-foreground)]'
-                      : 'text-muted-foreground hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)]'
+                      ? 'bg-[var(--muted)] text-[var(--foreground)]'
+                      : 'text-muted-foreground hover:text-[var(--foreground)] hover:bg-[var(--muted)]'
                   )}
                   aria-current={pathname === item.href ? 'page' : undefined}
                 >

@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { ExternalLink, Search } from 'lucide-react';
 import { PageTransition } from '@/components/shared/page-transition';
 import { SectionHeading } from '@/components/shared/section-heading';
@@ -32,8 +33,8 @@ export function ProjectsPageClient() {
     <PageTransition>
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-6xl">
         <SectionHeading
-          title="Live Applications"
-          description={`${hostedProjects.length} hosted project${hostedProjects.length !== 1 ? 's' : ''}`}
+          title="Projects"
+          description={`${hostedProjects.length} project${hostedProjects.length !== 1 ? 's' : ''} built and maintained`}
           align="center"
         />
 
@@ -46,13 +47,13 @@ export function ProjectsPageClient() {
               placeholder="Search projects..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 rounded-full glass-card text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+              className="w-full pl-9 pr-4 py-2 rounded-lg glass-card text-sm focus:outline-none focus:ring-2 focus:ring-ring"
             />
           </div>
           <select
             value={tagFilter}
             onChange={(e) => setTagFilter(e.target.value)}
-            className="px-4 py-2 rounded-full glass-card text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+            className="px-4 py-2 rounded-lg glass-card text-sm focus:outline-none focus:ring-2 focus:ring-ring"
             aria-label="Filter by technology"
           >
             {tags.map((tag) => (
@@ -75,9 +76,20 @@ export function ProjectsPageClient() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
-                className="group block rounded-xl glass-card-hover p-5 relative overflow-hidden"
+                className="group block rounded-xl glass-card-hover relative overflow-hidden"
               >
-                <div className="relative z-10">
+                {/* Screenshot preview */}
+                <div className="relative h-40 w-full overflow-hidden rounded-t-xl border-b border-border/30">
+                  <Image
+                    src={project.image}
+                    alt={`${project.name} preview`}
+                    fill
+                    className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                </div>
+                <div className="relative z-10 p-5">
                   <div className="flex items-start justify-between mb-2">
                     <h3 className="font-semibold text-sm group-hover:text-[var(--gradient-start)] transition-colors truncate">
                       {project.name}
@@ -91,13 +103,13 @@ export function ProjectsPageClient() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--accent)] text-[var(--accent-foreground)]"
+                        className="px-2 py-0.5 rounded-md text-xs font-medium bg-[var(--muted)] text-muted-foreground"
                       >
                         {tag}
                       </span>
                     ))}
                     <span className="ml-auto text-xs text-[var(--gradient-start)] font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                      Visit Live Site
+                      {project.url.includes('github.com') ? 'View on GitHub' : 'Visit Live Site'}
                       <ExternalLink className="h-3 w-3" />
                     </span>
                   </div>

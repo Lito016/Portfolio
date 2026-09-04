@@ -28,7 +28,10 @@ export function RecentActivity({ events }: { events: GitHubEvent[] }) {
   return (
     <section>
       <div className="mb-8">
-        <h2 className="text-3xl font-bold tracking-tight">
+        <p className="mb-2 text-[13px] font-medium uppercase tracking-[0.15em] text-muted-foreground">
+          GitHub
+        </p>
+        <h2 className="text-2xl font-semibold tracking-tight">
           Recent Activity
         </h2>
         <p className="mt-2 text-muted-foreground">
@@ -50,9 +53,9 @@ export function RecentActivity({ events }: { events: GitHubEvent[] }) {
               transition={{ delay: i * 0.05 }}
               className="flex items-center gap-4"
             >
-              <div className="flex-1 flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--card)] p-4">
-                <div className="shrink-0 rounded-full bg-[var(--accent)] p-2.5">
-                  <Icon className="h-4 w-4" />
+              <div className="flex-1 flex items-center gap-3 rounded-lg border border-[var(--border)] bg-[var(--card)] p-3.5">
+                <div className="shrink-0 rounded-md bg-[var(--muted)] p-2">
+                  <Icon className="h-3.5 w-3.5" aria-hidden="true" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm">

@@ -39,7 +39,7 @@ export default function ExperiencePage() {
               </ul>
               <div className="flex flex-wrap gap-1">
                 {exp.technologies.map((t) => (
-                  <span key={t} className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground">{t}</span>
+                  <span key={t} className="text-xs px-2 py-0.5 rounded-md bg-muted text-muted-foreground">{t}</span>
                 ))}
               </div>
             </motion.div>

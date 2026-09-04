@@ -18,11 +18,11 @@ export function SectionHeading({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className={`section-heading mb-8 ${align === 'center' ? 'text-center' : ''}`}
+      className={`section-heading mb-10 ${align === 'center' ? 'text-center' : ''}`}
     >
-      <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
+      <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
       {description && (
-        <p className="mt-2 text-muted-foreground text-lg">{description}</p>
+        <p className="mt-2 text-muted-foreground">{description}</p>
       )}
     </motion.div>
   );

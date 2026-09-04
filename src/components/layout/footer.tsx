@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import { SiGithub } from 'react-icons/si';
 import { Mail, Globe } from 'lucide-react';
 import { siteConfig } from '@/config/site';
-import { footerNavItems, footerSocialItems } from '@/config/navigation';
+import { footerNavItems, footerMoreItems } from '@/config/navigation';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const SHIMEJI_WALK_START = 7;
@@ -50,13 +50,13 @@ export function Footer() {
     <footer className="border-t border-[var(--border)]">
 
       <div className="container mx-auto px-4 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_1fr] gap-10">
           {/* Brand */}
           <div>
-            <h3 className="mb-2 text-lg font-bold">
+            <h3 className="mb-2 text-sm font-semibold">
               <button
                 type="button"
-                className="cursor-pointer font-bold text-[var(--foreground)] focus-visible:rounded-sm"
+                className="cursor-pointer font-semibold text-[var(--foreground)] focus-visible:rounded-sm"
                 onClick={startMascotWalk}
                 aria-label={`${siteConfig.displayName}: play the mascot walk, then visit GitHub`}
                 title="Psst... click me"
@@ -64,7 +64,7 @@ export function Footer() {
                 {siteConfig.displayName}
               </button>
             </h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground max-w-xs">
               AI Solution Developer — building useful software with intelligent
               features, one commit at a time.
             </p>
@@ -86,47 +86,50 @@ export function Footer() {
             </nav>
           </div>
 
-          {/* Connect */}
+          {/* More */}
           <div>
-            <h4 className="font-semibold text-sm mb-3 text-muted-foreground">Connect</h4>
-            <nav className="flex flex-col gap-2" aria-label="Social links">
-              {footerSocialItems.map((item) => (
-                <a
+            <h4 className="font-semibold text-sm mb-3 text-muted-foreground">More</h4>
+            <nav className="flex flex-col gap-2" aria-label="More navigation">
+              {footerMoreItems.map((item) => (
+                <Link
                   key={item.href}
                   href={item.href}
-                  target={item.href.startsWith('http') ? '_blank' : undefined}
-                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="text-sm text-muted-foreground hover:text-[var(--foreground)] transition-colors"
                 >
                   {item.title}
-                </a>
+                </Link>
               ))}
             </nav>
-            <div className="flex gap-3 mt-4">
+          </div>
+
+          {/* Connect */}
+          <div>
+            <h4 className="font-semibold text-sm mb-3 text-muted-foreground">Connect</h4>
+            <div className="flex gap-2">
               <a
                 href={siteConfig.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-full border border-[var(--border)] transition-colors hover:border-[var(--foreground)]/20"
+                className="p-2 rounded-md border border-[var(--border)] transition-colors hover:border-[var(--foreground)]/20"
                 aria-label="GitHub profile"
               >
-                <SiGithub className="h-5 w-5" />
+                <SiGithub className="h-4 w-4" />
               </a>
               <a
                 href={siteConfig.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-full border border-[var(--border)] transition-colors hover:border-[var(--foreground)]/20"
+                className="p-2 rounded-md border border-[var(--border)] transition-colors hover:border-[var(--foreground)]/20"
                 aria-label="LinkedIn profile"
               >
-                <Globe className="h-5 w-5" />
+                <Globe className="h-4 w-4" />
               </a>
               <a
                 href={siteConfig.email}
-                className="p-2.5 rounded-full border border-[var(--border)] transition-colors hover:border-[var(--foreground)]/20"
+                className="p-2 rounded-md border border-[var(--border)] transition-colors hover:border-[var(--foreground)]/20"
                 aria-label="Send email"
               >
-                <Mail className="h-5 w-5" />
+                <Mail className="h-4 w-4" />
               </a>
             </div>
           </div>

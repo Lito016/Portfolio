@@ -1,146 +1,68 @@
 'use client';
 
-import { useState } from 'react';
-import { Globe2, Mail, Phone } from 'lucide-react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { teamMembers } from '@/data/team';
+import { InteractiveBackground } from '@/components/shared/interactive-background';
+import { TextReveal } from '@/components/shared/text-reveal';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
-function WirePattern({ className }: { className: string }) {
-  return (
-    <svg className={className} viewBox="0 0 240 240" fill="none" aria-hidden="true">
-      {Array.from({ length: 11 }, (_, index) => (
-        <ellipse
-          key={index}
-          cx="120"
-          cy="120"
-          rx={34 + index * 9}
-          ry={92 - index * 3}
-          transform={`rotate(${index * 4 - 20} 120 120)`}
-          stroke="currentColor"
-          strokeWidth="1"
-        />
-      ))}
-    </svg>
-  );
-}
+const member = teamMembers[0];
 
-/** Responsive, data-driven team identity banner. */
+/** Clean identity banner — Linear-inspired dark surface. */
 export function Hero() {
-  const [activeMemberId, setActiveMemberId] = useState(teamMembers[0]?.id ?? '');
-  const member = teamMembers.find(({ id }) => id === activeMemberId) ?? teamMembers[0];
-
   if (!member) return null;
 
   return (
-    <section className="portfolio-hero relative pb-12 pt-2 sm:pb-16" aria-labelledby="team-member-name">
+    <section className="portfolio-hero" aria-labelledby="team-member-name">
       <div className="team-banner">
-        <div className="team-banner-shape team-banner-shape-one" aria-hidden="true" />
-        <div className="team-banner-shape team-banner-shape-two" aria-hidden="true" />
-        <div className="team-banner-shape team-banner-shape-three" aria-hidden="true" />
-        <div className="team-banner-glow" aria-hidden="true" />
-        <WirePattern className="team-banner-wire -left-24 -top-24 sm:-left-16 sm:-top-20" />
-        <WirePattern className="team-banner-wire -bottom-28 -right-24 rotate-12 sm:-right-14" />
+        {/* Interactive particle background */}
+        <InteractiveBackground />
+        <div className="relative z-10 mx-auto grid w-full max-w-[var(--content-wide)] items-center gap-8 px-5 py-8 sm:px-8 sm:py-10 lg:grid-cols-[1fr_1.6fr] lg:gap-16 lg:px-12 lg:py-14">
+          {/* Left: Profile */}
+          <motion.div
+            className="relative flex items-center justify-center lg:border-r lg:border-[var(--border)] lg:pr-10"
+            style={{ minHeight: '280px' }}
+            initial={{ opacity: 0, x: -16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {member.profileImage && (
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-56 w-56 sm:h-72 sm:w-72">
+                <Image
+                  src={`${basePath}${member.profileImage}`}
+                  alt={`${member.name} profile picture`}
+                  fill
+                  preload
+                  className="object-cover"
+                  sizes="288px"
+                />
+              </div>
+            )}
+          </motion.div>
 
-        {teamMembers.length > 1 && (
-          <label className="absolute right-5 top-5 z-20 text-xs text-[var(--team-banner-muted)] sm:right-8 sm:top-7">
-            <span className="sr-only">Choose a team member</span>
-            <select
-              value={member.id}
-              onChange={(event) => setActiveMemberId(event.target.value)}
-              className="rounded-full border border-[var(--team-banner-border)] bg-[var(--team-banner-surface)] px-3 py-2 text-sm text-[var(--team-banner-foreground)] backdrop-blur-md"
-              aria-label="Choose a team member"
-            >
-              {teamMembers.map(({ id, name }) => (
-                <option key={id} value={id}>{name}</option>
-              ))}
-            </select>
-          </label>
-        )}
-
-        <div className="relative z-10 grid h-full min-h-[28rem] items-center gap-7 px-7 py-9 sm:min-h-[30rem] sm:px-12 lg:min-h-0 lg:grid-cols-[minmax(0,1.55fr)_minmax(20rem,0.85fr)] lg:gap-14 lg:px-[9vw] lg:py-8">
+          {/* Right: Identity */}
           <div className="min-w-0">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--team-banner-muted)] sm:text-sm">
-              Human-centered systems · Applied intelligence
+            <p className="mb-4 text-[13px] font-medium uppercase tracking-[0.15em] text-muted-foreground">
+              AI Solution Developer
             </p>
-            <h1 id="team-member-name" className="text-balance text-3xl font-semibold tracking-tight text-[var(--team-banner-foreground)] sm:text-5xl lg:text-6xl 2xl:text-7xl">
-              {member.name}
-            </h1>
-            <p className="mt-3 text-sm font-medium text-[var(--team-banner-muted)] sm:text-base lg:text-lg">
-              {member.role}
-            </p>
-          </div>
-
-          <div className="min-w-0 lg:border-l-2 lg:border-[var(--team-banner-border-strong)] lg:pl-14">
-            <address className="space-y-5 not-italic text-[var(--team-banner-foreground)]">
-              {member.phone && member.phoneLabel && (
-                <a className="team-contact-link" href={member.phone}>
-                  <Phone aria-hidden="true" />
-                  <span>{member.phoneLabel}</span>
-                </a>
-              )}
-              {member.email && (
-                <a className="team-contact-link" href={member.email}>
-                  <Mail aria-hidden="true" />
-                  <span>{member.email.replace('mailto:', '')}</span>
-                </a>
-              )}
-              {member.linkedin && (
-                <a className="team-contact-link" href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                  <Globe2 aria-hidden="true" />
-                  <span>LinkedIn</span>
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
-              )}
-              {member.website && member.websiteLabel && (
-                <a className="team-contact-link" href={member.website} target="_blank" rel="noopener noreferrer">
-                  <Globe2 aria-hidden="true" />
-                  <span>{member.websiteLabel}</span>
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
-              )}
-            </address>
+            <TextReveal
+              text={member.name}
+              className="text-balance text-4xl font-semibold tracking-[-0.025em] text-[var(--foreground)] sm:text-5xl lg:text-[3.5rem] lg:leading-[1.08]"
+              as="h1"
+              id="team-member-name"
+            />
+            <motion.p
+              className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {member.bio}
+            </motion.p>
           </div>
         </div>
-      </div>
-
-      <div className="hero-profile-row relative z-20 mx-auto mt-5 flex w-full max-w-6xl items-center gap-4 px-5 sm:mt-6 sm:gap-6 sm:px-8">
-        {member.profileImage && (
-          <div className="relative shrink-0">
-            <div className="h-24 w-24 overflow-hidden rounded-full border-4 border-[var(--background)] bg-[var(--background)] shadow-2xl sm:h-32 sm:w-32">
-              <Image
-                key={member.profileImage}
-                src={`${basePath}${member.profileImage}`}
-                alt={`${member.name} profile picture`}
-                width={128}
-                height={128}
-                preload
-                className="h-full w-full object-cover"
-              />
-            </div>
-            {member.availability && (
-              <span
-                className="absolute bottom-1 right-1 h-5 w-5 rounded-full border-4 border-[var(--background)] bg-emerald-400 sm:bottom-2 sm:right-2 sm:h-6 sm:w-6"
-                role="img"
-                aria-label={member.availability}
-              />
-            )}
-          </div>
-        )}
-
-        {member.bio && (
-          <div className="hero-bio-card min-w-0 flex-1 rounded-2xl border border-[var(--border)] bg-[var(--card)] px-4 py-4 sm:px-6 sm:py-5">
-            {member.availability && (
-              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-600 dark:text-emerald-400">
-                {member.availability}
-              </p>
-            )}
-            <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-              {member.bio}
-            </p>
-          </div>
-        )}
       </div>
     </section>
   );

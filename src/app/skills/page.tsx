@@ -32,9 +32,9 @@ export default function SkillsPage() {
                 <div className="glass-card rounded-xl p-6">
                   <div className="flex items-center gap-3 mb-5">
                     <div className="rounded-md bg-primary/10 p-2">
-                      <Icon className="h-5 w-5 text-primary" />
+                      <Icon className="h-4 w-4 text-primary" aria-hidden="true" />
                     </div>
-                    <h3 className="text-lg font-semibold">{category.name}</h3>
+                    <h3 className="text-base font-semibold">{category.name}</h3>
                   </div>
 
                   <motion.div
@@ -54,7 +54,7 @@ export default function SkillsPage() {
                           hidden: { opacity: 0, scale: 0.85 },
                           visible: { opacity: 1, scale: 1, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
                         }}
-                        className="rounded-full border border-[var(--border)] bg-[var(--accent)] px-3.5 py-1.5 text-sm font-medium text-[var(--accent-foreground)]"
+                        className="rounded-md border border-[var(--border)] bg-[var(--muted)] px-3 py-1 text-sm font-medium text-muted-foreground"
                       >
                         {skill.name}
                       </motion.span>

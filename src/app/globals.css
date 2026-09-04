@@ -33,184 +33,85 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* ===== Responsive team banner ===== */
+/* ===== Responsive identity banner ===== */
 .team-banner {
-  --team-banner-foreground: var(--foreground);
-  --team-banner-muted: color-mix(in srgb, var(--foreground) 82%, transparent);
-  --team-banner-border: color-mix(in srgb, var(--foreground) 18%, transparent);
-  --team-banner-border-strong: color-mix(in srgb, var(--foreground) 72%, transparent);
-  --team-banner-surface: color-mix(in srgb, var(--background) 78%, transparent);
   position: relative;
   isolation: isolate;
   overflow: hidden;
   width: 100%;
-  aspect-ratio: auto;
-  border-block: 1px solid var(--team-banner-border);
-  background:
-    radial-gradient(circle at 48% 88%, color-mix(in srgb, var(--foreground) 12%, transparent), transparent 28%),
-    linear-gradient(125deg,
-      color-mix(in srgb, var(--background) 82%, var(--foreground)) 0%,
-      color-mix(in srgb, var(--background) 95%, var(--foreground)) 46%,
-      var(--background) 100%);
-  box-shadow: 0 18px 55px color-mix(in srgb, var(--foreground) 14%, transparent);
-  transition: background 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
-}
-
-.team-banner-shape {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.team-banner-shape-one {
-  background: linear-gradient(145deg, color-mix(in srgb, var(--foreground) 22%, transparent), color-mix(in srgb, var(--background) 75%, transparent));
-  clip-path: polygon(0 0, 50% 0, 34% 45%, 0 70%);
-}
-
-.team-banner-shape-two {
-  background: linear-gradient(160deg, color-mix(in srgb, var(--background) 82%, transparent), color-mix(in srgb, var(--foreground) 18%, transparent));
-  clip-path: polygon(15% 0, 100% 66%, 42% 91%);
-}
-
-.team-banner-shape-three {
-  background: linear-gradient(155deg, color-mix(in srgb, var(--foreground) 24%, transparent), color-mix(in srgb, var(--background) 70%, transparent));
-  clip-path: polygon(0 43%, 47% 100%, 0 100%);
-}
-
-.team-banner-glow {
-  position: absolute;
-  inset: 28% 18% 4% 26%;
-  background: radial-gradient(ellipse, color-mix(in srgb, var(--foreground) 14%, transparent), transparent 67%);
-  filter: blur(18px);
-  pointer-events: none;
-}
-
-.team-banner-wire {
-  position: absolute;
-  z-index: 2;
-  width: clamp(13rem, 20vw, 28rem);
-  color: color-mix(in srgb, var(--foreground) 30%, transparent);
-  pointer-events: none;
-}
-
-.team-contact-link {
-  display: grid;
-  grid-template-columns: 2rem minmax(0, 1fr);
-  align-items: center;
-  gap: 1rem;
-  width: fit-content;
-  max-width: 100%;
-  color: var(--team-banner-muted);
-  font-size: clamp(0.875rem, 1.15vw, 1.125rem);
-  overflow-wrap: anywhere;
-  transition: color 180ms ease, transform 180ms ease;
-}
-
-.team-contact-link svg {
-  width: 2rem;
-  height: 2rem;
-  stroke-width: 1.6;
-}
-
-.team-contact-link:hover {
-  color: var(--primary);
-  transform: translateX(0.25rem);
-}
-
-.hero-profile-row {
-  margin-top: 1.5rem;
-}
-
-.hero-profile-row > div:first-child > div:first-child {
-  border-width: 4px;
-  border-radius: 1rem;
-  box-shadow: 0 18px 45px color-mix(in srgb, var(--foreground) 18%, transparent);
-}
-
-.hero-bio-card {
-  min-height: 6rem;
-}
-
-@media (max-width: 767px) {
-  .team-banner-shape-one {
-    clip-path: polygon(0 0, 100% 0, 52% 42%, 0 58%);
-  }
-
-  .team-banner-shape-two {
-    clip-path: polygon(20% 28%, 100% 45%, 100% 84%, 0 100%);
-  }
+  border-block: 1px solid var(--border);
+  background: var(--card);
+  transition: background 300ms ease, border-color 300ms ease;
 }
 
 /* ===== CSS Custom Properties ===== */
 :root {
-  --radius: 0.75rem;
+  --radius: 0.625rem;
   --background: #f8f9fc;
   --foreground: #0a0a1a;
-  --card: rgba(255, 255, 255, 0.7);
+  --card: #f5f5f7;
   --card-foreground: #0a0a1a;
-  --popover: rgba(255, 255, 255, 0.9);
+  --popover: #f5f5f7;
   --popover-foreground: #0a0a1a;
   --primary: #3b82f6;
   --primary-foreground: #ffffff;
-  --secondary: rgba(59, 130, 246, 0.1);
-  --secondary-foreground: #3b82f6;
-  --muted: rgba(59, 130, 246, 0.08);
+  --secondary: rgba(59, 130, 246, 0.08);
+  --secondary-foreground: #2563eb;
+  --muted: #f1f5f9;
   --muted-foreground: #475569;
-  --accent: rgba(59, 130, 246, 0.12);
-  --accent-foreground: #3b82f6;
+  --accent: rgba(59, 130, 246, 0.08);
+  --accent-foreground: #2563eb;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: rgba(59, 130, 246, 0.15);
-  --input: rgba(59, 130, 246, 0.15);
+  --border: #cbd5e1;
+  --input: #cbd5e1;
   --ring: #3b82f6;
-  --glass: rgba(255, 255, 255, 0.6);
-  --glass-border: rgba(255, 255, 255, 0.3);
-  --glass-hover: rgba(255, 255, 255, 0.8);
+  --glass: #f5f5f7;
+  --glass-border: #cbd5e1;
+  --glass-hover: #f8fafc;
   --gradient-start: #3b82f6;
   --gradient-end: #06b6d4;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.12);
-  --glow-primary: #3b82f6;
-  --glow-secondary: #06b6d4;
-  --glow-tertiary: #f093fb;
-  --drop-shadow: drop-shadow(0 0 6px rgba(59, 130, 246, 0.3));
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Canvas containment — prevents repaints from affecting layout ===== */
+.team-banner,
+.contact-cta .relative.overflow-hidden {
+  contain: layout style paint;
 }
 
 .dark {
-  --background: #0a0a1a;
-  --foreground: #f0f0f5;
-  --card: rgba(255, 255, 255, 0.05);
-  --card-foreground: #f0f0f5;
-  --popover: rgba(20, 20, 40, 0.9);
-  --popover-foreground: #f0f0f5;
-  --primary: #3b82f6;
+  --background: #000000;
+  --foreground: #ededed;
+  --card: #0a0a0a;
+  --card-foreground: #ededed;
+  --popover: #0a0a0a;
+  --popover-foreground: #ededed;
+  --primary: #5e82f6;
   --primary-foreground: #ffffff;
-  --secondary: rgba(59, 130, 246, 0.15);
-  --secondary-foreground: #7dd3fc;
-  --muted: rgba(255, 255, 255, 0.05);
-  --muted-foreground: rgba(255, 255, 255, 0.7);
-  --accent: rgba(59, 130, 246, 0.15);
-  --accent-foreground: #7dd3fc;
+  --secondary: rgba(255, 255, 255, 0.06);
+  --secondary-foreground: #a1a1aa;
+  --muted: #111111;
+  --muted-foreground: #71717a;
+  --accent: rgba(255, 255, 255, 0.05);
+  --accent-foreground: #a1a1aa;
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;
   --border: rgba(255, 255, 255, 0.08);
   --input: rgba(255, 255, 255, 0.08);
-  --ring: #3b82f6;
-  --glass: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-hover: rgba(255, 255, 255, 0.1);
-  --gradient-start: #3b82f6;
-  --gradient-end: #06b6d4;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
-  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
-  --glow-primary: #60a5fa;
-  --glow-secondary: #22d3ee;
-  --glow-tertiary: #f0abfc;
-  --drop-shadow: drop-shadow(0 0 8px rgba(96, 165, 250, 0.4));
+  --ring: #5e82f6;
+  --glass: #0a0a0a;
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-hover: #111111;
+  --gradient-start: #5e82f6;
+  --gradient-end: #22d3ee;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.7);
+  --shadow-card: none;
 }
 
 /* ===== Footer shimeji mascot ===== */
@@ -262,18 +163,20 @@
 .glass-card {
   background: var(--card);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-card);
+  border-radius: var(--radius);
 }
 
 .glass-card-hover {
   background: var(--card);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-card);
-  transition: border-color 0.3s ease;
+  border-radius: var(--radius);
+  transition: border-color 200ms ease, background-color 200ms ease;
 }
 
 .glass-card-hover:hover {
-  border-color: color-mix(in srgb, var(--foreground) 20%, transparent);
+  border-color: var(--border);
+  background: var(--glass-hover);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 /* ===== Scrollbar ===== */
@@ -465,9 +368,7 @@ button {
     color var(--motion-fast) var(--motion-ease),
     background-color var(--motion-fast) var(--motion-ease),
     border-color var(--motion-fast) var(--motion-ease),
-    box-shadow var(--motion-base) var(--motion-ease),
-    opacity var(--motion-fast) var(--motion-ease),
-    transform var(--motion-base) var(--motion-ease);
+    box-shadow var(--motion-base) var(--motion-ease);
 }
 
 button:active,
@@ -479,32 +380,6 @@ header {
   contain: layout style;
 }
 
-header.glass-card {
-  box-shadow: 0 10px 35px color-mix(in srgb, var(--foreground) 9%, transparent) !important;
-}
-
-header nav a {
-  position: relative;
-}
-
-header nav a::after {
-  content: "";
-  position: absolute;
-  right: 0.75rem;
-  bottom: 0.28rem;
-  left: 0.75rem;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform var(--motion-base) var(--motion-ease);
-}
-
-header nav a:hover::after,
-header nav a[aria-current="page"]::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
 
 .page-transition > .container {
   padding-top: clamp(4.5rem, 7vw, 7rem);
@@ -565,7 +440,6 @@ header nav a[aria-current="page"]::after {
   }
 
   .case-study-card,
-  header nav a::after,
   a,
   button {
     transition-duration: 0.01ms !important;
@@ -586,14 +460,14 @@ header nav a[aria-current="page"]::after {
 }
 
 .portfolio-hero .team-banner {
-  width: min(calc(100% - 2rem), var(--content-wide));
+  width: 100%;
   margin-inline: auto;
-  border-radius: clamp(1rem, 2vw, 1.75rem);
+  border-radius: 0;
+  background: var(--card);
 }
 
-.portfolio-hero .hero-profile-row,
-.portfolio-hero > div:last-child {
-  max-width: min(calc(100% - 2rem), 1120px);
+html:not(.dark) .portfolio-hero .team-banner {
+  background: #ebedf2;
 }
 
 .tech-marquee {
@@ -628,10 +502,6 @@ header nav a[aria-current="page"]::after {
     padding-top: 1rem;
   }
 
-  .portfolio-hero .team-banner > .relative.z-10 {
-    min-height: 0;
-  }
-
   .featured-projects > .container > div:first-child p {
     margin-top: 1rem;
   }
@@ -647,16 +517,6 @@ header nav a[aria-current="page"]::after {
   to { transform: translate3d(-50%, 0, 0); }
 }
 
-.portfolio-hero {
-  padding-top: 0.75rem;
-}
-
-@media (max-width: 639px) {
-  .portfolio-hero {
-    padding-top: 0.4rem;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .tech-marquee-track {
     animation-name: tech-marquee-scroll !important;
@@ -664,12 +524,4 @@ header nav a[aria-current="page"]::after {
     animation-timing-function: linear !important;
     animation-iteration-count: infinite !important;
   }
-}
-
-/* ===== Hero background ===== */
-.portfolio-hero .team-banner {
-  background:
-    radial-gradient(circle at 78% 28%, color-mix(in srgb, var(--gradient-end) 18%, transparent), transparent 28%),
-    radial-gradient(circle at 14% 82%, color-mix(in srgb, var(--gradient-start) 14%, transparent), transparent 34%),
-    color-mix(in srgb, var(--card) 92%, var(--background));
 }

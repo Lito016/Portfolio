@@ -12,6 +12,9 @@ export const footerNavItems: NavItem[] = [
   { title: 'Skills', href: '/skills' },
   { title: 'Stats', href: '/stats' },
   { title: 'Resume', href: '/resume' },
+];
+
+export const footerMoreItems: NavItem[] = [
   { title: 'Blog', href: '/blog' },
   { title: 'Uses', href: '/uses' },
   { title: 'Now', href: '/now' },
