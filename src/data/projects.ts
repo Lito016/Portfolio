@@ -29,7 +29,7 @@ export const hostedProjects: HostedProject[] = [
   {
     name: 'Barangay Digital Portal',
     description: 'Community platform for digital barangay services, online document requests with real-time tracking, announcements, and resident engagement.',
-    url: 'https://barangay-portal-prototype.pages.dev/',
+    url: 'https://barangay-prototype.pages.dev/',
     image: '/project-barangay.png',
     tags: ['Full-Stack', 'Government', 'React'],
     caseStudy: {
