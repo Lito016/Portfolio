@@ -53,13 +53,19 @@ export function ProjectCard({ project, variant }: ProjectCardProps) {
             {project.name}
           </h3>
         </div>
-        <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+        <p
+          className={
+            variant === 'featured'
+              ? 'mb-4 line-clamp-2 text-sm leading-relaxed text-muted-foreground'
+              : 'mb-4 text-sm leading-relaxed text-muted-foreground'
+          }
+        >
           {project.description}
         </p>
 
         {variant === 'featured' && project.highlights.length > 0 && (
           <ul className="mb-4 space-y-1.5">
-            {project.highlights.map((highlight) => (
+            {project.highlights.slice(0, 2).map((highlight) => (
               <li
                 key={highlight}
                 className="flex items-start gap-2 text-sm leading-relaxed text-muted-foreground"
