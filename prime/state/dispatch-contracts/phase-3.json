@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.1",
+  "phase": 3,
+  "name": "Design",
+  "agent": "prime-requirement+prime-make",
+  "procedure": [
+    "prime-requirement-architect",
+    "prime-make-design"
+  ],
+  "mandatory_skills": [
+    "quality-review",
+    "caveman",
+    "research",
+    "software-architecture"
+  ],
+  "core_skills": [
+    "quality-review",
+    "caveman"
+  ],
+  "mandatory_skills_when_ui": [
+    "frontend"
+  ],
+  "recommended_skills": [
+    "backend",
+    "database",
+    "baas",
+    "security-testing",
+    "document",
+    "cross-platform",
+    "data-ai",
+    "data-engineering"
+  ],
+  "required_artifacts": [
+    "docs/DESIGN.canvas.tsx",
+    "prime/reports/phase-3-design.md",
+    "prime/reports/phase-3-checkpoint-review.md",
+    "prime/reports/phase-3-quality-review.md"
+  ],
+  "required_checks": [
+    "design-review",
+    "simplicity-gate"
+  ],
+  "gate_contracts": [
+    {
+      "id": "G1",
+      "outcome": "design document describes architecture, components, and interfaces",
+      "check": "node scripts/gate-check.mjs pattern docs/DESIGN.canvas.tsx \"architecture|component|interface|module|schema\"",
+      "expect": "GATE-PASS",
+      "kind": "runnable"
+    },
+    {
+      "id": "G2",
+      "outcome": "design report records decisions and trade-offs",
+      "check": "node scripts/gate-check.mjs size prime/reports/phase-3-design.md 200",
+      "expect": "GATE-PASS",
+      "kind": "runnable"
+    },
+    {
+      "id": "G3",
+      "outcome": "simplicity gate: design document is bounded in scope and does not introduce excessive external dependencies",
+      "kind": "hybrid",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-3-design.md \"simplicity|complexity|trade-off|tradeoff|justif|unnecessary|alternative\"",
+      "expect": "GATE-PASS",
+      "manual_followup": "Semantic judgment required: does the design introduce unjustified abstraction layers, unnecessary configuration files, or dependencies that could be replaced with simpler alternatives? The structural check verifies the design report records complexity analysis; only human review can assess whether the design is actually simple."
+    },
+    {
+      "id": "G4",
+      "outcome": "quality audit verdict is recorded for phase artifacts",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-3-quality-review.md \"verdict:\\s*(pass|block|request changes)\"",
+      "expect": "GATE-PASS",
+      "kind": "runnable"
+    },
+    {
+      "id": "G5",
+      "outcome": "technical decisions include rationale and current source URLs",
+      "kind": "hybrid",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-3-design.md \"(because|rationale|justif|therefore)[\\s\\S]*https?://\"",
+      "expect": "GATE-PASS",
+      "manual_followup": "Confirm each material technical decision is supported by relevant primary sources and contradictory evidence is resolved."
+    },
+    {
+      "id": "G6",
+      "outcome": "design cross-references defined requirements",
+      "check": "node scripts/gate-check.mjs pattern docs/DESIGN.canvas.tsx \"PRD|requirement|acceptance criterion|REQ-[0-9]+\"",
+      "expect": "GATE-PASS",
+      "kind": "runnable"
+    },
+    {
+      "id": "G8",
+      "outcome": "design traces every identified requirement",
+      "check": "node scripts/gate-check.mjs traceability docs/PRD.md docs/DESIGN.canvas.tsx",
+      "expect": "GATE-PASS",
+      "kind": "runnable"
+    },
+    {
+      "id": "G9",
+      "outcome": "architecture decisions use multiple unique online sources with rationale",
+      "check": "node scripts/gate-check.mjs citations prime/reports/phase-3-design.md 2",
+      "expect": "GATE-PASS",
+      "kind": "runnable"
+    },
+    {
+      "id": "G7",
+      "outcome": "mid-phase checkpoint evidence demonstrates findings were corrected before final design",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-3-checkpoint-review.md \"artifact snapshot|finding|correction|blocker|verdict\"",
+      "expect": "GATE-PASS",
+      "kind": "runnable"
+    },
+    {
+      "id": "G10",
+      "outcome": "UI design language is documented with color palette, typography scale, spacing system, and component patterns — anchored to a brand reference or original design system",
+      "kind": "hybrid",
+      "applicable_when": "has_ui",
+      "check": "node scripts/gate-check.mjs pattern docs/DESIGN.canvas.tsx \"(palette|color|typography|type scale|spacing|component|design language|design system|brand)\"",
+      "expect": "GATE-PASS",
+      "manual_followup": "Semantic judgment required: does the design language demonstrate intentional aesthetic decisions rather than generic AI defaults? The structural check verifies the design document records specific visual design decisions (colors, typography, spacing, components); only human review can assess whether the design is distinctive and purposeful. N/A for projects with no UI."
+    },
+    {
+      "id": "G11",
+      "outcome": "design references at least one brand design system or documents an original design system with rationale",
+      "kind": "hybrid",
+      "applicable_when": "has_ui",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-3-design.md \"(brand|design system|design reference|inspired by|design anchor|stripe|linear|vercel|apple|notion|airbnb|shopify|figma|raycast|supabase|resend|posthog|warp|sentry)\"",
+      "expect": "GATE-PASS",
+      "manual_followup": "Confirm the referenced brand or design system was actually consulted (not just name-dropped) and that the design decisions trace back to it. N/A for projects with no UI."
+    },
+    {
+      "id": "G12",
+      "outcome": "design document uses specific design token vocabulary and anti-slop patterns from loaded references (not generic descriptions)",
+      "kind": "hybrid",
+      "applicable_when": "has_ui",
+      "check": "node scripts/gate-check.mjs pattern docs/DESIGN.canvas.tsx \"(design token|--[a-z]+-[a-z]+|oklch|hsl|clamp|type scale|modular scale|4px|8px|spacing scale|radius|shadow|elevation|z-index|motion|transition|easing|duration|breakpoint|grid|container query)\"",
+      "expect": "GATE-PASS",
+      "manual_followup": "Verify the design document records specific design token values (not just 'choose a color palette'). The design should show evidence of consulting DESIGN-QUALITY.md references: specific spacing scales, typography scales, color systems (oklch/hsl), responsive breakpoints, and motion patterns. Generic descriptions like 'use a modern color palette' indicate the reference was not loaded. N/A for projects with no UI."
+    }
+  ]
+}

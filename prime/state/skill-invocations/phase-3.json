@@ -1,0 +1,49 @@
+{
+  "phase": 3,
+  "agent": "prime-requirement+prime-make",
+  "agent_note": "design-authoring procedure assumed in main agent; two independent subagent invocations (checkpoint review, final quality review) performed",
+  "invocations": [
+    {
+      "skill": "quality-review",
+      "status": "applied",
+      "evidence": ["prime/reports/phase-3-quality-review.md", "prime/reports/phase-3-checkpoint-review.md"],
+      "note": "checkpoint review found 3 Major/3 Minor/2 Nit; all corrections verified by final review; verdict pass"
+    },
+    {
+      "skill": "caveman",
+      "status": "applied",
+      "evidence": ["prime/reports/phase-3-caveman-digest.md"]
+    },
+    {
+      "skill": "research",
+      "status": "applied",
+      "evidence": ["prime/reports/phase-3-design.md", "prime/reports/phase-1-research.md"],
+      "note": "Next.js 16 bundled docs reads, official URL citations, GitHub reachability facts in whitelist"
+    },
+    {
+      "skill": "software-architecture",
+      "status": "applied",
+      "evidence": ["docs/DESIGN.canvas.tsx", "prime/reports/phase-3-design.md"],
+      "note": "module map, interfaces, ADR-style decisions D1-D7 with tradeoffs and rejected alternatives"
+    },
+    {
+      "skill": "frontend",
+      "status": "applied",
+      "evidence": ["docs/DESIGN.canvas.tsx", "prime/reports/phase-3-design.md"],
+      "references": [
+        "skills/frontend/references/core/design-quality-routing.md",
+        "skills/frontend/references/design/quality-parts/index.json",
+        "skills/frontend/references/design/quality-parts/part-01-anti-slop-aesthetic-taste-skill-core.md",
+        "skills/frontend/references/design/quality-parts/part-02-taste-skill-protocols.md",
+        "skills/frontend/references/design/quality-parts/part-05-design-audit-protocol-impeccable.md",
+        "skills/frontend/references/design/quality-parts/part-13-design-system-foundations.md",
+        "skills/frontend/references/design/quality-parts/part-24-page-patterns-content.md",
+        "skills/frontend/references/design/quality-parts/part-27-layout-primitives-and-animated-patterns.md",
+        "skills/frontend/scripts/ui-ux-pro-max/search.py",
+        "skills/frontend/scripts/query-brand-designs.mjs",
+        "skills/frontend/scripts/query-ui-data.mjs"
+      ],
+      "note": "comprehensive route for Autopilot UI: routing + manifest loaded, parts 01/02/05/13/24/27 consulted; UI/UX Pro Max selector executed with --design-system output recorded in phase-3-design.md benchmark record; brand token study (vercel) queried"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.1",
+  "phase": 1,
+  "name": "Discover",
+  "agent": "prime-problem",
+  "procedure": [
+    "prime-problem-ideate"
+  ],
+  "mandatory_skills": [
+    "quality-review",
+    "caveman",
+    "research"
+  ],
+  "core_skills": [
+    "quality-review",
+    "caveman"
+  ],
+  "recommended_skills": [
+    "brainstorm",
+    "document",
+    "business",
+    "data-ai",
+    "frontend"
+  ],
+  "required_artifacts": [
+    "prime/state/project-charter.md",
+    "prime/reports/phase-1-discover.md",
+    "prime/reports/phase-1-folder-audit.md",
+    "prime/reports/phase-1-quality-review.md"
+  ],
+  "required_checks": [
+    "discovery-review"
+  ],
+  "gate_contracts": [
+    {
+      "id": "G1",
+      "outcome": "project charter exists with substantive discovery content",
+      "check": "node scripts/gate-check.mjs size prime/state/project-charter.md 500",
+      "expect": "GATE-PASS",
+      "kind": "runnable"
+    },
+    {
+      "id": "G2",
+      "outcome": "discovery report records findings and pain points",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-1-discover.md \"finding|pain|problem|user|need\"",
+      "expect": "GATE-PASS",
+      "kind": "runnable"
+    },
+    {
+      "id": "G3",
+      "outcome": "project charter identifies user personas, pain points, or scenarios",
+      "check": "node scripts/gate-check.mjs pattern prime/state/project-charter.md \"persona|user|pain|scenario|problem|need\"",
+      "expect": "GATE-PASS",
+      "kind": "runnable"
+    },
+    {
+      "id": "G4",
+      "outcome": "quality audit verdict is recorded for phase artifacts",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-1-quality-review.md \"verdict:\\s*(pass|block|request changes)\"",
+      "expect": "GATE-PASS",
+      "kind": "runnable"
+    },
+    {
+      "id": "G5",
+      "outcome": "discovery report records prior knowledge recall or online research evidence",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-1-discover.md \"search|source|research|benchmark|verified|reference\"",
+      "expect": "GATE-PASS",
+      "kind": "runnable"
+    },
+    {
+      "id": "G6",
+      "outcome": "discovery report contains evaluation or scoring of alternatives",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-1-discover.md \"evaluat|score|compar|alternat|option|recommend|weighted|criteria\"",
+      "expect": "GATE-PASS",
+      "kind": "runnable"
+    },
+    {
+      "id": "G7",
+      "outcome": "discovery methodology checklist records applied steps and evidence",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-1-discover.md \"methodology checklist|steps applied|\\[x\\].*(recall|research|ideat|evaluat)\"",
+      "expect": "GATE-PASS",
+      "kind": "runnable"
+    },
+    {
+      "id": "G8",
+      "outcome": "project folder structure assessed and organized if needed",
+      "check": "node scripts/gate-check.mjs exists prime/reports/phase-1-folder-audit.md",
+      "expect": "GATE-PASS",
+      "kind": "runnable"
+    }
+  ]
+}

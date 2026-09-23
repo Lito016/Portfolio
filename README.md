@@ -1,6 +1,6 @@
 # Portfolio — Manolito Almaden Jr.
 
-Personal portfolio website showcasing my work as an AI Solution Developer. Built with Next.js 16, React 19, and Tailwind CSS 4, featuring glassmorphism design, dark/light theme, and particle effects.
+Personal portfolio website showcasing my work as an AI Solution Developer. Built with Next.js 16, React 19, and Tailwind CSS 4, featuring interactive particle backgrounds, dark/light theme, and a shimeji mascot easter egg.
 
 **Live:** [https://portfolio-8af.pages.dev](https://portfolio-8af.pages.dev)
 **Repo:** [https://github.com/Lito016/Portfolio](https://github.com/Lito016/Portfolio)
@@ -9,18 +9,18 @@ Personal portfolio website showcasing my work as an AI Solution Developer. Built
 
 - **Framework:** Next.js 16 (App Router, Turbopack, Static Export)
 - **UI:** React 19, Tailwind CSS 4, Framer Motion
-- **Styling:** Glassmorphism design system with CSS custom properties
+- **Styling:** CSS custom properties design system with dark/light theme
 - **Data Fetching:** TanStack React Query, GitHub REST API
 - **Forms:** React Hook Form + Zod validation
-- **Effects:** tsParticles (connected-dots background)
-- **Theme:** next-themes (dark/light/system)
+- **Effects:** Canvas-based interactive particle background (custom, zero dependencies)
+- **Theme:** Custom theme provider (dark/light/system) with view transitions
 - **Deployment:** Cloudflare Pages with GitHub Actions CI/CD
 
 ## Pages
 
 | Section | Description |
 |---------|-------------|
-| Home | Hero with cover photo, tech stack marquee, GitHub stats, featured projects |
+| Home | Hero with cover photo, tech stack marquee, featured projects, contact CTA |
 | About | Personal background and introduction |
 | Skills | Technical skills and competencies |
 | Projects | Hosted live applications and project showcase |

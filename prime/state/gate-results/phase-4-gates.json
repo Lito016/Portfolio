@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.1",
+  "phase": 4,
+  "verdict": "pass",
+  "checks": [
+    { "name": "plan-review", "status": "pass", "evidence": ["prime/reports/phase-4-quality-review.md", "prime/reports/phase-4-checkpoint-review.md"] },
+    { "name": "G1", "status": "pass", "evidence": ["docs/PRP.md"] },
+    { "name": "G2", "status": "pass", "evidence": ["prime/reports/phase-4-plan.md"] },
+    { "name": "G3", "status": "pass", "evidence": ["docs/PRP.md"] },
+    { "name": "G4", "status": "pass", "evidence": ["prime/reports/phase-4-quality-review.md"] },
+    { "name": "G5", "status": "pass", "evidence": ["docs/PRP.md"] },
+    { "name": "G6", "status": "pass", "evidence": ["docs/PRP.md"] },
+    { "name": "G7", "status": "pass", "evidence": ["prime/reports/phase-4-plan.md"] },
+    { "name": "G8", "status": "pass", "evidence": ["docs/PRP.md"] },
+    { "name": "G9", "status": "pass", "evidence": ["docs/PRP.md"] },
+    { "name": "G10", "status": "pass", "evidence": ["docs/PRP.md"] },
+    { "name": "G11", "status": "pass", "evidence": ["prime/reports/phase-4-checkpoint-review.md"] },
+    { "name": "G12", "status": "pass", "evidence": ["docs/PRP.md", "docs/PRD.md"] },
+    { "name": "G13", "status": "pass", "evidence": ["docs/PRP.md"] },
+    { "name": "G14", "status": "pass", "evidence": ["prime/reports/threat-model.md"] }
+  ]
+}

@@ -13,7 +13,6 @@ const categoryIcons: Record<string, React.ComponentType<{ className?: string }>>
   'Tools & Platforms': Wrench,
   Databases: Database,
 };
-
 export default function SkillsPage() {
   return (
     <PageTransition>

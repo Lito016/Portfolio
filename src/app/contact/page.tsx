@@ -99,7 +99,12 @@ export default function ContactPage() {
                 <button onClick={() => setSubmitted(false)} className="mt-4 text-sm text-primary hover:underline">Send another message</button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" aria-label="Contact form">
+                {(error || submitted) && (
+                  <div aria-live="polite" className="sr-only">
+                    {error ? 'There was an error sending your message' : 'Your message has been sent successfully'}
+                  </div>
+                )}
                 {error && (
                   <div role="alert" className="flex items-start gap-2 rounded-lg border border-destructive/30 bg-destructive/10 p-3 text-sm text-destructive">
                     <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" aria-hidden="true" />

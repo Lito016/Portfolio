@@ -1,0 +1,10 @@
+{
+  "phase": 4,
+  "agent": "prime-instruct",
+  "agent_note": "planning procedure assumed in main agent; independent checkpoint + final plan reviews via separate subagents",
+  "invocations": [
+    { "skill": "quality-review", "status": "applied", "evidence": ["prime/reports/phase-4-quality-review.md", "prime/reports/phase-4-checkpoint-review.md"], "note": "checkpoint: 2 blocking majors corrected; final verdict pass" },
+    { "skill": "caveman", "status": "applied", "evidence": ["prime/reports/phase-4-caveman-digest.md"] },
+    { "skill": "research", "status": "applied", "evidence": ["prime/reports/phase-4-plan.md", "docs/PRP.md"], "note": "planning constraints verified against Next.js static-export/metadata docs and W3C menu pattern (URLs in PRP)" }
+  ]
+}

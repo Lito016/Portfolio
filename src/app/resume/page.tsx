@@ -17,8 +17,20 @@ import {
   Printer,
 } from 'lucide-react';
 import { SiGithub } from 'react-icons/si';
+import { siteConfig } from '@/config/site';
 
 const member = teamMembers[0];
+
+const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+function formatResumeDate(dateStr: string): string {
+  if (dateStr === 'Present') return 'Present';
+  const parts = dateStr.split('-');
+  if (parts.length === 2) {
+    const [year, month] = parts;
+    return `${monthNames[parseInt(month, 10) - 1]} ${year}`;
+  }
+  return dateStr;
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
@@ -56,7 +68,7 @@ export default function ResumePage() {
                   {member?.name ?? 'Manolito O. Almaden Jr.'}
                 </h1>
                 <p className="mt-1 text-lg font-medium text-primary">
-                  IT Graduate &nbsp;|&nbsp; Web &amp; Mobile Developer &nbsp;|&nbsp; Office Staff
+                  AI Solution Developer &nbsp;|&nbsp; Web &amp; Mobile Developer
                 </p>
                 <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
                   <MapPin className="h-3.5 w-3.5" />
@@ -66,14 +78,14 @@ export default function ResumePage() {
 
               <div className="space-y-1.5 text-sm">
                 <a
-                  href="mailto:manolitoalmadenjr@gmail.com"
+                  href={siteConfig.email}
                   className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
                 >
                   <Mail className="h-3.5 w-3.5 shrink-0" />
-                  manolitoalmadenjr@gmail.com
+                  {siteConfig.email.replace('mailto:', '')}
                 </a>
                 <a
-                  href="https://github.com/Lito016"
+                  href={siteConfig.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
@@ -81,15 +93,17 @@ export default function ResumePage() {
                   <SiGithub className="h-3.5 w-3.5 shrink-0" />
                   github.com/Lito016
                 </a>
-                <a
-                  href="https://linkedin.com/in/manolito-almaden-jr-a54a6634a"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
-                >
-                  <Globe className="h-3.5 w-3.5 shrink-0" />
-                  linkedin.com/in/manolito-almaden-jr-a54a6634a
-                </a>
+                {siteConfig.linkedin && (
+                  <a
+                    href={siteConfig.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    <Globe className="h-3.5 w-3.5 shrink-0" />
+                    {siteConfig.linkedin.replace('https://', '')}
+                  </a>
+                )}
               </div>
             </div>
 
@@ -99,10 +113,9 @@ export default function ResumePage() {
                 Objective
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">
-                A motivated and detail-oriented Bachelor of Science in Information Technology
-                graduate seeking an office staff or IT support role where I can apply my web and
-                mobile development skills, technical expertise, and dedication to contribute to
-                organizational goals.
+                AI Solution Developer passionate about building intelligent web applications,
+                agentic AI workflows, and practical digital products. Experienced in LLM integration,
+                RAG pipelines, and full-stack development with modern web technologies.
               </p>
             </div>
           </header>
@@ -171,7 +184,7 @@ export default function ResumePage() {
                     <p className="text-sm font-medium text-primary">{exp.company}</p>
                   </div>
                   <div className="text-right text-xs text-muted-foreground">
-                    <p>{exp.startDate} &ndash; {exp.endDate}</p>
+                    <p>{formatResumeDate(exp.startDate)} &ndash; {formatResumeDate(exp.endDate)}</p>
                   </div>
                 </div>
                 <ul className="mt-2 space-y-1 text-sm text-muted-foreground">

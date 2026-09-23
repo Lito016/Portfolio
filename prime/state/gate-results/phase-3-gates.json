@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.1",
+  "phase": 3,
+  "verdict": "pass",
+  "checks": [
+    { "name": "design-review", "status": "pass", "evidence": ["prime/reports/phase-3-quality-review.md", "prime/reports/phase-3-checkpoint-review.md"] },
+    { "name": "simplicity-gate", "status": "pass", "evidence": ["prime/reports/phase-3-design.md"] },
+    { "name": "G1", "status": "pass", "evidence": ["docs/DESIGN.canvas.tsx"] },
+    { "name": "G2", "status": "pass", "evidence": ["prime/reports/phase-3-design.md"] },
+    { "name": "G3", "status": "pass", "evidence": ["prime/reports/phase-3-design.md"] },
+    { "name": "G4", "status": "pass", "evidence": ["prime/reports/phase-3-quality-review.md"] },
+    { "name": "G5", "status": "pass", "evidence": ["prime/reports/phase-3-design.md"] },
+    { "name": "G6", "status": "pass", "evidence": ["docs/DESIGN.canvas.tsx"] },
+    { "name": "G7", "status": "pass", "evidence": ["prime/reports/phase-3-checkpoint-review.md"] },
+    { "name": "G8", "status": "pass", "evidence": ["docs/DESIGN.canvas.tsx", "docs/PRD.md"] },
+    { "name": "G9", "status": "pass", "evidence": ["prime/reports/phase-3-design.md"] },
+    { "name": "G10", "status": "pass", "evidence": ["docs/DESIGN.canvas.tsx"] },
+    { "name": "G11", "status": "pass", "evidence": ["prime/reports/phase-3-design.md"] },
+    { "name": "G12", "status": "pass", "evidence": ["docs/DESIGN.canvas.tsx"] }
+  ]
+}

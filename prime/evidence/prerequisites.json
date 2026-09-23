@@ -1,0 +1,36 @@
+{
+  "schema_version": "2.0",
+  "run_id": "Portfolio-mudhrqbr-xai46i",
+  "recall": {
+    "timestamp": "2026-09-23T02:36:35.000Z",
+    "provider": "web",
+    "fallback_reason": "Local repo state (cycles 1-3 audits, node_modules/next/dist/docs, existing src/) documents the current codebase but not external best-practice guidance for Next.js 16 App Router portfolio patterns; PRD/DESIGN required verification against current community and official guidance before Build.",
+    "search_queries": [
+      "Next.js 16 App Router portfolio best practices 2026",
+      "Next.js 16 static export generateStaticParams params Promise",
+      "developer portfolio case study page structure best practices"
+    ],
+    "input_fingerprint": "8d99a7315b5386f67045e9bfcc5a6471e5c9a748f02ee5a72e1746bc644333b4",
+    "findings": [
+      "Next.js 16: dynamic route params are Promises; await them (`const { slug } = await params`) instead of destructuring synchronously.",
+      "With `output: 'export'`, every dynamic route needs generateStaticParams so pages exist as static HTML; use notFound() for unknown slugs.",
+      "Import Geist and other fonts in the root layout.tsx and expose CSS variables; avoid runtime font loading flicker.",
+      "Use pure-SVG or CSS timeline/diagram nodes rather than canvas-heavy libraries for iOS Safari compatibility.",
+      "Exact asset filename casing matters on case-sensitive hosts/CDNs even when local Windows builds pass.",
+      "Treat the portfolio as a product: a reader journey (hero -> proof -> case study -> contact) beats a feature list; keep visual design simple and consistent."
+    ]
+  },
+  "research": {
+    "timestamp": "2026-09-23T02:36:35.000Z",
+    "search_queries": [
+      "Next.js 16 portfolio hard parts best practices",
+      "Next.js 16 generateMetadata static export case study pages"
+    ],
+    "sources_consulted": [
+      "https://dev.to/itsugo/the-unexpected-hard-parts-of-building-a-portfolio-in-nextjs-16-12po",
+      "https://nextjs.org/docs/app/api-reference/functions/generate-static-params",
+      "https://nextjs.org/docs/app/api-reference/file-conventions/metadata"
+    ],
+    "applicability": "Confirms DESIGN.canvas.tsx routing decisions: server wrapper pages exporting generateMetadata/generateStaticParams with client section components, per-slug static output under out/projects/<slug>/index.html, and defensive empty-image/empty-url handling in cards."
+  }
+}

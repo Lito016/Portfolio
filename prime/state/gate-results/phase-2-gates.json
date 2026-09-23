@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.1",
+  "phase": 2,
+  "verdict": "pass",
+  "checks": [
+    { "name": "requirements-review", "status": "pass", "evidence": ["prime/reports/phase-2-quality-review.md", "docs/PRD.md"] },
+    { "name": "G1", "status": "pass", "evidence": ["docs/PRD.md"] },
+    { "name": "G2", "status": "pass", "evidence": ["prime/reports/phase-2-define.md"] },
+    { "name": "G3", "status": "pass", "evidence": ["docs/PRD.md"] },
+    { "name": "G4", "status": "pass", "evidence": ["prime/reports/phase-2-quality-review.md"] },
+    { "name": "G5", "status": "pass", "evidence": ["prime/reports/phase-2-define.md"] },
+    { "name": "G6", "status": "pass", "evidence": ["prime/reports/phase-2-define.md"] }
+  ]
+}

@@ -6,7 +6,7 @@ import type {
   LanguageStats,
 } from '@/lib/types';
 
-const CACHE_REVALIDAL_SECONDS = 3600; // 1 hour
+const CACHE_REVALIDATION_SECONDS = 3600; // 1 hour
 
 interface FetchOptions {
   revalidate?: number | false;
@@ -17,7 +17,7 @@ async function githubFetch<T>(
   endpoint: string,
   options: FetchOptions = {}
 ): Promise<T> {
-  const { revalidate = CACHE_REVALIDAL_SECONDS } = options;
+  const { revalidate = CACHE_REVALIDATION_SECONDS } = options;
 
   const headers: HeadersInit = {
     Accept: 'application/vnd.github.v3+json',

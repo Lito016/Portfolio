@@ -1,0 +1,31 @@
+{
+  "phase": 2,
+  "agent": "prime-requirement",
+  "agent_note": "ARCHITECT procedure (prime-requirement-architect reference read; agentic-pipeline step inapplicable with reason recorded in phase-2-define.md decision 8); independent quality review by separate subagent with re-review pass",
+  "invocations": [
+    {
+      "skill": "quality-review",
+      "status": "applied",
+      "evidence": ["prime/reports/phase-2-quality-review.md"],
+      "note": "initial verdict request-changes (4 issues); fixes R22/R23/R11/NFR applied to docs/PRD.md; re-review verdict pass appended by independent subagent"
+    },
+    {
+      "skill": "caveman",
+      "status": "applied",
+      "evidence": ["prime/reports/phase-2-caveman-digest.md"],
+      "note": "caveman lite digest of PRD requirements for recovery"
+    },
+    {
+      "skill": "research",
+      "status": "applied",
+      "evidence": ["prime/reports/phase-1-research.md", "prime/reports/phase-2-define.md"],
+      "note": "requirements grounded in phase-1 verified sources (GitHub API, repo inspection)"
+    },
+    {
+      "skill": "software-architecture",
+      "status": "applied",
+      "evidence": ["prime/reports/phase-2-define.md", "docs/PRD.md"],
+      "note": "architect reference applied: NFR table, data-integration requirements, ADR-style decisions 1-7; agentic pipeline section marked inapplicable"
+    }
+  ]
+}
