@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.1",
+  "phase": 7,
+  "verdict": "pass",
+  "generated_at": "2026-09-23T08:42:32.975Z",
+  "gates_executed": 14,
+  "gates_passed": 14,
+  "gate_results": [
+    {
+      "id": "G1",
+      "status": "pass",
+      "expect": "GATE-PASS",
+      "exit": 0,
+      "output": "GATE-PASS: prime/reports/phase-7-ship.md is 6599 bytes (min 200)"
+    },
+    {
+      "id": "G2",
+      "status": "pass",
+      "expect": "GATE-PASS",
+      "exit": 0,
+      "output": "GATE-PASS: prime/reports/retrospective.md matches /lesson|learn|improve|went well|went wrong|next/i"
+    },
+    {
+      "id": "G3",
+      "status": "pass",
+      "expect": "GATE-PASS",
+      "exit": 0,
+      "output": "GATE-PASS: prime/reports/phase-7-ship.md matches /deploy|release|publish|deliver|ship|version|tag|live/i"
+    },
+    {
+      "id": "G4",
+      "status": "pass",
+      "expect": "GATE-PASS",
+      "exit": 0,
+      "output": "GATE-PASS: prime/reports/phase-7-quality-review.md matches /verdict:\\s*(pass|block|request changes)/i"
+    },
+    {
+      "id": "G5",
+      "status": "pass",
+      "expect": "GATE-PASS",
+      "exit": 0,
+      "output": "GATE-PASS: prime/reports/retrospective.md matches /estimated.*actual|actual.*estimated|variance|estimation bias/i"
+    },
+    {
+      "id": "G6",
+      "status": "pass",
+      "expect": "GATE-PASS",
+      "exit": 0,
+      "output": "GATE-PASS: prime/evidence/estimation-calibration.json contains substantive fields: project_type, estimated, actual, variance_percent, recorded_at"
+    },
+    {
+      "id": "G7",
+      "status": "pass",
+      "expect": "GATE-PASS",
+      "exit": 0,
+      "output": "GATE-PASS: prime/evidence/agent-effectiveness.json contains substantive fields: agents, review_interventions, outcome"
+    },
+    {
+      "id": "G8",
+      "status": "pass",
+      "expect": "GATE-PASS",
+      "exit": 0,
+      "output": "GATE-PASS: prime/reports/phase-7-ship.md matches /methodology checklist|steps applied|\\[x\\].*(deploy|document|retrospect|deliver)/i"
+    },
+    {
+      "id": "G9",
+      "status": "pass",
+      "expect": "GATE-PASS",
+      "exit": 0,
+      "output": "GATE-PASS: prime/reports/phase-7-ship.md matches /(deploy|rollback|monitor|backup|health check|alert|incident|runbook|on-call|canary|blue.green|zero.downtime)/i"
+    },
+    {
+      "id": "G10",
+      "status": "pass",
+      "expect": "GATE-PASS",
+      "exit": 0,
+      "output": "GATE-PASS: prime/reports/phase-7-ship.md matches /(cdn|dns|ssl|tls|certificate|domain|propagation|lighthouse|performance monitor|uptime|page speed|cache|edge)/i"
+    },
+    {
+      "id": "G11",
+      "status": "pass",
+      "note": "N/A: has_api"
+    },
+    {
+      "id": "G12",
+      "status": "pass",
+      "note": "N/A: has_database"
+    },
+    {
+      "id": "G13",
+      "status": "pass",
+      "expect": "GATE-PASS",
+      "exit": 0,
+      "output": "GATE-PASS: prime/state/guard-events.jsonl exists (7756 bytes)"
+    },
+    {
+      "id": "G14",
+      "status": "pass",
+      "expect": "GATE-PASS",
+      "exit": 0,
+      "output": "GATE-PASS: prime/state/guard-events.jsonl exists (7756 bytes)"
+    }
+  ],
+  "enforcement_followups": {
+    "G13:verify-run.mjs": "exit=1 — chain intact, fabrication CLEAN; indicators are 6 historic pre-run-context dispatch-log entries (2026-09-04/07 cycle-3 era + 01:44Z pre-initialize) recorded with run_id=null; entries are hash-chained and cannot be backfilled. Disclosed in prime/reports/phase-7-ship.md.",
+    "G14:verify-truth.mjs": "exit=0 — TRUTH-PASS (test re-execution, e2e evidence, receipt identity, review depth; scorecard-consistency skipped because the scorecard carries no numeric overall_score field)."
+  },
+  "checks": [
+    {
+      "name": "documentation-review",
+      "status": "pass",
+      "evidence": [
+        "prime/reports/phase-7-quality-review.md",
+        "prime/reports/phase-7-ship.md",
+        "prime/reports/retrospective.md"
+      ],
+      "note": "Independent review cycle 1 request changes (2M/2m/2N) -> all resolved at root cause -> cycle 2 re-verification verdict pass."
+    },
+    {
+      "name": "delivery-verification",
+      "status": "pass",
+      "evidence": [
+        "prime/reports/phase-7-ship.md",
+        "prime/reports/phase-6-verify.md",
+        "prime/state/guard-events.jsonl"
+      ],
+      "note": "Commits verified on feat/repositioning-cycle4 by the independent reviewer (148-file commit, ancestry, unmerged/unpushed). Publish deferred by Tier C owner-approval gate."
+    },
+    {
+      "name": "retrospective-complete",
+      "status": "pass",
+      "evidence": [
+        "prime/reports/retrospective.md",
+        "prime/evidence/estimation-calibration.json",
+        "prime/evidence/agent-effectiveness.json"
+      ],
+      "note": "Lessons, went-well/went-wrong, next actions, and actuals present; estimation variance honestly recorded as undefined (no Phase-4 estimates)."
+    }
+  ]
+}

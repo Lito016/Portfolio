@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.1",
+  "phase": 7,
+  "name": "Ship and Learn",
+  "agent": "prime-make+prime-evaluate",
+  "procedure": [
+    "prime-make-document",
+    "prime-make-deploy",
+    "prime-evaluate-launch"
+  ],
+  "mandatory_skills": [
+    "quality-review",
+    "caveman",
+    "document",
+    "git-workflow"
+  ],
+  "core_skills": [
+    "quality-review",
+    "caveman"
+  ],
+  "recommended_skills": [
+    "devops",
+    "testing",
+    "security-testing",
+    "business",
+    "frontend",
+    "cross-platform",
+    "doc-forge",
+    "session-continuity"
+  ],
+  "required_artifacts": [
+    "prime/reports/phase-7-ship.md",
+    "prime/reports/retrospective.md",
+    "prime/reports/phase-7-quality-review.md",
+    "prime/evidence/estimation-calibration.json",
+    "prime/evidence/agent-effectiveness.json"
+  ],
+  "required_checks": [
+    "documentation-review",
+    "delivery-verification",
+    "retrospective-complete"
+  ],
+  "gate_contracts": [
+    {
+      "id": "G1",
+      "outcome": "ship report documents delivery and deployment status",
+      "check": "node scripts/gate-check.mjs size prime/reports/phase-7-ship.md 200",
+      "expect": "GATE-PASS"
+    },
+    {
+      "id": "G2",
+      "outcome": "retrospective records lessons learned",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/retrospective.md \"lesson|learn|improve|went well|went wrong|next\"",
+      "expect": "GATE-PASS"
+    },
+    {
+      "id": "G3",
+      "outcome": "ship report records deployment or delivery evidence",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-7-ship.md \"deploy|release|publish|deliver|ship|version|tag|live\"",
+      "expect": "GATE-PASS"
+    },
+    {
+      "id": "G4",
+      "outcome": "quality audit verdict is recorded for phase artifacts",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-7-quality-review.md \"verdict:\\s*(pass|block|request changes)\"",
+      "expect": "GATE-PASS"
+    },
+    {
+      "id": "G5",
+      "outcome": "retrospective compares estimated and actual effort and records variance",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/retrospective.md \"estimated.*actual|actual.*estimated|variance|estimation bias\"",
+      "expect": "GATE-PASS"
+    },
+    {
+      "id": "G6",
+      "outcome": "estimation calibration was written back for future plans",
+      "check": "node scripts/gate-check.mjs json-fields prime/evidence/estimation-calibration.json project_type,estimated,actual,variance_percent,recorded_at",
+      "expect": "GATE-PASS"
+    },
+    {
+      "id": "G7",
+      "outcome": "agent effectiveness evidence identifies useful interventions and resulting outcomes",
+      "check": "node scripts/gate-check.mjs json-fields prime/evidence/agent-effectiveness.json agents,review_interventions,outcome",
+      "expect": "GATE-PASS"
+    },
+    {
+      "id": "G8",
+      "outcome": "ship methodology checklist records applied steps and evidence",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-7-ship.md \"methodology checklist|steps applied|\\[x\\].*(deploy|document|retrospect|deliver)\"",
+      "expect": "GATE-PASS"
+    },
+    {
+      "id": "G9",
+      "outcome": "ship report includes production readiness checklist covering deployment, rollback, monitoring, and backups",
+      "kind": "hybrid",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-7-ship.md \"(deploy|rollback|monitor|backup|health check|alert|incident|runbook|on-call|canary|blue.green|zero.downtime)\"",
+      "expect": "GATE-PASS",
+      "manual_followup": "Confirm the ship report covers deployment procedure, rollback plan, monitoring setup, and backup verification — not just 'deployed successfully'."
+    },
+    {
+      "id": "G10",
+      "outcome": "ship report covers CDN, DNS, SSL, and performance monitoring for website deployment",
+      "kind": "hybrid",
+      "applicable_when": "has_website",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-7-ship.md \"(cdn|dns|ssl|tls|certificate|domain|propagation|lighthouse|performance monitor|uptime|page speed|cache|edge)\"",
+      "expect": "GATE-PASS",
+      "manual_followup": "Confirm the ship report documents CDN setup, SSL certificate, DNS configuration, and performance monitoring. N/A for non-website projects."
+    },
+    {
+      "id": "G11",
+      "outcome": "ship report documents API versioning strategy and backward compatibility measures",
+      "kind": "hybrid",
+      "applicable_when": "has_api",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-7-ship.md \"(api version|v[0-9]|backward compat|deprecat|breaking change|migration guide|sunse|endpoint version|header version|changelog)\"",
+      "expect": "GATE-PASS",
+      "manual_followup": "Confirm the ship report documents the API versioning approach and how backward compatibility is maintained. N/A for non-API projects."
+    },
+    {
+      "id": "G12",
+      "outcome": "ship report covers database migration strategy, backup, and point-in-time recovery",
+      "kind": "hybrid",
+      "applicable_when": "has_database",
+      "check": "node scripts/gate-check.mjs pattern prime/reports/phase-7-ship.md \"(migration|backup|restore|point.in.time|recovery|wal|replication|failover|snapshot|retention)\"",
+      "expect": "GATE-PASS",
+      "manual_followup": "Confirm the ship report documents migration procedure, backup schedule, and recovery process. N/A for non-database projects."
+    },
+    {
+      "id": "G13",
+      "outcome": "run event chain integrity verified — hash-chain intact, state consistent with events, gate results aligned, run IDs bound, no bypass indicators",
+      "kind": "hybrid",
+      "check": "node scripts/gate-check.mjs exists prime/state/guard-events.jsonl",
+      "expect": "GATE-PASS",
+      "enforcement_script": "node scripts/verify-run.mjs <project-root>",
+      "enforcement_purpose": "Verifies hash-chain integrity, state consistency, gate alignment, run ID binding, and bypass detection across the entire run. Exit code 0 = all checks passed, 1 = integrity issues found.",
+      "manual_followup": "Run `node scripts/verify-run.mjs --project-root <path>` independently. The script checks: (1) hash-chain integrity with no tampering/insertion/deletion, (2) state consistency where completed phases match advance events, (3) gate result alignment for validated phases, (4) run ID binding across all artifacts, (5) bypass detection for enter-without-advance or missing events. N/A for unguarded workflows with no guard-events.jsonl."
+    },
+    {
+      "id": "G14",
+      "outcome": "truth verification confirms artifact claims match reality",
+      "kind": "runnable",
+      "check": "node scripts/gate-check.mjs exists prime/state/guard-events.jsonl",
+      "expect": "GATE-PASS",
+      "enforcement_script": "node scripts/verify-truth.mjs --project-root <project-root>",
+      "enforcement_purpose": "Cross-validates all artifact claims against reality: re-runs tests, checks e2e evidence files exist, validates receipt tool identities, checks quality review depth, and compares scorecard claims against verified results. Exit 0 = TRUTH-PASS, exit 1 = TRUTH-FAIL."
+    }
+  ],
+  "gates_by_shape": {
+    "focused": [
+      {
+        "id": "G1"
+      },
+      {
+        "id": "G2"
+      },
+      {
+        "id": "G3"
+      },
+      {
+        "id": "G4"
+      },
+      {
+        "id": "G8"
+      }
+    ],
+    "product_increment": [
+      {
+        "id": "G1"
+      },
+      {
+        "id": "G2"
+      },
+      {
+        "id": "G3"
+      },
+      {
+        "id": "G4"
+      },
+      {
+        "id": "G5"
+      },
+      {
+        "id": "G8"
+      },
+      {
+        "id": "G9"
+      },
+      {
+        "id": "G14"
+      }
+    ],
+    "full": [
+      {
+        "id": "G1"
+      },
+      {
+        "id": "G2"
+      },
+      {
+        "id": "G3"
+      },
+      {
+        "id": "G4"
+      },
+      {
+        "id": "G5"
+      },
+      {
+        "id": "G6"
+      },
+      {
+        "id": "G7"
+      },
+      {
+        "id": "G8"
+      },
+      {
+        "id": "G9"
+      },
+      {
+        "id": "G10"
+      },
+      {
+        "id": "G11"
+      },
+      {
+        "id": "G12"
+      },
+      {
+        "id": "G13"
+      },
+      {
+        "id": "G14"
+      }
+    ]
+  },
+  "artifacts_by_shape": {
+    "focused": [
+      "prime/reports/phase-7-ship.md",
+      "prime/reports/retrospective.md"
+    ],
+    "product_increment": [
+      "prime/reports/phase-7-ship.md",
+      "prime/reports/retrospective.md",
+      "prime/reports/phase-7-quality-review.md"
+    ],
+    "full": [
+      "prime/reports/phase-7-ship.md",
+      "prime/reports/retrospective.md",
+      "prime/reports/phase-7-quality-review.md",
+      "prime/evidence/estimation-calibration.json",
+      "prime/evidence/agent-effectiveness.json"
+    ]
+  }
+}

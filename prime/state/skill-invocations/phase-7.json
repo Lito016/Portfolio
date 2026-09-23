@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.1",
+  "phase": 7,
+  "agent": "prime-make+prime-evaluate",
+  "generated_at": "2026-09-23T08:40:00Z",
+  "invocations": [
+    {
+      "skill": "quality-review",
+      "status": "applied",
+      "evidence": ["prime/reports/phase-7-quality-review.md"],
+      "note": "Two independent subagent dispatches: cycle 1 adversarial verification returned request changes (2 Major, 2 Minor); orchestrator fixed at root cause; cycle 2 re-verification returned pass. Reviewer wrote the review file; implementer never authored its own verdict."
+    },
+    {
+      "skill": "caveman",
+      "status": "applied",
+      "evidence": ["prime/reports/phase-7-handoff-digest.md"],
+      "note": "Owner handoff digest written in caveman-lite compression; load-bearing facts and exact identifiers preserved."
+    },
+    {
+      "skill": "document",
+      "status": "applied",
+      "evidence": ["prime/reports/phase-7-ship.md", "prime/reports/retrospective.md", "prime/evidence/estimation-calibration.json", "prime/evidence/agent-effectiveness.json"],
+      "note": "Ship report, retrospective, and machine-readable calibration/effectiveness records produced with evidence-path discipline (every cited path existence-checked)."
+    },
+    {
+      "skill": "git-workflow",
+      "status": "applied",
+      "evidence": ["prime/reports/phase-7-ship.md"],
+      "note": "Delivery recorded on feat/repositioning-cycle4 with Conventional Commit messages (8c00b4c, 55233b0, f682db0); merge/push/publish explicitly gated on owner approval (Tier C) with fast-forward ancestry verified."
+    }
+  ]
+}
