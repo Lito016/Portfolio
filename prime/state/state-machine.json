@@ -13,13 +13,14 @@
     6,
     7
   ],
-  "current_phase": 5,
+  "current_phase": 6,
   "status": "running",
   "completed_phases": [
     1,
     2,
     3,
-    4
+    4,
+    5
   ],
   "phases": {
     "1": {
@@ -51,11 +52,11 @@
       "gate_result": "prime/state/gate-results/phase-4-gates.json"
     },
     "5": {
-      "status": "running",
+      "status": "passed",
       "attempt": 1,
       "entered_at": "2026-09-23T02:37:39.211Z",
-      "completed_at": null,
-      "gate_result": null
+      "completed_at": "2026-09-23T04:19:40.888Z",
+      "gate_result": "prime/state/gate-results/phase-5-gates.json"
     },
     "6": {
       "status": "pending",
