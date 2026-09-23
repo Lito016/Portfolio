@@ -331,7 +331,7 @@ export const hostedProjects: HostedProject[] = [
     name: 'UBMS',
     featured: true,
     description:
-      'Unified Business Management System: inventory, procurement, B2B sales, B2C printing, and finance — receivables, payables, historical debts, reports, and documents in one system.',
+      'Unified Business Management System for inventory, sales, printing, and finance.',
     url: '',
     image: '/project-ubms.png',
     tags: ['React', 'Supabase', 'Cloudflare'],
