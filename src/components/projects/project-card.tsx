@@ -52,12 +52,6 @@ export function ProjectCard({ project, variant }: ProjectCardProps) {
           <h3 className="text-base font-semibold tracking-tight sm:text-lg">
             {project.name}
           </h3>
-          {hasPrimaryLink && (
-            <ExternalLink
-              className="mt-1 h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-[var(--foreground)]"
-              aria-hidden="true"
-            />
-          )}
         </div>
         <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
           {project.description}

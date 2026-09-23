@@ -18,7 +18,7 @@ import {
   Layers,
 } from 'lucide-react';
 import { SiGithub } from 'react-icons/si';
-import { siteConfig } from '@/config/site';
+import { siteConfig, POSITIONING } from '@/config/site';
 import { skillCategories } from '@/data/skills';
 import { featuredProjects } from '@/data/projects';
 
@@ -71,7 +71,7 @@ export default function ResumePage() {
                   {member?.name ?? 'Manolito O. Almaden Jr.'}
                 </h1>
                 <p className="mt-1 text-lg font-medium text-primary">
-                  AI Solution Developer &nbsp;|&nbsp; Web &amp; Mobile Developer
+                  {POSITIONING}
                 </p>
                 <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
                   <MapPin className="h-3.5 w-3.5" />

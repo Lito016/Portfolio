@@ -166,12 +166,12 @@ export function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
             {cs.metrics.map((metric) => (
               <div
                 key={`${metric.value}-${metric.label}`}
-                className="rounded-lg border border-[var(--border)] bg-[var(--card)] p-4"
+                className="flex flex-col rounded-lg border border-[var(--border)] bg-[var(--card)] p-4"
               >
-                <dd className="text-2xl font-semibold tabular-nums tracking-tight text-[var(--primary)]">
+                <dt className="order-2 mt-1 text-xs text-muted-foreground">{metric.label}</dt>
+                <dd className="order-1 text-2xl font-semibold tabular-nums tracking-tight text-[var(--primary)]">
                   {metric.value}
                 </dd>
-                <dt className="mt-1 text-xs text-muted-foreground">{metric.label}</dt>
               </div>
             ))}
           </dl>

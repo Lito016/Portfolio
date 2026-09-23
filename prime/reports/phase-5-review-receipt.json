@@ -1,0 +1,25 @@
+{
+  "receipt_version": "1.0",
+  "run_id": "Portfolio-mudhrqbr-xai46i",
+  "run_context_valid": true,
+  "invocation_id": "d0cb3f804913549bd33e1930a468e1aaeab302e4b0350f9b723d0e5144483919",
+  "tool_identity": "quality-review",
+  "tool_family": "quality-reviewer",
+  "tool_version": null,
+  "arguments_digest": "af8e3860fd82314d2f6a0247eaf293142dea936c7f9a0d508e11ed37c715d128",
+  "start_timestamp": "2026-09-23T04:11:55.806Z",
+  "end_timestamp": "2026-09-23T04:11:55.871Z",
+  "exit_status": 0,
+  "stdout_digest": "ac03371b6bf747c15060c994d11190aef2a2b6326badca5093706dbb0b18946e",
+  "stderr_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "input_artifact_hashes": {},
+  "output_artifact_hashes": {
+    "prime/reports/phase-5-quality-review.md": "0dd0652b09a34139ea493ce12d5a203e22b4a77efc6a7e3c5a63601e9efe13e0",
+    "prime/reports/phase-5-review-meta.json": "9dea67e5d650d44da8fddfe530cacfc025664e537eb2104a6a448c3d3fe4454b"
+  },
+  "working_directory": "C:\\Projects\\Portfolio",
+  "principal_identity": "trusted-runner",
+  "nonce": 5,
+  "prior_receipt_ref": "68c39c303459d26a737fea247de1cc422faf0bb61f6852117b53c309565e98f8",
+  "signature": "edb71c93cc52155d95e4c185d9aa113ea3c1ffe5604067cf3fe4f999929842ab"
+}

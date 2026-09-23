@@ -7,5 +7,10 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return <AboutPageClient />;
+  return (
+    <>
+      <h1 className="sr-only">About</h1>
+      <AboutPageClient />
+    </>
+  );
 }

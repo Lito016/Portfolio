@@ -1,24 +1,68 @@
 {
+  "schema_version": "1.0",
+  "phase": 5,
   "output_type": "website",
-  "target_audience": "Recruiters, clients, and collaborators evaluating Manolito Almaden Jr. as an AI Solution Developer",
-  "quality_bar": "Premium professional portfolio — zero AI-generated patterns, WCAG 2.1 AA compliant, strict TypeScript, optimized performance",
-  "verification_method": "npm run build (29/29 pages), npm run lint (0 errors), Playwright MCP browser verification (13 screenshots, 9 pages at 3 viewports, dark+light mode, computed style checks)",
+  "target_audience": "Hiring managers, agency principals, and engineering leads evaluating Manolito 'Lito' Almaden Jr. as an AI Solution Developer and Full-Stack Systems Developer",
+  "quality_bar": "Zero fabricated facts: every site-visible number, URL, and claim traces to prime/state/fact-whitelist.md W1-W26, enforced by 8 automated data-invariant scenarios (whitelist membership, entry binding, numeric-copy scan) with signed execution receipt; 0 TypeScript errors, 0 ESLint problems, production build renders all 29 routes including 5 SSG case-study pages; independent quality audit verdict pass with no Critical or Major findings outstanding; case-study sections are conditionally omitted when no whitelisted data exists instead of shipping filler.",
+  "verification_method": "npm run build + npx tsc --noEmit + node node_modules/eslint/bin/eslint.js . + node --test tests/data-invariants.test.ts executed through prime trusted-runner (test, security-scan, and review receipts chained via gate-check verify-receipt/receipt-chain), gate-check G1-G30, plus Phase 6 Playwright 6-viewport evidence matrix (320-1600px), console-error capture, contrast, and heading-order checks.",
   "evidence_artifacts": [
-    "prime/reports/output-quality-scorecard.json",
-    "prime/reports/verification-report-cycle3.md",
-    "prime/evidence/screenshots/homepage-desktop.png",
-    "prime/evidence/screenshots/homepage-tablet.png",
-    "prime/evidence/screenshots/homepage-mobile-375.png",
-    "prime/evidence/screenshots/homepage-light.png",
-    "prime/evidence/screenshots/skills-desktop.png",
-    "prime/evidence/screenshots/resume-desktop.png",
-    "prime/evidence/screenshots/blog-listing-desktop.png",
-    "prime/evidence/screenshots/blog-post-desktop.png",
-    "prime/evidence/screenshots/contact-desktop.png",
-    "prime/evidence/screenshots/experience-desktop.png",
-    "prime/evidence/screenshots/about-desktop.png",
-    "prime/evidence/screenshots/404-desktop.png",
-    "Build output: 29 static pages generated successfully",
-    "Lint output: 0 errors, 0 warnings"
-  ]
+    "prime/reports/phase-5-build.md",
+    "prime/reports/phase-5-test-results.json",
+    "prime/reports/phase-5-test-receipt.json",
+    "prime/reports/phase-5-security-testing.md",
+    "prime/reports/phase-5-security-scan.json",
+    "prime/reports/phase-5-security-receipt.json",
+    "prime/reports/phase-5-quality-review.md",
+    "prime/reports/phase-5-review-receipt.json",
+    "prime/reports/phase-5-review-meta.json",
+    "prime/reports/m5-sweep.md",
+    "prime/evidence/uiux-selector-output.md"
+  ],
+  "design_benchmark_record": {
+    "task_type": "redesign",
+    "sources_consulted": [
+      {
+        "name": "Next.js App Router layouts and pages guide",
+        "url": "https://nextjs.org/docs/app/getting-started/layouts-and-pages",
+        "purpose": "Verified generateStaticParams plus dynamicParams contract against the bundled docs mirror before implementing static case-study routes",
+        "available": true
+      },
+      {
+        "name": "Next.js generateMetadata API reference",
+        "url": "https://nextjs.org/docs/app/api-reference/functions/generate-metadata",
+        "purpose": "Server-only metadata export pattern that drove the page-wrapper split for skills, resume, and contact client pages",
+        "available": true
+      },
+      {
+        "name": "W3C ARIA Authoring Practices list pattern",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/list/",
+        "purpose": "List semantics for the DOM-based FlowDiagram lanes so architecture diagrams stay screen-reader navigable without canvas or images",
+        "available": true
+      },
+      {
+        "name": "Mermaid.js theme configuration reference",
+        "url": "https://mermaid.js.org/config/theming.html",
+        "purpose": "Evaluated as a diagram-rendering option; theme-driven fill system conflicts with the existing CSS-variable dark/light pair, so rejected in favor of token-styled DOM",
+        "available": true
+      }
+    ],
+    "patterns_adopted": [
+      "Trust-and-authority hero composition from the UI/UX Pro Max design-system pass: positioning eyebrow, value line, and three explicit CTAs (View Projects, GitHub, Resume) saved in the selector evidence file",
+      "Case-study narrative order Overview, Problem, Architecture, Decisions with conditional section omission so absent data renders nothing instead of placeholder filler",
+      "Domain-grouped skills taxonomy without proficiency level badges, mirroring how senior engineering profiles present capability",
+      "One shared FlowDiagram primitive (workflow steps plus architecture lanes) reused across five flagship case studies and the About workflow, replacing five bespoke diagrams"
+    ],
+    "local_design_decisions": [
+      "All diagram boxes use color-mix(in srgb, var(--primary) 8%, transparent) over var(--border) so dark and light themes adapt with zero duplicate assets",
+      "Button hierarchy reuses the established contact-cta class trio: primary solid var(--primary), outline bordered var(--card), ghost text-only",
+      "sr-only h1 headings added to About, Projects, and Skills routes because the client SectionHeading renders an h2, preserving document outline without visual change",
+      "Motion limited to existing 150-400ms ease-[0.22,1,0.36,1] tokens with prefers-reduced-motion handled globally in globals.css"
+    ],
+    "patterns_rejected": [
+      "mermaid.js diagram rendering: est. +85KB client bundle and theme system fighting the CSS-variable palette",
+      "Beginner/intermediate skill level labels: contradicts the senior positioning and cannot be evidenced anyway",
+      "Metric cards for Vision Video Auditor, PRIME Method, and UBMS: no whitelisted numbers exist, so the Metrics section is omitted rather than invented"
+    ]
+  },
+  "notes": "Publishing/deployment is Tier C and was not performed; Phase 7 requires explicit user approval."
 }

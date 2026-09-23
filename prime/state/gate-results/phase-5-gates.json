@@ -1,0 +1,225 @@
+{
+  "schema_version": "1.1",
+  "phase": 5,
+  "verdict": "pass",
+  "generated_at": "2026-09-23T04:16:42.676Z",
+  "checks": [
+    {
+      "name": "G1",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: found 61 source file(s) in ."
+      ]
+    },
+    {
+      "name": "G2",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-build.md is 12216 bytes (min 200)"
+      ]
+    },
+    {
+      "name": "G3",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-test-results.json matches /tests_run|passed|failed/i"
+      ]
+    },
+    {
+      "name": "G4",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-security-testing.md matches /security|vulnerability|threat|scan|audit|not applicable|justification/i"
+      ]
+    },
+    {
+      "name": "G5",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-quality-review.md matches /verdict:\\s*(pass|block|request changes)/i"
+      ]
+    },
+    {
+      "name": "G6",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-quality-review.md matches /\\.[\\w/\\-]+\\.(ts|js|tsx|jsx|py|go|rs|cs|java|dart|swift|kt|vue|svelte|html|css|json|yaml|mjs)/i"
+      ]
+    },
+    {
+      "name": "G7",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-quality-review.md matches /findings:|issues:|recommendations:|concerns:|observations:/i"
+      ]
+    },
+    {
+      "name": "G8",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: receipt chain verified — review(quality-review, nonce:5) -> prior(node-test, nonce:4)"
+      ]
+    },
+    {
+      "name": "G9",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-test-results.json fingerprint verified (235c508ef55e4330...)"
+      ]
+    },
+    {
+      "name": "G10",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-test-results.json cross-references verified (3 files)"
+      ]
+    },
+    {
+      "name": "G11",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-test-receipt.json receipt verified for test-runner (run: Portfolio-mudhrq..., nonce: 4) — verified at issuance via documented backout procedure; consumed afterwards"
+      ]
+    },
+    {
+      "name": "G12",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-build.md matches /methodology checklist|steps applied|\\[x\\].*(test|security|review|implement)/i"
+      ]
+    },
+    {
+      "name": "G13",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-build.md matches /(design system|design language|palette|typography|spacing|component|brand|anti-slop|engineering standard|design token|oklch|hsl|type scale|spacing scale|4px|8px|breakpoint|easing|duration)/i"
+      ]
+    },
+    {
+      "name": "G14",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-security-testing.md matches /(input validation|output encoding|parameterized query|csrf|xsrf|rate limit|csp|cors|sanitiz|auth|session|token|jwt|oauth|rbac|abac|supply.chain|dependency|secret|credential|encrypt|hash|bcrypt|argon|timing.attack|path.traversal|injection|xss|ssrf)/i"
+      ]
+    },
+    {
+      "name": "G15",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-build.md matches /(docs/DESIGN|DESIGN\\.canvas|DESIGN\\.md|design document|design spec|design decision|Phase 3)/i"
+      ]
+    },
+    {
+      "name": "G16",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: found 150 source file(s) in ."
+      ]
+    },
+    {
+      "name": "G17",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-build.md matches /(responsive|viewport|breakpoint|mobile|tablet|performance|lighthouse|page speed|seo|meta tag|open graph|favicon|preload|lazy|critical css)/i"
+      ]
+    },
+    {
+      "name": "G18",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-build.md matches /(input valid|sanitiz|error (response|format|handler)|status code|4[0-9]{2}|5[0-9]{2}|auth|rate limit|throttl|cors|helmet|csrf|xss|injection)/i"
+      ],
+      "note": "N/A justified: no API surface (static export) — see build report Conditional gates"
+    },
+    {
+      "name": "G19",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-build.md matches /(migration|schema change|rollback|backup|seed|data valid|integrity|constraint|index|foreign key|cascade|idempoten)/i"
+      ],
+      "note": "N/A justified: no database — see build report Conditional gates"
+    },
+    {
+      "name": "G20",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-build.md matches /(help|--help|-h|usage|argument|option|flag|subcommand|exit code|stderr|stdin|pipe|parse)/i"
+      ],
+      "note": "N/A justified: no CLI deliverable — see build report Conditional gates"
+    },
+    {
+      "name": "G21",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-build.md matches /(data source|dataset|pipeline|etl|feature (engine|store|flag|extract)|model (training|serving|inference)|training loop|inference endpoint|data validation|schema (check|valid)|type check|null check|dedup|data quality)/i"
+      ],
+      "note": "N/A justified: no data/AI workflow deliverable — see build report Conditional gates"
+    },
+    {
+      "name": "G22",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-build.md matches /(cross-reference|see also|related|example|code sample|snippet|```|tutorial|guide|api reference|changelog)/i"
+      ],
+      "note": "N/A justified: docs are internal PRIME artifacts, not the output — see build report Conditional gates"
+    },
+    {
+      "name": "G23",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-build.md matches /(public api|export|interface|breaking change|backward compat|semver|version|changelog|deprecat|migration guide|peer depend)/i"
+      ],
+      "note": "N/A justified: no plugin/package — see build report Conditional gates"
+    },
+    {
+      "name": "G24",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-build.md matches /(loading|skeleton|spinner|error (state|boundary|fallback)|empty state|no data|pagination|virtuali[sz]ation|infinite scroll|large data|optimistic)/i"
+      ],
+      "note": "N/A justified: no dashboard UI — see build report Conditional gates"
+    },
+    {
+      "name": "G25",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-build.md matches /(secret scan|credential check|no hardcoded|environment variable|dotenv|vault|secret manager)/i"
+      ]
+    },
+    {
+      "name": "G26",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-build.md matches /(error handling|exception|catch block|error boundary|try.catch|error log)/i"
+      ]
+    },
+    {
+      "name": "G27",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-5-build.md matches /(structured log|error log|logging framework|winston|pino|bunyan|log level|error boundary|Sentry|Rollbar|Datadog)/i"
+      ]
+    },
+    {
+      "name": "G28",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: output-intent.json has valid structure, fields, and evidence paths"
+      ]
+    },
+    {
+      "name": "G29",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: design benchmark record has traceable sources, patterns, and local decisions"
+      ]
+    },
+    {
+      "name": "G30",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: verified — test results verified by re-execution — 1 test file(s) passed, 0 failed (matches claimed 1/1)"
+      ]
+    }
+  ]
+}

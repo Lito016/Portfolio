@@ -7,5 +7,10 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
-  return <ProjectsPageClient />;
+  return (
+    <>
+      <h1 className="sr-only">Projects</h1>
+      <ProjectsPageClient />
+    </>
+  );
 }

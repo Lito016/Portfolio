@@ -8,5 +8,10 @@ export const metadata: Metadata = {
 };
 
 export default function SkillsPage() {
-  return <SkillsPageClient />;
+  return (
+    <>
+      <h1 className="sr-only">Skills</h1>
+      <SkillsPageClient />
+    </>
+  );
 }

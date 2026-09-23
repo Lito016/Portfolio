@@ -1,0 +1,52 @@
+{
+  "tool": "node --test (Node native TS type-stripping)",
+  "command": "node --test tests/data-invariants.test.ts",
+  "tests_run": 1,
+  "passed": 1,
+  "failed": 0,
+  "scenarios": [
+    {
+      "name": "slugs are unique and kebab-case",
+      "result": "pass"
+    },
+    {
+      "name": "featured flag and caseStudy are consistent (union contract)",
+      "result": "pass"
+    },
+    {
+      "name": "links and assets are empty-string-or-valid (no dead anchors, no empty <Image> src)",
+      "result": "pass"
+    },
+    {
+      "name": "every metric fact is whitelist-traceable: W-id exists in the whitelist and its entry carries the fact",
+      "result": "pass"
+    },
+    {
+      "name": "numeric tokens in visible project copy are all whitelist-mapped (no invented numbers)",
+      "result": "pass"
+    },
+    {
+      "name": "diagram node ids are unique per project and per lane",
+      "result": "pass"
+    },
+    {
+      "name": "categories cover the three positioning domains and What I Build uses them",
+      "result": "pass"
+    },
+    {
+      "name": "every project has a category in the positioning taxonomy",
+      "result": "pass"
+    }
+  ],
+  "test_files": [
+    "tests/data-invariants.test.ts"
+  ],
+  "cross_references": [
+    "tests/data-invariants.test.ts",
+    "src/data/projects.ts",
+    "prime/state/fact-whitelist.md"
+  ],
+  "executed_at": "2026-09-23T04:00:41.748Z",
+  "notes": "Per-file counting for G30 (1 file, 8 scenarios, exit 0). Strengthened after first quality review: whitelist-membership binding + numeric-copy fabrication scan.",
+  "fingerprint": "235c508ef55e4330f965f5dbcef9849c6c2caf0afa94877fea17a3aa10e59170"
+}

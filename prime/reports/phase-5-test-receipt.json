@@ -1,0 +1,23 @@
+{
+  "receipt_version": "1.0",
+  "run_id": "Portfolio-mudhrqbr-xai46i",
+  "run_context_valid": true,
+  "invocation_id": "68c39c303459d26a737fea247de1cc422faf0bb61f6852117b53c309565e98f8",
+  "tool_identity": "node-test",
+  "tool_family": "test-runner",
+  "tool_version": null,
+  "arguments_digest": "bbc11f380a99161004c7fd978f5aa7fc4abf13c6f998a22c1e4b0d86820372e3",
+  "start_timestamp": "2026-09-23T04:00:47.502Z",
+  "end_timestamp": "2026-09-23T04:00:47.678Z",
+  "exit_status": 0,
+  "stdout_digest": "ad06efdac868bd0dc24dc5ba90fbe9124aeacbe286f160f75801e3cd334f27d2",
+  "stderr_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "input_artifact_hashes": {},
+  "output_artifact_hashes": {
+    "prime/reports/phase-5-test-results.json": "ebf7a7408643e6ca2a22b1a1844bc9714b129f619f5de9972eef450394507ef6"
+  },
+  "working_directory": "C:\\Projects\\Portfolio",
+  "principal_identity": "trusted-runner",
+  "nonce": 4,
+  "signature": "e7ceb909174f40160bbd744370aff58c69e38ded6ad78e9566bf7b1f1e29f36b"
+}

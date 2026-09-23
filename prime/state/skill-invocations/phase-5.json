@@ -1,0 +1,14 @@
+{
+  "phase": 5,
+  "agent": "prime-make",
+  "agent_note": "build procedure assumed in main agent; quality audit and its verification pass dispatched as separate independent subagents (nonce-chained receipts prove execution separation)",
+  "invocations": [
+    { "skill": "quality-review", "status": "applied", "evidence": ["prime/reports/phase-5-quality-review.md", "prime/reports/phase-5-review-receipt.json", "prime/reports/phase-5-review-meta.json"], "note": "two independent passes: first verdict request changes (Major M-1 whitelist guard), remediation verified, final verdict pass; receipt chained to test receipt nonce 4" },
+    { "skill": "caveman", "status": "applied", "evidence": ["prime/reports/m5-sweep.md", "prime/reports/phase-5-build.md"], "note": "lite-level compression for session communication and sweep digests; reports kept in standard technical prose for gate patterns" },
+    { "skill": "testing", "status": "applied", "evidence": ["tests/data-invariants.test.ts", "prime/reports/phase-5-test-results.json", "prime/reports/phase-5-test-receipt.json"], "note": "8 data-invariant scenarios incl. adversarially hardened whitelist-membership binding and numeric-copy fabrication scan; executed via trusted-runner, G30 re-execution green" },
+    { "skill": "security-testing", "status": "applied", "evidence": ["prime/reports/phase-5-security-testing.md", "prime/reports/phase-5-security-scan.json", "prime/reports/phase-5-security-receipt.json"], "note": "SECURITY-AUDIT vocabulary applied: supply-chain scan (0 vulns after transitive fixes), XSS sink audit, secrets sweep, rel/noopener audit; ASVS L1 pre-check" },
+    { "skill": "code-quality", "status": "applied", "evidence": ["prime/reports/phase-5-quality-review.md", "prime/reports/phase-5-build.md"], "note": "tsc/eslint/build kept green at every milestone; dead code removed (resume marquee); reviewer-pass markup fixes dt/dd, sr-only h1, icon removal" },
+    { "skill": "git-workflow", "status": "applied", "evidence": ["git log: cfbe768..HEAD + phase-5 commit (milestone-scoped, Conventional Commits)", "prime/reports/phase-5-build.md"], "note": "one logical change per commit; uncommitted evidence committed with phase completion; no force ops, no history rewrite" },
+    { "skill": "frontend", "status": "applied", "evidence": ["prime/evidence/uiux-selector-output.md", "docs/DESIGN.canvas.tsx", "prime/reports/output-intent.json", "prime/reports/phase-5-build.md"], "note": "design-quality-routing.md + design/quality-parts/index.json loaded (Autopilot evidence requirement); UI/UX Pro Max selector output saved; token-first implementation per project design artifact; benchmark record validated by gate-check design-benchmark" }
+  ]
+}
