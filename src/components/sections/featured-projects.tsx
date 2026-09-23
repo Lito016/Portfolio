@@ -1,13 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, ExternalLink } from 'lucide-react';
-import { hostedProjects } from '@/data/projects';
-const homepageProjects = hostedProjects.filter((p) => p.featured).slice(0, 3);
+import { ExternalLink } from 'lucide-react';
+import { featuredProjects } from '@/data/projects';
+import { ProjectCard } from '@/components/projects/project-card';
 
-/** Featured projects section */
+/** Featured projects section — flag-driven, shared card markup. */
 export function FeaturedProjects() {
   return (
     <section id="featured-projects" aria-labelledby="featured-heading" className="py-20">
@@ -23,71 +22,24 @@ export function FeaturedProjects() {
             Work
           </p>
           <h2 id="featured-heading" className="text-2xl font-semibold tracking-tight">
-            Projects
+            Featured Projects
           </h2>
-          <p className="mt-2 text-muted-foreground max-w-lg">
-            Projects I&apos;ve built
+          <p className="mt-2 max-w-lg text-muted-foreground">
+            Systems I designed and shipped end to end
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {homepageProjects.map((project, i) => (
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {featuredProjects.map((project, i) => (
             <motion.div
               key={project.slug}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="group relative flex flex-col overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--card)] transition-colors hover:border-[var(--foreground)]/20"
+              className="min-w-0"
             >
-              {/* Screenshot preview — omitted entirely when no verified asset exists */}
-              {project.image !== '' && (
-                <div className="relative aspect-video w-full overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={`${project.name} preview`}
-                    fill
-                    className="object-contain transition-transform duration-300 group-hover:scale-105"
-                    sizes="33vw"
-                  />
-                </div>
-              )}
-              <div className="flex flex-1 flex-col p-5">
-                <div className="mb-4 flex items-start justify-between gap-4">
-                  <div>
-                    <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.15em] text-muted-foreground">Project 0{i + 1}</p>
-                    <h3 className="text-lg font-semibold tracking-tight sm:text-xl">
-                      {project.name}
-                    </h3>
-                  </div>
-                  {project.url !== '' && (
-                    <ExternalLink className="mt-1 h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-[var(--foreground)]" aria-hidden="true" />
-                  )}
-                </div>
-                <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap items-center gap-2 border-t border-[var(--border)] pt-5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-md bg-[var(--muted)] px-2 py-0.5 text-xs font-medium text-muted-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                  {project.url !== '' && (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="ml-auto flex items-center gap-1 text-xs font-medium text-muted-foreground transition-colors group-hover:text-[var(--foreground)]"
-                    >
-                      View <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                    </a>
-                  )}
-                </div>
-              </div>
+              <ProjectCard project={project} variant="featured" />
             </motion.div>
           ))}
         </div>

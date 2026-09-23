@@ -504,3 +504,56 @@ export const categoryLabels: Record<ProjectCategory, string> = {
   'ai-developer-tools': 'AI & Developer Tools',
   'computer-vision-automation': 'Computer Vision & Automation',
 };
+
+export interface WhatIBuildCategory {
+  category: ProjectCategory;
+  title: string;
+  blurb: string;
+  examples: string[];
+}
+
+/** Category examples verbatim from the owner brief (fact-whitelist W21). */
+export const whatIBuildCategories: WhatIBuildCategory[] = [
+  {
+    category: 'business-systems',
+    title: categoryLabels['business-systems'],
+    blurb:
+      'Operational systems that model real workflows — records, roles, approvals, and reporting — end to end.',
+    examples: [
+      'Inventory',
+      'Finance',
+      'Procurement',
+      'Sales',
+      'Queue management',
+      'Government services',
+      'Operations systems',
+    ],
+  },
+  {
+    category: 'ai-developer-tools',
+    title: categoryLabels['ai-developer-tools'],
+    blurb:
+      'Infrastructure that makes AI usable in production: agent tooling, memory, and evaluation.',
+    examples: [
+      'MCP servers',
+      'AI agent infrastructure',
+      'Prompt engineering systems',
+      'Developer tooling',
+      'Evaluation systems',
+      'Knowledge and memory systems',
+    ],
+  },
+  {
+    category: 'computer-vision-automation',
+    title: categoryLabels['computer-vision-automation'],
+    blurb:
+      'Detection pipelines that turn raw video into events, clips, and monitoring workflows.',
+    examples: [
+      'YOLO detection',
+      'CCTV processing',
+      'Video event detection',
+      'Automated clip extraction',
+      'Monitoring workflows',
+    ],
+  },
+];
