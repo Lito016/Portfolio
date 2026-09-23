@@ -1,0 +1,29 @@
+{
+  "id": "05",
+  "title": "contact-form-render-only",
+  "tool": "playwright",
+  "steps": [
+    {
+      "name": "contact-form-or-fallback-rendered",
+      "status": "pass",
+      "detail": "{\"fields\":0,\"hasFallback\":true,\"note\":\"form is env-gated on NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY; this export build ships the direct-contact fallback card\"}"
+    },
+    {
+      "name": "form-labels-associated-when-configured",
+      "status": "pass",
+      "detail": "{\"fields\":0,\"labelled\":0}"
+    },
+    {
+      "name": "no-live-submission-performed",
+      "status": "pass",
+      "detail": "read-only audit; external POST endpoint not exercised by design (see security report)"
+    }
+  ],
+  "screenshots": [
+    "prime/evidence/screenshots/p6/uat05-contact__desktop.png"
+  ],
+  "started": "2026-09-23T07:19:22.815Z",
+  "console_errors": [],
+  "status": "pass",
+  "completed_at": "2026-09-23T07:19:23.043Z"
+}

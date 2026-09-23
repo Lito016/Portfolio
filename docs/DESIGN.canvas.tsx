@@ -206,10 +206,10 @@ export const HERO_CTAS = [
  * "Trust & Authority" style: case studies with metrics, badges over decoration;
  * AVOID: playful design, AI purple/pink gradients) and the bundled Vercel
  * developer-brand token study (monochrome ink/canvas duet, single blue link
- * accent #0070f3 — our --primary #3b82f6 is already the same device).
+ * accent #0070f3 — our light --primary #2563eb (AA-corrected from #3b82f6 for 4.5:1 text contrast; dark keeps #5e82f6) is the same device).
  *
  * Palette (existing CSS custom properties in src/app/globals.css — new UI consumes ONLY these):
- *   --background #f8f9fc (light) / dark twin · --foreground #0a0a1a · --primary #3b82f6
+ *   --background #f8f9fc (light) / dark twin · --foreground #0a0a1a · --primary #2563eb (light) / #5e82f6 (dark)
  *   --muted-foreground · --border · --glass · --radius 0.625rem (+ --radius-sm/md/lg/xl derived)
  *   Dark mode: existing `.dark` token overrides — new components inherit automatically by using tokens, never hex literals.
  * Typography: Geist Sans (--font-sans) + Geist Mono (--font-mono); type scale steps used on site:

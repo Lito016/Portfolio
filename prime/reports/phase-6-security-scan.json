@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "scan_tool": "npm audit 11 (registry advisories) + manual static-site review",
+  "scan_date": "2026-09-23",
+  "asvs_level": 1,
+  "asvs_level_rationale": "Static marketing/portfolio site: no authentication, no server-side session, no payments, no PII storage in the shipped export. ASVS L1 covers the applicable baseline (V1 architecture, V2 depends on platform, V5 data validation on the single contact form, V6/V8 via dependency audit and CSP header).",
+  "owasp_top10": {
+    "A01_broken_access_control": "not_applicable — fully public static content; no roles, no private URLs. Site access audience is managed by the hosting layer, not the app.",
+    "A02_cryptographic_failures": "pass — no secrets in client bundle (grep of out/ for tokens/keys during Phase 5 security-testing); all external links HTTPS.",
+    "A03_injection": "pass — no SQL/command execution; React escapes rendered content; blog MDX-like renderer (src/app/blog/[slug]/page.tsx) emits only text nodes and list/heading elements; the only two dangerouslySetInnerHTML uses in src/ (src/app/layout.tsx:79 theme-bootstrap script, :90 JSON-LD) embed static literals, not user or request data.",
+    "A04_insecure_design": "pass — contact form is env-gated: without NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY the export renders a static fallback card (no third-party data flow); threat model in prime/reports/threat-model.md.",
+    "A05_security_misconfiguration": "pass with caveat — CSP/HSTS provided via out/_headers for header-capable hosts; caveat: hosts that ignore _headers need platform-level CSP (owner action item, recorded in Phase 7 handoff).",
+    "A06_vulnerable_outdated_components": "pass — npm audit: 0 vulnerabilities (info 0, low 0, moderate 0, high 0, critical 0 across 451 deps) on 2026-09-23; receipt: prime/reports/phase-6-security-receipt.json.",
+    "A07_identification_authentication_failures": "not_applicable — no authentication surface exists.",
+    "A08_software_data_integrity_failures": "pass — dependency lockfile committed; static export contains no eval of remote code; analytics script (if added by owner) is the only third-party injection point and is currently absent.",
+    "A09_logging_monitoring_failures": "not_applicable — no server runtime to log; client console errors captured during verification (phase-6-browser-console.json) instead.",
+    "A10_server_side_request_forgery": "not_applicable — no server-side outbound requests in the export; GitHub stats fetch runs client-side against api.github.com with a fixed URL (no user-controlled target)."
+  },
+  "asvs_chapters": {
+    "V1_architecture": "pass — static export only; no server endpoints; build pipeline is `next build` to out/.",
+    "V2_authentication": "not_applicable — no auth.",
+    "V3_session_management": "not_applicable — no sessions.",
+    "V4_access_control": "not_applicable — public content only.",
+    "V5_validation_encoding": "pass — contact form validated by react-hook-form + zod schema before submission; HTML output escaped by React.",
+    "V6_error_handling": "pass — no stack traces in UI; error boundary present; console clean across 68 route runs.",
+    "V7_logging": "not_applicable — no server.",
+    "V8_software_dependencies": "pass — npm audit 0 findings.",
+    "V9_communication": "pass — HTTPS-only external URLs; CSP in out/_headers.",
+    "V10_file_system": "not_applicable — no user file uploads.",
+    "V11_business_logic": "pass — no financial or stateful business logic.",
+    "V12_ui_uis": "pass — XSS-safe rendering, aria-hidden decorative icons, no clickjacking-relevant sensitive actions; frame-ancestors 'none' in CSP."
+  },
+  "threat_model": "prime/reports/threat-model.md",
+  "findings": [],
+  "summary": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "informational": 1,
+    "informational_detail": "CSP delivery depends on host honoring out/_headers; recorded as owner action item rather than a code defect.",
+    "verdict": "pass"
+  },
+  "cross_references": [
+    "prime/reports/phase-6-security-scan-raw.json",
+    "src/app/layout.tsx",
+    "package-lock.json"
+  ],
+  "fingerprint": "4b035f58e5767e798195ef6653d770aef3862d6a43b93e21c213055ccf7ec949"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "02",
+  "title": "projects-filter-and-categories",
+  "tool": "playwright",
+  "steps": [
+    {
+      "name": "category-anchor-groups-present",
+      "status": "pass",
+      "detail": "[\"cat-business-systems\",\"cat-ai-developer-tools\",\"cat-computer-vision-automation\"]"
+    },
+    {
+      "name": "featured-case-study-links",
+      "status": "pass",
+      "detail": "5"
+    },
+    {
+      "name": "anchor-scroll-target-rendered",
+      "status": "pass",
+      "detail": "{\"x\":80,\"y\":182.6800537109375,\"width\":1120,\"height\":690.609375}"
+    }
+  ],
+  "screenshots": [
+    "prime/evidence/screenshots/p6/uat02-projects-groups__desktop.png"
+  ],
+  "started": "2026-09-23T07:19:21.323Z",
+  "console_errors": [],
+  "status": "pass",
+  "completed_at": "2026-09-23T07:19:21.756Z"
+}

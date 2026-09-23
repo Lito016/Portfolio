@@ -1,0 +1,44 @@
+{
+  "id": "03",
+  "title": "case-study-pages",
+  "tool": "playwright",
+  "steps": [
+    {
+      "name": "quill-sections-rendered",
+      "status": "pass",
+      "detail": "[\"Overview\",\"Problem\",\"Users\",\"Solution\",\"Core Workflow\",\"Architecture\",\"Major Features\",\"Engineering Challenges\",\"Technical Decisions\",\"Data Design\",\"Security\",\"Metrics\",\"Links\"]"
+    },
+    {
+      "name": "quill-metrics-present",
+      "status": "pass",
+      "detail": "2"
+    },
+    {
+      "name": "ubms-omits-core-workflow",
+      "status": "pass",
+      "detail": "[\"Overview\",\"Problem\",\"Solution\",\"Architecture\"]"
+    },
+    {
+      "name": "case-study-barangay-digital-portal-http-200",
+      "status": "pass",
+      "detail": "200"
+    },
+    {
+      "name": "case-study-vision-video-auditor-http-200",
+      "status": "pass",
+      "detail": "200"
+    },
+    {
+      "name": "case-study-prime-method-http-200",
+      "status": "pass",
+      "detail": "200"
+    }
+  ],
+  "screenshots": [
+    "prime/evidence/screenshots/p6/uat03-case-study-quill__desktop.png"
+  ],
+  "started": "2026-09-23T07:19:21.807Z",
+  "console_errors": [],
+  "status": "pass",
+  "completed_at": "2026-09-23T07:19:22.355Z"
+}

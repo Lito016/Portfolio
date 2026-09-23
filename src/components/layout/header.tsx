@@ -75,7 +75,7 @@ export function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-semibold text-sm group">
-          <SiGithub className="h-5 w-5 text-[var(--foreground)] group-hover:text-muted-foreground transition-colors" />
+          <SiGithub className="h-5 w-5 text-[var(--foreground)] group-hover:text-muted-foreground transition-colors" aria-hidden="true" />
           <span className="font-mono tracking-tight">{siteConfig.displayName}</span>
         </Link>
 

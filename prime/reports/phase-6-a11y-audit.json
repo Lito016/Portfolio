@@ -1,0 +1,276 @@
+{
+  "tool": "axe",
+  "tool_version": "4.13.0",
+  "started": "2026-09-23T07:19:34.588Z",
+  "audit_tool": "axe",
+  "pages": [
+    {
+      "route": "/",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 1,
+      "pass_count": 40
+    },
+    {
+      "route": "/about",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 37
+    },
+    {
+      "route": "/achievements",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 35
+    },
+    {
+      "route": "/activity",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 35
+    },
+    {
+      "route": "/blog",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 35
+    },
+    {
+      "route": "/blog/building-ai-powered-web-apps",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 37
+    },
+    {
+      "route": "/blog/modern-web-development-stack-2026",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 37
+    },
+    {
+      "route": "/blog/my-journey-into-agentic-ai",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 37
+    },
+    {
+      "route": "/certifications",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 35
+    },
+    {
+      "route": "/contact",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 35
+    },
+    {
+      "route": "/contributions",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 35
+    },
+    {
+      "route": "/education",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 35
+    },
+    {
+      "route": "/experience",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 37
+    },
+    {
+      "route": "/featured",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 35
+    },
+    {
+      "route": "/now",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 37
+    },
+    {
+      "route": "/open-source",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 35
+    },
+    {
+      "route": "/projects",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 44
+    },
+    {
+      "route": "/projects/barangay-digital-portal",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 43
+    },
+    {
+      "route": "/projects/prime-method",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 39
+    },
+    {
+      "route": "/projects/quill-mcp",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 43
+    },
+    {
+      "route": "/projects/ubms",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 41
+    },
+    {
+      "route": "/projects/vision-video-auditor",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 39
+    },
+    {
+      "route": "/resume",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 1,
+      "pass_count": 37
+    },
+    {
+      "route": "/skills",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 35
+    },
+    {
+      "route": "/stats",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 35
+    },
+    {
+      "route": "/tech-stack",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 35
+    },
+    {
+      "route": "/testimonials",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 35
+    },
+    {
+      "route": "/uses",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": 0,
+      "pass_count": 35
+    }
+  ],
+  "evidence_paths": [
+    "prime/evidence/screenshots/p6/home__desktop.png",
+    "prime/evidence/screenshots/p6/about__desktop.png",
+    "prime/evidence/screenshots/p6/achievements__desktop.png",
+    "prime/evidence/screenshots/p6/activity__desktop.png",
+    "prime/evidence/screenshots/p6/blog__desktop.png",
+    "prime/evidence/screenshots/p6/blog-building-ai-powered-web-apps__desktop.png",
+    "prime/evidence/screenshots/p6/blog-modern-web-development-stack-2026__desktop.png",
+    "prime/evidence/screenshots/p6/blog-my-journey-into-agentic-ai__desktop.png",
+    "prime/evidence/screenshots/p6/certifications__desktop.png",
+    "prime/evidence/screenshots/p6/contact__desktop.png",
+    "prime/evidence/screenshots/p6/contributions__desktop.png",
+    "prime/evidence/screenshots/p6/education__desktop.png",
+    "prime/evidence/screenshots/p6/experience__desktop.png",
+    "prime/evidence/screenshots/p6/featured__desktop.png",
+    "prime/evidence/screenshots/p6/now__desktop.png",
+    "prime/evidence/screenshots/p6/open-source__desktop.png",
+    "prime/evidence/screenshots/p6/projects__desktop.png",
+    "prime/evidence/screenshots/p6/projects-barangay-digital-portal__desktop.png",
+    "prime/evidence/screenshots/p6/projects-prime-method__desktop.png",
+    "prime/evidence/screenshots/p6/projects-quill-mcp__desktop.png",
+    "prime/evidence/screenshots/p6/projects-ubms__desktop.png",
+    "prime/evidence/screenshots/p6/projects-vision-video-auditor__desktop.png",
+    "prime/evidence/screenshots/p6/resume__desktop.png",
+    "prime/evidence/screenshots/p6/skills__desktop.png",
+    "prime/evidence/screenshots/p6/stats__desktop.png",
+    "prime/evidence/screenshots/p6/tech-stack__desktop.png",
+    "prime/evidence/screenshots/p6/testimonials__desktop.png",
+    "prime/evidence/screenshots/p6/uses__desktop.png"
+  ],
+  "violations_total": 0,
+  "passes_total": 1038,
+  "incomplete_total": 2,
+  "completed_at": "2026-09-23T07:20:18.470Z",
+  "compliance": "pass",
+  "violations": 0,
+  "passes": 1038,
+  "pages_audited": 28,
+  "cross_references": [
+    "src/app/layout.tsx",
+    "src/components/layout/header.tsx",
+    "docs/DESIGN.canvas.tsx",
+    "out/index.html",
+    "out/about.html",
+    "out/achievements.html",
+    "out/activity.html",
+    "out/blog.html",
+    "out/blog/building-ai-powered-web-apps.html",
+    "out/blog/modern-web-development-stack-2026.html",
+    "out/blog/my-journey-into-agentic-ai.html",
+    "out/certifications.html",
+    "out/contact.html",
+    "out/contributions.html",
+    "out/education.html",
+    "out/experience.html",
+    "out/featured.html",
+    "out/now.html",
+    "out/open-source.html",
+    "out/projects.html",
+    "out/projects/barangay-digital-portal.html",
+    "out/projects/prime-method.html",
+    "out/projects/quill-mcp.html",
+    "out/projects/ubms.html",
+    "out/projects/vision-video-auditor.html",
+    "out/resume.html",
+    "out/skills.html",
+    "out/stats.html",
+    "out/tech-stack.html",
+    "out/testimonials.html",
+    "out/uses.html"
+  ],
+  "fingerprint": "40033e2d7873674397a9e49b44e067171801948a2ac87dae61c9f0cddde136a2"
+}

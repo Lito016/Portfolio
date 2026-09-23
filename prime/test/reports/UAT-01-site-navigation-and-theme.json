@@ -1,0 +1,40 @@
+{
+  "id": "01",
+  "title": "site-navigation-and-theme",
+  "tool": "playwright",
+  "steps": [
+    {
+      "name": "desktop-nav-rendered",
+      "status": "pass",
+      "detail": "[\"/\",\"/projects\",\"/skills\",\"/about\",\"/resume\",\"/contact\"]"
+    },
+    {
+      "name": "nav-link-to-projects",
+      "status": "pass",
+      "detail": "http://127.0.0.1:4173/projects"
+    },
+    {
+      "name": "mobile-menu-opens",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "theme-toggle-switches",
+      "status": "pass",
+      "detail": "light -> dark"
+    },
+    {
+      "name": "focus-visible-on-nav-link",
+      "status": "pass",
+      "detail": "{\"tag\":\"a\",\"outline\":\"solid 2px\",\"shadow\":false}"
+    }
+  ],
+  "screenshots": [
+    "prime/evidence/screenshots/p6/uat01-mobile-menu__mobile.png",
+    "prime/evidence/screenshots/p6/home__theme-toggled.png"
+  ],
+  "started": "2026-09-23T07:19:19.978Z",
+  "console_errors": [],
+  "status": "pass",
+  "completed_at": "2026-09-23T07:19:21.270Z"
+}

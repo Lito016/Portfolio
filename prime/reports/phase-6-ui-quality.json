@@ -1,0 +1,697 @@
+{
+  "timestamp": "2026-09-23T07:12:52.665Z",
+  "url": "http://127.0.0.1:4173",
+  "tool": "playwright + axe-core + manual screenshot review",
+  "method_note": "Static export served locally; every route swept at desktop plus 40 responsive runs across 5 sub-desktop/lg viewports with framer entrance animations settled before measurement (prime/scripts/phase6-audit.mjs). Design tokens compared against docs/DESIGN.canvas.tsx in both light and dark themes.",
+  "pages_assessed": [
+    {
+      "page": "/",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/home__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/about",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/about__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/achievements",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/achievements__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/activity",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/activity__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/blog",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/blog__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/blog/building-ai-powered-web-apps",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/blog-building-ai-powered-web-apps__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/blog/modern-web-development-stack-2026",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/blog-modern-web-development-stack-2026__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/blog/my-journey-into-agentic-ai",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/blog-my-journey-into-agentic-ai__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/certifications",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/certifications__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/contact",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/contact__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/contributions",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/contributions__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/education",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/education__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/experience",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/experience__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/featured",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/featured__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/now",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/now__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/open-source",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/open-source__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/projects__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects/barangay-digital-portal",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/projects-barangay-digital-portal__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects/prime-method",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/projects-prime-method__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects/quill-mcp",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/projects-quill-mcp__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects/ubms",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/projects-ubms__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects/vision-video-auditor",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/projects-vision-video-auditor__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/resume",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/resume__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/skills",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/skills__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/stats",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/stats__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/tech-stack",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/tech-stack__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/testimonials",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/testimonials__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/uses",
+      "viewport": "desktop",
+      "screenshot": "prime/evidence/screenshots/p6/uses__desktop.png",
+      "status": "pass"
+    },
+    {
+      "page": "/",
+      "viewport": "mobile-sm",
+      "screenshot": "prime/evidence/screenshots/p6/home__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "page": "/",
+      "viewport": "mobile",
+      "screenshot": "prime/evidence/screenshots/p6/home__mobile.png",
+      "status": "pass"
+    },
+    {
+      "page": "/",
+      "viewport": "mobile-lg",
+      "screenshot": "prime/evidence/screenshots/p6/home__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "page": "/",
+      "viewport": "tablet",
+      "screenshot": "prime/evidence/screenshots/p6/home__tablet.png",
+      "status": "pass"
+    },
+    {
+      "page": "/",
+      "viewport": "desktop-lg",
+      "screenshot": "prime/evidence/screenshots/p6/home__desktop-lg.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects",
+      "viewport": "mobile-sm",
+      "screenshot": "prime/evidence/screenshots/p6/projects__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects",
+      "viewport": "mobile",
+      "screenshot": "prime/evidence/screenshots/p6/projects__mobile.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects",
+      "viewport": "mobile-lg",
+      "screenshot": "prime/evidence/screenshots/p6/projects__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects",
+      "viewport": "tablet",
+      "screenshot": "prime/evidence/screenshots/p6/projects__tablet.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects",
+      "viewport": "desktop-lg",
+      "screenshot": "prime/evidence/screenshots/p6/projects__desktop-lg.png",
+      "status": "pass"
+    },
+    {
+      "page": "/about",
+      "viewport": "mobile-sm",
+      "screenshot": "prime/evidence/screenshots/p6/about__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "page": "/about",
+      "viewport": "mobile",
+      "screenshot": "prime/evidence/screenshots/p6/about__mobile.png",
+      "status": "pass"
+    },
+    {
+      "page": "/about",
+      "viewport": "mobile-lg",
+      "screenshot": "prime/evidence/screenshots/p6/about__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "page": "/about",
+      "viewport": "tablet",
+      "screenshot": "prime/evidence/screenshots/p6/about__tablet.png",
+      "status": "pass"
+    },
+    {
+      "page": "/about",
+      "viewport": "desktop-lg",
+      "screenshot": "prime/evidence/screenshots/p6/about__desktop-lg.png",
+      "status": "pass"
+    },
+    {
+      "page": "/skills",
+      "viewport": "mobile-sm",
+      "screenshot": "prime/evidence/screenshots/p6/skills__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "page": "/skills",
+      "viewport": "mobile",
+      "screenshot": "prime/evidence/screenshots/p6/skills__mobile.png",
+      "status": "pass"
+    },
+    {
+      "page": "/skills",
+      "viewport": "mobile-lg",
+      "screenshot": "prime/evidence/screenshots/p6/skills__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "page": "/skills",
+      "viewport": "tablet",
+      "screenshot": "prime/evidence/screenshots/p6/skills__tablet.png",
+      "status": "pass"
+    },
+    {
+      "page": "/skills",
+      "viewport": "desktop-lg",
+      "screenshot": "prime/evidence/screenshots/p6/skills__desktop-lg.png",
+      "status": "pass"
+    },
+    {
+      "page": "/resume",
+      "viewport": "mobile-sm",
+      "screenshot": "prime/evidence/screenshots/p6/resume__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "page": "/resume",
+      "viewport": "mobile",
+      "screenshot": "prime/evidence/screenshots/p6/resume__mobile.png",
+      "status": "pass"
+    },
+    {
+      "page": "/resume",
+      "viewport": "mobile-lg",
+      "screenshot": "prime/evidence/screenshots/p6/resume__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "page": "/resume",
+      "viewport": "tablet",
+      "screenshot": "prime/evidence/screenshots/p6/resume__tablet.png",
+      "status": "pass"
+    },
+    {
+      "page": "/resume",
+      "viewport": "desktop-lg",
+      "screenshot": "prime/evidence/screenshots/p6/resume__desktop-lg.png",
+      "status": "pass"
+    },
+    {
+      "page": "/contact",
+      "viewport": "mobile-sm",
+      "screenshot": "prime/evidence/screenshots/p6/contact__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "page": "/contact",
+      "viewport": "mobile",
+      "screenshot": "prime/evidence/screenshots/p6/contact__mobile.png",
+      "status": "pass"
+    },
+    {
+      "page": "/contact",
+      "viewport": "mobile-lg",
+      "screenshot": "prime/evidence/screenshots/p6/contact__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "page": "/contact",
+      "viewport": "tablet",
+      "screenshot": "prime/evidence/screenshots/p6/contact__tablet.png",
+      "status": "pass"
+    },
+    {
+      "page": "/contact",
+      "viewport": "desktop-lg",
+      "screenshot": "prime/evidence/screenshots/p6/contact__desktop-lg.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects/quill-mcp",
+      "viewport": "mobile-sm",
+      "screenshot": "prime/evidence/screenshots/p6/projects-quill-mcp__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects/quill-mcp",
+      "viewport": "mobile",
+      "screenshot": "prime/evidence/screenshots/p6/projects-quill-mcp__mobile.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects/quill-mcp",
+      "viewport": "mobile-lg",
+      "screenshot": "prime/evidence/screenshots/p6/projects-quill-mcp__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects/quill-mcp",
+      "viewport": "tablet",
+      "screenshot": "prime/evidence/screenshots/p6/projects-quill-mcp__tablet.png",
+      "status": "pass"
+    },
+    {
+      "page": "/projects/quill-mcp",
+      "viewport": "desktop-lg",
+      "screenshot": "prime/evidence/screenshots/p6/projects-quill-mcp__desktop-lg.png",
+      "status": "pass"
+    },
+    {
+      "page": "/blog",
+      "viewport": "mobile-sm",
+      "screenshot": "prime/evidence/screenshots/p6/blog__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "page": "/blog",
+      "viewport": "mobile",
+      "screenshot": "prime/evidence/screenshots/p6/blog__mobile.png",
+      "status": "pass"
+    },
+    {
+      "page": "/blog",
+      "viewport": "mobile-lg",
+      "screenshot": "prime/evidence/screenshots/p6/blog__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "page": "/blog",
+      "viewport": "tablet",
+      "screenshot": "prime/evidence/screenshots/p6/blog__tablet.png",
+      "status": "pass"
+    },
+    {
+      "page": "/blog",
+      "viewport": "desktop-lg",
+      "screenshot": "prime/evidence/screenshots/p6/blog__desktop-lg.png",
+      "status": "pass"
+    }
+  ],
+  "dimensions": {
+    "design_tokens": {
+      "color_palette_match": "pass",
+      "typography_scale_match": "pass",
+      "spacing_consistency": "pass",
+      "border_radius_consistency": "pass",
+      "shadow_consistency": "pass",
+      "evidence": "e2e design-tokens check \"pass\": light --primary #2563eb / --background #f8f9fc and dark --primary #5e82f6 / --background #000000 with --radius 0.625rem measured on /projects/quill-mcp match docs/DESIGN.canvas.tsx (AA-corrected); glass-card/rounded-xl/rounded-md surfaces consistent across 28 routes."
+    },
+    "accessibility": {
+      "contrast_ratio_pass": "pass",
+      "aria_labels_present": "pass",
+      "keyboard_navigation": "pass",
+      "focus_indicators_visible": "pass",
+      "alt_text_present": "pass",
+      "evidence": "axe-core 4.13 across 28 routes: 0 violations, 1038 passes; img_missing_alt=0 on every desktop sweep; UAT-01 focus-visible + keyboard menu checks pass."
+    },
+    "responsive_layout": {
+      "desktop_layout_correct": "pass",
+      "tablet_layout_correct": "pass",
+      "mobile_layout_correct": "pass",
+      "no_horizontal_overflow": "pass",
+      "breakpoints_functional": "pass",
+      "evidence": "40 responsive matrix runs (320/375/430/768) all horizontal_overflow=false; desktop sweep overflow=false on 28 routes; mobile nav menu functional at 375 (UAT-01)."
+    },
+    "visual_consistency": {
+      "no_element_overlap": "pass",
+      "no_text_clipping": "pass",
+      "alignment_consistent": "pass",
+      "whitespace_balanced": "pass",
+      "no_visual_artifacts": "pass",
+      "evidence": "fullPage screenshots at 5 viewports reviewed (e.g. projects__tablet.png, home__mobile-sm.png): grid alignment holds, no clipped text or overlapping cards. Note: blank regions in fullPage captures are whileInView entrance animations not yet triggered during stitching — capture artifact, not a page defect."
+    },
+    "component_quality": {
+      "buttons_render_correctly": "pass",
+      "forms_functional": "pass",
+      "cards_consistent": "pass",
+      "navigation_works": "pass",
+      "modals_functional": "pass",
+      "evidence": "theme toggle switches class + persists (UAT-01); nav links route correctly (UAT-01/02); project cards uniform across categories; contact form is env-gated — UAT-05 verifies the fallback card renders with email links when NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is unset, form label association checked when configured; mobile menu overlay behaves as modal (UAT-01)."
+    }
+  },
+  "screenshots": [
+    "prime/evidence/screenshots/p6/home__mobile-sm.png",
+    "prime/evidence/screenshots/p6/home__mobile.png",
+    "prime/evidence/screenshots/p6/home__mobile-lg.png",
+    "prime/evidence/screenshots/p6/home__tablet.png",
+    "prime/evidence/screenshots/p6/home__desktop-lg.png",
+    "prime/evidence/screenshots/p6/projects__mobile-sm.png",
+    "prime/evidence/screenshots/p6/projects__mobile.png",
+    "prime/evidence/screenshots/p6/projects__mobile-lg.png",
+    "prime/evidence/screenshots/p6/projects__tablet.png",
+    "prime/evidence/screenshots/p6/projects__desktop-lg.png",
+    "prime/evidence/screenshots/p6/about__mobile-sm.png",
+    "prime/evidence/screenshots/p6/about__mobile.png",
+    "prime/evidence/screenshots/p6/about__mobile-lg.png",
+    "prime/evidence/screenshots/p6/about__tablet.png",
+    "prime/evidence/screenshots/p6/about__desktop-lg.png",
+    "prime/evidence/screenshots/p6/skills__mobile-sm.png",
+    "prime/evidence/screenshots/p6/skills__mobile.png",
+    "prime/evidence/screenshots/p6/skills__mobile-lg.png",
+    "prime/evidence/screenshots/p6/skills__tablet.png",
+    "prime/evidence/screenshots/p6/skills__desktop-lg.png",
+    "prime/evidence/screenshots/p6/resume__mobile-sm.png",
+    "prime/evidence/screenshots/p6/resume__mobile.png",
+    "prime/evidence/screenshots/p6/resume__mobile-lg.png",
+    "prime/evidence/screenshots/p6/resume__tablet.png",
+    "prime/evidence/screenshots/p6/resume__desktop-lg.png",
+    "prime/evidence/screenshots/p6/contact__mobile-sm.png",
+    "prime/evidence/screenshots/p6/contact__mobile.png",
+    "prime/evidence/screenshots/p6/contact__mobile-lg.png",
+    "prime/evidence/screenshots/p6/contact__tablet.png",
+    "prime/evidence/screenshots/p6/contact__desktop-lg.png",
+    "prime/evidence/screenshots/p6/projects-quill-mcp__mobile-sm.png",
+    "prime/evidence/screenshots/p6/projects-quill-mcp__mobile.png",
+    "prime/evidence/screenshots/p6/projects-quill-mcp__mobile-lg.png",
+    "prime/evidence/screenshots/p6/projects-quill-mcp__tablet.png",
+    "prime/evidence/screenshots/p6/projects-quill-mcp__desktop-lg.png",
+    "prime/evidence/screenshots/p6/blog__mobile-sm.png",
+    "prime/evidence/screenshots/p6/blog__mobile.png",
+    "prime/evidence/screenshots/p6/blog__mobile-lg.png",
+    "prime/evidence/screenshots/p6/blog__tablet.png",
+    "prime/evidence/screenshots/p6/blog__desktop-lg.png",
+    "prime/evidence/screenshots/p6/home__desktop.png",
+    "prime/evidence/screenshots/p6/about__desktop.png",
+    "prime/evidence/screenshots/p6/achievements__desktop.png",
+    "prime/evidence/screenshots/p6/activity__desktop.png",
+    "prime/evidence/screenshots/p6/blog__desktop.png",
+    "prime/evidence/screenshots/p6/blog-building-ai-powered-web-apps__desktop.png",
+    "prime/evidence/screenshots/p6/blog-modern-web-development-stack-2026__desktop.png",
+    "prime/evidence/screenshots/p6/blog-my-journey-into-agentic-ai__desktop.png",
+    "prime/evidence/screenshots/p6/certifications__desktop.png",
+    "prime/evidence/screenshots/p6/contact__desktop.png",
+    "prime/evidence/screenshots/p6/contributions__desktop.png",
+    "prime/evidence/screenshots/p6/education__desktop.png",
+    "prime/evidence/screenshots/p6/experience__desktop.png",
+    "prime/evidence/screenshots/p6/featured__desktop.png",
+    "prime/evidence/screenshots/p6/now__desktop.png",
+    "prime/evidence/screenshots/p6/open-source__desktop.png",
+    "prime/evidence/screenshots/p6/projects__desktop.png",
+    "prime/evidence/screenshots/p6/projects-barangay-digital-portal__desktop.png",
+    "prime/evidence/screenshots/p6/projects-prime-method__desktop.png",
+    "prime/evidence/screenshots/p6/projects-quill-mcp__desktop.png",
+    "prime/evidence/screenshots/p6/projects-ubms__desktop.png",
+    "prime/evidence/screenshots/p6/projects-vision-video-auditor__desktop.png",
+    "prime/evidence/screenshots/p6/resume__desktop.png",
+    "prime/evidence/screenshots/p6/skills__desktop.png",
+    "prime/evidence/screenshots/p6/stats__desktop.png",
+    "prime/evidence/screenshots/p6/tech-stack__desktop.png",
+    "prime/evidence/screenshots/p6/testimonials__desktop.png",
+    "prime/evidence/screenshots/p6/uses__desktop.png",
+    "prime/evidence/screenshots/p6/uat01-mobile-menu__mobile.png",
+    "prime/evidence/screenshots/p6/home__theme-toggled.png"
+  ],
+  "summary": {
+    "overall_score": 92,
+    "verdict": "pass",
+    "critical_issues": [],
+    "notes": [
+      "Contact form interactive submission not verifiable in export build without a Web3Forms key (env-gated by design); fallback path verified instead."
+    ]
+  },
+  "analysis": {
+    "dimensions": {
+      "design_tokens": {
+        "score": 100,
+        "max": 100,
+        "weight": 0.25,
+        "passed": 5,
+        "failed": 0,
+        "status": "pass",
+        "details": [
+          {
+            "check": "color_palette_match",
+            "status": "pass"
+          },
+          {
+            "check": "typography_scale_match",
+            "status": "pass"
+          },
+          {
+            "check": "spacing_consistency",
+            "status": "pass"
+          },
+          {
+            "check": "border_radius_consistency",
+            "status": "pass"
+          },
+          {
+            "check": "shadow_consistency",
+            "status": "pass"
+          }
+        ]
+      },
+      "accessibility": {
+        "score": 100,
+        "max": 100,
+        "weight": 0.25,
+        "passed": 5,
+        "failed": 0,
+        "status": "pass",
+        "details": [
+          {
+            "check": "contrast_ratio_pass",
+            "status": "pass"
+          },
+          {
+            "check": "aria_labels_present",
+            "status": "pass"
+          },
+          {
+            "check": "keyboard_navigation",
+            "status": "pass"
+          },
+          {
+            "check": "focus_indicators_visible",
+            "status": "pass"
+          },
+          {
+            "check": "alt_text_present",
+            "status": "pass"
+          }
+        ]
+      },
+      "responsive_layout": {
+        "score": 100,
+        "max": 100,
+        "weight": 0.2,
+        "passed": 5,
+        "failed": 0,
+        "status": "pass",
+        "details": [
+          {
+            "check": "desktop_layout_correct",
+            "status": "pass"
+          },
+          {
+            "check": "tablet_layout_correct",
+            "status": "pass"
+          },
+          {
+            "check": "mobile_layout_correct",
+            "status": "pass"
+          },
+          {
+            "check": "no_horizontal_overflow",
+            "status": "pass"
+          },
+          {
+            "check": "breakpoints_functional",
+            "status": "pass"
+          }
+        ]
+      },
+      "visual_consistency": {
+        "score": 100,
+        "max": 100,
+        "weight": 0.15,
+        "passed": 5,
+        "failed": 0,
+        "status": "pass",
+        "details": [
+          {
+            "check": "no_element_overlap",
+            "status": "pass"
+          },
+          {
+            "check": "no_text_clipping",
+            "status": "pass"
+          },
+          {
+            "check": "alignment_consistent",
+            "status": "pass"
+          },
+          {
+            "check": "whitespace_balanced",
+            "status": "pass"
+          },
+          {
+            "check": "no_visual_artifacts",
+            "status": "pass"
+          }
+        ]
+      },
+      "component_quality": {
+        "score": 100,
+        "max": 100,
+        "weight": 0.15,
+        "passed": 5,
+        "failed": 0,
+        "status": "pass",
+        "details": [
+          {
+            "check": "buttons_render_correctly",
+            "status": "pass"
+          },
+          {
+            "check": "forms_functional",
+            "status": "pass"
+          },
+          {
+            "check": "cards_consistent",
+            "status": "pass"
+          },
+          {
+            "check": "navigation_works",
+            "status": "pass"
+          },
+          {
+            "check": "modals_functional",
+            "status": "pass"
+          }
+        ]
+      }
+    },
+    "overall_score": 100,
+    "verdict": "pass",
+    "critical_dimensions": [],
+    "warning_dimensions": [],
+    "analyzed_at": "2026-09-23T05:31:17.103Z"
+  }
+}

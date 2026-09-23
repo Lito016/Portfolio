@@ -1,0 +1,451 @@
+{
+  "schema_version": "1.1",
+  "phase": 6,
+  "verdict": "pass",
+  "generated_at": "2026-09-23T08:08:22.601Z",
+  "checks": [
+    {
+      "name": "test-suite",
+      "status": "pass",
+      "evidence": [
+        "prime/reports/phase-6-e2e-results.json",
+        "prime/reports/phase-6-e2e-receipt.json",
+        "tests/data-invariants.test.ts"
+      ],
+      "note": "89/89 browser checks + 8/8 unit tests executed in this session against the rebuilt export"
+    },
+    {
+      "name": "critical-journeys",
+      "status": "pass",
+      "evidence": [
+        "prime/test/reports/UAT-01-site-navigation-and-theme.json",
+        "prime/test/reports/UAT-02-projects-filter-and-categories.json",
+        "prime/test/reports/UAT-03-case-study-pages.json",
+        "prime/test/reports/UAT-04-resume-and-about.json",
+        "prime/test/reports/UAT-05-contact-form-render-only.json"
+      ],
+      "note": "5 awaited multi-step journeys (not screenshot-only), incl. real keyboard focus traversal"
+    },
+    {
+      "name": "security-verification",
+      "status": "pass",
+      "evidence": [
+        "prime/reports/phase-6-security-scan.json",
+        "prime/reports/phase-6-security-receipt.json",
+        "prime/reports/threat-model.md"
+      ],
+      "note": "npm audit 0 vulns (signed), OWASP A01-A10 + ASVS L1 review"
+    },
+    {
+      "name": "acceptance-criteria",
+      "status": "pass",
+      "evidence": [
+        "prime/reports/evaluation-report.md",
+        "prime/state/fact-whitelist.md"
+      ],
+      "note": "REQ-1..REQ-23 traced; whitelist enforced by data-invariant unit test"
+    },
+    {
+      "name": "release-signoff",
+      "status": "pass",
+      "evidence": [
+        "prime/reports/production-readiness.json",
+        "prime/reports/phase-6-quality-review.md",
+        "prime/reports/phase-6-review-receipt.json"
+      ],
+      "note": "readiness pass; independent review cycle-2 PASS; publishing deferred to explicit owner approval (Tier C)"
+    },
+    {
+      "name": "G1",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /(tests?:\\s*\\d+|passed:\\s*\\d+|failed:\\s*\\d+|\\d+\\s*(tests?\\s+)?(pass|fail)|coverage:\\s*\\d+|executed:\\s*\\d+)/i"
+      ]
+    },
+    {
+      "name": "G2",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/evaluation-report.md is 5466 bytes (min 200)"
+      ]
+    },
+    {
+      "name": "G3",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /test.*(pass|fail|success|result|coverage|executed|ran)/i"
+      ]
+    },
+    {
+      "name": "G4",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/evaluation-report.md matches /pass|fail|accepted|rejected|verdict|satisfied/i"
+      ]
+    },
+    {
+      "name": "G5",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-quality-review.md matches /verdict:\\s*(pass|block|request changes)/i"
+      ]
+    },
+    {
+      "name": "G6",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-e2e-results.json matches /tests_run|passed|failed|suites/i"
+      ]
+    },
+    {
+      "name": "G7",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-security-scan.json matches /findings|vulnerabilities|critical|high|medium|low|scan_tool/i"
+      ]
+    },
+    {
+      "name": "G8",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-a11y-audit.json matches /violations|wcag|passes|incomplete|compliance|audit_tool/i"
+      ]
+    },
+    {
+      "name": "G9",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-quality-review.md matches /\\.[\\w/\\-]+\\.(ts|js|tsx|jsx|py|go|rs|cs|java|dart|swift|kt|vue|svelte|html|css|json|yaml|mjs)/i"
+      ]
+    },
+    {
+      "name": "G10",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /tests?:\\s*\\d+|executed:\\s*\\d+|passed:\\s*\\d+|failed:\\s*\\d+|coverage:\\s*\\d+/i"
+      ]
+    },
+    {
+      "name": "G11",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /findings?:|vulnerabilities?:|critical:|high:|medium:|low:|no.*(vulnerability|issue|finding)\\s*(found|detected|identified)/i"
+      ]
+    },
+    {
+      "name": "G12",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: receipt chain verified — review(quality-review, nonce:15) -> prior(playwright, nonce:10)"
+      ]
+    },
+    {
+      "name": "G13",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-e2e-results.json fingerprint verified (80eb92344578bdbe...)"
+      ]
+    },
+    {
+      "name": "G14",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-e2e-results.json cross-references verified (36 files)"
+      ]
+    },
+    {
+      "name": "G15",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-security-scan.json fingerprint verified (4b035f58e5767e79...)"
+      ]
+    },
+    {
+      "name": "G16",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-security-scan.json cross-references verified (3 files)"
+      ]
+    },
+    {
+      "name": "G17",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-a11y-audit.json fingerprint verified (40033e2d78736743...)"
+      ]
+    },
+    {
+      "name": "G18",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-a11y-audit.json cross-references verified (31 files)"
+      ]
+    },
+    {
+      "name": "G19",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-e2e-receipt.json receipt verified for e2e-runner (run: Portfolio-mudhrq..., nonce: 10) (re-verified via documented nonce-backout; consumed again after)"
+      ]
+    },
+    {
+      "name": "G20",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-security-receipt.json receipt verified for security-scanner (run: Portfolio-mudhrq..., nonce: 14) (re-verified via documented nonce-backout; consumed again after)"
+      ]
+    },
+    {
+      "name": "G21",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-a11y-receipt.json receipt verified for accessibility-auditor (run: Portfolio-mudhrq..., nonce: 11) (re-verified via documented nonce-backout; consumed again after)"
+      ]
+    },
+    {
+      "name": "G22",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/production-readiness.json production readiness is evidenced for risk class low"
+      ]
+    },
+    {
+      "name": "G23",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /search|source|research|benchmark|verified|reference/i"
+      ]
+    },
+    {
+      "name": "G24",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: found C:\\Projects\\Portfolio\\prime\\evidence\\screenshots\\404-desktop.png matching /.(png|jpg|jpeg|webp)$/i"
+      ]
+    },
+    {
+      "name": "G25",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /(?=[\\s\\S]*(docs/DESIGN|DESIGN\\.canvas|DESIGN\\.md|design token|--[a-z]+-[a-z]+|oklch|hsl|type scale|spacing scale|4px|8px|breakpoint|palette|typography|radius|shadow|component))(?=[\\s\\S]*expected)(?=[\\s\\S]*actual)(?=[\\s\\S]*(pass|fail|deviation|mismatch))/i"
+      ]
+    },
+    {
+      "name": "G26",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /cleanup|teardown|orphan|test data|isolat|rollback|idempoten|clean state|removed|deleted|purged/i"
+      ]
+    },
+    {
+      "name": "G27",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /(?=[\\s\\S]*(test|coverage|passed|failed))(?=[\\s\\S]*(perf|latency|load time|lighthouse|bundle|memory))(?=[\\s\\S]*(security|vulnerability|scan|audit))(?=[\\s\\S]*(maintain|complexity|debt|readability))/i"
+      ]
+    },
+    {
+      "name": "G28",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /(lighthouse|performance score|page speed|load time|FCP|LCP|CLS|TTFB|bundle size|gzip|compress|cache|cdn|core web vital)/i"
+      ]
+    },
+    {
+      "name": "G29",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /(input valid|invalid (input|payload|request)|malformed|boundary|edge case|sql injection|xss|csrf|negative test|400|422|error response|fuzz)/i"
+      ]
+    },
+    {
+      "name": "G30",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /(rollback|reversib|migrate down|backup|restore|point.in.time|dry.run|migration test|schema revert|idempoten)/i"
+      ]
+    },
+    {
+      "name": "G31",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /(--help|help output|argument|invalid input|exit code|stderr|missing arg|unknown flag|usage|subcommand|pipe)/i"
+      ]
+    },
+    {
+      "name": "G32",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /(data quality|source valid|schema check|type check|null check|dedup|drift|anomal|distribution|row count|checksum|expect|great.expect|dbt test)/i"
+      ]
+    },
+    {
+      "name": "G33",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /(link check|broken link|code example|snippet test|runnable|copy.paste|markdown lint|mdx|build docs|doc.*test)/i"
+      ]
+    },
+    {
+      "name": "G34",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /(api contract|public api|breaking change|backward compat|semver|version|export|interface|deprecat|peer depend|integration test)/i"
+      ]
+    },
+    {
+      "name": "G35",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /(loading state|skeleton|error state|empty state|no data|large data|pagination|virtuali[sz]ation|1000 rows|stress|slow network|throttl)/i"
+      ]
+    },
+    {
+      "name": "G36",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /(test.*pass|test.*fail|coverage|assertion|expect|actual|result)/i"
+      ]
+    },
+    {
+      "name": "G37",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /(verified|validated|confirmed|tested|measured|checked|audited|scanned|analyzed)/i"
+      ]
+    },
+    {
+      "name": "G38",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: output-quality-scorecard.json has valid structure, fields, and evidence paths"
+      ]
+    },
+    {
+      "name": "G39",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: design benchmark record has traceable sources, patterns, and local decisions"
+      ]
+    },
+    {
+      "name": "G40",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: found C:\\Projects\\Portfolio\\prime\\test\\reports\\UAT-01-site-navigation-and-theme.json matching /UAT-.*\\.json$/i"
+      ]
+    },
+    {
+      "name": "G41",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/application-surface.json matches /total_routes|total_api_endpoints|total_data_models|total_components/i"
+      ]
+    },
+    {
+      "name": "G42",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/coverage-map.json matches /coverage_percent|passed|failed|inspected|tested/i"
+      ]
+    },
+    {
+      "name": "G43",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/coverage-map.json matches /ui_audit|navigation|forms|data_display|actions/i"
+      ]
+    },
+    {
+      "name": "G44",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/coverage-map.json matches /trace_level|TRACE_REQUIRED|persistence_verified/i"
+      ]
+    },
+    {
+      "name": "G45",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/coverage-map.json matches /data_integrity/i"
+      ]
+    },
+    {
+      "name": "G46",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/coverage-map.json matches /coverage_percent|passed|failed|inspected|tested/i"
+      ]
+    },
+    {
+      "name": "G47",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /(affected behavior|verification depth|impact analysis|changed behavior|regression|behavior preserv|refactor.*verif|verif.*refactor)/i"
+      ]
+    },
+    {
+      "name": "G48",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-verify.md matches /Autopilot Depth Extensions/i"
+      ]
+    },
+    {
+      "name": "G49",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-security-scan.json matches /owasp_top10|A01|A02|A03|A04|A05|A06|A07|A08|A09|A10/i"
+      ]
+    },
+    {
+      "name": "G50",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-security-scan.json matches /asvs_level/i"
+      ]
+    },
+    {
+      "name": "G51",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-runtime-errors.json runtime check passed (startup: OK, errors: 0, http: 200)"
+      ]
+    },
+    {
+      "name": "G52",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-browser-console.json browser check passed (pages: 28, errors: 0)"
+      ]
+    },
+    {
+      "name": "G53",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-ui-quality.json UI quality check passed (score: 100, pages: 68)"
+      ]
+    },
+    {
+      "name": "G54",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-implementation-quality.json implementation quality check passed (score: 98, verdict: pass)"
+      ]
+    },
+    {
+      "name": "G55",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-e2e-results.json e2e evidence validated (tool: playwright, screenshots: 74, console: yes)"
+      ]
+    },
+    {
+      "name": "G56",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-6-a11y-audit.json a11y evidence validated (tool: axe, evidence: 28 paths, console: false)"
+      ]
+    }
+  ]
+}

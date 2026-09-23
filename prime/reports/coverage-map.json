@@ -1,0 +1,831 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-23T07:48:20.998Z",
+  "project_root": "C:ProjectsPortfolio",
+  "summary": {
+    "total": 41,
+    "routes": 28,
+    "interactive_components": 7,
+    "journeys": 5,
+    "covered": 36,
+    "coverage_pct": 88,
+    "coverage_percent": 88,
+    "trace_level": "artifact+receipt (SHA-256 in signed trusted-runner receipts)"
+  },
+  "receipts": {
+    "e2e": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+    "a11y": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+    "security": "7c1d083535cad864139d453f6afa8f50269b4020806c14d8ac51188000389d1b"
+  },
+  "items": [
+    {
+      "id": "route:/",
+      "type": "route",
+      "name": "/",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/home__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/about",
+      "type": "route",
+      "name": "/about",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/about__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/achievements",
+      "type": "route",
+      "name": "/achievements",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/achievements__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/activity",
+      "type": "route",
+      "name": "/activity",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/activity__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/blog",
+      "type": "route",
+      "name": "/blog",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/blog__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/blog/building-ai-powered-web-apps",
+      "type": "route",
+      "name": "/blog/building-ai-powered-web-apps",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/blog-building-ai-powered-web-apps__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/blog/modern-web-development-stack-2026",
+      "type": "route",
+      "name": "/blog/modern-web-development-stack-2026",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/blog-modern-web-development-stack-2026__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/blog/my-journey-into-agentic-ai",
+      "type": "route",
+      "name": "/blog/my-journey-into-agentic-ai",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/blog-my-journey-into-agentic-ai__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/certifications",
+      "type": "route",
+      "name": "/certifications",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/certifications__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/contact",
+      "type": "route",
+      "name": "/contact",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/contact__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/contributions",
+      "type": "route",
+      "name": "/contributions",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/contributions__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/education",
+      "type": "route",
+      "name": "/education",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/education__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/experience",
+      "type": "route",
+      "name": "/experience",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/experience__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/featured",
+      "type": "route",
+      "name": "/featured",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/featured__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/now",
+      "type": "route",
+      "name": "/now",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/now__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/open-source",
+      "type": "route",
+      "name": "/open-source",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/open-source__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/projects",
+      "type": "route",
+      "name": "/projects",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/projects__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/projects/barangay-digital-portal",
+      "type": "route",
+      "name": "/projects/barangay-digital-portal",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/projects-barangay-digital-portal__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/projects/prime-method",
+      "type": "route",
+      "name": "/projects/prime-method",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/projects-prime-method__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/projects/quill-mcp",
+      "type": "route",
+      "name": "/projects/quill-mcp",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/projects-quill-mcp__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/projects/ubms",
+      "type": "route",
+      "name": "/projects/ubms",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/projects-ubms__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/projects/vision-video-auditor",
+      "type": "route",
+      "name": "/projects/vision-video-auditor",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/projects-vision-video-auditor__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/resume",
+      "type": "route",
+      "name": "/resume",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/resume__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/skills",
+      "type": "route",
+      "name": "/skills",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/skills__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/stats",
+      "type": "route",
+      "name": "/stats",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/stats__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/tech-stack",
+      "type": "route",
+      "name": "/tech-stack",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/tech-stack__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/testimonials",
+      "type": "route",
+      "name": "/testimonials",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/testimonials__desktop.png"
+      ]
+    },
+    {
+      "id": "route:/uses",
+      "type": "route",
+      "name": "/uses",
+      "traces": [
+        {
+          "kind": "e2e-sweep",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/reports/phase-6-e2e-results.json"
+        },
+        {
+          "kind": "a11y",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88",
+          "artifact": "prime/reports/phase-6-a11y-audit.json"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/evidence/screenshots/p6/uses__desktop.png"
+      ]
+    },
+    {
+      "id": "component:C-001",
+      "type": "interactive",
+      "name": "page (nav)",
+      "subtype": "navigation",
+      "source": "src\\app\\blog\\[slug]\\page.tsx",
+      "traces": [
+        {
+          "kind": "a11y-and-e2e",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/reports/phase-6-ui-quality.json"
+      ]
+    },
+    {
+      "id": "component:C-002",
+      "type": "interactive",
+      "name": "contact-client (form)",
+      "subtype": "form",
+      "source": "src\\app\\contact\\contact-client.tsx",
+      "traces": [
+        {
+          "kind": "a11y-and-e2e",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/reports/phase-6-ui-quality.json"
+      ]
+    },
+    {
+      "id": "component:C-003",
+      "type": "interactive",
+      "name": "layout (nav)",
+      "subtype": "navigation",
+      "source": "src\\app\\layout.tsx",
+      "traces": [
+        {
+          "kind": "a11y-and-e2e",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/reports/phase-6-ui-quality.json"
+      ]
+    },
+    {
+      "id": "component:C-004",
+      "type": "interactive",
+      "name": "resume-client (nav)",
+      "subtype": "navigation",
+      "source": "src\\app\\resume\\resume-client.tsx",
+      "traces": [
+        {
+          "kind": "a11y-and-e2e",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/reports/phase-6-ui-quality.json"
+      ]
+    },
+    {
+      "id": "component:C-005",
+      "type": "interactive",
+      "name": "footer (nav)",
+      "subtype": "navigation",
+      "source": "src\\components\\layout\\footer.tsx",
+      "traces": [
+        {
+          "kind": "a11y-and-e2e",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/reports/phase-6-ui-quality.json"
+      ]
+    },
+    {
+      "id": "component:C-006",
+      "type": "interactive",
+      "name": "header (nav)",
+      "subtype": "navigation",
+      "source": "src\\components\\layout\\header.tsx",
+      "traces": [
+        {
+          "kind": "a11y-and-e2e",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/reports/phase-6-ui-quality.json"
+      ]
+    },
+    {
+      "id": "component:C-007",
+      "type": "interactive",
+      "name": "case-study-layout (nav)",
+      "subtype": "navigation",
+      "source": "src\\components\\projects\\case-study-layout.tsx",
+      "traces": [
+        {
+          "kind": "a11y-and-e2e",
+          "receipt_ref": "31deaae1c96fdc66c735c4ce9607272039d423830703df2673d178d21cc9ee88"
+        }
+      ],
+      "status": "covered",
+      "evidence": [
+        "prime/reports/phase-6-ui-quality.json"
+      ]
+    },
+    {
+      "id": "journey:01",
+      "type": "critical_journey",
+      "name": "site-navigation-and-theme",
+      "status": "pass",
+      "traces": [
+        {
+          "kind": "uat-journey",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/test/reports/UAT-01-site-navigation-and-theme.json"
+        }
+      ],
+      "evidence": [
+        "prime/test/reports/UAT-01-site-navigation-and-theme.json"
+      ]
+    },
+    {
+      "id": "journey:02",
+      "type": "critical_journey",
+      "name": "projects-filter-and-categories",
+      "status": "pass",
+      "traces": [
+        {
+          "kind": "uat-journey",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/test/reports/UAT-02-projects-filter-and-categories.json"
+        }
+      ],
+      "evidence": [
+        "prime/test/reports/UAT-02-projects-filter-and-categories.json"
+      ]
+    },
+    {
+      "id": "journey:03",
+      "type": "critical_journey",
+      "name": "case-study-pages",
+      "status": "pass",
+      "traces": [
+        {
+          "kind": "uat-journey",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/test/reports/UAT-03-case-study-pages.json"
+        }
+      ],
+      "evidence": [
+        "prime/test/reports/UAT-03-case-study-pages.json"
+      ]
+    },
+    {
+      "id": "journey:04",
+      "type": "critical_journey",
+      "name": "resume-and-about",
+      "status": "pass",
+      "traces": [
+        {
+          "kind": "uat-journey",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/test/reports/UAT-04-resume-and-about.json"
+        }
+      ],
+      "evidence": [
+        "prime/test/reports/UAT-04-resume-and-about.json"
+      ]
+    },
+    {
+      "id": "journey:05",
+      "type": "critical_journey",
+      "name": "contact-form-render-only",
+      "status": "pass",
+      "traces": [
+        {
+          "kind": "uat-journey",
+          "receipt_ref": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+          "artifact": "prime/test/reports/UAT-05-contact-form-render-only.json"
+        }
+      ],
+      "evidence": [
+        "prime/test/reports/UAT-05-contact-form-render-only.json"
+      ]
+    },
+    {
+      "id": "security:dependency-audit",
+      "type": "security",
+      "name": "npm dependency audit",
+      "status": "covered",
+      "traces": [
+        {
+          "kind": "npm-audit",
+          "receipt_ref": "7c1d083535cad864139d453f6afa8f50269b4020806c14d8ac51188000389d1b",
+          "artifact": "prime/reports/phase-6-security-scan.json"
+        }
+      ],
+      "evidence": [
+        "prime/reports/phase-6-security-scan.json",
+        "prime/reports/phase-6-security-scan-raw.json"
+      ]
+    }
+  ],
+  "data_integrity": {
+    "tests": "tests/data-invariants.test.ts 8/8 pass — every site-visible number traced to fact-whitelist W1-W26",
+    "fabrication_guard": "numeric-copy scan in unit test; no invented metrics",
+    "sample_data_labeling": "contributions/stats sample data labeled in-page"
+  }
+}

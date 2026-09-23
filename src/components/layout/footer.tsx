@@ -113,7 +113,7 @@ export function Footer() {
                 className="p-2 rounded-md border border-[var(--border)] transition-colors hover:border-[var(--foreground)]/20"
                 aria-label="GitHub profile"
               >
-                <SiGithub className="h-4 w-4" />
+                <SiGithub className="h-4 w-4" aria-hidden="true" />
               </a>
               <a
                 href={siteConfig.linkedin}

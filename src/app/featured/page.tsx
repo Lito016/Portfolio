@@ -16,6 +16,7 @@ export default async function FeaturedPage() {
 
   return (
     <PageTransition>
+      <h1 className="sr-only">Featured Projects</h1>
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-5xl">
         <SectionHeading title="Featured Projects" description="My most popular repositories" align="center" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

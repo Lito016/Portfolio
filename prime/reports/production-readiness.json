@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "risk_class": "low",
+  "risk_rationale": "Static-content portfolio: no auth, no database, no PII storage, single env-gated third-party form integration. Worst-case defect is visual or a broken link; no data-integrity or security blast radius beyond dependency advisories (currently zero).",
+  "verdict": "pass",
+  "controls": {
+    "testing": {
+      "status": "pass",
+      "evidence": [
+        "prime/reports/phase-6-e2e-results.json",
+        "prime/test/reports/UAT-01-site-navigation-and-theme.json",
+        "prime/test/reports/UAT-02-projects-filter-and-categories.json",
+        "prime/test/reports/UAT-03-case-study-pages.json",
+        "prime/test/reports/UAT-04-resume-and-about.json",
+        "prime/test/reports/UAT-05-contact-form-render-only.json",
+        "prime/reports/phase-5-test-results.json"
+      ]
+    },
+    "security": {
+      "status": "pass",
+      "evidence": [
+        "prime/reports/phase-6-security-scan.json",
+        "prime/reports/phase-6-security-receipt.json",
+        "prime/reports/threat-model.md"
+      ]
+    },
+    "performance": {
+      "status": "pass",
+      "evidence": [
+        "prime/reports/phase-6-e2e-results.json",
+        "prime/reports/phase-5-build.md"
+      ]
+    },
+    "observability": {
+      "status": "not_applicable",
+      "justification": "Static export with no server runtime: there are no logs, metrics, or traces to operate. Client-side error visibility was captured during verification instead (prime/reports/phase-6-browser-console.json, 0 console errors across 68 route runs)."
+    },
+    "deployment": {
+      "status": "pass",
+      "evidence": [
+        "prime/reports/phase-5-build.md",
+        "out/"
+      ]
+    },
+    "rollback": {
+      "status": "pass",
+      "evidence": [
+        "prime/reports/phase-6-verify.md"
+      ]
+    }
+  }
+}

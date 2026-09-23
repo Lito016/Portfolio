@@ -93,7 +93,7 @@ export default function ResumePage() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
                 >
-                  <SiGithub className="h-3.5 w-3.5 shrink-0" />
+                  <SiGithub className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                   github.com/Lito016
                 </a>
                 {siteConfig.linkedin && (

@@ -1,0 +1,23 @@
+{
+  "receipt_version": "1.0",
+  "run_id": "Portfolio-mudhrqbr-xai46i",
+  "run_context_valid": true,
+  "invocation_id": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+  "tool_identity": "playwright",
+  "tool_family": "e2e-runner",
+  "tool_version": "1.62.0",
+  "arguments_digest": "50ec13b80854f41837d53d510b898c993558b6fc34d9eb870a8c70526994ae17",
+  "start_timestamp": "2026-09-23T07:16:55.144Z",
+  "end_timestamp": "2026-09-23T07:19:23.288Z",
+  "exit_status": 0,
+  "stdout_digest": "6d1bebb7708816b81bc8f07a26086a87970472be434a3b56754aee1d7cca493d",
+  "stderr_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "input_artifact_hashes": {},
+  "output_artifact_hashes": {
+    "prime/reports/phase-6-e2e-results.json": "dc0d09279f06bce5358647f1b41accb9007835a996c83e62fa51cdba68c03390"
+  },
+  "working_directory": "C:\\Projects\\Portfolio",
+  "principal_identity": "trusted-runner",
+  "nonce": 10,
+  "signature": "de49d63347d3769f6e488bf430d11d0493bf13fa7d1c4f5bb641816064a81c56"
+}

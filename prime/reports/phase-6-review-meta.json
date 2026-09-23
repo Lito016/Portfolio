@@ -1,0 +1,10 @@
+{
+  "review_file": "prime/reports/phase-6-quality-review.md",
+  "review_sha256": "4f9bcb55da34fab78fba368af0fb6f77be1b0fdb86dd23e6a98e3a37c0465496",
+  "verdict": "PASS",
+  "char_count": 13640,
+  "path_citation_tokens": 48,
+  "chained_e2e_receipt_invocation": "1b5ba822a4474b7fdd26fc38091b384bc8446fc066bb6bfcb50e0875d83991a9",
+  "chained_e2e_receipt_nonce": 10,
+  "captured_at": "2026-09-23T07:50:43.599Z"
+}

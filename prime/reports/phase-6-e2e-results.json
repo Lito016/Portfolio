@@ -1,0 +1,2348 @@
+{
+  "tool": "playwright",
+  "tool_version": "1.63.0",
+  "command": "node prime/scripts/phase6-audit.mjs",
+  "started": "2026-09-23T07:16:55.461Z",
+  "completed_at": "2026-09-23T07:19:23.226Z",
+  "base_url": "http://127.0.0.1:4173",
+  "tests_run": 89,
+  "passed": 89,
+  "failed": 0,
+  "suites": [
+    {
+      "name": "route-sweep",
+      "checks": 28
+    },
+    {
+      "name": "responsive-matrix",
+      "checks": 40
+    },
+    {
+      "name": "uat-journeys",
+      "checks": 21,
+      "files": [
+        "prime/test/reports/UAT-01-site-navigation-and-theme.json",
+        "prime/test/reports/UAT-02-projects-filter-and-categories.json",
+        "prime/test/reports/UAT-03-case-study-pages.json",
+        "prime/test/reports/UAT-04-resume-and-about.json",
+        "prime/test/reports/UAT-05-contact-form-render-only.json"
+      ]
+    }
+  ],
+  "journeys": [
+    {
+      "id": "01",
+      "title": "site-navigation-and-theme",
+      "status": "pass",
+      "steps": 5,
+      "evidence_file": "prime/test/reports/UAT-01-site-navigation-and-theme.json"
+    },
+    {
+      "id": "02",
+      "title": "projects-filter-and-categories",
+      "status": "pass",
+      "steps": 3,
+      "evidence_file": "prime/test/reports/UAT-02-projects-filter-and-categories.json"
+    },
+    {
+      "id": "03",
+      "title": "case-study-pages",
+      "status": "pass",
+      "steps": 6,
+      "evidence_file": "prime/test/reports/UAT-03-case-study-pages.json"
+    },
+    {
+      "id": "04",
+      "title": "resume-and-about",
+      "status": "pass",
+      "steps": 4,
+      "evidence_file": "prime/test/reports/UAT-04-resume-and-about.json"
+    },
+    {
+      "id": "05",
+      "title": "contact-form-render-only",
+      "status": "pass",
+      "steps": 3,
+      "evidence_file": "prime/test/reports/UAT-05-contact-form-render-only.json"
+    }
+  ],
+  "results": [
+    {
+      "route": "/",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 107,
+      "perf": {
+        "fcp": 80,
+        "domContentLoaded": 30,
+        "transfer": 80558
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Home",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/home__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 6
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/about",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 81,
+      "perf": {
+        "fcp": 76,
+        "domContentLoaded": 11,
+        "transfer": 36922
+      },
+      "checks": {
+        "h1": 1,
+        "title": "About | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/about__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 6
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/achievements",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 76,
+      "perf": {
+        "fcp": 72,
+        "domContentLoaded": 11,
+        "transfer": 29820
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Achievements | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/achievements__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 11
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/activity",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 76,
+      "perf": {
+        "fcp": 72,
+        "domContentLoaded": 12,
+        "transfer": 53389
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Activity | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/activity__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 7
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/blog",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 79,
+      "perf": {
+        "fcp": 72,
+        "domContentLoaded": 11,
+        "transfer": 32589
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Blog | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/blog__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 12
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/blog/building-ai-powered-web-apps",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 81,
+      "perf": {
+        "fcp": 92,
+        "domContentLoaded": 11,
+        "transfer": 40003
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Building AI-Powered Web Applications with Next.js | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/blog-building-ai-powered-web-apps__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 7
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/blog/modern-web-development-stack-2026",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 83,
+      "perf": {
+        "fcp": 76,
+        "domContentLoaded": 13,
+        "transfer": 44828
+      },
+      "checks": {
+        "h1": 1,
+        "title": "My Modern Web Development Stack in 2026 | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/blog-modern-web-development-stack-2026__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 7
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/blog/my-journey-into-agentic-ai",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 81,
+      "perf": {
+        "fcp": 76,
+        "domContentLoaded": 12,
+        "transfer": 39471
+      },
+      "checks": {
+        "h1": 1,
+        "title": "My Journey into Agentic AI Development | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/blog-my-journey-into-agentic-ai__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 7
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/certifications",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 73,
+      "perf": {
+        "fcp": 72,
+        "domContentLoaded": 10,
+        "transfer": 31565
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Certifications | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/certifications__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 11
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/contact",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 83,
+      "perf": {
+        "fcp": 96,
+        "domContentLoaded": 11,
+        "transfer": 31069
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Contact | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/contact__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 11
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/contributions",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 75,
+      "perf": {
+        "fcp": 72,
+        "domContentLoaded": 11,
+        "transfer": 28868
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Contributions | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/contributions__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 11
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/education",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 72,
+      "perf": {
+        "fcp": 68,
+        "domContentLoaded": 11,
+        "transfer": 29485
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Education | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/education__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 11
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/experience",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 74,
+      "perf": {
+        "fcp": 72,
+        "domContentLoaded": 10,
+        "transfer": 30204
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Experience | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/experience__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 11
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/featured",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 78,
+      "perf": {
+        "fcp": 72,
+        "domContentLoaded": 11,
+        "transfer": 52824
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Featured | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/featured__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 9
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/now",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 79,
+      "perf": {
+        "fcp": 76,
+        "domContentLoaded": 11,
+        "transfer": 31618
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Now | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/now__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 6
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/open-source",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 75,
+      "perf": {
+        "fcp": 68,
+        "domContentLoaded": 11,
+        "transfer": 65119
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Open Source | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/open-source__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 6
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/projects",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 99,
+      "perf": {
+        "fcp": 76,
+        "domContentLoaded": 12,
+        "transfer": 53210
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Projects | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 6
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/projects/barangay-digital-portal",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 93,
+      "perf": {
+        "fcp": 76,
+        "domContentLoaded": 12,
+        "transfer": 64106
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Barangay Digital Portal — Case Study | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects-barangay-digital-portal__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 6
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/projects/prime-method",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 93,
+      "perf": {
+        "fcp": 92,
+        "domContentLoaded": 13,
+        "transfer": 45455
+      },
+      "checks": {
+        "h1": 1,
+        "title": "PRIME Method — Case Study | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects-prime-method__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 6
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/projects/quill-mcp",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 97,
+      "perf": {
+        "fcp": 80,
+        "domContentLoaded": 13,
+        "transfer": 71468
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Quill MCP — Case Study | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects-quill-mcp__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 6
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/projects/ubms",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 86,
+      "perf": {
+        "fcp": 68,
+        "domContentLoaded": 11,
+        "transfer": 47361
+      },
+      "checks": {
+        "h1": 1,
+        "title": "UBMS — Case Study | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects-ubms__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 6
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/projects/vision-video-auditor",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 80,
+      "perf": {
+        "fcp": 76,
+        "domContentLoaded": 12,
+        "transfer": 58017
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Vision Video Auditor — Case Study | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects-vision-video-auditor__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 6
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/resume",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 96,
+      "perf": {
+        "fcp": 104,
+        "domContentLoaded": 13,
+        "transfer": 45036
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Resume | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/resume__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 6
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/skills",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 78,
+      "perf": {
+        "fcp": 72,
+        "domContentLoaded": 11,
+        "transfer": 38750
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Skills | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/skills__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 6
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/stats",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 72,
+      "perf": {
+        "fcp": 72,
+        "domContentLoaded": 11,
+        "transfer": 29597
+      },
+      "checks": {
+        "h1": 1,
+        "title": "GitHub Statistics | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/stats__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 11
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/tech-stack",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 76,
+      "perf": {
+        "fcp": 72,
+        "domContentLoaded": 11,
+        "transfer": 33555
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Tech Stack | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/tech-stack__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 7
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/testimonials",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 78,
+      "perf": {
+        "fcp": 72,
+        "domContentLoaded": 11,
+        "transfer": 31225
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Testimonials | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/testimonials__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 11
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/uses",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 73,
+      "perf": {
+        "fcp": 68,
+        "domContentLoaded": 11,
+        "transfer": 31489
+      },
+      "checks": {
+        "h1": 1,
+        "title": "Uses | Lito_016",
+        "horizontal_overflow": false,
+        "lang": "en",
+        "img_missing_alt": 0
+      },
+      "screenshot": "prime/evidence/screenshots/p6/uses__desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 6
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "viewport": "mobile-sm",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/home__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "viewport": "mobile",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/home__mobile.png",
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "viewport": "mobile-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/home__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "viewport": "tablet",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/home__tablet.png",
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "viewport": "desktop-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/home__desktop-lg.png",
+      "status": "pass"
+    },
+    {
+      "route": "/projects",
+      "viewport": "mobile-sm",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "route": "/projects",
+      "viewport": "mobile",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects__mobile.png",
+      "status": "pass"
+    },
+    {
+      "route": "/projects",
+      "viewport": "mobile-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "route": "/projects",
+      "viewport": "tablet",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects__tablet.png",
+      "status": "pass"
+    },
+    {
+      "route": "/projects",
+      "viewport": "desktop-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects__desktop-lg.png",
+      "status": "pass"
+    },
+    {
+      "route": "/about",
+      "viewport": "mobile-sm",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/about__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "route": "/about",
+      "viewport": "mobile",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/about__mobile.png",
+      "status": "pass"
+    },
+    {
+      "route": "/about",
+      "viewport": "mobile-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/about__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "route": "/about",
+      "viewport": "tablet",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/about__tablet.png",
+      "status": "pass"
+    },
+    {
+      "route": "/about",
+      "viewport": "desktop-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/about__desktop-lg.png",
+      "status": "pass"
+    },
+    {
+      "route": "/skills",
+      "viewport": "mobile-sm",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/skills__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "route": "/skills",
+      "viewport": "mobile",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/skills__mobile.png",
+      "status": "pass"
+    },
+    {
+      "route": "/skills",
+      "viewport": "mobile-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/skills__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "route": "/skills",
+      "viewport": "tablet",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/skills__tablet.png",
+      "status": "pass"
+    },
+    {
+      "route": "/skills",
+      "viewport": "desktop-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/skills__desktop-lg.png",
+      "status": "pass"
+    },
+    {
+      "route": "/resume",
+      "viewport": "mobile-sm",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/resume__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "route": "/resume",
+      "viewport": "mobile",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/resume__mobile.png",
+      "status": "pass"
+    },
+    {
+      "route": "/resume",
+      "viewport": "mobile-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/resume__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "route": "/resume",
+      "viewport": "tablet",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/resume__tablet.png",
+      "status": "pass"
+    },
+    {
+      "route": "/resume",
+      "viewport": "desktop-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/resume__desktop-lg.png",
+      "status": "pass"
+    },
+    {
+      "route": "/contact",
+      "viewport": "mobile-sm",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/contact__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "route": "/contact",
+      "viewport": "mobile",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/contact__mobile.png",
+      "status": "pass"
+    },
+    {
+      "route": "/contact",
+      "viewport": "mobile-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/contact__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "route": "/contact",
+      "viewport": "tablet",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/contact__tablet.png",
+      "status": "pass"
+    },
+    {
+      "route": "/contact",
+      "viewport": "desktop-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/contact__desktop-lg.png",
+      "status": "pass"
+    },
+    {
+      "route": "/projects/quill-mcp",
+      "viewport": "mobile-sm",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects-quill-mcp__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "route": "/projects/quill-mcp",
+      "viewport": "mobile",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects-quill-mcp__mobile.png",
+      "status": "pass"
+    },
+    {
+      "route": "/projects/quill-mcp",
+      "viewport": "mobile-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects-quill-mcp__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "route": "/projects/quill-mcp",
+      "viewport": "tablet",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects-quill-mcp__tablet.png",
+      "status": "pass"
+    },
+    {
+      "route": "/projects/quill-mcp",
+      "viewport": "desktop-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/projects-quill-mcp__desktop-lg.png",
+      "status": "pass"
+    },
+    {
+      "route": "/blog",
+      "viewport": "mobile-sm",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/blog__mobile-sm.png",
+      "status": "pass"
+    },
+    {
+      "route": "/blog",
+      "viewport": "mobile",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/blog__mobile.png",
+      "status": "pass"
+    },
+    {
+      "route": "/blog",
+      "viewport": "mobile-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/blog__mobile-lg.png",
+      "status": "pass"
+    },
+    {
+      "route": "/blog",
+      "viewport": "tablet",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/blog__tablet.png",
+      "status": "pass"
+    },
+    {
+      "route": "/blog",
+      "viewport": "desktop-lg",
+      "kind": "responsive",
+      "checks": {
+        "horizontal_overflow": false
+      },
+      "screenshot": "prime/evidence/screenshots/p6/blog__desktop-lg.png",
+      "status": "pass"
+    }
+  ],
+  "screenshots": [
+    "prime/evidence/screenshots/p6/home__desktop.png",
+    "prime/evidence/screenshots/p6/about__desktop.png",
+    "prime/evidence/screenshots/p6/achievements__desktop.png",
+    "prime/evidence/screenshots/p6/activity__desktop.png",
+    "prime/evidence/screenshots/p6/blog__desktop.png",
+    "prime/evidence/screenshots/p6/blog-building-ai-powered-web-apps__desktop.png",
+    "prime/evidence/screenshots/p6/blog-modern-web-development-stack-2026__desktop.png",
+    "prime/evidence/screenshots/p6/blog-my-journey-into-agentic-ai__desktop.png",
+    "prime/evidence/screenshots/p6/certifications__desktop.png",
+    "prime/evidence/screenshots/p6/contact__desktop.png",
+    "prime/evidence/screenshots/p6/contributions__desktop.png",
+    "prime/evidence/screenshots/p6/education__desktop.png",
+    "prime/evidence/screenshots/p6/experience__desktop.png",
+    "prime/evidence/screenshots/p6/featured__desktop.png",
+    "prime/evidence/screenshots/p6/now__desktop.png",
+    "prime/evidence/screenshots/p6/open-source__desktop.png",
+    "prime/evidence/screenshots/p6/projects__desktop.png",
+    "prime/evidence/screenshots/p6/projects-barangay-digital-portal__desktop.png",
+    "prime/evidence/screenshots/p6/projects-prime-method__desktop.png",
+    "prime/evidence/screenshots/p6/projects-quill-mcp__desktop.png",
+    "prime/evidence/screenshots/p6/projects-ubms__desktop.png",
+    "prime/evidence/screenshots/p6/projects-vision-video-auditor__desktop.png",
+    "prime/evidence/screenshots/p6/resume__desktop.png",
+    "prime/evidence/screenshots/p6/skills__desktop.png",
+    "prime/evidence/screenshots/p6/stats__desktop.png",
+    "prime/evidence/screenshots/p6/tech-stack__desktop.png",
+    "prime/evidence/screenshots/p6/testimonials__desktop.png",
+    "prime/evidence/screenshots/p6/uses__desktop.png",
+    "prime/evidence/screenshots/p6/home__mobile-sm.png",
+    "prime/evidence/screenshots/p6/home__mobile.png",
+    "prime/evidence/screenshots/p6/home__mobile-lg.png",
+    "prime/evidence/screenshots/p6/home__tablet.png",
+    "prime/evidence/screenshots/p6/home__desktop-lg.png",
+    "prime/evidence/screenshots/p6/projects__mobile-sm.png",
+    "prime/evidence/screenshots/p6/projects__mobile.png",
+    "prime/evidence/screenshots/p6/projects__mobile-lg.png",
+    "prime/evidence/screenshots/p6/projects__tablet.png",
+    "prime/evidence/screenshots/p6/projects__desktop-lg.png",
+    "prime/evidence/screenshots/p6/about__mobile-sm.png",
+    "prime/evidence/screenshots/p6/about__mobile.png",
+    "prime/evidence/screenshots/p6/about__mobile-lg.png",
+    "prime/evidence/screenshots/p6/about__tablet.png",
+    "prime/evidence/screenshots/p6/about__desktop-lg.png",
+    "prime/evidence/screenshots/p6/skills__mobile-sm.png",
+    "prime/evidence/screenshots/p6/skills__mobile.png",
+    "prime/evidence/screenshots/p6/skills__mobile-lg.png",
+    "prime/evidence/screenshots/p6/skills__tablet.png",
+    "prime/evidence/screenshots/p6/skills__desktop-lg.png",
+    "prime/evidence/screenshots/p6/resume__mobile-sm.png",
+    "prime/evidence/screenshots/p6/resume__mobile.png",
+    "prime/evidence/screenshots/p6/resume__mobile-lg.png",
+    "prime/evidence/screenshots/p6/resume__tablet.png",
+    "prime/evidence/screenshots/p6/resume__desktop-lg.png",
+    "prime/evidence/screenshots/p6/contact__mobile-sm.png",
+    "prime/evidence/screenshots/p6/contact__mobile.png",
+    "prime/evidence/screenshots/p6/contact__mobile-lg.png",
+    "prime/evidence/screenshots/p6/contact__tablet.png",
+    "prime/evidence/screenshots/p6/contact__desktop-lg.png",
+    "prime/evidence/screenshots/p6/projects-quill-mcp__mobile-sm.png",
+    "prime/evidence/screenshots/p6/projects-quill-mcp__mobile.png",
+    "prime/evidence/screenshots/p6/projects-quill-mcp__mobile-lg.png",
+    "prime/evidence/screenshots/p6/projects-quill-mcp__tablet.png",
+    "prime/evidence/screenshots/p6/projects-quill-mcp__desktop-lg.png",
+    "prime/evidence/screenshots/p6/blog__mobile-sm.png",
+    "prime/evidence/screenshots/p6/blog__mobile.png",
+    "prime/evidence/screenshots/p6/blog__mobile-lg.png",
+    "prime/evidence/screenshots/p6/blog__tablet.png",
+    "prime/evidence/screenshots/p6/blog__desktop-lg.png",
+    "prime/evidence/screenshots/p6/uat01-mobile-menu__mobile.png",
+    "prime/evidence/screenshots/p6/home__theme-toggled.png",
+    "prime/evidence/screenshots/p6/uat02-projects-groups__desktop.png",
+    "prime/evidence/screenshots/p6/uat03-case-study-quill__desktop.png",
+    "prime/evidence/screenshots/p6/uat04-resume__desktop.png",
+    "prime/evidence/screenshots/p6/uat05-contact__desktop.png"
+  ],
+  "console_errors": [],
+  "network_failures": [
+    {
+      "route": "/",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/about",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/achievements",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/experience net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/stats net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/uses net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/now net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/activity",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/blog",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog/building-ai-powered-web-apps net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog/my-journey-into-agentic-ai net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog/modern-web-development-stack-2026 net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/experience net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/uses net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/blog/building-ai-powered-web-apps",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/blog/modern-web-development-stack-2026",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/blog/my-journey-into-agentic-ai",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/certifications",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/experience net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/stats net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/uses net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/now net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/contact",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/experience net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/stats net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/uses net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/now net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/contributions",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/experience net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/stats net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/uses net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/now net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/education",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/experience net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/stats net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/uses net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/now net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/experience",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/experience net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/stats net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/uses net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/now net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/featured",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/experience net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/uses net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/now",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/open-source",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/projects",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/projects/barangay-digital-portal",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/projects/prime-method",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/projects/quill-mcp",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/projects/ubms",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/projects/vision-video-auditor",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/resume",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/skills",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/stats",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/experience net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/stats net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/now net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/uses net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/tech-stack",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/testimonials",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/blog net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/experience net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/stats net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/uses net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/now net::ERR_ABORTED"
+        }
+      ]
+    },
+    {
+      "route": "/uses",
+      "failures": [
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/projects net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/skills net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/about net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/ net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/resume net::ERR_ABORTED"
+        },
+        {
+          "type": "requestfailed",
+          "text": "http://127.0.0.1:4173/contact net::ERR_ABORTED"
+        }
+      ]
+    }
+  ],
+  "console_log": "[]",
+  "design_tokens": {
+    "expected": {
+      "source": "docs/DESIGN.canvas.tsx §tokens / globals.css; AA text-contrast corrected",
+      "light": {
+        "primary": "#2563eb",
+        "background": "#f8f9fc",
+        "radius": "0.625rem"
+      },
+      "dark": {
+        "primary": "#5e82f6",
+        "background": "#000000",
+        "radius": "0.625rem"
+      }
+    },
+    "actual": {
+      "light": {
+        "primary": "#2563eb",
+        "background": "#f8f9fc",
+        "radius": ".625rem",
+        "body_font": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \""
+      },
+      "dark": {
+        "primary": "#5e82f6",
+        "background": "#000",
+        "radius": ".625rem",
+        "body_font": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \""
+      }
+    },
+    "verdict": "pass"
+  },
+  "cross_references": [
+    "tests/data-invariants.test.ts",
+    "src/data/projects.ts",
+    "docs/DESIGN.canvas.tsx",
+    "out/index.html",
+    "out/about.html",
+    "out/achievements.html",
+    "out/activity.html",
+    "out/blog.html",
+    "out/blog/building-ai-powered-web-apps.html",
+    "out/blog/modern-web-development-stack-2026.html",
+    "out/blog/my-journey-into-agentic-ai.html",
+    "out/certifications.html",
+    "out/contact.html",
+    "out/contributions.html",
+    "out/education.html",
+    "out/experience.html",
+    "out/featured.html",
+    "out/now.html",
+    "out/open-source.html",
+    "out/projects.html",
+    "out/projects/barangay-digital-portal.html",
+    "out/projects/prime-method.html",
+    "out/projects/quill-mcp.html",
+    "out/projects/ubms.html",
+    "out/projects/vision-video-auditor.html",
+    "out/resume.html",
+    "out/skills.html",
+    "out/stats.html",
+    "out/tech-stack.html",
+    "out/testimonials.html",
+    "out/uses.html",
+    "prime/test/reports/UAT-01-site-navigation-and-theme.json",
+    "prime/test/reports/UAT-02-projects-filter-and-categories.json",
+    "prime/test/reports/UAT-03-case-study-pages.json",
+    "prime/test/reports/UAT-04-resume-and-about.json",
+    "prime/test/reports/UAT-05-contact-form-render-only.json"
+  ],
+  "fingerprint": "80eb92344578bdbea62f17209a4de5bd350d14931986a5a2fcdb6b0f17bb86f4"
+}

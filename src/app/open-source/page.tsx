@@ -12,6 +12,7 @@ export default async function OpenSourcePage() {
 
   return (
     <PageTransition>
+      <h1 className="sr-only">Open Source</h1>
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-5xl">
         <SectionHeading title="Open Source" description="Repositories I maintain and welcome contributions to" align="center" />
         <div className="space-y-4">

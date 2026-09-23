@@ -1,0 +1,89 @@
+{
+  "phase": 6,
+  "agent": "prime-evaluate",
+  "agent_note": "evaluation role assumed in main agent; the quality review and its cycle-2 re-reconciliation were dispatched as separate independent subagent invocations, proven by trusted-runner receipts chained via nonce and prior_receipt_ref",
+  "invocations": [
+    {
+      "skill": "quality-review",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-6-quality-review.md",
+        "prime/reports/phase-6-review-meta.json",
+        "prime/reports/phase-6-review-receipt.json"
+      ],
+      "note": "two independent cycles: cycle 1 PASS WITH CAVEATS (6 Major findings against gate documents); all remediated at root cause (page metadata wrappers, honest counts, dual-theme token check, real Tab-key focus assertion, dev-dep wording, accurate dangerouslySetInnerHTML statement); cycle 2 read-only re-reconciliation returned PASS with all dispositions verified against rebuilt artifacts and re-hashed receipts (nonce 13, prior -> e2e nonce 10)"
+    },
+    {
+      "skill": "testing",
+      "status": "applied",
+      "evidence": [
+        "prime/scripts/phase6-audit.mjs",
+        "prime/reports/phase-6-e2e-results.json",
+        "prime/reports/phase-6-e2e-receipt.json",
+        "prime/test/reports/UAT-01-site-navigation-and-theme.json",
+        "prime/test/reports/UAT-02-projects-filter-and-categories.json",
+        "prime/test/reports/UAT-03-case-study-pages.json",
+        "prime/test/reports/UAT-04-resume-and-about.json",
+        "prime/test/reports/UAT-05-contact-form-render-only.json",
+        "tests/data-invariants.test.ts"
+      ],
+      "note": "89/89 browser checks against production static export (28-route desktop sweep, 40-run responsive matrix 320-1600, 5 awaited UAT journeys, 21 journey steps); 8/8 data-invariant unit tests; root-cause fixes for animation-settle and focus-navigation-start races rather than weakened assertions"
+    },
+    {
+      "skill": "security-testing",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-6-security-scan.json",
+        "prime/reports/phase-6-security-scan-raw.json",
+        "prime/reports/phase-6-security-receipt.json"
+      ],
+      "note": "ASVS L1 audit (static site; no auth/PII processing in-browser): OWASP A01-A10 mapped, npm audit 0 vulnerabilities via trusted-runner (nonce 12); injection posture re-stated accurately after review (two static dangerouslySetInnerHTML uses in layout.tsx, no request/user data)"
+    },
+    {
+      "skill": "code-quality",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-6-verify.md",
+        "prime/reports/phase-6-runtime-errors.json",
+        "prime/reports/production-readiness.json"
+      ],
+      "note": "tsc --noEmit clean, ESLint clean (react-hooks/set-state-in-effect satisfied via useSyncExternalStore mount gate), production build clean, runtime-error scan pass; regression coverage for every fixed race"
+    },
+    {
+      "skill": "frontend",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/output-quality-scorecard.json",
+        "prime/reports/phase-6-ui-quality.json",
+        "prime/reports/phase-6-browser-console.json",
+        "prime/evidence/screenshots/p6/home__mobile-sm.png",
+        "prime/evidence/screenshots/p6/projects__tablet.png",
+        "prime/evidence/screenshots/p6/home__desktop.png",
+        "docs/DESIGN.canvas.tsx"
+      ],
+      "note": "UI scorecard with screenshots across 6 viewports; WCAG-axe sweep 0 violations / 1038 passes with 2 incompletes disclosed; design tokens verified live in BOTH themes against docs/DESIGN.canvas.tsx (project design artifact as authority, per frontend skill step 1); design-quality-routing resolved to focused verification depth since design-system evidence was produced in Phase 3 (ui-ux-pro-max selector run recorded in prime/state/skill-invocations/phase-3.json)",
+      "references": [
+        "skills/frontend/references/core/design-quality-routing.md",
+        "skills/frontend/references/design/quality-parts/index.json",
+        "skills/frontend/scripts/ui-ux-pro-max/search.py",
+        "prime/reports/phase-3-design.md"
+      ]
+    },
+    {
+      "skill": "database",
+      "status": "not_applicable",
+      "reason": "static export portfolio; no database, no queries, no migration surface",
+      "evidence": [
+        "prime/reports/production-readiness.json"
+      ]
+    },
+    {
+      "skill": "caveman",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/m5-sweep.md"
+      ],
+      "note": "lite-level compression retained for session communication; gate artifacts kept in standard technical prose"
+    }
+  ]
+}

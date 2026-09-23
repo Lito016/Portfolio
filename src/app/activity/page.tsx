@@ -10,6 +10,7 @@ export default async function ActivityPage() {
   const events = await fetchEvents(1, 30).catch(() => []);
   return (
     <PageTransition>
+      <h1 className="sr-only">Activity</h1>
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-4xl">
         <SectionHeading title="GitHub Activity" description="Recent events and contribution history" align="center" />
         <RecentActivity events={events} />

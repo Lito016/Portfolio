@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-23T05:28:04.811Z",
+  "project_root": "C:\\Projects\\Portfolio",
+  "fingerprint": "5fb7f0ceb6ecdbc3ecf0dfd1adce29cad0775df63d277b15976ea6ace23f506c",
+  "summary": {
+    "total": 7,
+    "routes": 0,
+    "api_endpoints": 0,
+    "models": 0,
+    "interactive_components": 7,
+    "by_subtype": {
+      "navigation": 6,
+      "form": 1
+    },
+    "total_routes": 0,
+    "total_api_endpoints": 0,
+    "total_data_models": 0,
+    "total_components": 7
+  },
+  "items": [
+    {
+      "id": "C-001",
+      "type": "interactive",
+      "subtype": "navigation",
+      "name": "page (nav)",
+      "source": "src\\app\\blog\\[slug]\\page.tsx",
+      "count": 1
+    },
+    {
+      "id": "C-002",
+      "type": "interactive",
+      "subtype": "form",
+      "name": "contact-client (form)",
+      "source": "src\\app\\contact\\contact-client.tsx",
+      "count": 1
+    },
+    {
+      "id": "C-003",
+      "type": "interactive",
+      "subtype": "navigation",
+      "name": "layout (nav)",
+      "source": "src\\app\\layout.tsx",
+      "count": 1
+    },
+    {
+      "id": "C-004",
+      "type": "interactive",
+      "subtype": "navigation",
+      "name": "resume-client (nav)",
+      "source": "src\\app\\resume\\resume-client.tsx",
+      "count": 1
+    },
+    {
+      "id": "C-005",
+      "type": "interactive",
+      "subtype": "navigation",
+      "name": "footer (nav)",
+      "source": "src\\components\\layout\\footer.tsx",
+      "count": 2
+    },
+    {
+      "id": "C-006",
+      "type": "interactive",
+      "subtype": "navigation",
+      "name": "header (nav)",
+      "source": "src\\components\\layout\\header.tsx",
+      "count": 3
+    },
+    {
+      "id": "C-007",
+      "type": "interactive",
+      "subtype": "navigation",
+      "name": "case-study-layout (nav)",
+      "source": "src\\components\\projects\\case-study-layout.tsx",
+      "count": 1
+    }
+  ]
+}

@@ -58,6 +58,54 @@ function parseInline(text: string): React.ReactNode {
   return parts.length === 1 ? parts[0] : <>{parts}</>;
 }
 
+/** Render markdown body, grouping consecutive list lines into ul/ol */
+function renderContent(content: string): React.ReactNode[] {
+  const blocks: React.ReactNode[] = [];
+  const lines = content.split('\n');
+  let list: { ordered: boolean; items: { text: string; key: number }[] } | null = null;
+  const flushList = () => {
+    if (!list) return;
+    const { ordered, items } = list;
+    const key = `list-${items[0].key}`;
+    const children = items.map((it) => <li key={it.key}>{parseInline(it.text)}</li>);
+    blocks.push(
+      ordered ? (
+        <ol key={key} className="my-4 list-decimal space-y-1 pl-6 text-muted-foreground">{children}</ol>
+      ) : (
+        <ul key={key} className="my-4 list-disc space-y-1 pl-6 text-muted-foreground">{children}</ul>
+      )
+    );
+    list = null;
+  };
+  lines.forEach((line, i) => {
+    const isBullet = line.startsWith('- ');
+    const isNumbered = /^\d+\.\s/.test(line);
+    if (isBullet || isNumbered) {
+      const ordered = isNumbered;
+      if (list && list.ordered !== ordered) flushList();
+      if (!list) list = { ordered, items: [] };
+      list.items.push({ text: ordered ? line.replace(/^\d+\.\s/, '') : line.slice(2), key: i });
+      return;
+    }
+    flushList();
+    if (line.startsWith('# ')) blocks.push(<h2 key={i} className="mt-8 mb-4 text-2xl font-bold">{parseInline(line.slice(2))}</h2>);
+    else if (line.startsWith('## ')) blocks.push(<h2 key={i} className="mt-6 mb-3 text-2xl font-bold">{parseInline(line.slice(3))}</h2>);
+    else if (line.startsWith('### ')) blocks.push(<h3 key={i} className="mt-4 mb-2 text-xl font-bold">{parseInline(line.slice(4))}</h3>);
+    else if (line.startsWith('| ') && line.endsWith(' |')) {
+      const cells = line.slice(2, -2).split(' | ').map((c) => c.trim());
+      if (cells.every((c) => /^[-:]+$/.test(c))) return;
+      blocks.push(
+        <div key={i} className="flex gap-4 border-b border-border/50 py-1.5 text-sm">
+          {cells.map((cell, j) => <span key={j} className="flex-1 text-muted-foreground">{parseInline(cell)}</span>)}
+        </div>
+      );
+    } else if (line.trim() === '') blocks.push(<br key={i} />);
+    else blocks.push(<p key={i} className="text-muted-foreground leading-relaxed">{parseInline(line)}</p>);
+  });
+  flushList();
+  return blocks;
+}
+
 interface Props { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
@@ -95,24 +143,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </header>
         <div className="prose prose-neutral dark:prose-invert max-w-none">
-          {content.split('\n').map((line, i) => {
-            if (line.startsWith('# ')) return <h1 key={i} className="text-3xl font-bold mt-8 mb-4">{parseInline(line.slice(2))}</h1>;
-            if (line.startsWith('## ')) return <h2 key={i} className="text-2xl font-bold mt-6 mb-3">{parseInline(line.slice(3))}</h2>;
-            if (line.startsWith('### ')) return <h3 key={i} className="text-xl font-bold mt-4 mb-2">{parseInline(line.slice(4))}</h3>;
-            if (line.startsWith('- ')) return <li key={i} className="ml-4 text-muted-foreground list-disc">{parseInline(line.slice(2))}</li>;
-            if (/^\d+\.\s/.test(line)) return <li key={i} className="ml-4 text-muted-foreground list-decimal">{parseInline(line.replace(/^\d+\.\s/, ''))}</li>;
-            if (line.startsWith('| ') && line.endsWith(' |')) {
-              const cells = line.slice(2, -2).split(' | ').map(c => c.trim());
-              if (cells.every(c => /^[-:]+$/.test(c))) return null; // separator row
-              return (
-                <div key={i} className="flex gap-4 border-b border-border/50 py-1.5 text-sm">
-                  {cells.map((cell, j) => <span key={j} className="flex-1 text-muted-foreground">{parseInline(cell)}</span>)}
-                </div>
-              );
-            }
-            if (line.trim() === '') return <br key={i} />;
-            return <p key={i} className="text-muted-foreground leading-relaxed">{parseInline(line)}</p>;
-          })}
+          {renderContent(content)}
         </div>
       </article>
     </PageTransition>

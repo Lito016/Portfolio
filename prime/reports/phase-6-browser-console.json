@@ -1,0 +1,257 @@
+{
+  "timestamp": "2026-09-23T07:11:46.354Z",
+  "url": "http://127.0.0.1:4173",
+  "tool": "playwright",
+  "method": "static-export server (prime/scripts/phase6-audit.mjs) with per-route console/pageerror/requestfailed capture, framer entrance animations settled before measurement",
+  "pages_checked": [
+    {
+      "url": "http://127.0.0.1:4173",
+      "title": "Home",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/home__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/about",
+      "title": "About | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/about__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/achievements",
+      "title": "Achievements | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/achievements__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/activity",
+      "title": "Activity | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/activity__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/blog",
+      "title": "Blog | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/blog__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/blog/building-ai-powered-web-apps",
+      "title": "Building AI-Powered Web Applications with Next.js | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/blog-building-ai-powered-web-apps__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/blog/modern-web-development-stack-2026",
+      "title": "My Modern Web Development Stack in 2026 | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/blog-modern-web-development-stack-2026__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/blog/my-journey-into-agentic-ai",
+      "title": "My Journey into Agentic AI Development | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/blog-my-journey-into-agentic-ai__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/certifications",
+      "title": "Certifications | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/certifications__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/contact",
+      "title": "Contact | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/contact__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/contributions",
+      "title": "Contributions | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/contributions__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/education",
+      "title": "Education | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/education__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/experience",
+      "title": "Experience | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/experience__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/featured",
+      "title": "Featured | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/featured__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/now",
+      "title": "Now | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/now__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/open-source",
+      "title": "Open Source | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/open-source__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/projects",
+      "title": "Projects | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/projects__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/projects/barangay-digital-portal",
+      "title": "Barangay Digital Portal — Case Study | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/projects-barangay-digital-portal__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/projects/prime-method",
+      "title": "PRIME Method — Case Study | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/projects-prime-method__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/projects/quill-mcp",
+      "title": "Quill MCP — Case Study | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/projects-quill-mcp__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/projects/ubms",
+      "title": "UBMS — Case Study | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/projects-ubms__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/projects/vision-video-auditor",
+      "title": "Vision Video Auditor — Case Study | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/projects-vision-video-auditor__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/resume",
+      "title": "Resume | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/resume__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/skills",
+      "title": "Skills | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/skills__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/stats",
+      "title": "GitHub Statistics | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/stats__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/tech-stack",
+      "title": "Tech Stack | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/tech-stack__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/testimonials",
+      "title": "Testimonials | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/testimonials__desktop.png",
+      "http_status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4173/uses",
+      "title": "Uses | Lito_016",
+      "console_messages": [],
+      "network_failures": [],
+      "screenshot": "prime/evidence/screenshots/p6/uses__desktop.png",
+      "http_status": 200
+    }
+  ],
+  "console_messages": [],
+  "network_failures": [],
+  "summary": {
+    "total_pages": 28,
+    "total_console_errors": 0,
+    "total_console_warnings": 0,
+    "total_network_failures": 0,
+    "verdict": "pass"
+  },
+  "notes": {
+    "excluded_network_events": "222 net::ERR_ABORTED requestfailed events (grouped per route in prime/reports/phase-6-e2e-results.json network_failures) were all Next.js <Link> route-prefetch cancellations on navigation — normal browser behavior, not failed resources.",
+    "console_capture": "pageerror + console.error/warning + requestfailed listeners attached on every page load across 68 route x viewport runs; zero console errors or warnings recorded.",
+    "cross_references": {
+      "e2e": "prime/reports/phase-6-e2e-results.json",
+      "a11y": "prime/reports/phase-6-a11y-audit.json"
+    }
+  },
+  "analysis": {
+    "errors": [],
+    "warnings": [],
+    "error_count": 0,
+    "warning_count": 0,
+    "verdict": "pass",
+    "analyzed_at": "2026-09-23T07:11:46.355Z"
+  }
+}

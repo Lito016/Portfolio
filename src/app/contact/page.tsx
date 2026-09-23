@@ -8,5 +8,8 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <ContactPageClient />;
+  return (<>
+      <h1 className="sr-only">Contact</h1>
+      <ContactPageClient />
+    </>);
 }

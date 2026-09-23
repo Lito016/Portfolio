@@ -85,12 +85,12 @@ export function StatsPageClient() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="glass-card rounded-xl p-6 text-center">
             <div className="text-3xl font-bold text-primary">{stats.currentStreak}</div>
-            <div className="text-sm text-muted-foreground mt-1">Current Streak (days)</div>
+            <div className="text-sm text-muted-foreground mt-1">Current Streak (days) · sample data</div>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
             className="glass-card rounded-xl p-6 text-center">
             <div className="text-3xl font-bold text-primary">{stats.longestStreak}</div>
-            <div className="text-sm text-muted-foreground mt-1">Longest Streak (days)</div>
+            <div className="text-sm text-muted-foreground mt-1">Longest Streak (days) · sample data</div>
           </motion.div>
         </div>
       </div>

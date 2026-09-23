@@ -20,11 +20,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly',
     priority: 0.9,
   }));
+  const blogIndex: MetadataRoute.Sitemap = [{
+    url: `${base}/blog`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }];
   const posts: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${base}/blog/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: 'monthly',
     priority: 0.6,
   }));
-  return [...staticRoutes, ...caseStudies, ...posts];
+  return [...staticRoutes, ...caseStudies, ...blogIndex, ...posts];
 }
