@@ -15,9 +15,12 @@ import {
   Globe,
   MapPin,
   Printer,
+  Layers,
 } from 'lucide-react';
 import { SiGithub } from 'react-icons/si';
 import { siteConfig } from '@/config/site';
+import { skillCategories } from '@/data/skills';
+import { featuredProjects } from '@/data/projects';
 
 const member = teamMembers[0];
 
@@ -107,15 +110,17 @@ export default function ResumePage() {
               </div>
             </div>
 
-            {/* Objective */}
+            {/* Summary */}
             <div className="mt-6">
               <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                Objective
+                Summary
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-base">
-                AI Solution Developer passionate about building intelligent web applications,
-                agentic AI workflows, and practical digital products. Experienced in LLM integration,
-                RAG pipelines, and full-stack development with modern web technologies.
+                AI solution developer and full-stack systems developer. I build
+                business &amp; management systems, AI &amp; developer tools, and
+                computer-vision automation — taking each system from data model
+                through deployment. Focus areas: LLM integration, RAG pipelines,
+                agentic workflows, MCP servers, and production web platforms.
               </p>
             </div>
           </header>
@@ -209,9 +214,48 @@ export default function ResumePage() {
             ))}
           </Section>
 
-          {/* ── Technical Skills (Marquee) ── */}
+          {/* ── Selected Projects ── */}
+          <Section icon={<Layers className="h-4.5 w-4.5" />} title="Selected Projects">
+            {featuredProjects.map((project, i) => (
+              <motion.div
+                key={project.slug}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="resume-item"
+              >
+                <h3 className="text-base font-semibold">{project.name}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{project.description}</p>
+                <div className="mt-2 flex flex-wrap gap-1.5">
+                  {project.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-md bg-primary/8 px-2 py-0.5 text-xs font-medium text-primary"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </Section>
+
+          {/* ── Technical Skills ── */}
           <Section icon={<Code2 className="h-4.5 w-4.5" />} title="Technical Skills">
-            <ResumeSkillsMarquee />
+            <div className="space-y-3">
+              {skillCategories.map((category) => (
+                <div key={category.name}>
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    {category.name}
+                  </h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    {category.skills.map((skill) => skill.name).join(' · ')}
+                  </p>
+                </div>
+              ))}
+            </div>
           </Section>
 
           {/* ── Awards & Achievements ── */}
@@ -268,80 +312,5 @@ function Section({
       </h2>
       <div className="space-y-4">{children}</div>
     </section>
-  );
-}
-
-/* ── Resume skills marquee ── */
-const resumeTechStack = [
-  { name: 'TypeScript', color: '#3178c6' },
-  { name: 'JavaScript', color: '#f1e05a' },
-  { name: 'Python', color: '#3572A5' },
-  { name: 'React', color: '#61dafb' },
-  { name: 'Next.js', color: '#000000' },
-  { name: 'Node.js', color: '#339933' },
-  { name: 'Tailwind CSS', color: '#06b6d4' },
-  { name: 'Framer Motion', color: '#0055ff' },
-];
-
-function TechPill({ tech }: { tech: (typeof resumeTechStack)[number] }) {
-  return (
-    <span className="mx-2.5 inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 text-sm font-medium text-muted-foreground">
-      <span
-        className="h-2.5 w-2.5 shrink-0 rounded-full"
-        style={{
-          backgroundColor: tech.color,
-          boxShadow: `0 0 8px ${tech.color}40`,
-        }}
-      />
-      {tech.name}
-    </span>
-  );
-}
-
-function ResumeSkillsMarquee() {
-  return (
-    <div className="relative overflow-hidden rounded-xl py-3">
-      {/* Fade edges */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-r from-[var(--glass)] to-transparent" />
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-16 bg-gradient-to-l from-[var(--glass)] to-transparent" />
-
-      {/* Scrolling row — framer-motion driven */}
-      <motion.div
-        className="flex w-max whitespace-nowrap"
-        animate={{ x: ['0', '-50%'] }}
-        transition={{
-          x: {
-            repeat: Infinity,
-            repeatType: 'loop',
-            ease: 'linear',
-            duration: 20,
-          },
-        }}
-        style={{ willChange: 'transform' }}
-      >
-        {resumeTechStack.map((tech) => (
-          <TechPill key={`a-${tech.name}`} tech={tech} />
-        ))}
-        {resumeTechStack.map((tech) => (
-          <TechPill key={`b-${tech.name}`} tech={tech} />
-        ))}
-      </motion.div>
-
-      {/* Print-only fallback: static list */}
-      <div className="hidden print:flex print:flex-wrap print:gap-2">
-        {resumeTechStack.map((tech) => (
-          <span
-            key={tech.name}
-            className="inline-flex items-center gap-1.5 rounded-md border border-border px-2.5 py-1 text-xs font-medium"
-          >
-            <span
-              className="h-2 w-2 rounded-full"
-              style={{ backgroundColor: tech.color }}
-            />
-            {tech.name}
-          </span>
-        ))}
-      </div>
-    </div>
   );
 }

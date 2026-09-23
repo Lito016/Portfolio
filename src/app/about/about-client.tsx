@@ -3,45 +3,17 @@
 import { motion } from 'framer-motion';
 import { PageTransition } from '@/components/shared/page-transition';
 import { SectionHeading } from '@/components/shared/section-heading';
-import { Code, Brain, Rocket, BookOpen } from 'lucide-react';
+import { FlowDiagram } from '@/components/projects/flow-diagram';
 
-const timeline = [
-  {
-    year: '2021',
-    title: 'Started IT Studies',
-    description: 'Began Bachelor of Science in Information Technology, focusing on web development fundamentals.',
-    icon: BookOpen,
-  },
-  {
-    year: '2023',
-    title: 'Joined GitHub',
-    description: 'Started contributing to open source and building personal projects.',
-    icon: Code,
-  },
-  {
-    year: '2024',
-    title: 'AI Specialization',
-    description: 'Completed Bayanaihan AI, Agentic AI Bootcamp, and AI Intensive Workshop programs.',
-    icon: Brain,
-  },
-  {
-    year: '2024',
-    title: 'OJT Internship',
-    description: 'Developed a digital journaling platform with AI-powered insights for students.',
-    icon: Rocket,
-  },
-  {
-    year: '2025',
-    title: 'AI Solution Developer',
-    description: 'Building AI-integrated web platforms with agentic workflows and RAG architectures.',
-    icon: Brain,
-  },
-  {
-    year: '2026',
-    title: 'IT Specialist Certified',
-    description: 'Earned IT Specialist - HTML & CSS certification from Certiport / Pearson VUE.',
-    icon: BookOpen,
-  },
+const workflowSteps = [
+  { id: 'understand', label: 'Understand', detail: 'Map the real workflow, its constraints, and who uses the system before any code.' },
+  { id: 'model', label: 'Model', detail: 'Design the data model first — entities, relations, and states mirror the business.' },
+  { id: 'design', label: 'Design', detail: 'Set system boundaries and interfaces: clear flows for users, clear contracts for services.' },
+  { id: 'build', label: 'Build', detail: 'Ship in verifiable slices on a real stack, from schema to deployment config.' },
+  { id: 'test', label: 'Test', detail: 'Cover edge cases and failure paths, not only the happy path.' },
+  { id: 'deploy', label: 'Deploy', detail: 'Reproducible builds and environments — no snowflake releases.' },
+  { id: 'monitor', label: 'Monitor', detail: 'Watch production behavior: errors, performance, and actual usage.' },
+  { id: 'improve', label: 'Improve', detail: 'Feed what the system learned back into the next iteration.' },
 ];
 
 export function AboutPageClient() {
@@ -50,7 +22,7 @@ export function AboutPageClient() {
       <div className="container mx-auto px-4 py-16 md:py-20 max-w-4xl">
         <SectionHeading
           title="About"
-          description="Background and what drives my work"
+          description="What I build and how I work"
         />
 
         {/* Bio */}
@@ -58,61 +30,43 @@ export function AboutPageClient() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="max-w-none mb-12 space-y-4"
+          className="mb-12 max-w-none space-y-4"
         >
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            I&apos;m Manolito Almaden Jr. — I go by Lito_016 online. I build AI-integrated
-            web platforms: RAG pipelines, agentic workflows, and the occasional open-source
-            tool that makes a developer&apos;s life easier.
+          <p className="text-lg leading-relaxed text-muted-foreground">
+            I&apos;m Manolito Almaden Jr. — I go by Lito_016 online. I&apos;m an AI
+            solution developer and full-stack systems developer: business &amp;
+            management systems, AI &amp; developer tools, and computer-vision
+            automation — delivered end to end, from data model to deployment.
           </p>
-          <p className="text-muted-foreground leading-relaxed">
-            I studied Information Technology and picked up practical AI skills through
-            the Bayanaihan AI program, an Agentic AI Bootcamp, and a Generative AI
-            Intensive. My OJT project — a digital journaling platform with AI-powered
-            insights — was where theory met production constraints.
+          <p className="leading-relaxed text-muted-foreground">
+            My AI practice runs through MCP servers, retrieval pipelines, and
+            agentic workflows — anchored by the Bayanihan AI program, an Agentic
+            AI Bootcamp, and a Generative AI Intensive. My OJT project — a
+            digital journaling platform with AI-powered insights — is where
+            theory met production constraints.
           </p>
-          <p className="text-muted-foreground leading-relaxed">
-            These days I&apos;m focused on LLM integration, fine-tuning, and shipping
-            software that people actually use. I care about clean code, but I care
-            more about whether the thing works for the person clicking the button.
+          <p className="leading-relaxed text-muted-foreground">
+            The problems I solve are operational: records that must stay
+            consistent, workflows that replace paper, detection that replaces
+            manual watching, and tooling that makes developers faster. I care
+            about clean code, but more about whether the thing works for the
+            person clicking the button.
           </p>
         </motion.div>
 
-        {/* Journey Timeline */}
-        <SectionHeading title="My Journey" />
-
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border" />
-
-          <div className="space-y-8">
-            {timeline.map((item, i) => (
-              <motion.div
-                key={item.year + item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`relative flex gap-6 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary ring-4 ring-primary/20 z-10" />
-
-                {/* Content */}
-                <div className={`ml-10 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
-                  <span className="text-sm font-medium text-primary">{item.year}</span>
-                  <h3 className="text-lg font-semibold mt-1 flex items-center gap-2">
-                    <item.icon className="h-4 w-4" />
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+        {/* Engineering workflow */}
+        <SectionHeading
+          title="How I Work"
+          description="One loop for every system I build"
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+        >
+          <FlowDiagram kind="workflow" title="Engineering workflow" steps={workflowSteps} />
+        </motion.div>
       </div>
     </PageTransition>
   );
