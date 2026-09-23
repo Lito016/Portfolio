@@ -68,33 +68,34 @@ export function ProjectsPageClient() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filtered.map((project, i) => (
-              <motion.a
-                key={project.url}
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
+              <motion.div
+                key={project.slug}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
                 className="group block rounded-xl glass-card-hover relative overflow-hidden"
               >
-                {/* Screenshot preview */}
-                <div className="relative h-40 w-full overflow-hidden rounded-t-xl border-b border-border/30">
-                  <Image
-                    src={project.image}
-                    alt={`${project.name} preview`}
-                    fill
-                    className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-                </div>
+                {/* Screenshot preview — omitted entirely when no verified asset exists */}
+                {project.image !== '' && (
+                  <div className="relative h-40 w-full overflow-hidden rounded-t-xl border-b border-border/30">
+                    <Image
+                      src={project.image}
+                      alt={`${project.name} preview`}
+                      fill
+                      className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                  </div>
+                )}
                 <div className="relative z-10 p-5">
                   <div className="flex items-start justify-between mb-2">
                     <h3 className="font-semibold text-sm group-hover:text-[var(--gradient-start)] transition-colors truncate">
                       {project.name}
                     </h3>
-                    <ExternalLink className="h-4 w-4 text-muted-foreground shrink-0 group-hover:text-[var(--gradient-start)] transition-colors" />
+                    {project.url !== '' && (
+                      <ExternalLink className="h-4 w-4 text-muted-foreground shrink-0 group-hover:text-[var(--gradient-start)] transition-colors" aria-hidden="true" />
+                    )}
                   </div>
                   <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
                     {project.description}
@@ -108,13 +109,20 @@ export function ProjectsPageClient() {
                         {tag}
                       </span>
                     ))}
-                    <span className="ml-auto text-xs text-[var(--gradient-start)] font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                      {project.url.includes('github.com') ? 'View on GitHub' : 'Visit Live Site'}
-                      <ExternalLink className="h-3 w-3" />
-                    </span>
+                    {project.url !== '' && (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-auto text-xs text-[var(--gradient-start)] font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        {project.url.includes('github.com') ? 'View on GitHub' : 'Visit Live Site'}
+                        <ExternalLink className="h-3 w-3" aria-hidden="true" />
+                      </a>
+                    )}
                   </div>
                 </div>
-              </motion.a>
+              </motion.div>
             ))}
           </div>
         )}

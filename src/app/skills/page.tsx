@@ -4,14 +4,16 @@ import { motion } from 'framer-motion';
 import { PageTransition, StaggerContainer, StaggerItem } from '@/components/shared/page-transition';
 import { SectionHeading } from '@/components/shared/section-heading';
 import { skillCategories } from '@/data/skills';
-import { Code, Layers, Brain, Wrench, Database } from 'lucide-react';
+import { Code, Layers, Brain, Wrench, Database, Server, Cloud } from 'lucide-react';
 
 const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   Languages: Code,
-  'Frameworks & Libraries': Layers,
-  'AI & Machine Learning': Brain,
-  'Tools & Platforms': Wrench,
-  Databases: Database,
+  Frontend: Layers,
+  Backend: Server,
+  'Databases & BaaS': Database,
+  'AI & ML': Brain,
+  'Infrastructure & Deployment': Cloud,
+  Engineering: Wrench,
 };
 export default function SkillsPage() {
   return (

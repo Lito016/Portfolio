@@ -84,7 +84,7 @@ When I first started learning about AI, it was through basic prompt engineering.
 
 ## Getting Started
 
-My AI journey began with the Bayanaihan AI para sa Bayan program, where I learned:
+My AI journey began with the Bayanihan AI para sa Bayan program, where I learned:
 
 - Fundamentals of generative AI
 - Effective prompt engineering techniques

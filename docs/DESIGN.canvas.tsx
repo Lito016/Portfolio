@@ -8,7 +8,7 @@
  *   node_modules/next/dist/docs/01-app/01-getting-started/14-metadata-and-og-images.md (per-page metadata)
  *   In-repo precedent: src/app/blog/[slug]/page.tsx uses `params: Promise<{slug:string}>`, generateMetadata, generateStaticParams.
  * Production build is `output: 'export'` (next.config.ts) → every dynamic route MUST be fully static via generateStaticParams.
- * NOTE: this file is type-checked (tsconfig includes **/*.tsx) — keep it valid TS on every edit.
+ * NOTE: this file is type-checked (tsconfig includes all .tsx files) — keep it valid TS on every edit.
  */
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -69,8 +69,10 @@ export interface CaseStudy {
   /** Optional: omit section when no verified fact exists (prevents filler — review finding 6). */
   users?: string;
   solution: string;
-  /** End-to-end main process; rendered as numbered horizontal steps (wraps on mobile). */
-  workflow: DiagramNode[];
+  /** End-to-end main process; rendered as numbered horizontal steps (wraps on mobile).
+   *  Build decision (M1): optional — entries without an owner-stated pipeline (UBMS, W12)
+   *  must not invent workflow nodes (W23); omit the section instead. */
+  workflow?: DiagramNode[];
   /** Component/integration map; rendered as grouped lanes. Optional extra prose. Arrows are inter-lane sequential only (v1 limitation, finding 5). */
   architecture: DiagramGroup[];
   architectureNote?: string;

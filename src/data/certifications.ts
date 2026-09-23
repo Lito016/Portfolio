@@ -1,9 +1,10 @@
 import type { Certification } from '@/lib/types';
+import { PROGRAM_BAYANIHAN_AI } from '@/config/site';
 
 export const certifications: Certification[] = [
   {
-    id: 'bayanaihan-ai',
-    name: 'Bayanaihan AI para sa Bayan - OJT',
+    id: 'bayanihan-ai',
+    name: `${PROGRAM_BAYANIHAN_AI} - OJT`,
     issuer: 'AI Training Program',
     date: '2024',
     description: 'Agentic AI, Generative AI, and Prompt Engineering intensive program.',

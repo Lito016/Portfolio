@@ -1,62 +1,506 @@
-export interface HostedProject {
+/**
+ * Project content model (Cycle 4, DESIGN.canvas.tsx §2).
+ * Every number, URL, and technical claim below traces to prime/state/fact-whitelist.md
+ * (W1–W23). Unknown = not shown. Do not add facts without a whitelist entry.
+ */
+
+export type ProjectCategory =
+  | 'business-systems'
+  | 'ai-developer-tools'
+  | 'computer-vision-automation';
+
+export interface ProjectLink {
+  label: 'GitHub' | 'Live Demo' | 'Docs';
+  url: string;
+}
+
+export interface DiagramNode {
+  id: string;
+  label: string;
+  detail?: string;
+}
+
+export interface DiagramGroup {
+  label: string;
+  nodes: DiagramNode[];
+}
+
+export interface MetricFact {
+  value: string;
+  label: string;
+  /** Whitelist entry id in prime/state/fact-whitelist.md */
+  source: string;
+}
+
+export interface CaseStudy {
+  overview: string;
+  problem: string;
+  users?: string;
+  solution: string;
+  /** Build decision: optional — UBMS has no owner-stated pipeline (W23 forbids inventing one). */
+  workflow?: DiagramNode[];
+  architecture: DiagramGroup[];
+  architectureNote?: string;
+  features?: { name: string; description: string }[];
+  challenges?: { problem: string; resolution: string }[];
+  decisions?: { choice: string; rationale: string }[];
+  dataDesign?: string;
+  testing?: string;
+  security?: string;
+  metrics: MetricFact[];
+  screenshots?: string[];
+}
+
+export interface HostedProjectBase {
+  /** kebab-case route identity: /projects/[slug]; also the React list key */
+  slug: string;
   name: string;
   description: string;
+  /** Primary link; '' when none is whitelisted — cards must not render a dead anchor. */
   url: string;
+  /** Card screenshot in public/; '' → render the card WITHOUT <Image> (empty src breaks prerender). */
   image: string;
   tags: string[];
-  caseStudy?: {
-    problem: string;
-    approach: string;
-    solution: string;
-    result: string;
-  };
+  category: ProjectCategory;
+  highlights: string[];
+  links: ProjectLink[];
 }
+
+export interface FeaturedProject extends HostedProjectBase {
+  featured: true;
+  caseStudy: CaseStudy;
+}
+
+export interface OtherProject extends HostedProjectBase {
+  featured: false;
+  caseStudy?: never;
+}
+
+export type HostedProject = FeaturedProject | OtherProject;
 
 export const hostedProjects: HostedProject[] = [
   {
+    slug: 'quill-mcp',
     name: 'Quill MCP',
-    description: 'Model Context Protocol server for managing a markdown notes vault. Gives AI assistants the ability to create, read, update, delete, move, search, and organize markdown notes with a persistent memory intelligence layer.',
+    featured: true,
+    description:
+      'Model Context Protocol server that gives AI assistants persistent, structured memory over a markdown notes vault — create, read, update, move, search, and organize notes across sessions.',
     url: 'https://github.com/Lito016/quill-mcp',
     image: '/project-quill-mcp.png',
     tags: ['TypeScript', 'MCP', 'AI', 'Tooling'],
+    category: 'ai-developer-tools',
+    highlights: [
+      'stdio-based MCP server exposing 49 tools',
+      'BM25 smart retrieval over a local markdown vault',
+      'Conflict detection and memory consolidation',
+      'Persistent memory layer with 16 memory types and lifecycle state machines',
+      'Secret detection and project-scoped isolation',
+      'Checkpoint-based context reconstruction',
+    ],
+    links: [{ label: 'GitHub', url: 'https://github.com/Lito016/quill-mcp' }],
     caseStudy: {
-      problem: 'AI assistants lacked persistent, structured memory across sessions and had no way to manage local knowledge bases.',
-      approach: 'Built a stdio-based MCP server with 49 tools covering vault operations, BM25 smart retrieval, conflict detection, memory consolidation, and checkpoint-based context reconstruction.',
-      solution: 'A TypeScript MCP server with a persistent memory intelligence layer featuring 16 memory types, lifecycle state machines, secret detection, and project-scoped isolation.',
-      result: 'AI assistants can now maintain structured, searchable, conflict-free memory across sessions using a local markdown vault.',
+      overview:
+        'Quill MCP is a Model Context Protocol server for managing a markdown notes vault. It gives AI assistants the ability to create, read, update, delete, move, search, and organize markdown notes with a persistent memory intelligence layer.',
+      problem:
+        'AI assistants lacked persistent, structured memory across sessions and had no way to manage local knowledge bases.',
+      users:
+        'Developers running MCP-capable AI assistants who need durable, searchable project knowledge stored locally.',
+      solution:
+        'A TypeScript MCP server with a persistent memory intelligence layer featuring 16 memory types, lifecycle state machines, secret detection, and project-scoped isolation, fronted by 49 vault tools with BM25 retrieval, conflict detection, memory consolidation, and checkpoint-based context reconstruction.',
+      workflow: [
+        { id: 'q-agent', label: 'AI Coding Agent', detail: 'Claude / agent runtime' },
+        { id: 'q-client', label: 'MCP Client' },
+        { id: 'q-server', label: 'Quill MCP', detail: 'stdio · 49 tools' },
+        { id: 'q-retrieval', label: 'Retrieval Engine', detail: 'BM25 smart retrieval' },
+        { id: 'q-memory', label: 'Memory Layer', detail: '16 memory types' },
+        { id: 'q-vault', label: 'Markdown Vault' },
+      ],
+      architecture: [
+        {
+          label: 'Assistants',
+          nodes: [
+            { id: 'q-a1', label: 'AI Coding Agent' },
+            { id: 'q-a2', label: 'MCP Client' },
+          ],
+        },
+        {
+          label: 'MCP Server',
+          nodes: [
+            { id: 'q-s1', label: 'Quill MCP (stdio)', detail: 'TypeScript' },
+            { id: 'q-s2', label: 'Vault Operations', detail: '49 tools' },
+          ],
+        },
+        {
+          label: 'Intelligence',
+          nodes: [
+            { id: 'q-i1', label: 'BM25 Retrieval' },
+            { id: 'q-i2', label: 'Conflict Detection' },
+            { id: 'q-i3', label: 'Memory Consolidation' },
+            { id: 'q-i4', label: 'Checkpoint Reconstruction' },
+          ],
+        },
+        {
+          label: 'Memory & Storage',
+          nodes: [
+            { id: 'q-m1', label: 'Memory Layer', detail: '16 types · state machines' },
+            { id: 'q-m2', label: 'Markdown Vault', detail: 'project-scoped isolation' },
+          ],
+        },
+      ],
+      features: [
+        { name: 'Vault operations', description: 'Create, read, update, delete, move, search, and organize markdown notes.' },
+        { name: 'Smart retrieval', description: 'BM25-ranked search across the vault.' },
+        { name: 'Memory intelligence', description: '16 memory types, lifecycle state machines, conflict detection, and consolidation.' },
+        { name: 'Context recovery', description: 'Checkpoint-based context reconstruction across sessions.' },
+        { name: 'Safety', description: 'Secret detection and project-scoped isolation.' },
+      ],
+      challenges: [
+        {
+          problem: 'Memory persisted across sessions had to stay structured and conflict-free.',
+          resolution: 'Lifecycle state machines with conflict detection and memory consolidation in the memory layer.',
+        },
+        {
+          problem: 'Assistants need context rebuilt after interruption.',
+          resolution: 'Checkpoint-based context reconstruction restores working context from the vault.',
+        },
+      ],
+      decisions: [
+        {
+          choice: 'stdio MCP server over a hosted service',
+          rationale: 'Keeps the knowledge base a local markdown vault that assistants can search and maintain directly.',
+        },
+      ],
+      dataDesign:
+        'Notes are stored as markdown files in a local vault; structured memory is kept in 16 memory types with project-scoped isolation.',
+      security: 'Secret detection scans content before it enters the memory layer; isolation keeps project scope private.',
+      metrics: [
+        { value: '49', label: 'MCP tools', source: 'W2' },
+        { value: '16', label: 'memory types', source: 'W3' },
+      ],
+      screenshots: ['/project-quill-mcp.png'],
     },
   },
   {
+    slug: 'barangay-digital-portal',
     name: 'Barangay Digital Portal',
-    description: 'Community platform for digital barangay services, online document requests with real-time tracking, announcements, and resident engagement.',
+    featured: true,
+    description:
+      'Full-stack barangay service platform: document requests with real-time status tracking, resident and household management, payments, complaints, and announcements.',
     url: 'https://barangay-prototype.pages.dev/',
     image: '/project-barangay.png',
-    tags: ['Full-Stack', 'Government', 'React'],
+    tags: ['React', 'Inertia.js', 'Laravel', 'MySQL', 'Full-Stack', 'Government'],
+    category: 'business-systems',
+    highlights: [
+      'Document request lifecycle with visible status workflow',
+      'Resident management with household relationships',
+      'Payments, complaints, and notifications',
+      'Real-time updates and support chat',
+      'Separate admin and resident roles',
+    ],
+    links: [{ label: 'Live Demo', url: 'https://barangay-prototype.pages.dev/' }],
     caseStudy: {
-      problem: 'Residents lacked a clear digital path for requesting documents and following the status of local services.',
-      approach: 'Designed the experience around common resident tasks, readable status feedback, and straightforward administrative review.',
-      solution: 'A responsive service portal for document requests, progress tracking, announcements, and community engagement.',
-      result: 'A simpler, more transparent connection between residents and barangay services.',
+      overview:
+        'A community platform for digital barangay services: online document requests with real-time tracking, announcements, and resident engagement.',
+      problem:
+        'Residents lacked a clear digital path for requesting documents and following the status of local services.',
+      users: 'Barangay residents requesting services, and barangay staff reviewing and processing those requests.',
+      solution:
+        'A responsive service portal for document requests, progress tracking, announcements, and community engagement, with an administrative review flow.',
+      workflow: [
+        { id: 'b-1', label: 'Resident', detail: 'React interface' },
+        { id: 'b-2', label: 'Inertia.js', detail: 'app shell' },
+        { id: 'b-3', label: 'Laravel', detail: 'server' },
+        { id: 'b-4', label: 'MySQL', detail: 'data' },
+        { id: 'b-5', label: 'Integrations', detail: 'Payments · Realtime · Email' },
+      ],
+      architecture: [
+        {
+          label: 'Resident Services',
+          nodes: [
+            { id: 'b-r1', label: 'Document Requests', detail: 'status workflow' },
+            { id: 'b-r2', label: 'Announcements' },
+            { id: 'b-r3', label: 'Complaints' },
+            { id: 'b-r4', label: 'Support Chat' },
+          ],
+        },
+        {
+          label: 'Administration',
+          nodes: [
+            { id: 'b-a1', label: 'Request Review' },
+            { id: 'b-a2', label: 'Residents & Households' },
+            { id: 'b-a3', label: 'Payments' },
+            { id: 'b-a4', label: 'Notifications' },
+          ],
+        },
+        {
+          label: 'Platform',
+          nodes: [
+            { id: 'b-p1', label: 'React + Inertia.js' },
+            { id: 'b-p2', label: 'Laravel' },
+            { id: 'b-p3', label: 'MySQL' },
+            { id: 'b-p4', label: 'Realtime Updates' },
+          ],
+        },
+      ],
+      features: [
+        { name: 'Document requests', description: 'Request submission with a readable status workflow.' },
+        { name: 'Resident records', description: 'Resident management and household relationships.' },
+        { name: 'Transactions', description: 'Payments and complaints tracked per resident.' },
+        { name: 'Engagement', description: 'Announcements, notifications, and support chat.' },
+        { name: 'Roles', description: 'Dedicated admin and resident experiences.' },
+      ],
+      challenges: [
+        {
+          problem: 'Residents could not follow the status of local service requests.',
+          resolution: 'Every request carries a visible status workflow through administrative review.',
+        },
+      ],
+      dataDesign:
+        'Relational records for residents, households, document requests, payments, complaints, and announcements in MySQL.',
+      metrics: [],
+      screenshots: ['/project-barangay.png'],
     },
   },
   {
-    name: 'AI SaaS Landing Page',
-    description: 'AI-powered intelligence platform for modern teams. Features autonomous agents, predictive analytics, and SaaS landing page.',
-    url: 'https://ai-saas-landing.pages.dev/',
-    image: '/project-ai-saas.png',
-    tags: ['AI', 'SaaS', 'Next.js'],
+    slug: 'vision-video-auditor',
+    name: 'Vision Video Auditor',
+    featured: true,
+    description:
+      'Computer-vision audit pipeline: YOLO detection over CCTV and video input, timestamped events, automated FFmpeg clip extraction, and an auditor review interface.',
+    url: '',
+    image: '',
+    tags: ['Python', 'FastAPI', 'React', 'YOLO'],
+    category: 'computer-vision-automation',
+    highlights: [
+      'YOLO object detection over CCTV / video sources',
+      'Event detection with timestamps',
+      'Automated FFmpeg clip extraction',
+      'Clip storage for evidence review',
+      'Auditor interface with alert workflow',
+    ],
+    links: [],
     caseStudy: {
-      problem: 'AI products often communicate complex capabilities without helping teams understand their immediate value.',
-      approach: 'Structured the narrative around outcomes, product clarity, and progressive disclosure instead of feature overload.',
-      solution: 'A fast, polished product experience presenting autonomous agents and predictive analytics with focused calls to action.',
-      result: 'A clearer AI product story that remains credible, approachable, and conversion-focused.',
+      overview:
+        'A video auditing system: a FastAPI backend runs YOLO detection on CCTV/video input, records events with timestamps, extracts clips automatically with FFmpeg, stores them, and serves an auditor interface with an alert workflow.',
+      problem:
+        'Reviewing long CCTV recordings for incidents requires a structured path from detection to evidence — timestamps, clips, and a review surface.',
+      solution:
+        'A detection-to-review pipeline: YOLO detection with event timestamps, FFmpeg clip extraction, clip storage, and a React auditor interface driving the alert workflow.',
+      workflow: [
+        { id: 'v-1', label: 'Camera / Recording' },
+        { id: 'v-2', label: 'YOLO Detection', detail: 'FastAPI backend' },
+        { id: 'v-3', label: 'Event Timestamp' },
+        { id: 'v-4', label: 'FFmpeg Clip Extraction', detail: 'automated' },
+        { id: 'v-5', label: 'Clip Storage' },
+        { id: 'v-6', label: 'Auditor Interface', detail: 'React frontend' },
+        { id: 'v-7', label: 'Alert Workflow' },
+      ],
+      architecture: [
+        {
+          label: 'Ingest',
+          nodes: [{ id: 'v-in', label: 'Camera / Recording', detail: 'CCTV video processing' }],
+        },
+        {
+          label: 'Detection',
+          nodes: [
+            { id: 'v-de1', label: 'YOLO Detection' },
+            { id: 'v-de2', label: 'Event Detection', detail: 'timestamps' },
+          ],
+        },
+        {
+          label: 'Evidence',
+          nodes: [
+            { id: 'v-ev1', label: 'FFmpeg Clip Extraction', detail: 'automated' },
+            { id: 'v-ev2', label: 'Clip Storage' },
+          ],
+        },
+        {
+          label: 'Review',
+          nodes: [
+            { id: 'v-rv1', label: 'Auditor Interface', detail: 'React' },
+            { id: 'v-rv2', label: 'Alert Workflow' },
+          ],
+        },
+      ],
+      architectureNote: 'FastAPI serves the detection and extraction backend; React serves the auditor frontend.',
+      metrics: [],
     },
   },
   {
+    slug: 'prime-method',
+    name: 'PRIME Method',
+    featured: true,
+    description:
+      'Agent delivery methodology and orchestration infrastructure: lifecycle shapes, quality modes, gates, and evaluation for coding agents.',
+    url: '',
+    image: '',
+    tags: ['AI Agents', 'Developer Tooling'],
+    category: 'ai-developer-tools',
+    highlights: [
+      'Agent orchestration with a structured skills system',
+      'Lifecycle shapes and quality modes for delivery work',
+      'Gates with validation and a testing harness',
+      'Routing and evaluation across phases',
+    ],
+    links: [],
+    caseStudy: {
+      overview:
+        'PRIME is an agent orchestration methodology: a skills system, lifecycle shapes, quality modes, gates, validation, a testing harness, routing, and evaluation — developer tooling for structured agent delivery.',
+      problem:
+        'Autonomous agent work needs explicit phases, gates, and validation to produce reliable, reviewable delivery rather than untracked output.',
+      solution:
+        'A lifecycle of phases enforced by gates and validation: agent orchestration dispatches domain skills under selected lifecycle shapes and quality modes, with a testing harness, routing, and evaluation closing each phase.',
+      architecture: [
+        {
+          label: 'Method',
+          nodes: [
+            { id: 'p-m1', label: 'Lifecycle Shapes' },
+            { id: 'p-m2', label: 'Quality Modes' },
+          ],
+        },
+        {
+          label: 'Orchestration',
+          nodes: [
+            { id: 'p-o1', label: 'Agent Orchestration' },
+            { id: 'p-o2', label: 'Skills System' },
+            { id: 'p-o3', label: 'Routing' },
+          ],
+        },
+        {
+          label: 'Quality',
+          nodes: [
+            { id: 'p-q1', label: 'Gates' },
+            { id: 'p-q2', label: 'Validation' },
+            { id: 'p-q3', label: 'Testing Harness' },
+            { id: 'p-q4', label: 'Evaluation' },
+          ],
+        },
+        {
+          label: 'Output',
+          nodes: [
+            { id: 'p-r1', label: 'Architecture Design' },
+            { id: 'p-r2', label: 'Developer Tooling' },
+          ],
+        },
+      ],
+      metrics: [],
+    },
+  },
+  {
+    slug: 'ubms',
+    name: 'UBMS',
+    featured: true,
+    description:
+      'Unified Business Management System: inventory, procurement, B2B sales, B2C printing, and finance — receivables, payables, historical debts, reports, and documents in one system.',
+    url: '',
+    image: '/project-ubms.png',
+    tags: ['React', 'Supabase', 'Cloudflare'],
+    category: 'business-systems',
+    highlights: [
+      'Inventory and procurement modules',
+      'B2B sales and B2C printing workflows',
+      'Finance with receivables, payables, and historical debts',
+      'Reports and document management',
+      'React frontend on Supabase, hosted via Cloudflare',
+    ],
+    links: [],
+    caseStudy: {
+      overview:
+        'A unified business management system covering inventory, procurement, B2B sales, B2C printing, finance (receivables, payables, historical debts), reports, and documents.',
+      problem:
+        'Business operations split across inventory, procurement, sales, printing, and finance need one system instead of disconnected tools.',
+      solution:
+        'A React application backed by Supabase and delivered through Cloudflare, unifying operations, finance, and reporting modules in one management surface.',
+      architecture: [
+        {
+          label: 'Operations',
+          nodes: [
+            { id: 'u-o1', label: 'Inventory' },
+            { id: 'u-o2', label: 'Procurement' },
+            { id: 'u-o3', label: 'B2B Sales' },
+            { id: 'u-o4', label: 'B2C Printing' },
+          ],
+        },
+        {
+          label: 'Finance',
+          nodes: [
+            { id: 'u-f1', label: 'Finance' },
+            { id: 'u-f2', label: 'Receivables' },
+            { id: 'u-f3', label: 'Payables' },
+            { id: 'u-f4', label: 'Historical Debts' },
+          ],
+        },
+        {
+          label: 'Platform',
+          nodes: [
+            { id: 'u-p1', label: 'React' },
+            { id: 'u-p2', label: 'Supabase' },
+            { id: 'u-p3', label: 'Cloudflare' },
+          ],
+        },
+        {
+          label: 'Outputs',
+          nodes: [
+            { id: 'u-x1', label: 'Reports' },
+            { id: 'u-x2', label: 'Documents' },
+          ],
+        },
+      ],
+      metrics: [],
+      screenshots: ['/project-ubms.png'],
+    },
+  },
+  {
+    slug: 'university-management-system',
+    name: 'University Management System',
+    featured: false,
+    description: 'University management system written in TypeScript.',
+    url: 'https://github.com/Lito016/University-Management-System',
+    image: '',
+    tags: ['TypeScript'],
+    category: 'business-systems',
+    highlights: [],
+    links: [
+      { label: 'GitHub', url: 'https://github.com/Lito016/University-Management-System' },
+    ],
+  },
+  {
+    slug: 'dish-manager',
     name: 'Dish Manager',
+    featured: false,
     description: 'Recipe and meal planning management application.',
     url: 'https://dish-manager-prototype.pages.dev/',
     image: '/project-dish-manager.png',
     tags: ['React', 'Full-Stack', 'Meal Planning'],
+    category: 'business-systems',
+    highlights: [],
+    links: [{ label: 'Live Demo', url: 'https://dish-manager-prototype.pages.dev/' }],
+  },
+  {
+    slug: 'ai-saas-landing',
+    name: 'AI SaaS Landing Page',
+    featured: false,
+    description:
+      'Landing page for an AI-powered intelligence platform: autonomous agents and predictive analytics presented with a focused conversion narrative.',
+    url: 'https://ai-saas-landing.pages.dev/',
+    image: '/project-ai-saas.png',
+    tags: ['Next.js', 'AI', 'SaaS'],
+    category: 'ai-developer-tools',
+    highlights: [],
+    links: [{ label: 'Live Demo', url: 'https://ai-saas-landing.pages.dev/' }],
   },
 ];
+
+export const featuredProjects = hostedProjects.filter(
+  (project): project is FeaturedProject => project.featured
+);
+
+export const otherProjects = hostedProjects.filter(
+  (project): project is OtherProject => !project.featured
+);
+
+export const categoryLabels: Record<ProjectCategory, string> = {
+  'business-systems': 'Business & Management Systems',
+  'ai-developer-tools': 'AI & Developer Tools',
+  'computer-vision-automation': 'Computer Vision & Automation',
+};

@@ -1,10 +1,11 @@
 import type { Experience } from '@/lib/types';
+import { ORG_BAYANIHAN_NETWORK } from '@/config/site';
 
 export const experiences: Experience[] = [
   {
     id: 'bayanihan-intern',
     role: 'Software Developer Intern',
-    company: 'Bayanaihan Network Inc.',
+    company: ORG_BAYANIHAN_NETWORK,
     location: 'Philippines',
     type: 'internship',
     startDate: '2026-02',

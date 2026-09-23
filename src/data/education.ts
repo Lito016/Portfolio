@@ -8,7 +8,7 @@ export const education: Education[] = [
     location: 'Ilocos Sur, Philippines',
     startDate: '2025',
     endDate: '2026',
-    description: 'Fresh graduate. Focused on web development, mobile development, and information technology.',
+    description: 'Degree program with coursework in web development, mobile development, database management, and software engineering.',
     courses: [
       'Web Development',
       'Mobile Development',

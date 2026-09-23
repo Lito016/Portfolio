@@ -1,18 +1,19 @@
 import type { NavItem } from '@/lib/types';
 
+/** Primary navigation (REQ-23): exactly six items; secondary routes live in the footer. */
 export const mainNavItems: NavItem[] = [
   { title: 'Home', href: '/' },
-  { title: 'About', href: '/about' },
   { title: 'Projects', href: '/projects' },
-  { title: 'Blog', href: '/blog' },
-  { title: 'Experience', href: '/experience' },
+  { title: 'Skills', href: '/skills' },
+  { title: 'About', href: '/about' },
+  { title: 'Resume', href: '/resume' },
   { title: 'Contact', href: '/contact' },
 ];
 
 export const footerNavItems: NavItem[] = [
-  { title: 'Skills', href: '/skills' },
+  { title: 'Blog', href: '/blog' },
+  { title: 'Experience', href: '/experience' },
   { title: 'Stats', href: '/stats' },
-  { title: 'Resume', href: '/resume' },
 ];
 
 export const footerMoreItems: NavItem[] = [
