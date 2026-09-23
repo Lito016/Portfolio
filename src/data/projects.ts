@@ -327,66 +327,6 @@ export const hostedProjects: HostedProject[] = [
     },
   },
   {
-    slug: 'prime-method',
-    name: 'PRIME Method',
-    featured: true,
-    description:
-      'Agent delivery methodology and orchestration infrastructure: lifecycle shapes, quality modes, gates, and evaluation for coding agents.',
-    url: '',
-    image: '',
-    tags: ['AI Agents', 'Developer Tooling'],
-    category: 'ai-developer-tools',
-    highlights: [
-      'Agent orchestration with a structured skills system',
-      'Lifecycle shapes and quality modes for delivery work',
-      'Gates with validation and a testing harness',
-      'Routing and evaluation across phases',
-    ],
-    links: [],
-    caseStudy: {
-      overview:
-        'PRIME is an agent orchestration methodology: a skills system, lifecycle shapes, quality modes, gates, validation, a testing harness, routing, and evaluation — developer tooling for structured agent delivery.',
-      problem:
-        'Autonomous agent work needs explicit phases, gates, and validation to produce reliable, reviewable delivery rather than untracked output.',
-      solution:
-        'A lifecycle of phases enforced by gates and validation: agent orchestration dispatches domain skills under selected lifecycle shapes and quality modes, with a testing harness, routing, and evaluation closing each phase.',
-      architecture: [
-        {
-          label: 'Method',
-          nodes: [
-            { id: 'p-m1', label: 'Lifecycle Shapes' },
-            { id: 'p-m2', label: 'Quality Modes' },
-          ],
-        },
-        {
-          label: 'Orchestration',
-          nodes: [
-            { id: 'p-o1', label: 'Agent Orchestration' },
-            { id: 'p-o2', label: 'Skills System' },
-            { id: 'p-o3', label: 'Routing' },
-          ],
-        },
-        {
-          label: 'Quality',
-          nodes: [
-            { id: 'p-q1', label: 'Gates' },
-            { id: 'p-q2', label: 'Validation' },
-            { id: 'p-q3', label: 'Testing Harness' },
-            { id: 'p-q4', label: 'Evaluation' },
-          ],
-        },
-        {
-          label: 'Output',
-          nodes: [
-            { id: 'p-r1', label: 'Architecture Design' },
-            { id: 'p-r2', label: 'Developer Tooling' },
-          ],
-        },
-      ],
-      metrics: [],
-    },
-  },
-  {
     slug: 'ubms',
     name: 'UBMS',
     featured: true,
