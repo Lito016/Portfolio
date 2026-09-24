@@ -346,7 +346,7 @@ await runJourney('02', 'projects-filter-and-categories', (page, rec) => [
   },
 ]);
 
-// UAT-03 case study pages: all five reachable, sections render, UBMS omits workflow
+// UAT-03 case study pages: all four reachable, sections render, workflow renders when a pipeline is stated
 await runJourney('03', 'case-study-pages', (page, rec) => [
   async () => { await page.goto(BASE + '/projects/quill-mcp', { waitUntil: 'load' }); },
   async () => {
@@ -358,12 +358,17 @@ await runJourney('03', 'case-study-pages', (page, rec) => [
     check(rec, 'quill-metrics-present', metrics >= 1, String(metrics));
   },
   async () => {
-    await page.goto(BASE + '/projects/ubms', { waitUntil: 'load' });
+    await page.goto(BASE + '/projects/inventory-management-system', { waitUntil: 'load' });
     const heads = await page.locator('main h2').evaluateAll((hs) => hs.map((h) => h.textContent.trim()));
-    check(rec, 'ubms-omits-core-workflow', !heads.includes('Core Workflow'), JSON.stringify(heads));
+    check(rec, 'inventory-renders-stated-workflow', heads.includes('Core Workflow'), JSON.stringify(heads));
   },
   async () => {
-    for (const s of ['barangay-digital-portal', 'vision-video-auditor', 'prime-method']) {
+    await page.goto(BASE + '/projects/inventory-management-system', { waitUntil: 'load' });
+    const shots = await page.locator('main img').count();
+    check(rec, 'inventory-screenshots-rendered', shots >= 1, String(shots));
+  },
+  async () => {
+    for (const s of ['barangay-digital-portal', 'vision-video-auditor', 'inventory-management-system']) {
       const r = await page.goto(BASE + '/projects/' + s, { waitUntil: 'load' });
       check(rec, `case-study-${s}-http-200`, r.status() === 200, String(r.status()));
     }
