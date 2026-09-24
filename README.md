@@ -35,7 +35,7 @@ Personal portfolio website showcasing my work as an AI Solution Developer. Built
 
 ## Featured Projects
 
-- **UBMS** — Unified Business Management System (inventory, trading, invoicing)
+- **Inventory Management System** — Fabric trading, printing orders, inventory, and finance
 - **Barangay Digital Portal** — Community services and document processing platform
 - **AI SaaS Landing Page** — AI-powered intelligence platform
 - **Dish Manager** — Recipe and meal planning application

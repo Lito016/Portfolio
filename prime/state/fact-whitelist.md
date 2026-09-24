@@ -21,10 +21,20 @@ Rule: any metric, external URL, or hard technical claim rendered on the portfoli
 - W10 claims: agent orchestration; skills system; lifecycle shapes; quality modes; gates; validation; testing harness; routing; evaluation; architecture design; developer tooling / orchestration infrastructure
 - W11 links: NONE. Metrics: NONE (skill counts etc. not asserted). Image: none
 
-## UBMS (Unified Business Management System) — source: owner brief Phase 8 + orphan asset
+## UBMS (Unified Business Management System) — source: owner brief Phase 8 + orphan asset — SUPERSEDED by W27
 - W12 claims: inventory; procurement; B2B sales; B2C printing; finance; receivables; payables; historical debts; reports; documents; Supabase; React; Cloudflare
 - W13 image /project-ubms.png exists in public/ (asset present, shows the system)
 - W14 links: NONE until owner supplies live URL. Metrics: NONE
+
+## Inventory Management System — source: owner-supplied links, verified 2026-09-24 (replaces UBMS in place)
+- W27 verified evidence:
+  - repo https://github.com/Lito016/Inventory_management_system — public, TypeScript-primary + PLpgSQL, pushed 2026-09-24 (`gh repo view` / GitHub API)
+  - live https://inventory-management-system-55w.pages.dev/ — HTTP 200 (Vite SPA shell; rendered UI not verifiable, app is behind Supabase auth)
+  - claims from the repo README: B2B fabric trading; B2C printing; finance as main priority; receivables, payables, payments, overdue tracking, historical debts; pre-orders → purchase orders → receiving (variance tracking) → fulfillments; printing orders → production → completion → release → payment; inventory products/adjustments/summary; centralized customers and suppliers; reports; unified documents with print/export; React 19, TypeScript 5, Vite 6, Tailwind CSS 4, TanStack Query 5, React Hook Form + Zod, React Router v7, Lucide, Supabase (PostgreSQL, Auth, RLS, auto-REST), Cloudflare Pages; Admin and Staff roles (Admin: user management, payment voiding); 10 ordered migrations creating 20 tables, 5 computed views, 16 triggers, RLS policies, indexes
+  - W27 also extends the W23 derivation rule: `workflow` and `architecture` node labels for this entry may restate the README pipeline strings above
+- W27 NOT claimed (no source): tests, deployments/CI for the app itself, user or record counts, uptime, client name, procurement module, queue management
+- License note: README states "Proprietary — developed for the client per the project agreement." Owner elected to showcase it; repo is public at owner's direction.
+- W13 asset /project-ubms.png removed — it depicted the prior UI and cannot be verified as the current app. Restore only with a real screenshot of the deployed system.
 
 ## University Management System (6th featured, conditional) — source: GitHub API 2026-09-23
 - W15 url https://github.com/Lito016/University-Management-System (verified public)

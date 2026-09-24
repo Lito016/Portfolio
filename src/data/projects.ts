@@ -37,7 +37,7 @@ export interface CaseStudy {
   problem: string;
   users?: string;
   solution: string;
-  /** Build decision: optional — UBMS has no owner-stated pipeline (W23 forbids inventing one). */
+  /** Build decision: optional — only when a pipeline is stated by the owner or repo (W23 forbids inventing one). */
   workflow?: DiagramNode[];
   architecture: DiagramGroup[];
   architectureNote?: string;
@@ -327,67 +327,87 @@ export const hostedProjects: HostedProject[] = [
     },
   },
   {
-    slug: 'ubms',
-    name: 'UBMS',
+    slug: 'inventory-management-system',
+    name: 'Inventory Management System',
     featured: true,
     description:
-      'Unified Business Management System for inventory, sales, printing, and finance.',
-    url: '',
-    image: '/project-ubms.png',
-    tags: ['React', 'Supabase', 'Cloudflare'],
+      'Fabric trading, printing orders, inventory, and finance for one business — React and Supabase, live on Cloudflare Pages.',
+    url: 'https://inventory-management-system-55w.pages.dev/',
+    image: '',
+    tags: ['React', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Cloudflare Pages'],
     category: 'business-systems',
     highlights: [
-      'Inventory and procurement modules',
-      'B2B sales and B2C printing workflows',
-      'Finance with receivables, payables, and historical debts',
-      'Reports and document management',
-      'React frontend on Supabase, hosted via Cloudflare',
+      'Finance-first: receivables, payables, payments, overdue tracking, historical debts',
+      'B2B fabric trading and B2C printing orders in one operational surface',
+      'Inventory, reports, and unified transaction documents',
+      'Supabase Postgres with row-level security, auth, and auto-generated REST',
+      'React 19 with TanStack Query, React Hook Form and Zod validation',
     ],
-    links: [],
+    links: [
+      { label: 'GitHub', url: 'https://github.com/Lito016/Inventory_management_system' },
+    ],
     caseStudy: {
       overview:
-        'A unified business management system covering inventory, procurement, B2B sales, B2C printing, finance (receivables, payables, historical debts), reports, and documents.',
+        'A web-based business management system combining B2B fabric trading and B2C printing operations with finance as the main priority. Inventory, customers and suppliers, reports, and documents are shared across those flows instead of duplicated per module.',
       problem:
-        'Business operations split across inventory, procurement, sales, printing, and finance need one system instead of disconnected tools.',
+        'Trading, printing, and money movement tracked in disconnected tools makes it impossible to answer what is owed, what is overdue, and what stock actually supports an order.',
+      users: 'Two Supabase-authenticated roles — Admin (full access, user management, payment voiding) and Staff (all modules except user management).',
       solution:
-        'A React application backed by Supabase and delivered through Cloudflare, unifying operations, finance, and reporting modules in one management surface.',
+        'One React application over a Supabase Postgres schema: order pipelines feed shared inventory and party records, and every transaction emits a document and a finance entry, so receivables and payables stay reconciled with operations.',
+      workflow: [
+        { id: 'i-w1', label: 'Pre-order', detail: 'B2B' },
+        { id: 'i-w2', label: 'Purchase Order' },
+        { id: 'i-w3', label: 'Receiving', detail: 'variance tracking' },
+        { id: 'i-w4', label: 'Fulfillment' },
+        { id: 'i-w5', label: 'Payment', detail: 'receivables / payables' },
+      ],
       architecture: [
         {
           label: 'Operations',
           nodes: [
-            { id: 'u-o1', label: 'Inventory' },
-            { id: 'u-o2', label: 'Procurement' },
-            { id: 'u-o3', label: 'B2B Sales' },
-            { id: 'u-o4', label: 'B2C Printing' },
+            { id: 'im-o1', label: 'B2B Fabric Trading', detail: 'pre-orders to fulfillments' },
+            { id: 'im-o2', label: 'B2C Printing', detail: 'production to release' },
+            { id: 'im-o3', label: 'Inventory', detail: 'products, adjustments' },
+            { id: 'im-o4', label: 'Parties', detail: 'customers, suppliers' },
           ],
         },
         {
           label: 'Finance',
           nodes: [
-            { id: 'u-f1', label: 'Finance' },
-            { id: 'u-f2', label: 'Receivables' },
-            { id: 'u-f3', label: 'Payables' },
-            { id: 'u-f4', label: 'Historical Debts' },
+            { id: 'im-f1', label: 'Receivables' },
+            { id: 'im-f2', label: 'Payables' },
+            { id: 'im-f3', label: 'Payments' },
+            { id: 'im-f4', label: 'Historical Debts' },
           ],
         },
         {
           label: 'Platform',
           nodes: [
-            { id: 'u-p1', label: 'React' },
-            { id: 'u-p2', label: 'Supabase' },
-            { id: 'u-p3', label: 'Cloudflare' },
+            { id: 'im-p1', label: 'React 19', detail: 'Vite 6, Tailwind 4' },
+            { id: 'im-p2', label: 'Supabase', detail: 'Postgres, Auth, RLS' },
+            { id: 'im-p3', label: 'TanStack Query' },
+            { id: 'im-p4', label: 'Cloudflare Pages' },
           ],
         },
         {
           label: 'Outputs',
           nodes: [
-            { id: 'u-x1', label: 'Reports' },
-            { id: 'u-x2', label: 'Documents' },
+            { id: 'im-x1', label: 'Reports', detail: 'sales, aging, inventory' },
+            { id: 'im-x2', label: 'Documents', detail: 'print and export' },
           ],
         },
       ],
-      metrics: [],
-      screenshots: ['/project-ubms.png'],
+      architectureNote:
+        'React Router v7 guards public auth pages from protected module routes; Supabase serves data through its auto-REST API under Postgres row-level security.',
+      dataDesign:
+        'Ten ordered Supabase migrations create 20 tables, 5 computed views, 16 triggers, indexes, and RLS policies, so totals and aging derive in the database rather than in the client.',
+      security:
+        'Supabase Auth with role-scoped access, and row-level security enforced in Postgres on every module table. Only the publishable anon key reaches the browser.',
+      metrics: [
+        { value: '20', label: 'Postgres tables', source: 'W27' },
+        { value: '10', label: 'Ordered migrations', source: 'W27' },
+        { value: '16', label: 'Database triggers', source: 'W27' },
+      ],
     },
   },
   {
