@@ -34,7 +34,9 @@ Rule: any metric, external URL, or hard technical claim rendered on the portfoli
   - W27 also extends the W23 derivation rule: `workflow` and `architecture` node labels for this entry may restate the README pipeline strings above
 - W27 NOT claimed (no source): tests, deployments/CI for the app itself, user or record counts, uptime, client name, procurement module, queue management
 - License note: README states "Proprietary — developed for the client per the project agreement." Owner elected to showcase it; repo is public at owner's direction.
-- W13 asset /project-ubms.png removed — it depicted the prior UI and cannot be verified as the current app. Restore only with a real screenshot of the deployed system.
+- W27 screenshots: /project-inventory.png (B2B pre-orders), -dashboard.png, -products.png, -documents.png — captured 2026-09-24 from the deployed app through its own "Continue as Admin" demo mode at 1600x900. The app states "DEMO — sample data only. Edits reset when you reload the page."; every name, amount and document visible is seeded sample data, not client records.
+- W27 demo mode also clears the login-wall concern: the live link opens a one-click demo, no credentials needed.
+- W13 asset /project-ubms.png removed — it depicted the prior UI and cannot be verified as the current app.
 
 ## University Management System (6th featured, conditional) — source: GitHub API 2026-09-23
 - W15 url https://github.com/Lito016/University-Management-System (verified public)

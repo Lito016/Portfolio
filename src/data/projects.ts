@@ -333,7 +333,7 @@ export const hostedProjects: HostedProject[] = [
     description:
       'Fabric trading, printing orders, inventory, and finance for one business — React and Supabase, live on Cloudflare Pages.',
     url: 'https://inventory-management-system-55w.pages.dev/',
-    image: '',
+    image: '/project-inventory.png',
     tags: ['React', 'TypeScript', 'Supabase', 'Tailwind CSS', 'Cloudflare Pages'],
     category: 'business-systems',
     highlights: [
@@ -407,6 +407,12 @@ export const hostedProjects: HostedProject[] = [
         { value: '20', label: 'Postgres tables', source: 'W27' },
         { value: '10', label: 'Ordered migrations', source: 'W27' },
         { value: '16', label: 'Database triggers', source: 'W27' },
+      ],
+      screenshots: [
+        '/project-inventory-dashboard.png',
+        '/project-inventory.png',
+        '/project-inventory-products.png',
+        '/project-inventory-documents.png',
       ],
     },
   },
