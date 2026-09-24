@@ -15,7 +15,12 @@ Rule: any metric, external URL, or hard technical claim rendered on the portfoli
 
 ## Vision Video Auditor — source: owner brief Phases 3/8 ONLY (no repo, no URL, no metrics)
 - W8 claims: YOLO detection; CCTV/video processing; event detection w/ timestamps; automated FFmpeg clip extraction; clip storage; auditor interface; alert workflow; FastAPI backend; React frontend
-- W9 links: NONE permitted. Metrics: NONE permitted (no mAP/latency data supplied). Image: none (no asset)
+- W9 links: NONE permitted. Metrics: NONE permitted (no mAP/latency data supplied). Image: see W28 — generated architecture diagram, not product UI
+
+## W28 — Vision Video Auditor card image (added at the 4-up grid fix)
+- /project-vision.png is a RENDERED DIAGRAM built from the W8 node labels already in projects.ts (Ingest → Detection → Evidence → Review). It is NOT a screenshot of running software and must never be described as one.
+- No new technical claim: every label on the graphic traces to W8 or to the existing caseStudy workflow/architecture/architectureNote text.
+- The card has no live URL, so the diagram is the only honest visual available until the owner supplies a real capture.
 
 ## PRIME Method — source: owner brief Phase 8 ONLY
 - W10 claims: agent orchestration; skills system; lifecycle shapes; quality modes; gates; validation; testing harness; routing; evaluation; architecture design; developer tooling / orchestration infrastructure

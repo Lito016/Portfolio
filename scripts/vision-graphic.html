@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  :root {
+    --bg: #f8f9fc; --fg: #0a0a1a; --card: #f5f5f7; --muted: #f1f5f9;
+    --primary: #2563eb; --border: rgba(10, 10, 26, 0.10); --dim: #5b6170;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1600px; height: 900px; }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 64px;
+  }
+  .eyebrow {
+    font-size: 15px; font-weight: 500; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--dim);
+  }
+  h1 { font-size: 40px; font-weight: 600; letter-spacing: -0.02em; margin-top: 10px; }
+  .sub { font-size: 19px; color: var(--dim); margin-top: 12px; max-width: 900px; line-height: 1.5; }
+  .flow { display: flex; align-items: center; gap: 0; margin-top: 40px; }
+  .stage { flex: 1; display: flex; flex-direction: column; }
+  .stage-label {
+    font-size: 14px; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--primary); margin-bottom: 14px;
+  }
+  .box {
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 22px; height: 400px;
+    display: grid; grid-template-rows: 1fr 1fr; gap: 16px;
+  }
+  .node {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 15px 16px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .node.span { grid-row: 1 / -1; align-items: flex-start; justify-content: center; gap: 8px; }
+  .node b { display: block; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+  .node span { display: block; font-size: 14px; color: var(--dim); margin-top: 5px; }
+  .node.span span { margin-top: 0; }
+  .arrow {
+    width: 46px; display: flex; align-items: center; justify-content: center;
+    color: var(--primary); font-size: 26px; flex: 0 0 46px;
+  }
+  footer {
+    margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--border);
+    font-size: 16px; color: var(--dim); display: flex; gap: 28px; align-items: center;
+  }
+  .chip {
+    background: var(--muted); border-radius: 7px; padding: 5px 11px;
+    font-size: 14px; font-weight: 500; color: var(--fg);
+  }
+</style>
+</head>
+<body>
+  <header>
+    <p class="eyebrow">Detection pipeline</p>
+    <h1>Vision Video Auditor</h1>
+    <p class="sub">Structured path from raw CCTV recording to reviewable evidence — detection, timestamps, extracted clips, and an auditor surface.</p>
+  </header>
+
+  <div class="flow">
+    <div class="stage">
+      <p class="stage-label">Ingest</p>
+      <div class="box">
+        <div class="node span"><b>Camera / Recording</b><span>CCTV video processing</span></div>
+      </div>
+    </div>
+    <div class="arrow">&rarr;</div>
+
+    <div class="stage">
+      <p class="stage-label">Detection</p>
+      <div class="box">
+        <div class="node"><b>YOLO Detection</b><span>object detection over video</span></div>
+        <div class="node"><b>Event Detection</b><span>timestamps</span></div>
+      </div>
+    </div>
+    <div class="arrow">&rarr;</div>
+
+    <div class="stage">
+      <p class="stage-label">Evidence</p>
+      <div class="box">
+        <div class="node"><b>FFmpeg Clip Extraction</b><span>automated</span></div>
+        <div class="node"><b>Clip Storage</b><span>evidence review</span></div>
+      </div>
+    </div>
+    <div class="arrow">&rarr;</div>
+
+    <div class="stage">
+      <p class="stage-label">Review</p>
+      <div class="box">
+        <div class="node"><b>Auditor Interface</b><span>React</span></div>
+        <div class="node"><b>Alert Workflow</b><span>flagged events</span></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">React</span><span class="chip">YOLO</span>
+    <span>FastAPI serves the detection and extraction backend; React serves the auditor frontend.</span>
+  </footer>
+</body>
+</html>
