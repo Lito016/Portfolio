@@ -67,13 +67,19 @@
     {
       "skill": "frontend",
       "status": "applied",
+      "references": [
+        "skills/frontend/references/core/design-quality-routing.md",
+        "skills/frontend/references/design/quality-parts/index.json",
+        "skills/frontend/scripts/ui-ux-pro-max/search.py"
+      ],
       "evidence": [
         "docs/DESIGN.canvas.tsx",
         "prime/reports/phase-5-build.md",
         "prime/reports/phase-5-preflight.md",
-        "prime/reports/output-intent.json"
+        "prime/reports/output-intent.json",
+        "prime/reports/phase-3-design.md"
       ],
-      "note": "Design authority docs/DESIGN.canvas.tsx applied as source of tokens (color, type, spacing, responsive band vocabulary); Phase 3 selector evidence + override log carried forward via Design Benchmark Record in output-intent.json; anti-slop checks (no Google Fonts link, no proprietary Google assets, contrast revalidation, min-h-[100dvh] hero rule, native-cursor policy, one-theme lock with the sanctioned Contact inversion) verified per milestone."
+      "note": "Build followed the Phase-3 design-quality-routing route and design/quality-parts evidence carried forward via Design Benchmark Record in output-intent.json; the UI/UX Pro Max selector (scripts/ui-ux-pro-max/search.py --design-system) was run in Phase 3 and its output/override log governs the token system implemented here. Design authority docs/DESIGN.canvas.tsx applied as source of tokens (color, type, spacing, responsive band vocabulary); anti-slop checks (no Google Fonts link, no proprietary Google assets, contrast revalidation, min-h-[100dvh] hero rule, native-cursor policy, one-theme lock with the sanctioned Contact inversion) verified per milestone."
     }
   ]
 }

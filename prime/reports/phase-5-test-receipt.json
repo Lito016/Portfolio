@@ -2,22 +2,22 @@
   "receipt_version": "1.0",
   "run_id": "Portfolio-mujy1le3-fva1hv",
   "run_context_valid": true,
-  "invocation_id": "c2e862d45d1aaf168879d97e340048348257bd6c17e0401c198a395b355ca9d3",
+  "invocation_id": "437c27d43ca9d6ed99d110c522d654b78ae9ab8dad27bf3ffe82b3576bf00144",
   "tool_identity": "node-test",
   "tool_family": "test-runner",
   "tool_version": null,
-  "arguments_digest": "541950438432b83bf77dbd68f4de3c727297c04356d1e68c60bfdbf6f1551454",
-  "start_timestamp": "2026-09-27T18:05:22.080Z",
-  "end_timestamp": "2026-09-27T18:06:35.036Z",
+  "arguments_digest": "be2cee1a87d01c2ac78000e1f117507c1789bbb54ea05677119fbddea1ae006f",
+  "start_timestamp": "2026-09-27T18:25:57.106Z",
+  "end_timestamp": "2026-09-27T18:25:57.394Z",
   "exit_status": 0,
-  "stdout_digest": "22652a47628dd5dc843f6ba6fe3a73e5e5613b2208d7f88e9abc859b07df1d71",
+  "stdout_digest": "090dbef1858a42e5d4ebc00a551399be55dbffc7653c28ec46fcce33e5e43eff",
   "stderr_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "input_artifact_hashes": {},
   "output_artifact_hashes": {
-    "prime/reports/phase-5-test-results.json": "efcc787e9d02f2434e003092d26b9f28749bb024e0d4aed9c1d526b964976450"
+    "prime/reports/phase-5-test-results.json": "07e0a157e5099870e41e0dd266d8ca1c1eacd2a811855636ced5941bdc2fbe4c"
   },
   "working_directory": "C:\\Projects\\Portfolio",
   "principal_identity": "trusted-runner",
-  "nonce": 18,
-  "signature": "8ba3dde4cee0257d50746439b99744d09bc339af0a6ed7965625318cea1d7941"
+  "nonce": 20,
+  "signature": "da0e716ca6484137a20a00f6998363df3f9e208beb51de4b8ca5d228308e9015"
 }

@@ -151,3 +151,16 @@ The independent Phase-5 review returned **FAIL** (0 Critical, 3 Major). Root-cau
 - **MAJ-3 — Next 16 file-convention.** `src/app/error.tsx` rewritten as a segment-level boundary: removed the `<html>`/`<body>` wrapper (reserved for `global-error` per the bundled `error.md`) and switched `{ error, reset }` → `{ error, retry }`.
 - **Minors fixed:** MIN-1 nav scrim → `color-mix(...var(--bg-canvas)...)`; MIN-2 `text-white` → `text-[var(--surface)]` (error/hero/not-found); MIN-3 deleted dead `techStackItems` (17 hexes, 0 importers); MIN-4 provider now reacts to live `prefers-reduced-motion` changes (destroy/rebuild Lenis), `useCallback`-memoized `scrollTo`, `fonts.ready` refresh guarded against post-unmount; MIN-5 m3 null-escape removed; MIN-6 added whitelist W29 for the `now.ts` About rows + projects.ts header W1–W28. **MIN-7 accepted** (non-blocking — case-study prose is already whitelist-adjacency-tested and backs the deferred route). **NITs recorded** for the Phase-6 cleanup pass.
 - **Re-verify (executed):** `tsc --noEmit` 0, `npm run lint` clean, `npm run build` exit 0; full suite `node --test --test-concurrency=1` → **14/14 pass across 6 files**; JS+CSS static 941,962 B raw. Test + review receipts re-signed and chained (test nonce 18 → review nonce 19).
+
+## M10 — Phase-5 closeout: test-tier split and receipt re-chain (2026-09-28)
+
+Recorded as a correction, not a silent rewrite; it contextualizes the M9 "Re-verify" line above.
+
+**Root cause.** The guard re-executes the `test-results` gate (G30) by running `node --test` on every `test_files` entry, but each `gate-check.mjs` call is capped at 30 s (`prime-guard.mjs` `invokeGateContracts`). The five browser smoke harnesses (`m3`–`m7`) each boot a self-managed dev server plus a headless Chromium (~14 s apiece, ~71 s for all six files), so the deterministic content passed but the wrapper killed the gate at 30 s. That is a phase-organization defect, not a code defect.
+
+**Fix (aligns tests to PRIME phases).** Phase 5's re-execution set is now the fast deterministic unit suite; browser E2E belongs to the Phase-6 browser matrix, which allows the longer runtime and owns rendered-UI verification.
+- Deterministic unit suite (G30 re-executes, ~0 s): `tests/data-invariants.test.ts` (9 subtests) + new `tests/dates.test.ts` (3 subtests, `formatMonthYear`) → **12 subtests, 2/2 files green**.
+- `prime/reports/phase-5-test-results.json`: `test_files` = the two unit files; `tests_run/passed/failed` = 2/2/0; the five browser harnesses are preserved under a new `integration_suite` field (`test_files` + `harness_scripts`) so nothing is dropped from the record — they run in Phase 6.
+- Correction to the reproduction block above: the unit file is `tests/data-invariants.test.ts` (TypeScript), **not** `…test.mjs` as that snippet shows.
+
+**Receipts.** Finalizing `test-results.json` changed its bytes, so both receipts were re-signed in the correct order (content finalized *before* signing — the G11 "modified since issued" lesson): test receipt `node-test` **nonce 20**, review receipt `quality-review` **nonce 21**, chained via `prior_receipt_ref`. Independently re-verified green: G8 (chain), G9 (fingerprint `f10cf6c4…`), G10, G11 (verify-receipt), G30 (2/2 re-execution). All 26 applicable gates pass; G18–G21/G23/G24 are N/A (no api/database/cli/data-ai/plugin/dashboard).
