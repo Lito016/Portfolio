@@ -419,14 +419,31 @@ header {
   }
 }
 
-/* ===== Transitional styles for sections awaiting rewrite (M7) ===== */
-.contact-cta {
-  position: relative;
-  padding-block: var(--section-rhythm);
+/* ===== Inverse panel (Contact close + footer, ADR-3.7) =====
+ * The single tonal inversion: label/ring/link variants resolve on ink. */
+.on-ink .label-mono {
+  color: var(--inverse-muted);
 }
 
-.contact-cta > .container {
-  max-width: var(--content-wide);
+.on-ink :focus-visible {
+  outline-color: #A8C7FA; /* canvas colorsDark focusRing */
+}
+
+@media (hover: hover) and (pointer:fine) {
+  .contact-link:hover {
+    color: var(--inverse-fg);
+    text-decoration: underline;
+  }
+
+  .cta-pill:hover {
+    background: var(--inverse-link);
+    transition: background-color 250ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+}
+
+.cta-pill {
+  border-radius: 9999px; /* shape lock literal; beats rounded-full utility layer */
+  transition: background-color 250ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 /* Hero lattice canvas (ADR-3.3): JS paint loop when capable; static sunk
