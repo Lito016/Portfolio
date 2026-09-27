@@ -20,7 +20,7 @@ function freePort(port) {
     /* port already free */
   }
 }
-freePort(PORT);
+for (let p = 4210; p <= 4219; p++) freePort(p);
 
 const server = spawn('npm', ['run', 'dev', '--', '-p', String(PORT)], {
   cwd: process.cwd(),
@@ -91,7 +91,7 @@ if (!(await waitForServer())) {
     'Prompt Engineering',
     // FR-13: single entry element list
     'Assisted in the design and development of software applications',
-    'HTML & CSS · PHP · SQL · AI Tools · Mobile Development',
+    'HTML & CSS, PHP, SQL, AI Tools, Mobile Development',
   ];
   const missing = needed.filter((s) => !html.includes(s));
   check('server HTML: all story facts verbatim (REQ-11/12/13)', missing.length === 0, missing.join(', '));
@@ -219,7 +219,8 @@ const jumpTo = async (page, selector) => {
 
 await browser.close();
 if (process.platform === 'win32') {
-  spawn('taskkill', ['/pid', String(server.pid), '/T', '/F'], { shell: true, stdio: 'ignore' });
+  execSync(`taskkill /PID ${server.pid} /T /F`, { stdio: 'ignore' });
+  for (let p = 4210; p <= 4219; p++) freePort(p);
 } else {
   server.kill();
 }

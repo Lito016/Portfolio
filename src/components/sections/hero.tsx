@@ -1,7 +1,6 @@
 import { HeroMotion } from '@/components/hero/hero-motion';
 import { POSITIONING } from '@/config/site';
 import { education } from '@/data/education';
-import { nowData } from '@/data/now';
 
 const heroLines = POSITIONING.split('|').map((line) => line.trim());
 const heroLocation = education[0]?.location ?? 'Philippines';
@@ -15,7 +14,6 @@ export function Hero() {
         lines={heroLines}
         valueLine="Systems that run operations — designed, built, tested, and deployed end to end."
         location={heroLocation}
-        building={nowData.building}
       />
     </section>
   );

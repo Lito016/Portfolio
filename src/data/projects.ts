@@ -84,7 +84,7 @@ export const hostedProjects: HostedProject[] = [
     name: 'Quill MCP',
     featured: true,
     description:
-      'Model Context Protocol server that gives AI assistants persistent, structured memory over a markdown notes vault — create, read, update, move, search, and organize notes across sessions.',
+      'Model Context Protocol server that gives AI assistants persistent, structured memory over a markdown notes vault.',
     url: 'https://github.com/Lito016/quill-mcp',
     image: '/project-quill-mcp.png',
     tags: ['TypeScript', 'MCP', 'AI', 'Tooling'],
@@ -211,7 +211,7 @@ export const hostedProjects: HostedProject[] = [
         { id: 'b-2', label: 'Inertia.js', detail: 'app shell' },
         { id: 'b-3', label: 'Laravel', detail: 'server' },
         { id: 'b-4', label: 'MySQL', detail: 'data' },
-        { id: 'b-5', label: 'Integrations', detail: 'Payments · Realtime · Email' },
+        { id: 'b-5', label: 'Integrations', detail: 'Payments, Realtime, Email' },
       ],
       architecture: [
         {
@@ -405,9 +405,9 @@ export const hostedProjects: HostedProject[] = [
       security:
         'Supabase Auth with role-scoped access, and row-level security enforced in Postgres on every module table. Only the publishable anon key reaches the browser.',
       metrics: [
-        { value: '20', label: 'Postgres tables', source: 'W27' },
+        { value: '20', label: 'Tables', source: 'W27' },
         { value: '10', label: 'Ordered migrations', source: 'W27' },
-        { value: '16', label: 'Database triggers', source: 'W27' },
+        { value: '16', label: 'Triggers', source: 'W27' },
       ],
       screenshots: [
         '/project-inventory-dashboard.png',

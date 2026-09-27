@@ -1,9 +1,27 @@
 import { chromium } from '@playwright/test';
-import { spawn } from 'node:child_process';
+import { spawn, execSync } from 'node:child_process';
 import { setTimeout as sleep } from 'node:timers/promises';
 
 const PORT = 4210;
-const URL = `http://127.0.0.1:${PORT}/`;
+const URL = `http://localhost:${PORT}/`;
+
+// Stale-server defense (M7 harness law): any orphan serve on 421x answers with
+// an out/ snapshot from before the current build. Sweep the whole band.
+const killPort = (p) => {
+  try {
+    const out = execSync(`netstat -ano | findstr :${p} | findstr LISTENING`, {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    for (const line of out.split('\n')) {
+      const pid = line.trim().split(/\s+/).pop();
+      if (pid && /^\d+$/.test(pid)) execSync(`taskkill /PID ${pid} /F`, { stdio: 'ignore' });
+    }
+  } catch {
+    /* port free */
+  }
+};
+for (let p = 4210; p <= 4219; p++) killPort(p);
 
 const server = spawn('npx', ['--yes', 'serve', '-l', String(PORT), 'out'], {
   stdio: 'ignore',
@@ -49,11 +67,16 @@ const browser = await chromium.launch();
     `t+0:${Math.round(a)} t+250:${Math.round(b)} target:${Math.round(targetTop ?? -1)}`
   );
   await sleep(1400);
-  const settled = await page.evaluate(() => window.scrollY);
+  const settledPair = await page.evaluate(() => {
+    const el = document.querySelector('#work');
+    if (!el) return { y: window.scrollY, top: null, margin: 0 };
+    const margin = parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
+    return { y: window.scrollY, top: el.getBoundingClientRect().top + window.scrollY, margin };
+  });
   check(
-    'settles at nav-offset target',
-    targetTop !== null && Math.abs(settled - (targetTop - 80)) <= 4,
-    `settled:${Math.round(settled)} target-80:${Math.round((targetTop ?? 0) - 80)}`
+    'settles at CSS scroll-margin target (single offset owner)',
+    settledPair.top !== null && Math.abs(settledPair.y - (settledPair.top - settledPair.margin)) <= 4,
+    `settled:${Math.round(settledPair.y)} margin:${settledPair.margin}`
   );
 
   await page.goto(URL, { waitUntil: 'load' });
@@ -106,10 +129,11 @@ const browser = await chromium.launch();
 
 await browser.close();
 if (process.platform === 'win32') {
-  spawn('taskkill', ['/pid', String(server.pid), '/T', '/F'], { shell: true, stdio: 'ignore' });
+  execSync(`taskkill /PID ${server.pid} /T /F`, { stdio: 'ignore' });
 } else {
   server.kill();
 }
+for (let p = 4210; p <= 4219; p++) killPort(p);
 
 const failed = results.filter((r) => !r.ok);
 console.log(`\n${results.length - failed.length}/${results.length} checks passed`);

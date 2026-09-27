@@ -38,7 +38,7 @@ export function ShowcaseGhostIndex({ index, className }: { index: number; classN
 export function ShowcaseTech({ project }: { project: HostedProjectBase }) {
   return (
     <p className="label-mono" data-showcase-tech>
-      {project.tags.join(' · ')}
+      {project.tags.join(', ')}
     </p>
   );
 }

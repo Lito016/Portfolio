@@ -50,7 +50,7 @@ export function Experience() {
                       </li>
                     ))}
                   </ul>
-                  <p className="label-mono mt-4 text-[var(--ink-muted)]">{item.technologies.join(' · ')}</p>
+                  <p className="label-mono mt-4 text-[var(--ink-muted)]">{item.technologies.join(', ')}</p>
                 </div>
               </article>
             ))}

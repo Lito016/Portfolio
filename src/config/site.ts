@@ -5,7 +5,6 @@ export const POSITIONING = 'AI Solution Developer | Full-Stack Systems Developer
 
 /** Canonical organization/program names (REQ-22; default spelling pending owner confirmation). */
 export const ORG_BAYANIHAN_NETWORK = 'Bayanihan Network Inc.';
-export const PROGRAM_BAYANIHAN_AI = 'Bayanihan AI para sa Bayan';
 
 export const siteConfig: SiteConfig = {
   name: 'Lito016',
@@ -19,7 +18,3 @@ export const siteConfig: SiteConfig = {
   email: 'mailto:manolitoalmadenjr@gmail.com',
   linkedin: 'https://linkedin.com/in/manolito-almaden-jr-a54a6634a',
 };
-
-export const GITHUB_USERNAME = 'Lito016';
-export const GITHUB_API = 'https://api.github.com';
-export const GITHUB_AVATAR = 'https://avatars.githubusercontent.com/u/146796071?v=4';

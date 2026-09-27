@@ -52,11 +52,8 @@ export function ShowcasePinnedBrowser({ project, index }: { project: FeaturedPro
         </div>
         <div>
           <div className="showcase-frame" data-pin-target>
-            <div className="flex items-center gap-1.5 border-b border-[var(--rule-deep)] px-4 py-3">
-              <i className="h-2 w-2 rounded-full bg-[var(--rule)]" aria-hidden="true" />
-              <i className="h-2 w-2 rounded-full bg-[var(--rule)]" aria-hidden="true" />
-              <i className="h-2 w-2 rounded-full bg-[var(--rule)]" aria-hidden="true" />
-              <span className="label-mono ml-3">
+            <div className="flex items-center border-b border-[var(--rule-deep)] px-4 py-3">
+              <span className="label-mono">
                 {project.name}
               </span>
             </div>

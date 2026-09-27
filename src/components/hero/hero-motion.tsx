@@ -24,12 +24,10 @@ export function HeroMotion({
   lines,
   valueLine,
   location,
-  building,
 }: {
   lines: string[];
   valueLine: string;
   location: string;
-  building: string;
 }) {
   const startRef = useRef<number | null>(null);
 
@@ -42,15 +40,15 @@ export function HeroMotion({
   }, []);
 
   return (
-    <div className="relative z-10 mx-auto flex min-h-[85vh] w-full max-w-[var(--content-wide)] flex-col px-[var(--gutter)]">
+    <div className="relative z-10 mx-auto flex min-h-[85dvh] w-full max-w-[var(--content-wide)] flex-col px-[var(--gutter)]">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: HERO_BG_DURATION_MS / 1000, ease: EASE_EXPO_OUT }}
-        className="grid flex-1 content-center gap-10 pt-[calc(var(--nav-h)+40px)]"
+        className="grid flex-1 content-center gap-8 pt-[calc(var(--nav-h)+24px)]"
       >
         <div>
-          <p className="label-mono mb-6">
+          <p className="label-mono mb-4">
             {siteConfig.displayName} · {location}
           </p>
           <h1 className="text-[clamp(3.5rem,9vw,9.25rem)] leading-[0.88] tracking-[-0.035em] text-[var(--ink)]">
@@ -75,7 +73,7 @@ export function HeroMotion({
 
         <div
           aria-hidden="true"
-          className="pointer-events-none relative h-[38vh] max-h-[480px] min-h-[260px] overflow-hidden"
+          className="pointer-events-none relative h-[24dvh] max-h-[420px] min-h-[220px] overflow-hidden"
         >
           <motion.div
             className="absolute inset-0"
@@ -113,17 +111,6 @@ export function HeroMotion({
             >
               GitHub
             </a>
-          </div>
-          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-2">
-            <a
-              href={siteConfig.email}
-              className="font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-[var(--ink-muted)] transition-colors hover:text-[var(--accent-deep)]"
-            >
-              {siteConfig.email.replace('mailto:', '')}
-            </a>
-            <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-[var(--ink-muted)]">
-              Now building: {building}
-            </span>
           </div>
         </motion.div>
       </motion.div>

@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <section className="mx-auto flex min-h-[60vh] w-full max-w-[1440px] flex-col items-center justify-center px-[var(--gutter)] py-24 text-center">
+    <section className="mx-auto flex min-h-[60dvh] w-full max-w-[1440px] flex-col items-center justify-center px-[var(--gutter)] py-24 text-center">
       <p className="label-mono">404</p>
       <h1 className="mt-4 text-3xl font-normal tracking-[-0.02em] text-[var(--ink)]">
         This page is not part of the site.

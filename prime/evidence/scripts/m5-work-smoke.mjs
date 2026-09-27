@@ -20,7 +20,7 @@ function freePort(port) {
     /* port already free */
   }
 }
-freePort(PORT);
+for (let p = 4210; p <= 4219; p++) freePort(p);
 
 const server = spawn('npm', ['run', 'dev', '--', '-p', String(PORT)], {
   cwd: process.cwd(),
@@ -290,7 +290,8 @@ const jumpTo = async (page, selector) => {
 
 await browser.close();
 if (process.platform === 'win32') {
-  spawn('taskkill', ['/pid', String(server.pid), '/T', '/F'], { shell: true, stdio: 'ignore' });
+  execSync(`taskkill /PID ${server.pid} /T /F`, { stdio: 'ignore' });
+  for (let p = 4210; p <= 4219; p++) freePort(p);
 } else {
   server.kill();
 }

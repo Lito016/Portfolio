@@ -43,24 +43,40 @@ test('every metric fact is whitelist-traceable: W-id exists in the whitelist and
   const whitelist = readFileSync('prime/state/fact-whitelist.md', 'utf8');
   const declaredIds = new Set([...whitelist.matchAll(/\bW(\d+)\b/g)].map((m) => `W${m[1]}`));
   assert.ok(declaredIds.size >= 20, `whitelist parse degenerate: only ${declaredIds.size} ids found`);
-  const lines = whitelist.split('\n');
+  // Section-scoped lookup: a W-id's facts live under the heading that names it
+  // ("## Inventory Management System" carries W27), not only on lines repeating the id.
+  const sections: { header: string; body: string }[] = [];
+  for (const block of whitelist.split(/\n(?=## )/)) {
+    const header = block.split('\n', 1)[0];
+    sections.push({ header, body: block });
+  }
   for (const project of featuredProjects) {
     for (const metric of project.caseStudy.metrics) {
       assert.match(metric.source, /^W\d+$/, `metric not whitelisted: ${project.slug} "${metric.value} ${metric.label}" source=${metric.source}`);
       assert.ok(declaredIds.has(metric.source), `metric cites undeclared whitelist id ${metric.source}: ${project.slug} "${metric.value} ${metric.label}"`);
-      const entryLines = lines.filter((l) => new RegExp(`\\b${metric.source}\\b`).test(l));
-      assert.ok(entryLines.length > 0, `no whitelist entry text for ${metric.source}`);
-      const bound = entryLines.some(
-        (l) => l.includes(metric.value) || l.toLowerCase().includes(metric.label.toLowerCase())
-      );
-      assert.ok(bound, `whitelist ${metric.source} entries do not carry value "${metric.value}" or label "${metric.label}" (${project.slug})`);
+      const entrySections = sections.filter((s) => new RegExp(`\\b${metric.source}\\b`).test(s.body));
+      assert.ok(entrySections.length > 0, `no whitelist section for ${metric.source}`);
+      // Require the value to sit adjacent to a label word in the section
+      // ("20 tables", "10 ordered migrations", "16 triggers") so unrelated digits
+      // inside URLs or resolutions cannot vouch for a metric.
+      const labelWords = metric.label.toLowerCase().split(/\s+/).filter(Boolean);
+      const bound = entrySections.some((s) => {
+        const lower = s.body.toLowerCase();
+        const adjacency = labelWords.some((w) =>
+          new RegExp(`${metric.value}[\\s-]+[-\\w ]{0,20}\\b${w}\\b`).test(lower) ||
+          new RegExp(`\\b${w}[\\s-]+${metric.value}\\b`).test(lower),
+        );
+        return adjacency && labelWords.every((w) => lower.includes(w));
+      });
+      assert.ok(bound, `whitelist ${metric.source} entries do not carry "${metric.value} ${metric.label}" (${project.slug})`);
       assert.ok(metric.value.trim().length > 0 && metric.label.trim().length > 0, `empty metric on ${project.slug}`);
     }
   }
 });
 
 test('numeric tokens in visible project copy are all whitelist-mapped (no invented numbers)', () => {
-  const ALLOWED = new Map([['49', 'W2'], ['16', 'W3']]);
+  // Every numeric token in rendered copy must map to a whitelist id (R-5 conformance grep).
+  const ALLOWED = new Map([['49', 'W2'], ['16', 'W3'], ['19', 'W27'], ['20', 'W27'], ['5', 'W27'], ['6', 'W27'], ['4', 'W27']]);
   const corpus: string[] = [];
   const collect = (s: string | undefined) => {
     if (s) corpus.push(s);
@@ -107,8 +123,9 @@ test('numeric tokens in visible project copy are all whitelist-mapped (no invent
       collect(d.choice);
       collect(d.rationale);
     });
+    // metric.value is checked for whitelist adjacency in the dedicated test above;
+    // labels still flow through this scan.
     cs.metrics.forEach((m) => {
-      collect(m.value);
       collect(m.label);
     });
   }

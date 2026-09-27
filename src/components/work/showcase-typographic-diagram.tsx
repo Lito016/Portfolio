@@ -39,7 +39,7 @@ export function ShowcaseTypographicDiagram({ project, index }: { project: Featur
             {project.image ? (
               <div
                 className="mb-6 overflow-hidden border border-[var(--rule-deep)] bg-[var(--surface-sunk)]"
-                style={{ aspectRatio: '16 / 8.6', borderRadius: 6 }}
+                style={{ aspectRatio: '16 / 8.6', borderRadius: 8 }}
               >
                 <ShowcaseImage project={project} src={project.image} />
               </div>
@@ -48,7 +48,7 @@ export function ShowcaseTypographicDiagram({ project, index }: { project: Featur
               <ol className="flex flex-wrap items-stretch gap-y-4" aria-label={`${project.name} processing pipeline`}>
                 {steps.map((step, i) => (
                   <li key={step.id} role="presentation" className="flex items-stretch">
-                    <div className="flex min-w-[132px] max-w-[180px] flex-col justify-center border border-[var(--rule-deep)] bg-[var(--bg-canvas)] px-3 py-2" style={{ borderRadius: 6 }}>
+                    <div className="flex min-w-[132px] max-w-[180px] flex-col justify-center border border-[var(--rule-deep)] bg-[var(--bg-canvas)] px-3 py-2" style={{ borderRadius: 8 }}>
                       <span className="text-[13px] font-medium leading-tight text-[var(--ink-2)]">{step.label}</span>
                       {step.detail ? <span className="mt-0.5 font-mono text-[11px] leading-tight text-[var(--ink-muted)]">{step.detail}</span> : null}
                     </div>

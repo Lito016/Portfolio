@@ -1,13 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { navAnchorItems } from '@/config/navigation';
 import { siteConfig } from '@/config/site';
 import { AnchorLink } from '@/components/shared/anchor-link';
+import { ScrollCrossLeaf } from '@/components/shared/scroll-cross-leaf';
 import {
   EASE_EXPO_OUT,
   HERO_NAV_DELAY_MS,
@@ -18,16 +17,6 @@ import {
 export function Header() {
   const [compact, setCompact] = useState(false);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const trigger = ScrollTrigger.create({
-      start: '80px top',
-      onEnter: () => setCompact(true),
-      onLeaveBack: () => setCompact(false),
-    });
-    return () => trigger.kill();
-  }, []);
-
   return (
     <header
       className={
@@ -36,6 +25,7 @@ export function Header() {
           : 'fixed inset-x-0 top-0 z-50 border-b border-transparent bg-transparent transition-colors'
       }
     >
+      <ScrollCrossLeaf startPx={80} onCross={setCompact} />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

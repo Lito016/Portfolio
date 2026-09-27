@@ -33,19 +33,20 @@ export function About() {
             </h2>
             <div className="mt-8 max-w-[56ch] space-y-4 text-[15px] leading-relaxed text-[var(--ink-3)]">
               {/* W21 categories + W24 end-to-end framing */}
+              <p>I design and build end to end.</p>
               <p>
-                I design and build end to end: operational systems that model real workflows, infrastructure that
-                makes AI usable in production, and detection pipelines that turn raw video into events and clips.
+                Operational systems that model real workflows, infrastructure that makes AI usable in production, and
+                detection pipelines that turn raw video into events and clips.
               </p>
               {/* education.description + experience description lines */}
               <p>
                 My foundation is a BS Information Technology program with coursework in web development, mobile
-                development, database management, and software engineering, sharpened by an internship at{' '}
-                {firstExperience.company} where AI-powered tools supported development tasks, including code
-                generation, testing, debugging, and documentation.
+                development, database management, and software engineering.
               </p>
-              {/* nowData.building verbatim (finding F1; no paraphrase) */}
-              <p>Currently building: {nowData.building}.</p>
+              <p>
+                At {firstExperience.company}, AI-powered tools supported development tasks: code generation, testing,
+                debugging, and documentation.
+              </p>
             </div>
           </Reveal>
 
@@ -62,10 +63,10 @@ export function About() {
                   firstExperience.startDate,
                 )} – ${formatMonthYear(firstExperience.endDate)})`}
               />
-              <MetaRow label="Specialties" value={whatIBuildCategories.map((item) => item.title).join(' · ')} />
-              <MetaRow label="Technologies" value={skillCategories.map((domain) => domain.name).join(' · ')} />
+              <MetaRow label="Specialties" value={whatIBuildCategories.map((item) => item.title).join(', ')} />
+              <MetaRow label="Technologies" value={skillCategories.map((domain) => domain.name).join(', ')} />
               <MetaRow label="Current focus" value={nowData.building} />
-              <MetaRow label="Learning" value={nowData.learning.join(' · ')} />
+              <MetaRow label="Learning" value={nowData.learning.join(', ')} />
               <MetaRow label="Exploring" value={nowData.exploring} />
               <MetaRow label="Last updated" value={nowData.lastUpdated} />
             </dl>

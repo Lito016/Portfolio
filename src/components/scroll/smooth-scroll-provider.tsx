@@ -11,9 +11,6 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 
-/** Fixed-nav clearance for programmatic scrolls (FR-02 bar height + breathing room). */
-export const NAV_OFFSET = 80;
-
 type ScrollTo = (
   target: string | HTMLElement,
   opts?: { offset?: number; duration?: number }
@@ -58,15 +55,15 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   const scrollTo: ScrollTo = (target, opts) => {
     const lenis = lenisRef.current;
     if (lenis) {
-      lenis.scrollTo(target, { offset: -NAV_OFFSET, ...opts });
+      // Lenis subtracts the target's CSS scroll-margin-top itself; the provider
+      // must not add an offset too (double subtraction, M8 fix). CSS owns the margin.
+      lenis.scrollTo(target, opts);
       return;
     }
-    // No-JS-parity fallback path (reduced motion): instant native jump.
+    // No-Lenis fallback (reduced motion): instant native jump. scrollIntoView
+    // applies the same scroll-margin-top CSS, keeping both paths on one owner.
     const el = typeof target === 'string' ? document.querySelector(target) : target;
-    if (el instanceof HTMLElement) {
-      const top = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
-      window.scrollTo({ top, behavior: 'auto' });
-    }
+    if (el instanceof HTMLElement) el.scrollIntoView({ behavior: 'auto', block: 'start' });
   };
 
   return (

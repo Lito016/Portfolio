@@ -64,7 +64,7 @@ export function Skills() {
                   <div id={id} className="skill-panel">
                     <div className="overflow-hidden">
                       <p className="label-mono pb-5 leading-relaxed text-[var(--ink-3)]">
-                        {domain.skills.map((skill) => skill.name).join(' · ')}
+                        {domain.skills.map((skill) => skill.name).join(', ')}
                       </p>
                     </div>
                   </div>

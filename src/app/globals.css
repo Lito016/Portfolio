@@ -39,17 +39,6 @@
   --section-rhythm: clamp(96px, 16vh, 192px);
   --nav-h: 56px;               /* compact band */
   --content-wide: 100%;        /* expanded band lifts to the 1440px ceiling */
-
-  /* Transitional aliases — pre-rebuild sections resolve legacy names onto the
-   * token ramp; retired section-by-section in M4-M7, swept in M8. */
-  --background: var(--bg-canvas);
-  --foreground: var(--ink);
-  --card: var(--surface);
-  --muted: var(--surface-sunk);
-  --muted-foreground: var(--ink-muted);
-  --border: var(--rule);
-  --primary: var(--accent-deep);
-  --ring: var(--accent-deep);
 }
 
 @theme inline {
@@ -78,8 +67,9 @@ html {
   scroll-padding-top: calc(var(--nav-h) + 16px);
 }
 
-/* Under Lenis, in-app scroll handlers apply the nav offset via scrollTo({ offset: -80 });
- * zero the CSS padding there so native hash jumps and reduced-motion path keep it without doubling. */
+/* Under Lenis, the section scroll-margin-top (below) is the single offset owner:
+ * Lenis.scrollTo subtracts it itself, so zero the root padding there to avoid a
+ * double subtraction. Native hash jumps and the reduced-motion path keep it. */
 html.lenis {
   scroll-padding-top: 0;
 }
