@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import type { HostedProject } from '@/data/projects';
 
 export interface ProjectCardProps {
@@ -112,15 +111,6 @@ export function ProjectCard({ project, variant }: ProjectCardProps) {
                   <ExternalLink className="h-3 w-3" aria-hidden="true" />
                 </a>
               ))}
-            {variant === 'featured' && project.featured && (
-              <Link
-                href={`/projects/${project.slug}`}
-                className="inline-flex items-center gap-1 text-xs font-medium text-[var(--primary)] transition-opacity hover:opacity-80"
-              >
-                View Case Study
-                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </Link>
-            )}
           </span>
         </div>
       </div>

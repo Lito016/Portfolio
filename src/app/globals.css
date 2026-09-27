@@ -1,357 +1,95 @@
 @import "tailwindcss";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-glass: var(--glass);
-  --color-glass-border: var(--glass-border);
-  --color-glass-hover: var(--glass-hover);
-  --color-gradient-start: var(--gradient-start);
-  --color-gradient-end: var(--gradient-end);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ============================================================
+ * G32 base-system source — ANTIGRAVITY-EDITORIAL (ADR-3.4, G13 bespoke)
+ * custom_approval (verbatim, owner first message, cycle 5):
+ * "Rebuild my personal portfolio website from scratch with a premium,
+ * experimental, highly interactive visual style inspired by the design
+ * language of antigravity.google. Do NOT copy Google's website, branding,
+ * logos, text, assets, or proprietary design directly."
+ * Origin: original system derived from measured public CSS of the fetch
+ * anchor, tuned through the UI/UX Pro Max selector + quality parts.
+ * Token authority: docs/DESIGN.canvas.tsx designTokens.cssVariables.
+ * Band contract (responsiveContract): compact 0-767px is the base
+ * stylesheet; medium and expanded layers are ADDED with min-width
+ * queries at 768px and 1024px, never removed.
+ * ============================================================ */
 
-/* ===== Responsive identity banner ===== */
-.team-banner {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  width: 100%;
-  border-block: 1px solid var(--border);
-  background: var(--card);
-  transition: background 300ms ease, border-color 300ms ease;
-}
-
-/* ===== CSS Custom Properties ===== */
+/* ===== ANTIGRAVITY-EDITORIAL tokens (measured 2026-09-27; ratios in canvas) ===== */
 :root {
-  --radius: 0.625rem;
-  --background: #f8f9fc;
-  --foreground: #0a0a1a;
-  --card: #f5f5f7;
-  --card-foreground: #0a0a1a;
-  --popover: #f5f5f7;
-  --popover-foreground: #0a0a1a;
-  --primary: #2563eb;
-  --primary-foreground: #ffffff;
-  --secondary: rgba(59, 130, 246, 0.08);
-  --secondary-foreground: #2563eb;
-  --muted: #f1f5f9;
-  --muted-foreground: #475569;
-  --accent: rgba(59, 130, 246, 0.08);
-  --accent-foreground: #2563eb;
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
-  --border: #cbd5e1;
-  --input: #cbd5e1;
-  --ring: #2563eb;
-  --glass: #f5f5f7;
-  --glass-border: #cbd5e1;
-  --glass-hover: #f8fafc;
-  --gradient-start: #2563eb;
-  --gradient-end: #06b6d4;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.08);
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --bg-canvas: #F8F9FC;        /* warm-cool off-white canvas (NFR-03) */
+  --surface: #FFFFFF;          /* cards/frames lifted on canvas; ink 18.56:1 */
+  --surface-sunk: #EFF2F7;     /* sunk panels */
+  --rule: #DDE3EC;             /* hairline borders: 1px rules, never layout walls */
+  --rule-deep: #E6EAF0;        /* deep rules/dividers; ghost numeral ink */
+  --ink: #121317;              /* near-black ink: 17.63:1 on canvas (AAA), never #000000 */
+  --ink-2: #202124;            /* subheads: 15.29:1 */
+  --ink-3: #3C4043;            /* strong body: 9.94:1 */
+  --ink-muted: #45474D;        /* secondary copy floor: 8.82:1 (AAA) */
+  --accent: #1A73E8;           /* graphic accent: rules, large numerals; 4.28:1 (>=3:1 non-text) */
+  --accent-deep: #0B57D0;      /* text links, focus ring: 6.07:1 (AA text) */
+  --spark: #FBBC04;            /* dot-level compositional mark only; never text, never state */
+  --inverse-bg: #121317;       /* Contact close + footer inversion (ADR-3.7); not a user theme */
+  --inverse-fg: #F8F9FC;       /* 17.63:1 on ink */
+  --inverse-link: #8AB4F8;     /* links on ink: 8.81:1 */
+  --inverse-muted: #9AA0A6;    /* secondary on ink: 7.03:1 */
+  --font-display: var(--font-geist-sans), 'Segoe UI Variable Text', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --gutter: clamp(20px, 4vw, 64px);
+  --section-rhythm: clamp(96px, 16vh, 192px);
+  --nav-h: 56px;               /* compact band */
+  --content-wide: 100%;        /* expanded band lifts to the 1440px ceiling */
+
+  /* Transitional aliases — pre-rebuild sections resolve legacy names onto the
+   * token ramp; retired section-by-section in M4-M7, swept in M8. */
+  --background: var(--bg-canvas);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --muted: var(--surface-sunk);
+  --muted-foreground: var(--ink-muted);
+  --border: var(--rule);
+  --primary: var(--accent-deep);
+  --ring: var(--accent-deep);
 }
 
-/* ===== Canvas containment — prevents repaints from affecting layout ===== */
-.team-banner,
-.contact-cta .relative.overflow-hidden {
-  contain: layout style paint;
-}
-
-.dark {
-  --background: #000000;
-  --foreground: #ededed;
-  --card: #0a0a0a;
-  --card-foreground: #ededed;
-  --popover: #0a0a0a;
-  --popover-foreground: #ededed;
-  --primary: #5e82f6;
-  --primary-foreground: #ffffff;
-  --secondary: rgba(255, 255, 255, 0.06);
-  --secondary-foreground: #a1a1aa;
-  --muted: #111111;
-  --muted-foreground: #a1a1aa;
-  --accent: rgba(255, 255, 255, 0.05);
-  --accent-foreground: #a1a1aa;
-  --destructive: #dc2626;
-  --destructive-foreground: #ffffff;
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.08);
-  --ring: #5e82f6;
-  --glass: #0a0a0a;
-  --glass-border: rgba(255, 255, 255, 0.06);
-  --glass-hover: #111111;
-  --gradient-start: #5e82f6;
-  --gradient-end: #22d3ee;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.6);
-  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.7);
-  --shadow-card: none;
-}
-
-/* ===== Footer shimeji mascot ===== */
-.footer-shimeji {
-  position: absolute;
-  z-index: 10;
-  bottom: 0.35rem;
-  left: 0;
-  contain: layout paint;
-}
-
-.footer-shimeji-body {
-  display: block;
-  width: 6rem;
-  height: 5.25rem;
-}
-
-.footer-shimeji-body img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.footer-shimeji-shadow {
-  width: 2rem;
-  height: 0.3rem;
-  margin-top: 0.2rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--foreground) 22%, transparent);
-  animation: footer-shimeji-shadow 320ms ease-in-out infinite alternate;
-}
-
-@keyframes footer-shimeji-shadow {
-  from { opacity: 0.42; transform: scaleX(1); }
-  to { opacity: 0.2; transform: scaleX(0.72); }
-}
-
-/* ===== Reduced motion ===== */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* ===== Card utilities ===== */
-.glass-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-}
-
-.glass-card-hover {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  transition: border-color 200ms ease, background-color 200ms ease;
-}
-
-.glass-card-hover:hover {
-  border-color: var(--border);
-  background: var(--glass-hover);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-/* ===== Scrollbar ===== */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--muted-foreground);
-  border-radius: 5px;
-  border: 2px solid transparent;
-  background-clip: content-box;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--foreground);
-  background-clip: content-box;
-}
-
-/* ===== Selection ===== */
-::selection {
-  background-color: color-mix(in srgb, var(--primary) 30%, transparent);
-  color: inherit;
-}
-
-/* ===== Focus visible ===== */
-:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
-
-/* ===== Skip to content ===== */
-.skip-to-content {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-  color: #ffffff;
-  padding: 8px 16px;
-  z-index: 100;
-  transition: top 0.2s;
-}
-
-.skip-to-content:focus {
-  top: 0;
-}
-
-/* ===== Resume Document ===== */
-.resume-section {
-  page-break-inside: avoid;
-}
-
-.resume-item {
-  padding: 0.75rem 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.resume-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-/* ===== Print Styles ===== */
-@media print {
-  @page {
-    margin: 0.6in 0.7in;
-    size: A4;
-  }
-
-  body {
-    background: #fff !important;
-    color: #111 !important;
-    font-size: 11pt !important;
-    line-height: 1.4 !important;
-  }
-
-  .glass-card {
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    padding: 0 !important;
-  }
-
-  .resume-document {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-  }
-
-  .glass-card-hover:hover {
-    transform: none !important;
-    box-shadow: none !important;
-  }
-
-  /* Hide non-essential elements */
-  header nav,
-  .back-to-top,
-  .skip-to-content,
-  footer {
-    display: none !important;
-  }
-
-  /* Ensure links are visible */
-  a {
-    color: #111 !important;
-    text-decoration: none !important;
-  }
-
-  /* Keep section headings colored for structure */
-  .resume-section h2 {
-    color: #2563eb !important;
-    border-bottom: 1.5px solid #2563eb !important;
-    padding-bottom: 4px !important;
-  }
-
-  /* Primary-colored text stays readable */
-  .text-primary {
-    color: #333 !important;
-  }
-
-  /* Skill badges */
-  .bg-primary\/8 {
-    background: #f0f0f0 !important;
-    color: #333 !important;
-  }
-
-  /* Avoid page breaks inside items */
-  .resume-item,
-  .resume-section {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-
-  /* Force page break before key sections if needed */
-  .resume-section:nth-child(n+4) {
-    page-break-before: auto;
-  }
+@theme inline {
+  --color-background: var(--bg-canvas);
+  --color-foreground: var(--ink);
+  --color-card: var(--surface);
+  --color-card-foreground: var(--ink);
+  --color-muted: var(--surface-sunk);
+  --color-muted-foreground: var(--ink-muted);
+  --color-primary: var(--accent-deep);      /* 6.39:1 with on_primary white (AA button text) */
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: var(--accent);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--ink);
+  --color-border: var(--rule);
+  --color-input: var(--rule);
+  --color-ring: var(--accent-deep);
+  --color-destructive: #B3261E;              /* reserved error role; never decorative */
+  --font-sans: var(--font-display);
+  --font-mono: var(--font-mono);
 }
 
 /* ===== Interaction and layout foundation ===== */
-:root {
-  --motion-fast: 160ms;
-  --motion-base: 280ms;
-  --motion-slow: 480ms;
-  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --content-wide: 1280px;
-  --content-reading: 760px;
-  --section-space: clamp(5rem, 9vw, 9rem);
-}
-
+/* No scroll-behavior: smooth — Lenis owns programmatic smoothing (ADR-3.1, M3). */
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: calc(var(--nav-h) + 16px);
 }
 
 body {
+  background: var(--bg-canvas);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 400;
   text-rendering: optimizeLegibility;
   font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 main {
   isolation: isolate;
-}
-
-main section {
-  scroll-margin-top: 5.5rem;
 }
 
 a,
@@ -365,170 +103,191 @@ select {
 a,
 button {
   transition:
-    color var(--motion-fast) var(--motion-ease),
-    background-color var(--motion-fast) var(--motion-ease),
-    border-color var(--motion-fast) var(--motion-ease),
-    box-shadow var(--motion-base) var(--motion-ease);
+    color 180ms cubic-bezier(0.165, 0.84, 0.44, 1),
+    background-color 180ms cubic-bezier(0.165, 0.84, 0.44, 1),
+    border-color 180ms cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-button:active,
-a:active {
-  transform: translateY(1px) scale(0.985);
+/* Press law: :active scale 0.97 at 150ms expoOut (canvas motion.press) */
+a:active,
+button:active {
+  transform: scale(0.97);
+}
+
+/* Focus ring token: 3px offset ring, accent-deep (>=3:1 UI minimum) */
+:focus-visible {
+  outline: 3px solid var(--accent-deep);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--accent-deep) 22%, transparent);
+  color: inherit;
 }
 
 header {
   contain: layout style;
 }
 
-
-.page-transition > .container {
-  padding-top: clamp(4.5rem, 7vw, 7rem);
-  padding-bottom: var(--section-space);
+/* ===== Shell pieces ===== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 100;
+  background: var(--accent-deep);
+  color: #FFFFFF;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  transition: top 180ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.section-heading {
-  max-width: 880px;
+.skip-link:focus {
+  top: 12px;
 }
 
-.section-heading h2,
-.featured-projects h2,
-.contact-cta h2 {
-  text-wrap: balance;
+/* Nav links: hairline rule grows under the label; hover gated to fine pointers */
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px; /* touch target floor (responsiveContract compact band) */
+  color: var(--ink-muted);
 }
 
-.section-heading p,
-.featured-projects p,
-.contact-cta p {
-  text-wrap: pretty;
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: var(--accent-deep);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.glass-card-hover {
-  will-change: transform;
-  transition:
-    transform var(--motion-base) var(--motion-ease),
-    box-shadow var(--motion-base) var(--motion-ease),
-    border-color var(--motion-fast) var(--motion-ease),
-    background-color var(--motion-base) var(--motion-ease);
+.nav-link:hover {
+  color: var(--ink);
 }
 
-.footer-shimeji {
-  contain: layout paint;
+@media (hover: hover) and (pointer: fine) {
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    transform: scaleX(1);
+  }
 }
 
-@media (min-width: 1024px) {
-  /* case-study layout overrides removed */
+/* Static fallback: keyboard focus always shows the rule (FR-12 focus equivalence) */
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
 }
 
-@media (max-width: 767px) {
+/* Grain overlay — fixed compositional film, decorative only */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Mono label vocabulary (labelLarge: 11-12px mono uppercase, weight 600) */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* ===== Band layers (min-width only; compact is the base above) ===== */
+/* medium: tablet and up */
+@media (min-width: 768px) {
   :root {
-    --section-space: 5.5rem;
-  }
-
-  html {
-    scroll-padding-top: 4.5rem;
-  }
-
-  .case-study-card,
-  .case-study-card:first-child {
-    min-height: 0;
+    --nav-h: 64px;
   }
 }
 
+/* expanded: desktop; content ceiling 1440px, full gutter */
+@media (min-width: 1024px) {
+  :root {
+    --content-wide: 1440px;
+  }
+}
+
+/* ===== Reduced motion (FR-18 shell floor; JS layers guard separately) ===== */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 
-  .case-study-card,
-  a,
-  button {
-    transition-duration: 0.01ms !important;
+  a:active,
+  button:active {
+    transform: none;
   }
 }
 
-/* ===== Homepage section spacing ===== */
+/* ===== Transitional styles for sections awaiting rewrite (M4-M7) ===== */
 .portfolio-hero,
-.stats-overview,
 .featured-projects,
 .contact-cta {
   position: relative;
-  padding-block: var(--section-space);
+  padding-block: var(--section-rhythm);
 }
 
 .portfolio-hero {
   padding-top: clamp(2rem, 5vw, 4.5rem);
 }
 
-.portfolio-hero .team-banner {
+.team-banner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   width: 100%;
-  margin-inline: auto;
-  border-radius: 0;
-  background: var(--card);
+  border-block: 1px solid var(--rule);
+  background: var(--surface-sunk);
+  contain: layout style paint;
 }
 
-html:not(.dark) .portfolio-hero .team-banner {
-  background: #ebedf2;
+.glass-card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
 }
 
-.tech-marquee {
-  background: var(--background);
+.glass-card-hover {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  transition: border-color 250ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.stats-overview > .container,
-.featured-projects > .container,
-.contact-cta > .container {
-  max-width: var(--content-wide);
+@media (hover: hover) and (pointer: fine) {
+  .glass-card-hover:hover {
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--rule));
+  }
 }
 
 .featured-projects > .container > div:first-child {
   margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
 }
 
-.btn-gradient,
-.featured-projects a[href="/projects"] {
-  min-height: 2.75rem;
-  justify-content: center;
+.featured-projects > .container,
+.contact-cta > .container {
+  max-width: var(--content-wide);
 }
 
-/* Primary CTA: stops chosen so #fff text passes AA (>=4.8:1) in both themes */
-.btn-gradient,
-.featured-projects a[href="/projects"] {
-  background-image: linear-gradient(135deg, #1d4ed8, #2563eb);
-  color: #ffffff;
-}
-
-@media (max-width: 767px) {
-  .portfolio-hero,
-  .stats-overview,
-  .featured-projects,
-  .contact-cta {
-    padding-block: 4.75rem;
-  }
-
-  .portfolio-hero {
-    padding-top: 1rem;
-  }
-
-  .featured-projects > .container > div:first-child p {
-    margin-top: 1rem;
-  }
-}
-
-/* ===== Marquee animation ===== */
-.tech-marquee-track {
-  animation: tech-marquee-scroll 28s linear infinite;
-}
-
-@keyframes tech-marquee-scroll {
-  from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(-50%, 0, 0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .tech-marquee-track {
-    animation-name: tech-marquee-scroll !important;
-    animation-duration: 90s !important;
-    animation-timing-function: linear !important;
-    animation-iteration-count: infinite !important;
-  }
+main section {
+  scroll-margin-top: calc(var(--nav-h) + 16px);
 }

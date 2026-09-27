@@ -1,8 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { ExternalLink } from 'lucide-react';
 import { featuredProjects } from '@/data/projects';
 import { ProjectCard } from '@/components/projects/project-card';
 
@@ -42,16 +40,6 @@ export function FeaturedProjects() {
               <ProjectCard project={project} variant="featured" />
             </motion.div>
           ))}
-        </div>
-
-        <div className="mt-8">
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--card)] px-4 py-2 text-sm font-medium transition-colors hover:border-[var(--foreground)]/20"
-          >
-            View all projects
-            <ExternalLink className="h-3 w-3" aria-hidden="true" />
-          </Link>
         </div>
       </div>
     </section>

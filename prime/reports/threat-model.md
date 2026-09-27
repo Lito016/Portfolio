@@ -49,7 +49,7 @@ Method: ToB-style context build — follow the calls, map trust boundaries, enum
 2. Every `target=_blank` anchor carries `rel="noopener noreferrer"` (M5 automated check).
 3. Exactly one `dangerouslySetInnerHTML` remains (JSON-LD, static config) (M8 grep).
 4. No secrets in the bundle; the only env interpolation is the public non-secret `NEXT_PUBLIC_BASE_PATH: ''` in next.config.ts (build-time inlined constant, verified as such at quality review) — M8 greps for any other `process.env` reference reaching the client.
-5. Lockfile delta for the whole build = +gsap +lenis, lucide-react bump, −packages left import-free by the rebuild (next-themes, react-hook-form, zod at time of writing; `npx depcheck`-confirmed in M2 step 5) — nothing else (D-4.3; verified at M0/M2/M8).
+5. Lockfile delta for the whole build = +gsap +lenis, lucide-react bump, −packages left import-free by the rebuild (executed at M2: next-themes, react-hook-form, zod, @tanstack/react-query, react-icons, @hookform/resolvers; `npx depcheck`-confirmed in M2 step 5 — remaining unused flags are lenis (M3 importer) and build-time devDeps) — nothing else (D-4.3; verified at M0/M2/M8).
 
 ## 6. ASVS mapping & verdict
 

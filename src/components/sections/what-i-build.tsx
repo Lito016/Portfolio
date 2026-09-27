@@ -63,7 +63,7 @@ export function WhatIBuild({ items }: WhatIBuildProps) {
                   ))}
                 </ul>
                 <Link
-                  href={`/projects#cat-${item.category}`}
+                  href="#work"
                   className="mt-5 inline-flex w-fit items-center gap-1 text-sm font-medium text-[var(--primary)] transition-opacity hover:opacity-80"
                 >
                   See projects

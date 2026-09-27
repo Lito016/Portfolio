@@ -1,182 +1,40 @@
-'use client';
-
-import Link from 'next/link';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { SiGithub } from 'react-icons/si';
-import { Mail, Globe } from 'lucide-react';
 import { siteConfig } from '@/config/site';
-import { footerNavItems, footerMoreItems } from '@/config/navigation';
+import { education } from '@/data/education';
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-const SHIMEJI_WALK_START = 7;
-const SHIMEJI_WALK_END = 12;
+const socialLinks = [
+  { label: 'GitHub', href: siteConfig.github, external: true },
+  { label: 'LinkedIn', href: siteConfig.linkedin, external: true },
+  { label: 'Email', href: siteConfig.email, external: false },
+] as const;
 
-function shimejiFrameSource(frame: number) {
-  return `${basePath}/shimeji/frame_${String(frame).padStart(2, '0')}.png`;
-}
-
-/** Site footer */
+/** Minimal footer (FR-15): name, © YEAR, location, social links. Inverse panel per ADR-3.7. */
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-  const [mascotWalk, setMascotWalk] = useState(0);
-  const [mascotFrame, setMascotFrame] = useState(SHIMEJI_WALK_START);
-  const [mascotDistance, setMascotDistance] = useState(0);
-
-  useEffect(() => {
-    if (mascotWalk === 0) return;
-
-    const frameTimer = window.setInterval(() => {
-      setMascotFrame((frame) =>
-        frame >= SHIMEJI_WALK_END ? SHIMEJI_WALK_START : frame + 1
-      );
-    }, 120);
-
-    return () => window.clearInterval(frameTimer);
-  }, [mascotWalk]);
-
-  const startMascotWalk = () => {
-    for (let frame = SHIMEJI_WALK_START; frame <= SHIMEJI_WALK_END; frame += 1) {
-      const sprite = new window.Image();
-      sprite.src = shimejiFrameSource(frame);
-    }
-    setMascotFrame(SHIMEJI_WALK_START);
-    setMascotDistance(window.innerWidth + 112);
-    setMascotWalk((walk) => walk + 1);
-  };
+  const location = education[0]?.location ?? 'Philippines';
 
   return (
-    <footer className="border-t border-[var(--border)]">
-
-      <div className="container mx-auto px-4 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_1fr] gap-10">
-          {/* Brand */}
-          <div>
-            <h3 className="mb-2 text-sm font-semibold">
-              <button
-                type="button"
-                className="cursor-pointer font-semibold text-[var(--foreground)] focus-visible:rounded-sm"
-                onClick={startMascotWalk}
-                aria-label={`${siteConfig.displayName}: play the mascot walk, then visit GitHub`}
-                title="Psst... click me"
-              >
-                {siteConfig.displayName}
-              </button>
-            </h3>
-            <p className="text-sm text-muted-foreground max-w-xs">
-              AI Solution Developer — building useful software with intelligent
-              features, one commit at a time.
-            </p>
-          </div>
-
-          {/* Explore */}
-          <div>
-            <h4 className="font-semibold text-sm mb-3 text-muted-foreground">Explore</h4>
-            <nav className="flex flex-col gap-2" aria-label="Footer navigation">
-              {footerNavItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm text-muted-foreground hover:text-[var(--foreground)] transition-colors"
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* More */}
-          <div>
-            <h4 className="font-semibold text-sm mb-3 text-muted-foreground">More</h4>
-            <nav className="flex flex-col gap-2" aria-label="More navigation">
-              {footerMoreItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm text-muted-foreground hover:text-[var(--foreground)] transition-colors"
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* Connect */}
-          <div>
-            <h4 className="font-semibold text-sm mb-3 text-muted-foreground">Connect</h4>
-            <div className="flex gap-2">
-              <a
-                href={siteConfig.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-md border border-[var(--border)] transition-colors hover:border-[var(--foreground)]/20"
-                aria-label="GitHub profile"
-              >
-                <SiGithub className="h-4 w-4" aria-hidden="true" />
-              </a>
-              <a
-                href={siteConfig.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-md border border-[var(--border)] transition-colors hover:border-[var(--foreground)]/20"
-                aria-label="LinkedIn profile"
-              >
-                <Globe className="h-4 w-4" />
-              </a>
-              <a
-                href={siteConfig.email}
-                className="p-2 rounded-md border border-[var(--border)] transition-colors hover:border-[var(--foreground)]/20"
-                aria-label="Send email"
-              >
-                <Mail className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Copyright */}
-        <div className="mt-10 pt-8 border-t border-[var(--border)] text-center">
-          <p className="text-sm text-muted-foreground flex items-center justify-center gap-1">
-            <button
-              type="button"
-              className="cursor-pointer font-medium text-[var(--foreground)] focus-visible:rounded-sm"
-              onClick={startMascotWalk}
-              aria-label={`${siteConfig.displayName}: play the mascot walk, then visit GitHub`}
-              title="Psst... click me"
+    <footer className="bg-[var(--inverse-bg)] text-[var(--inverse-fg)]">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-wrap items-center justify-between gap-y-6 px-[var(--gutter)] py-12">
+        <p className="font-mono text-[13px] font-semibold uppercase tracking-[0.08em]">
+          {siteConfig.displayName}
+        </p>
+        <p className="text-sm text-[var(--inverse-muted)]">
+          &copy; {new Date().getFullYear()} &middot; {location}
+        </p>
+        <nav className="flex items-center gap-6" aria-label="Social links">
+          {socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              {...(link.external
+                ? { target: '_blank', rel: 'noopener noreferrer' }
+                : {})}
+              className="inline-flex min-h-11 items-center text-sm text-[var(--inverse-link)] underline-offset-4 transition-colors hover:text-[var(--inverse-fg)] hover:underline"
             >
-              {siteConfig.displayName}
-            </button>
-            &copy; {currentYear}
-          </p>
-        </div>
+              {link.label}
+            </a>
+          ))}
+        </nav>
       </div>
-
-      {mascotWalk > 0 && (
-        <motion.div
-          key={mascotWalk}
-          className="footer-shimeji"
-          initial={{ transform: 'translate3d(-112px, 0, 0)' }}
-          animate={{ transform: `translate3d(${mascotDistance}px, 0, 0)` }}
-          transition={{ duration: 3.6, ease: 'linear' }}
-          onAnimationComplete={() => {
-            setMascotWalk(0);
-            window.location.assign('https://github.com/Lito016');
-          }}
-          aria-hidden="true"
-        >
-          <span className="footer-shimeji-body">
-            <Image
-              src={shimejiFrameSource(mascotFrame)}
-              alt=""
-              width={323}
-              height={278}
-              unoptimized
-            />
-          </span>
-          <span className="footer-shimeji-shadow" />
-        </motion.div>
-      )}
     </footer>
   );
 }

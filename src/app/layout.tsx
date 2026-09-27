@@ -3,9 +3,6 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { Providers } from '@/components/providers';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { BackToTop } from '@/components/shared/back-to-top';
-import { ErrorBoundary } from '@/components/shared/error-boundary';
-
 import { siteConfig } from '@/config/site';
 import './globals.css';
 
@@ -21,10 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: {
-    default: siteConfig.title,
-    template: `%s | ${siteConfig.displayName}`,
-  },
+  title: siteConfig.title,
   description: siteConfig.description,
   authors: [{ name: siteConfig.displayName, url: siteConfig.url }],
   creator: siteConfig.displayName,
@@ -59,10 +53,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f8f9fc' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
-  ],
+  themeColor: '#F8F9FC',
   width: 'device-width',
   initialScale: 1,
 };
@@ -73,18 +64,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme");if(t){var r=t==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):t;document.documentElement.classList.remove("light","dark");document.documentElement.classList.add(r);document.documentElement.style.colorScheme=r}}catch(e){}})()`,
-          }}
-        />
-
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen flex flex-col antialiased bg-[var(--background)] text-[var(--foreground)]`}
-      >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -115,19 +96,17 @@ export default function RootLayout({
             }),
           }}
         />
-        <a href="#main-content" className="skip-to-content">
+      </head>
+      <body>
+        <a href="#main-content" className="skip-link">
           Skip to content
         </a>
         <Providers>
           <Header />
-          <ErrorBoundary>
-            <main id="main-content" className="flex-1">
-              {children}
-            </main>
-          </ErrorBoundary>
+          <main id="main-content">{children}</main>
           <Footer />
-          <BackToTop />
         </Providers>
+        <div className="grain" aria-hidden="true" />
       </body>
     </html>
   );

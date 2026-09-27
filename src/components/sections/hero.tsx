@@ -14,9 +14,8 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const member = teamMembers[0];
 
 const heroCtas = [
-  { label: 'View Projects', href: '/projects', external: false, kind: 'primary' },
+  { label: 'View Projects', href: '#work', external: false, kind: 'primary' },
   { label: 'GitHub', href: siteConfig.github, external: true, kind: 'outline' },
-  { label: 'Resume', href: '/resume', external: false, kind: 'ghost' },
 ] as const;
 
 const ctaClasses: Record<string, string> = {
