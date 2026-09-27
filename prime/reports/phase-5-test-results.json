@@ -1,0 +1,30 @@
+{
+  "tool": "node:test (node --test, --test-concurrency=1)",
+  "command": "node --test --test-concurrency=1 tests/data-invariants.test.ts tests/m3-scroll-smoke.test.mjs tests/m4-hero-smoke.test.mjs tests/m5-work-smoke.test.mjs tests/m6-story-smoke.test.mjs tests/m7-contact-smoke.test.mjs",
+  "tests_run": 6,
+  "passed": 6,
+  "failed": 0,
+  "test_files": [
+    "tests/data-invariants.test.ts",
+    "tests/m3-scroll-smoke.test.mjs",
+    "tests/m4-hero-smoke.test.mjs",
+    "tests/m5-work-smoke.test.mjs",
+    "tests/m6-story-smoke.test.mjs",
+    "tests/m7-contact-smoke.test.mjs"
+  ],
+  "subtests": {
+    "tests": 14,
+    "pass": 14,
+    "fail": 0
+  },
+  "note": "tests_run/passed/failed are file-level counts to match the re-execution oracle; subtests carries the per-case detail.",
+  "cross_references": [
+    "tests/data-invariants.test.ts",
+    "tests/m3-scroll-smoke.test.mjs",
+    "tests/m4-hero-smoke.test.mjs",
+    "tests/m5-work-smoke.test.mjs",
+    "tests/m6-story-smoke.test.mjs",
+    "tests/m7-contact-smoke.test.mjs"
+  ],
+  "fingerprint": "39818044d1941ef0a3e338c0d891cbbeb17abdb21f03845ba934eaaa734dd38a"
+}

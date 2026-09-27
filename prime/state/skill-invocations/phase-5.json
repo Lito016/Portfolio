@@ -1,0 +1,79 @@
+{
+  "phase": 5,
+  "cycle": 5,
+  "agent": "prime-make",
+  "agent_note": "Orchestrator assumed the prime-make role for build execution across milestones M0-M8; independent quality review dispatched as a separate background agent invocation.",
+  "invocations": [
+    {
+      "skill": "testing",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-5-test-results.json",
+        "prime/reports/phase-5-test-receipt.json",
+        "tests/data-invariants.test.ts",
+        "tests/m3-scroll-smoke.test.mjs",
+        "tests/m4-hero-smoke.test.mjs",
+        "tests/m5-work-smoke.test.mjs",
+        "tests/m6-story-smoke.test.mjs",
+        "tests/m7-contact-smoke.test.mjs"
+      ],
+      "note": "Six-file node --test suite executed serially (13/13 subtests pass) and signed via trusted-runner (invocation d323648ffdcb4ec4). Whitespace, scroll-offset single-owner, hero sequence, four showcase variants, story-page regions, and contact surface each have a regression harness. Bare-dir invocation replaced with explicit file list; --test-concurrency=1 required to avoid dev-lock contention. Stale-server sweep band 4210-4219 hardened on startup AND teardown of every Playwright harness."
+    },
+    {
+      "skill": "security-testing",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-5-security-testing.md",
+        "prime/reports/threat-model.md"
+      ],
+      "note": "ASVS-aligned audit for a statically-exported public site: secrets scan, external asset / CSP-adjacent surface, injection surface (no user input, no API, no db), stale-env.example removal (web3-key found in prior cycle), dependency audit for the shipped set."
+    },
+    {
+      "skill": "code-quality",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-5-build.md",
+        "prime/reports/phase-5-preflight.md"
+      ],
+      "note": "M8 sweep: dead-code GC (unused libs, github stats, testimonials placeholder, shimeji 2.2MB, five stale SVGs), transitional-token retirement (8 legacy :root aliases removed), §10 GSAP/Motion component-tree isolation via ScrollCrossLeaf, contrast revalidation on the inverse ramp, bundle measured (941kB raw / 298kB gz), lint/tsc/build all green."
+    },
+    {
+      "skill": "quality-review",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-5-quality-review.md",
+        "prime/reports/phase-5-review-sidecar.json",
+        "prime/reports/phase-5-review-receipt.json"
+      ],
+      "note": "Independent review agent dispatched as a separate background general-purpose subagent with a five-pass brief (correctness of scroll/hero/header/leaf, whitelist fact spot-audit, token discipline, regression risk from deleted modules, test adequacy). Structured verdict sidecar cross-checked against the prose verdict line by the verdict-sidecar oracle; receipt chained to the test receipt via receipt-chain (different invocation_id, different tool_identity, same run)."
+    },
+    {
+      "skill": "git-workflow",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-5-build.md"
+      ],
+      "note": "Work committed incrementally on feat/cycle5-rebuild; never on main per A-P3 (merge-to-main ≡ the Phase-7 authorized deploy act). Each milestone M0-M8 forms one logical commit; preflight + build-report + artifact slices committed after verification passes."
+    },
+    {
+      "skill": "caveman",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-5-build.md",
+        "prime/reports/phase-5-preflight.md"
+      ],
+      "note": "Compressed evidence-dense report prose maintained throughout; user-visible site strings untouched (owner-verbatim whitelist respected)."
+    },
+    {
+      "skill": "frontend",
+      "status": "applied",
+      "evidence": [
+        "docs/DESIGN.canvas.tsx",
+        "prime/reports/phase-5-build.md",
+        "prime/reports/phase-5-preflight.md",
+        "prime/reports/output-intent.json"
+      ],
+      "note": "Design authority docs/DESIGN.canvas.tsx applied as source of tokens (color, type, spacing, responsive band vocabulary); Phase 3 selector evidence + override log carried forward via Design Benchmark Record in output-intent.json; anti-slop checks (no Google Fonts link, no proprietary Google assets, contrast revalidation, min-h-[100dvh] hero rule, native-cursor policy, one-theme lock with the sanctioned Contact inversion) verified per milestone."
+    }
+  ]
+}

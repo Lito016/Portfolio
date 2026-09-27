@@ -12,7 +12,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="mt-8 inline-flex min-h-11 items-center rounded-full bg-[var(--accent-deep)] px-6 text-sm text-white"
+        className="mt-8 inline-flex min-h-11 items-center rounded-full bg-[var(--accent-deep)] px-6 text-sm text-[var(--surface)]"
       >
         Back to the top
       </Link>

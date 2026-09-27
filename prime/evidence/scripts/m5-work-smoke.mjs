@@ -86,7 +86,13 @@ if (!(await waitForServer())) {
       variants[3] === 'sticky-stack',
     variants.join(','),
   );
-  check('no Vision screenshot alt claim (W28)', !html.includes('Vision Video Auditor screenshot'), '');
+  check(
+    'Vision image alt is the W28 diagram description, never an interface/screenshot claim',
+    html.includes('Vision Video Auditor architecture diagram') &&
+      !html.includes('Vision Video Auditor interface visual') &&
+      !html.includes('Vision Video Auditor screenshot'),
+    '',
+  );
 }
 
 const browser = await chromium.launch();

@@ -1,7 +1,7 @@
 /**
  * Project content model (Cycle 4, DESIGN.canvas.tsx §2).
  * Every number, URL, and technical claim below traces to prime/state/fact-whitelist.md
- * (W1–W23). Unknown = not shown. Do not add facts without a whitelist entry.
+ * (W1–W28). Unknown = not shown. Do not add facts without a whitelist entry.
  */
 
 export type ProjectCategory =
@@ -60,6 +60,10 @@ export interface HostedProjectBase {
   url: string;
   /** Card screenshot in public/; '' → render the card WITHOUT <Image> (empty src breaks prerender). */
   image: string;
+  /** Optional accurate image description (W28). When set, every showcase variant
+   * uses it verbatim, so a diagram-only project never falls through to the
+   * "interface visual" screenshot default regardless of variant assignment. */
+  imageAlt?: string;
   tags: string[];
   category: ProjectCategory;
   highlights: string[];
@@ -269,6 +273,8 @@ export const hostedProjects: HostedProject[] = [
       'Computer-vision audit pipeline: YOLO detection over CCTV and video input, timestamped events, automated FFmpeg clip extraction, and an auditor review interface.',
     url: '',
     image: '/project-vision.png',
+    imageAlt:
+      'Vision Video Auditor architecture diagram: Ingest, Detection, Evidence, and Review pipeline (generated system diagram, not a product screenshot)',
     tags: ['Python', 'FastAPI', 'React', 'YOLO'],
     category: 'computer-vision-automation',
     highlights: [

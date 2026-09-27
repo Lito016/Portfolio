@@ -63,7 +63,7 @@ const browser = await chromium.launch();
   });
   check(
     'anchor click animates in stages (smooth)',
-    b > a - 1 && (targetTop === null || b <= targetTop + 2),
+    targetTop !== null && b > a - 1 && b <= targetTop + 2,
     `t+0:${Math.round(a)} t+250:${Math.round(b)} target:${Math.round(targetTop ?? -1)}`
   );
   await sleep(1400);
@@ -121,7 +121,7 @@ const browser = await chromium.launch();
   });
   check(
     'native anchor jump lands immediately',
-    targetTop === null || early > 100,
+    targetTop !== null && early > 100,
     `scrollY:${Math.round(early)} target:${Math.round(targetTop ?? -1)}`
   );
   await page.close();

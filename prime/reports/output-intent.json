@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "phase": 5,
+  "output_type": "website",
+  "target_audience": "Hiring managers and engineering leads evaluating Manolito 'Lito_016' Almaden Jr. for AI-solution and full-stack systems roles",
+  "quality_bar": "Premium, cinematic single-page portfolio: whitelisted factual content only, WCAG AA contrast, no render-blocking external fonts, measured static-export bundle, motion that degrades gracefully under reduced-motion",
+  "verification_method": "node --test suite (data-invariants + Playwright m3-m7 smoke harnesses), lint, tsc --noEmit, npm run build static export, token-contrast recomputation, and independent quality review; full Lighthouse/browser matrix deferred to Phase 6",
+  "evidence_artifacts": [
+    "prime/reports/phase-5-build.md",
+    "prime/reports/phase-5-preflight.md",
+    "prime/reports/phase-5-security-testing.md",
+    "prime/reports/phase-5-test-results.json",
+    "prime/reports/phase-5-quality-review.md",
+    "prime/reports/phase-3-design.md"
+  ],
+  "design_benchmark_record": {
+    "task_type": "redesign",
+    "sources_consulted": [
+      {
+        "name": "antigravity.google",
+        "url": "https://antigravity.google",
+        "purpose": "Benchmark feeling-level design mechanics: cool near-white canvas, layered near-black ink ramp, sub-1.0 display leading with negative tracking, hairline borders, blurred compacting sticky nav and scroll-pinned media sequencing",
+        "available": true
+      },
+      {
+        "name": "Next.js next/font documentation",
+        "url": "https://nextjs.org/docs/app/api-reference/components/font",
+        "purpose": "Confirm build-time self-hosting of Geist and Geist Mono so no render-blocking Google Fonts link ships in the static export",
+        "available": true
+      }
+    ],
+    "unavailable_sources": [
+      {
+        "name": "linear.app / apple.com / lusion.co",
+        "reason": "Consulted from prior knowledge only this cycle and not re-fetched, so used for directional inspiration with no token adopted"
+      }
+    ],
+    "patterns_adopted": [
+      "Cool near-white canvas with a layered near-black ink ramp instead of pure black-on-white",
+      "Sub-1.0 line-height display type carrying hierarchy through weight restraint and negative tracking",
+      "Hairline structural borders with a blurred compacting sticky navigation bar",
+      "Scroll-pinned media sequencing under a 300ms micro / eased macro motion budget"
+    ],
+    "local_design_decisions": [
+      "Geist and Geist Mono stand in for the proprietary Google Sans Flex, self-hosted via next/font",
+      "The measured antigravity cool token stack overrides the UI/UX Pro Max monochrome-plus-blue palette suggestion",
+      "Spark color FBBC04 is confined to a dot-scale compositional mark under the single-accent rule, never text or state-bearing"
+    ],
+    "patterns_rejected": [
+      "Google Sans Flex, Google logos, copy and any proprietary Google asset (copyright exclusion)",
+      "UI/UX Pro Max masonry portfolio-grid pattern, which contradicts the editorial-showcase requirement",
+      "Inter as the identity typeface, banned by the anti-default rule"
+    ]
+  }
+}

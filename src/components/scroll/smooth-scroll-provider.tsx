@@ -2,6 +2,7 @@
 
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useRef,
@@ -24,35 +25,54 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let cancelled = false;
+    let teardown: (() => void) | null = null;
+
     // Reduced motion: Lenis is never constructed; native anchors and scroll remain (FR-18).
-    if (reduced.matches) return;
+    const mount = () => {
+      if (teardown || reduced.matches) return;
+      gsap.registerPlugin(ScrollTrigger);
 
-    gsap.registerPlugin(ScrollTrigger);
+      // Anchors are intercepted in-app (header/CTAs call scrollTo below); Lenis's
+      // built-in anchors mode double-scrolls against the native hash jump.
+      const lenis = new Lenis();
+      lenisRef.current = lenis;
+      lenis.on('scroll', ScrollTrigger.update);
 
-    // Anchors are intercepted in-app (header/CTAs call scrollTo below); Lenis's
-    // built-in anchors mode double-scrolls against the native hash jump.
-    const lenis = new Lenis();
-    lenisRef.current = lenis;
+      const raf = (time: number) => lenis.raf(time * 1000);
+      gsap.ticker.add(raf);
+      gsap.ticker.lagSmoothing(0);
 
-    lenis.on('scroll', ScrollTrigger.update);
+      const refresh = () => {
+        if (!cancelled) ScrollTrigger.refresh();
+      };
+      void document.fonts.ready.then(refresh);
+      window.addEventListener('load', refresh);
 
-    const raf = (time: number) => lenis.raf(time * 1000);
-    gsap.ticker.add(raf);
-    gsap.ticker.lagSmoothing(0);
+      teardown = () => {
+        window.removeEventListener('load', refresh);
+        gsap.ticker.remove(raf);
+        lenis.destroy();
+        lenisRef.current = null;
+        teardown = null;
+      };
+    };
 
-    const refresh = () => ScrollTrigger.refresh();
-    void document.fonts.ready.then(refresh);
-    window.addEventListener('load', refresh);
+    const onChange = () => {
+      if (reduced.matches) teardown?.();
+      else mount();
+    };
 
+    mount();
+    reduced.addEventListener('change', onChange);
     return () => {
-      window.removeEventListener('load', refresh);
-      gsap.ticker.remove(raf);
-      lenis.destroy();
-      lenisRef.current = null;
+      cancelled = true;
+      reduced.removeEventListener('change', onChange);
+      teardown?.();
     };
   }, []);
 
-  const scrollTo: ScrollTo = (target, opts) => {
+  const scrollTo = useCallback<ScrollTo>((target, opts) => {
     const lenis = lenisRef.current;
     if (lenis) {
       // Lenis subtracts the target's CSS scroll-margin-top itself; the provider
@@ -64,7 +84,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     // applies the same scroll-margin-top CSS, keeping both paths on one owner.
     const el = typeof target === 'string' ? document.querySelector(target) : target;
     if (el instanceof HTMLElement) el.scrollIntoView({ behavior: 'auto', block: 'start' });
-  };
+  }, []);
 
   return (
     <ScrollToContext.Provider value={scrollTo}>{children}</ScrollToContext.Provider>

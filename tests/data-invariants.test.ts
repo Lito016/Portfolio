@@ -180,3 +180,18 @@ test('every project has a category in the positioning taxonomy', () => {
     assert.ok(!/web application for managing/i.test(project.description), `generic description: ${project.slug}`);
   }
 });
+
+test('W28 diagram-only projects carry a non-screenshot imageAlt regardless of variant', () => {
+  // Vision Video Auditor's /project-vision.png is a generated architecture
+  // diagram, not product UI; every showcase variant resolves its alt from
+  // project.imageAlt, so a positional reorder can never route it through the
+  // "interface visual" screenshot default.
+  const vision = hostedProjects.find((p) => p.slug === 'vision-video-auditor');
+  assert.ok(vision, 'vision-video-auditor missing from hostedProjects');
+  assert.ok(vision.imageAlt, 'vision must declare an explicit imageAlt (W28)');
+  assert.match(vision.imageAlt, /diagram/i, 'vision imageAlt must describe a diagram');
+  assert.doesNotMatch(vision.imageAlt, /\binterface visual\b/i, 'vision imageAlt must not reuse the screenshot default phrase');
+  // A legitimate disclaimer ("not a product screenshot") is allowed; an outright
+  // claim that the image IS a screenshot is not.
+  assert.doesNotMatch(vision.imageAlt, /^\s*\S+ screenshot\s*$/i, 'vision imageAlt must not claim to be a screenshot');
+});

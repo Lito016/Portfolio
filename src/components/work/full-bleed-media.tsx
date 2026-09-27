@@ -19,7 +19,7 @@ function Shot({ project, shot }: { project: FeaturedProject; shot: string }) {
   return shot ? (
     <Image
       src={shot}
-      alt={`${project.name} interface visual`}
+      alt={project.imageAlt ?? `${project.name} interface visual`}
       width={1440}
       height={900}
       loading="lazy"

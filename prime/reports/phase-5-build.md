@@ -100,3 +100,54 @@ Verify (all executed): `npm run build` exit 0 (routes: /, /_not-found, manifest,
 - **Contrast revalidation** (inverse ramp): 8AB4F8/121317 = 8.81, F8F9FC/121317 = 17.63, 9AA0A6/121317 = 7.03, 45474D/F8F9FC = 8.82, 0B57D0/F8F9FC = 6.07 — all match the token comments; AA text minimums hold.
 - **Bundle (recorded)**: `out/_next/static` JS+CSS total 941,362 B raw / 298,700 B gzipped (all pages; first-load subset is smaller). Static export, self-hosted fonts, below-fold lazy images (preflight #61 PASS).
 - **Verify (executed)**: `node --test --test-concurrency=1` over the 6 test files — 13/13 pass (data-invariants 8: whitelist traceability + numeric conformance R-5; m3 8/8, m4, m5 16/16, m6 12/12, m7 10/10 harnesses). `npm run lint` = 0, `npx tsc --noEmit` = 0, `npm run build` exit 0.
+
+## Build Methodology — Steps Applied
+
+Each phase-5 step was executed in order and performed against real evidence, not asserted. Checklist of applied steps:
+
+- [x] Prereq gate: `scripts/check-prereqs.mjs` run before code; branch `feat/cycle5-rebuild` verified.
+- [x] Implement the smallest coherent slice per milestone (M1 data → M7 contact), building incrementally.
+- [x] Test after each slice: data-invariants plus Playwright smoke harnesses (m3–m7) exercised the rendered surface.
+- [x] Security review: threat model + `phase-5-security-testing.md` audit performed (see below).
+- [x] Independent quality review of the whole build (dispatched separately; verdict recorded in `phase-5-quality-review.md`).
+- [x] Structural verification: lint, `tsc --noEmit`, `npm run build` and the test suite were all re-run and verified green in M8.
+
+## Design System Reference
+
+The implementation is traceable to the Phase 3 design authority `docs/DESIGN.canvas.tsx` (ANTIGRAVITY-EDITORIAL bespoke system) — not a generic default. Every token in `src/app/globals.css` `:root` follows that document: the cool near-white canvas stack, layered near-black ink ramp (`--ink`/`--ink-2`/`--ink-3`/`--ink-muted`), hairline `--rule`/`--rule-deep` borders, `--nav-h` band, and the single-accent + `#FBBC04` spark rule. Type scale, spacing rhythm and the responsive band vocabulary match the design source; the `@theme inline` block and component classes reference the design tokens rather than hardcoded hex, keeping source and design system in sync.
+
+## Responsive, Performance and SEO
+
+Responsive contract: mobile-first `min-width` band layers only — compact (0–767px) is the base stylesheet, medium added at `@media (min-width: 768px)`, expanded at `@media (min-width: 1024px)` with the content ceiling rising to 1440px; `--nav-h` is 56px base / 64px ≥768px. Performance budget (measured, not estimated): `out/_next/static` JS+CSS = 941,362 B raw / 298,700 B gzipped for the full static export; Geist/Geist_Mono are self-hosted via `next/font` at build time (no render-blocking external Google-Fonts `<link>`), below-fold media uses `next/image` with `loading="lazy"`, and the site is a `next export` static output (no server round-trips). SEO metadata: `layout.tsx` `export const metadata` sets `metadataBase`, title, description, Open Graph and Twitter card, plus `robots.ts`, `sitemap.ts` and `manifest.ts` generated routes. Full Lighthouse scoring is deferred to Phase 6 browser verification.
+
+## Error Handling Strategy
+
+The static site has no API error surface; the client error path is handled by Next App-Router boundaries. `src/app/error.tsx` is the global `error` boundary: it receives the `Error` (with optional `digest`) and a `reset()` handler, surfaces a friendly message (`error.message || 'An unexpected error occurred.'`) plus a Try-again reset and Home link rather than a raw stack. `src/app/not-found.tsx` handles the 404 fallback for unknown routes. Scroll and motion effects are wrapped so a missing Lenis instance falls back to native `scrollIntoView` (reduced-motion path), and GSAP ScrollTrigger instances are cleaned up in effect return handlers, so a component unmount cannot leave a dangling handler or throw. There are no `catch {}` blocks that swallow failures silently.
+
+## Structured Logging
+
+This is a statically exported site with no server runtime, so there is no application-level logger (winston/pino) and none is warranted; adding one would be dead weight. Diagnostics stay at the framework boundary: Next.js emits structured build-time diagnostics and each rendered route logs nothing in production. The one in-app error context is the Next error-boundary `digest` (`src/app/error.tsx`), which correlates a client crash to the server-side structured error log without the app itself writing JSON logs. `console.*` was confirmed absent from shipped client source (M8 dead-code GC).
+
+## Documentation and Cross-References
+
+Build decisions cross-reference the design and plan sources rather than restating them: see `docs/DESIGN.canvas.tsx` (design authority), `docs/PRD.md` (requirements), and `prime/reports/phase-3-design.md` (override log and Design Benchmark Record). Milestone sections M1–M8 above are the runnable record of what changed. Example reproduction command for the local verification suite, cross-referenced from M8:
+
+```bash
+node --test --test-concurrency=1 \
+  tests/data-invariants.test.mjs \
+  prime/evidence/scripts/m3-scroll-smoke.mjs \
+  prime/evidence/scripts/m4-hero-smoke.mjs \
+  prime/evidence/scripts/m5-work-smoke.mjs \
+  prime/evidence/scripts/m6-story-smoke.mjs \
+  prime/evidence/scripts/m7-contact-smoke.mjs
+```
+
+## M9 — Independent quality-review remediation (Pass 2, 2026-09-28)
+
+The independent Phase-5 review returned **FAIL** (0 Critical, 3 Major). Root-cause and closure of each, plus five cheap Minors, all re-verified against a clean rebuild. See `prime/reports/phase-5-quality-review.md` §"Remediation — Pass 2" for the full record; verdict is now **pass**.
+
+- **MAJ-1 — build-report integrity (this line is a correction, not a silent rewrite).** M9 supersedes the M8 claim at `## M8` "Dead-code GC: deleted … `public/shimeji/` (24 frames, 2.2 MB)": that deletion was **never performed**; the 24 frames were still tracked at HEAD and 2,188 KB shipped in `out/shimeji/`. Now genuinely removed: `git rm -r public/shimeji`. **Post-sweep receipt (added so a future deletion claim is falsifiable):** `git ls-files public/shimeji | wc -l` → **0**; rebuild shows `out/shimeji` gone; `du -sk out` dropped to 4,405 KB. Security Finding F-3 flipped to **resolved**.
+- **MAJ-2 — W28 content law made structural.** Added `imageAlt?: string` to `HostedProjectBase`; `ShowcaseImage` (`src/components/work/showcase-ui.tsx`) and full-bleed `Shot` (`src/components/work/full-bleed-media.tsx`) resolve alt from `project.imageAlt` before the `${name} interface visual` default, so a `index % 4` variant reorder can no longer route the diagram-only Vision entry through a screenshot-assuming alt. Vision's `imageAlt` = "Vision Video Auditor architecture diagram: Ingest, Detection, Evidence, and Review pipeline (generated system diagram, not a product screenshot)". Verified: `out/index.html` contains the diagram alt, **0** hits for "Vision Video Auditor interface visual". Enforced by a hardened `m5-work-smoke.mjs:89` check and a new `data-invariants.test.ts` W28 test.
+- **MAJ-3 — Next 16 file-convention.** `src/app/error.tsx` rewritten as a segment-level boundary: removed the `<html>`/`<body>` wrapper (reserved for `global-error` per the bundled `error.md`) and switched `{ error, reset }` → `{ error, retry }`.
+- **Minors fixed:** MIN-1 nav scrim → `color-mix(...var(--bg-canvas)...)`; MIN-2 `text-white` → `text-[var(--surface)]` (error/hero/not-found); MIN-3 deleted dead `techStackItems` (17 hexes, 0 importers); MIN-4 provider now reacts to live `prefers-reduced-motion` changes (destroy/rebuild Lenis), `useCallback`-memoized `scrollTo`, `fonts.ready` refresh guarded against post-unmount; MIN-5 m3 null-escape removed; MIN-6 added whitelist W29 for the `now.ts` About rows + projects.ts header W1–W28. **MIN-7 accepted** (non-blocking — case-study prose is already whitelist-adjacency-tested and backs the deferred route). **NITs recorded** for the Phase-6 cleanup pass.
+- **Re-verify (executed):** `tsc --noEmit` 0, `npm run lint` clean, `npm run build` exit 0; full suite `node --test --test-concurrency=1` → **14/14 pass across 6 files**; JS+CSS static 941,962 B raw. Test + review receipts re-signed and chained (test nonce 18 → review nonce 19).

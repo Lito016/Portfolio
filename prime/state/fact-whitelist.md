@@ -22,6 +22,11 @@ Rule: any metric, external URL, or hard technical claim rendered on the portfoli
 - No new technical claim: every label on the graphic traces to W8 or to the existing caseStudy workflow/architecture/architectureNote text.
 - The card has no live URL, so the diagram is the only honest visual available until the owner supplies a real capture.
 
+## W29 — now.ts "Now" statements surfaced in the About metadata block (added at the Phase 5 quality review, MIN-6)
+- The About rows "Current focus", "Learning", "Exploring" and "Last updated" restate owner-declared soft statements from `src/data/now.ts` carried forward from the existing portfolio — `building`, `learning`, `exploring` and `lastUpdated` verbatim. These are stated activities/interests, NOT metrics, awards, clients or employment claims.
+- "Last updated July 2026" is `nowData.lastUpdated` verbatim, not a fabricated date.
+- Nothing may be added to `now.ts` without an owner statement; unknown = not shown.
+
 ## PRIME Method — source: owner brief Phase 8 ONLY
 - W10 claims: agent orchestration; skills system; lifecycle shapes; quality modes; gates; validation; testing harness; routing; evaluation; architecture design; developer tooling / orchestration infrastructure
 - W11 links: NONE. Metrics: NONE (skill counts etc. not asserted). Image: none

@@ -80,22 +80,3 @@ export const skillCategories: SkillCategory[] = [
   },
 ];
 
-export const techStackItems = [
-  { name: 'TypeScript', category: 'language', color: '#3178c6' },
-  { name: 'JavaScript', category: 'language', color: '#f1e05a' },
-  { name: 'Python', category: 'language', color: '#3572A5' },
-  { name: 'React', category: 'framework', color: '#61dafb' },
-  { name: 'Next.js', category: 'framework', color: '#808080' },
-  { name: 'Node.js', category: 'runtime', color: '#339933' },
-  { name: 'Tailwind CSS', category: 'styling', color: '#06b6d4' },
-  { name: 'Framer Motion', category: 'animation', color: '#ff0055' },
-  { name: 'PostgreSQL', category: 'database', color: '#4169e1' },
-  { name: 'MySQL', category: 'database', color: '#4479a1' },
-  { name: 'MongoDB', category: 'database', color: '#47a248' },
-  { name: 'Supabase', category: 'backend', color: '#3ecf8e' },
-  { name: 'Firebase', category: 'backend', color: '#ffca28' },
-  { name: 'Docker', category: 'devops', color: '#2496ed' },
-  { name: 'Git', category: 'vcs', color: '#f05032' },
-  { name: 'Vercel', category: 'deployment', color: '#808080' },
-  { name: 'Cloudflare', category: 'deployment', color: '#f38020' },
-];

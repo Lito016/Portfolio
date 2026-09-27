@@ -1,0 +1,108 @@
+TAP version 13
+# (node:19096) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///C:/Projects/Portfolio/tests/data-invariants.test.ts is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to \\\\?\\C:\\Projects\\Portfolio\\package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: slugs are unique and kebab-case
+ok 1 - slugs are unique and kebab-case
+  ---
+  duration_ms: 0.7834
+  type: 'test'
+  ...
+# Subtest: featured flag and caseStudy are consistent (union contract)
+ok 2 - featured flag and caseStudy are consistent (union contract)
+  ---
+  duration_ms: 0.1428
+  type: 'test'
+  ...
+# Subtest: links and assets are empty-string-or-valid (no dead anchors, no empty <Image> src)
+ok 3 - links and assets are empty-string-or-valid (no dead anchors, no empty <Image> src)
+  ---
+  duration_ms: 0.1277
+  type: 'test'
+  ...
+# Subtest: every metric fact is whitelist-traceable: W-id exists in the whitelist and its entry carries the fact
+ok 4 - every metric fact is whitelist-traceable: W-id exists in the whitelist and its entry carries the fact
+  ---
+  duration_ms: 1.0312
+  type: 'test'
+  ...
+# Subtest: numeric tokens in visible project copy are all whitelist-mapped (no invented numbers)
+ok 5 - numeric tokens in visible project copy are all whitelist-mapped (no invented numbers)
+  ---
+  duration_ms: 0.4244
+  type: 'test'
+  ...
+# Subtest: diagram node ids are unique per project and per lane
+ok 6 - diagram node ids are unique per project and per lane
+  ---
+  duration_ms: 0.1549
+  type: 'test'
+  ...
+# Subtest: categories cover the three positioning domains and What I Build uses them
+ok 7 - categories cover the three positioning domains and What I Build uses them
+  ---
+  duration_ms: 0.5616
+  type: 'test'
+  ...
+# Subtest: every project has a category in the positioning taxonomy
+ok 8 - every project has a category in the positioning taxonomy
+  ---
+  duration_ms: 0.1708
+  type: 'test'
+  ...
+# Subtest: W28 diagram-only projects carry a non-screenshot imageAlt regardless of variant
+ok 9 - W28 diagram-only projects carry a non-screenshot imageAlt regardless of variant
+  ---
+  duration_ms: 0.2112
+  type: 'test'
+  ...
+# (node:17664) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+# (Use `node --trace-deprecation ...` to show where the warning was created)
+# Subtest: m3 scroll-smoke harness exits 0
+ok 10 - m3 scroll-smoke harness exits 0
+  ---
+  duration_ms: 9965.181
+  type: 'test'
+  ...
+# (node:17604) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+# (Use `node --trace-deprecation ...` to show where the warning was created)
+# Subtest: m4 hero-smoke harness exits 0
+ok 11 - m4 hero-smoke harness exits 0
+  ---
+  duration_ms: 16326.6011
+  type: 'test'
+  ...
+# (node:16708) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+# (Use `node --trace-deprecation ...` to show where the warning was created)
+# Subtest: m5 work-smoke harness exits 0
+ok 12 - m5 work-smoke harness exits 0
+  ---
+  duration_ms: 21613.8824
+  type: 'test'
+  ...
+# (node:15800) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+# (Use `node --trace-deprecation ...` to show where the warning was created)
+# Subtest: m6 story-smoke harness exits 0
+ok 13 - m6 story-smoke harness exits 0
+  ---
+  duration_ms: 14947.185
+  type: 'test'
+  ...
+# (node:4136) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+# (Use `node --trace-deprecation ...` to show where the warning was created)
+# Subtest: m7 contact-smoke harness exits 0
+ok 14 - m7 contact-smoke harness exits 0
+  ---
+  duration_ms: 9880.1802
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 73105.0481

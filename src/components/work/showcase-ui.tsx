@@ -85,7 +85,7 @@ export function ShowcaseImage({
   return (
     <Image
       src={src}
-      alt={alt ?? `${project.name} interface visual`}
+      alt={alt ?? project.imageAlt ?? `${project.name} interface visual`}
       width={1440}
       height={900}
       loading="lazy"

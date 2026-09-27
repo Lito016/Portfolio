@@ -21,7 +21,7 @@ export function Header() {
     <header
       className={
         compact
-          ? 'fixed inset-x-0 top-0 z-50 border-b border-[var(--rule)] bg-[rgba(248,249,252,0.88)] backdrop-blur-md transition-colors'
+          ? 'fixed inset-x-0 top-0 z-50 border-b border-[var(--rule)] bg-[color-mix(in_srgb,var(--bg-canvas)_88%,transparent)] backdrop-blur-md transition-colors'
           : 'fixed inset-x-0 top-0 z-50 border-b border-transparent bg-transparent transition-colors'
       }
     >

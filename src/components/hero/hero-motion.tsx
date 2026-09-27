@@ -99,7 +99,7 @@ export function HeroMotion({
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <AnchorLink
               href="#work"
-              className="inline-flex min-h-[44px] items-center rounded-lg bg-[var(--accent-deep)] px-6 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+              className="inline-flex min-h-[44px] items-center rounded-lg bg-[var(--accent-deep)] px-6 py-2.5 text-sm font-medium text-[var(--surface)] transition-opacity hover:opacity-90"
             >
               View Projects
             </AnchorLink>
