@@ -94,6 +94,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Full-bleed showcase media bleeds to the viewport; the root clip absorbs
+ * the overflow without creating a scroll container (window scroll intact). */
+html,
+body {
+  overflow-x: clip;
+}
+
 main {
   isolation: isolate;
 }
@@ -244,11 +251,146 @@ header {
   }
 }
 
-/* ===== Transitional styles for sections awaiting rewrite (M5-M7) ===== */
-.featured-projects,
+/* ===== Work showcases (M5 vocabulary) ===== */
+/* Media frames: lifted surface, token radius, hairline (canvas radius.sm). */
+.showcase-frame {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 250ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.showcase-media {
+  aspect-ratio: 16 / 10;
+  background: var(--surface-sunk);
+}
+
+/* Hover law (REQ-10): preview scale <=1.03, eased <=300ms, fine pointers only. */
+@media (hover: hover) and (pointer: fine) {
+  .showcase-frame:hover,
+  .showcase-frame:focus-within {
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--rule));
+  }
+
+  .showcase-frame:hover .showcase-media img,
+  .showcase-frame:focus-within .showcase-media img {
+    transform: scale(1.03);
+  }
+
+  .showcase-media img {
+    transition: transform 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+}
+
+/* Variant 04 fan: base band = plain stacked grid; medium+ = sticky layered
+ * fan (transform-only); the spread reacts to hover on fine pointers. */
+.fan-slot {
+  position: relative;
+  aspect-ratio: 16 / 10;
+}
+
+.fan-item {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  transition: transform 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@media (min-width: 768px) {
+  .fan-item {
+    position: absolute;
+    inset: 0;
+    box-shadow: 0 8px 32px rgba(18, 19, 23, 0.06);
+  }
+
+  .fan-item[data-fan-order='0'] {
+    transform: rotate(-2.5deg) translate(-2%, -2%);
+    z-index: 1;
+  }
+
+  .fan-item[data-fan-order='1'] {
+    transform: rotate(1.5deg) translate(1%, -1%);
+    z-index: 2;
+  }
+
+  .fan-item[data-fan-order='2'] {
+    transform: rotate(-1.5deg) translate(-1%, 1%);
+    z-index: 3;
+  }
+
+  .fan-item[data-fan-order='3'] {
+    transform: rotate(2.5deg) translate(2%, 2%);
+    z-index: 4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fan-item[data-fan-order='0'] {
+    transform: rotate(-5deg) translate(-4%, -5%);
+  }
+
+  .fan-item[data-fan-order='1'] {
+    transform: rotate(2.2deg) translate(2%, -2%);
+  }
+
+  .fan-item[data-fan-order='2'] {
+    transform: rotate(-2.2deg) translate(-2%, 2%);
+  }
+
+  .fan-item[data-fan-order='3'] {
+    transform: rotate(5deg) translate(4%, 5%);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .stack-fan:hover .fan-item[data-fan-order='0'] {
+    transform: rotate(-8deg) translate(-9%, -7%);
+  }
+
+  .stack-fan:hover .fan-item[data-fan-order='1'] {
+    transform: rotate(3.5deg) translate(4%, -3.5%);
+  }
+
+  .stack-fan:hover .fan-item[data-fan-order='2'] {
+    transform: rotate(-3.5deg) translate(-4%, 3.5%);
+  }
+
+  .stack-fan:hover .fan-item[data-fan-order='3'] {
+    transform: rotate(8deg) translate(9%, 7%);
+  }
+}
+
+/* Secondary row hairline rhythm (medium+ hover rule grows under the row). */
+@media (hover: hover) and (pointer: fine) {
+  .secondary-row:hover {
+    background: color-mix(in srgb, var(--surface-sunk) 45%, transparent);
+  }
+}
+
+/* Reduced-motion floor (FR-18): clip/parallax layers resolve to plain views
+ * even if a capability flag flips mid-session before unmount. */
+@media (prefers-reduced-motion: reduce) {
+  .clip-wipe-target {
+    clip-path: none !important;
+  }
+
+  .parallax-deco {
+    transform: none !important;
+  }
+}
+
+/* ===== Transitional styles for sections awaiting rewrite (M6-M7) ===== */
 .contact-cta {
   position: relative;
   padding-block: var(--section-rhythm);
+}
+
+.contact-cta > .container {
+  max-width: var(--content-wide);
 }
 
 /* Hero lattice canvas (ADR-3.3): JS paint loop when capable; static sunk
@@ -265,34 +407,7 @@ header {
   }
 }
 
-.glass-card {
-  background: var(--surface);
-  border: 1px solid var(--rule);
-  border-radius: 8px;
-}
-
-.glass-card-hover {
-  background: var(--surface);
-  border: 1px solid var(--rule);
-  border-radius: 8px;
-  transition: border-color 250ms cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .glass-card-hover:hover {
-    border-color: color-mix(in srgb, var(--accent) 40%, var(--rule));
-  }
-}
-
-.featured-projects > .container > div:first-child {
-  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
-}
-
-.featured-projects > .container,
-.contact-cta > .container {
-  max-width: var(--content-wide);
-}
-
-main section {
+main section,
+#work {
   scroll-margin-top: calc(var(--nav-h) + 16px);
 }
