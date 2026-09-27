@@ -1,20 +1,9 @@
 {
   "schema_version": "2.0",
-  "run_id": "Portfolio-mujuklfd-ttnhoj",
-  "started_at": "2026-09-27T13:21:26.905Z",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "started_at": "2026-09-27T14:58:38.859Z",
   "lifecycle_shape": "full",
   "quality_mode": "autopilot",
-  "capabilities_detected": [
-    "has_docs",
-    "has_runtime_server",
-    "has_ui",
-    "has_website"
-  ],
-  "capabilities_effective": [
-    "autopilot_mode",
-    "has_docs",
-    "has_runtime_server",
-    "has_ui",
-    "has_website"
-  ]
+  "task_summary": "Cycle-5 cinematic portfolio rebuild, guarded full lifecycle, phases 1-7",
+  "input_fingerprint": "d071146aaae1cd8c9b654a925b5989b780acccffabb7192b7c80a1fe6d876b0e"
 }

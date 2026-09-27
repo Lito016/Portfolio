@@ -1,36 +1,42 @@
 {
   "schema_version": "2.0",
-  "run_id": "Portfolio-mudhrqbr-xai46i",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
   "recall": {
-    "timestamp": "2026-09-23T02:36:35.000Z",
-    "provider": "web",
-    "fallback_reason": "Local repo state (cycles 1-3 audits, node_modules/next/dist/docs, existing src/) documents the current codebase but not external best-practice guidance for Next.js 16 App Router portfolio patterns; PRD/DESIGN required verification against current community and official guidance before Build.",
+    "timestamp": "2026-09-27T15:00:48.536Z",
+    "provider": "local",
     "search_queries": [
-      "Next.js 16 App Router portfolio best practices 2026",
-      "Next.js 16 static export generateStaticParams params Promise",
-      "developer portfolio case study page structure best practices"
+      "bundled docs: node_modules/next/dist/docs/01-app/02-guides/static-exports.md (grep image/dynamic-route/unsupported sections)",
+      "repo state: package.json dependency pins vs PRP M0 exact-pin policy",
+      "repo state: src/app route census (19 secondary dirs incl. contact/ with contact-client.tsx web3forms env reads)",
+      "repo state: src/data importers for blog/achievements/certifications/team/uses GC chain (PRP M2 step 5 / M4 step 4)",
+      "repo state: src/app/globals.css:340 scroll-behavior smooth (Lenis conflict ADR-3.1)",
+      "Quill vault MCP unavailable in host session - knowledge persisted in prime/state/ instead (recorded fallback)"
     ],
-    "input_fingerprint": "8d99a7315b5386f67045e9bfcc5a6471e5c9a748f02ee5a72e1746bc644333b4",
+    "input_fingerprint": "d071146aaae1cd8c9b654a925b5989b780acccffabb7192b7c80a1fe6d876b0e",
     "findings": [
-      "Next.js 16: dynamic route params are Promises; await them (`const { slug } = await params`) instead of destructuring synchronously.",
-      "With `output: 'export'`, every dynamic route needs generateStaticParams so pages exist as static HTML; use notFound() for unknown slugs.",
-      "Import Geist and other fonts in the root layout.tsx and expose CSS variables; avoid runtime font loading flicker.",
-      "Use pure-SVG or CSS timeline/diagram nodes rather than canvas-heavy libraries for iOS Safari compatibility.",
-      "Exact asset filename casing matters on case-sensitive hosts/CDNs even when local Windows builds pass.",
-      "Treat the portfolio as a product: a reader journey (hero -> proof -> case study -> contact) beats a feature list; keep visual design simple and consistent."
+      "Next 16 static export: dynamic routes WITHOUT generateStaticParams are unsupported - single-page cycle-5 design has zero dynamic routes after route deletion, so export stays clean.",
+      "Next 16 static export: default next/image loader is unsupported; current next.config.ts already sets images.unoptimized: true, which the plan preserves (AGENTS.md check against bundled guide confirms the config is legal for export).",
+      "Static export: redirects, rewrites, middleware, server actions, dynamic server functions and ISR are all unsupported - plan uses direct anchors and not-found.tsx instead (R-7 legacy-URL handling is consistent).",
+      "Client-side navigation between static routes works via static payload; but cycle-5 is a single route, so deep links must be hash anchors handled natively (Lenis scrollTo wrapper honors native href fallback - ADR-3.1).",
+      "package.json today: gsap and lenis absent (M0 install adds them), lucide-react 1.23.0 (bump to 1.48.0), framer-motion ^12.42.2 (held), next-themes/react-hook-form/zod present (M2 dep-GC targets confirmed on disk).",
+      "globals.css still contains scroll-behavior: smooth at line 340 - removal is M2 step 1; scroll-behavior is the only anchor-smoothing owner until Lenis takes over."
     ]
   },
   "research": {
-    "timestamp": "2026-09-23T02:36:35.000Z",
+    "timestamp": "2026-09-27T15:00:48.536Z",
     "search_queries": [
-      "Next.js 16 portfolio hard parts best practices",
-      "Next.js 16 generateMetadata static export case study pages"
+      "GSAP ScrollTrigger pin Lenis smooth scroll integration best practices 2026",
+      "Next.js 16 static export output export gotchas generateMetadata images unoptimized"
     ],
     "sources_consulted": [
-      "https://dev.to/itsugo/the-unexpected-hard-parts-of-building-a-portfolio-in-nextjs-16-12po",
-      "https://nextjs.org/docs/app/api-reference/functions/generate-static-params",
-      "https://nextjs.org/docs/app/api-reference/file-conventions/metadata"
+      "https://gsap.com/community/forums/topic/44795-scrolltrigger-once-with-pin-and-scrub-lenis-creates-a-blank-space/",
+      "https://dev.to/thebitforge/your-scroll-animations-look-amateur-heres-the-gsap-lenis-setup-that-fixes-it-48ni",
+      "https://jrvsystems.app/blog/lenis-scrolltrigger-gsap-ticker-fix",
+      "https://tympanus.net/codrops/2026/05/28/the-never-ending-story-building-a-seamless-infinite-scroll-experience-with-gsap-lenis/",
+      "https://nextjs.org/docs/app/api-reference/functions/generate-metadata",
+      "https://nextjs.org/docs/messages/blocking-prerender-metadata-runtime",
+      "node_modules/next/dist/docs/01-app/02-guides/static-exports.md (bundled, read in full for M0 step 4)"
     ],
-    "applicability": "Confirms DESIGN.canvas.tsx routing decisions: server wrapper pages exporting generateMetadata/generateStaticParams with client section components, per-slug static output under out/projects/<slug>/index.html, and defensive empty-image/empty-url handling in cards."
+    "applicability": "Confirms the M3 wiring law already in the plan: gsap.ticker must drive lenis.raf and lenis.on('scroll', ScrollTrigger.update) is the standard join; pin+scrub + Lenis has known blank-space/jump failure modes (refresh on fonts.ready/load, avoid pinning inside transformed ancestors). Metadata under export must be static-config only (no runtime data) - matches server-wrapper metadata plan in M2/M8. Full-text fetches were rate-limited this session (host quota), so conclusions were taken from search-level evidence plus the bundled Next docs read in full; Phase 5 M3 verification includes a live dev-server pin smoke test that catches the blank-space failure mode directly."
   }
 }

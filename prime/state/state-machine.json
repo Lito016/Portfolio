@@ -51,9 +51,9 @@
       "gate_result": "prime/state/gate-results/phase-4-gates.json"
     },
     "5": {
-      "status": "pending",
-      "attempt": 0,
-      "entered_at": null,
+      "status": "running",
+      "attempt": 1,
+      "entered_at": "2026-09-27T15:02:06.884Z",
       "completed_at": null,
       "gate_result": null
     },
