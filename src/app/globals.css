@@ -371,6 +371,38 @@ header {
   }
 }
 
+/* Skills domain reveal (FR-12): typographic rows, no badge cloud. Panel
+ * content always ships in server HTML and stays in the a11y tree; the
+ * 0fr->1fr grid collapse is presentation only. Hover (fine pointer),
+ * keyboard focus, and tap (data-open) reveal equivalently; <=300ms micro
+ * budget, opacity-only under reduced motion. */
+.skill-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 250ms cubic-bezier(0.165, 0.84, 0.44, 1),
+    opacity 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.skill-panel > div {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.skill-domain[data-open='true'] .skill-panel,
+.skill-domain:focus-within .skill-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .skill-domain:hover .skill-panel {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+}
+
 /* Reduced-motion floor (FR-18): clip/parallax layers resolve to plain views
  * even if a capability flag flips mid-session before unmount. */
 @media (prefers-reduced-motion: reduce) {
@@ -381,9 +413,13 @@ header {
   .parallax-deco {
     transform: none !important;
   }
+
+  .skill-panel {
+    transition: opacity 150ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
 }
 
-/* ===== Transitional styles for sections awaiting rewrite (M6-M7) ===== */
+/* ===== Transitional styles for sections awaiting rewrite (M7) ===== */
 .contact-cta {
   position: relative;
   padding-block: var(--section-rhythm);

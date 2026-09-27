@@ -26,7 +26,7 @@ function variantFor(index: number) {
 
 export function Work() {
   return (
-    <section aria-labelledby="work-heading" className="px-[var(--gutter)]">
+    <section id="work" aria-labelledby="work-heading" className="px-[var(--gutter)]">
       <div className="mx-auto w-full max-w-[var(--content-wide)]">
       <header className="grid items-end gap-4 pt-[clamp(48px,8vw,96px)] lg:grid-cols-[minmax(0,7ch)_minmax(0,1fr)]">
         <p className="label-mono">Work</p>
