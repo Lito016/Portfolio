@@ -1,102 +1,98 @@
-# PRD: Portfolio Repositioning — "AI Solution Developer | Full-Stack Systems Developer" (Cycle 4)
+# PRD: Portfolio Rebuild — Cinematic Single-Page Experience (Cycle 5)
 
-## Overview
-Reposition the existing Next.js 16 portfolio so recruiters, clients, and technical reviewers understand within seconds that the owner builds serious software systems and AI-enabled applications: business systems, AI tools, developer tooling, automation, and computer vision. Preserve the strongest existing surfaces (Linear-inspired hero banner, theme system, glass cards); focus on positioning, content hierarchy, project presentation, case studies, credibility evidence, consistency, and polish.
+**Version**: v1.0
+**Author**: prime-requirement (PRIME Full lifecycle, autopilot quality mode)
+**Date**: 2026-09-27
+**Status**: Draft → reviewed via prime/reports/phase-2-quality-review.md
+**Product Type**: B2C (personal brand site; visitor = hiring manager/client)
 
-Source discovery: `prime/reports/phase-1-discover.md` (findings P1–P14), `prime/reports/phase-1-research.md`.
+---
 
-## Goals
-1. One consistent professional identity site-wide.
-2. Project curation: flagships elevated, simple projects demoted, case studies with diagrams and verified evidence.
-3. Technical credibility: real architecture descriptions, metrics only where verified, links only where they exist.
-4. Production quality: metadata per page, a11y, responsive 320px–desktop, clean lint/build, no console errors.
+## Background & Goals
 
-## Non-Goals
-- Stack or framework change (stays Next.js 16 + React 19 + Tailwind 4).
-- Full visual rewrite of working surfaces.
-- Deployment/publication (requires explicit user approval — Tier C).
-- Inventing experience, metrics, repositories, or client logos.
+### Problem & Background
+The current portfolio is a conventional 20-route developer site (hero + card grids + GitHub widgets). The owner's claim — "this person builds sophisticated digital experiences" — is contradicted by the medium itself. Prior cycles produced a verified, whitelisted content base (fact-whitelist W1–W28) and 4 strong project case studies that render as uniform cards. The site must be rebuilt from scratch as one cinematic, motion-driven, editorial experience in the spirit (not the assets) of antigravity.google.
 
-## Users and Scenarios
-| User | Scenario | Need |
-|---|---|---|
-| Technical recruiter | 10-second scan of homepage | Identity + proof + next action within first viewport |
-| Potential client | Evaluating whether to commission a business system | Evidence of shipped systems (Barangay, UBMS, UMS) with workflows |
-| Engineer/reviewer | Deep diligence | Case studies: architecture, tradeoffs, real metrics, code links |
-| Owner (maintainer) | Updating content | Single source of truth in `src/data`, no duplication |
-
-## Requirements
-| ID | Requirement | Priority | Acceptance Criteria |
+### Target Users
+| User Role | Characteristics | Core Need | Usage Scenario |
 |---|---|---|---|
-| REQ-1 | The site must present the positioning "AI Solution Developer | Full-Stack Systems Developer" consistently in hero, `siteConfig` title, team role, and resume subtitle. | Must | Given the built site, when hero, metadata title, resume header are inspected, then each contains both role halves (no stale "Web & Mobile Developer"). |
-| REQ-2 | Junior-framed wording must be removed from primary content: "Fresh graduate…" education blurb, school-milestone timeline framing, "web development fundamentals". | Must | Grep of `src/data/` + about/education/resume shows no junior phrases; dates between education/experience/about no longer conflict. |
-| REQ-3 | Hero must offer exactly three primary CTAs: View Projects, GitHub, Resume. | Must | Given desktop and 375px viewports, when hero renders, then 3 CTAs are visible, focusable, and navigate correctly. |
-| REQ-4 | Hero must state who/what/why: role line, one supporting message about building full-stack business systems, AI tools, automation, CV apps, and value framing. | Must | Reviewer can answer "what does he build?" from hero alone. |
-| REQ-5 | Homepage must include a "What I Build" section with the three categories Business & Management Systems, AI & Developer Tools, Computer Vision & Automation, each with example capabilities. | Must | Section renders between hero and projects; each category card lists examples per owner brief. |
-| REQ-6 | The project data model must carry semantic `featured: boolean`, `slug`, `highlights[]`, and structured case-study content — no positional slicing. | Must | `featured-projects.tsx` filters on the flag; reordering the array does not change which projects are featured. |
-| REQ-7 | Vision Video Auditor, PRIME Method, and UBMS must be added as projects using only owner-brief facts; UMS included only if owner enriches or accepts minimal verified description. | Must | Each entry's description/highlights trace to the brief; no repo/live URL present unless verified reachable. |
-| REQ-8 | Projects page must group Featured and Other Projects; Dish Manager and AI SaaS Landing appear only under Other. | Must | Two distinct sections; flagships never render in Other. |
-| REQ-9 | Each featured card must show name, technical one-liner, key highlights, tech tags, "View Case Study", and live/GitHub link when available. | Must | Card for Quill shows ≥4 highlights incl. "49 MCP tools"; cards without links show no dead link/icon. |
-| REQ-10 | A static case-study page must exist per flagship at `/projects/[slug]` (Next 16 dynamic route + `generateStaticParams`) rendering: Overview, Problem, Users, Solution, Core Workflow, Architecture, Major Features, Engineering Challenges, Technical Decisions, Metrics, Tech Stack, Screenshot(s), Links. | Must | `next build` emits one page per flagship slug; every section with available data renders; sections without data are omitted, not filled with filler. |
-| REQ-11 | The fact whitelist (`prime/state/fact-whitelist.md`, created in Design) must cover **all site-visible numbers, URLs, and project claims** — case studies, project cards, "What I Build", hero stats, resume, about — not case studies alone. | Must | Reviewer matches every metric/URL/claim on changed pages to the whitelist; unmatched item = fail. |
-| REQ-12 | Each flagship case study must include at least one architecture/workflow diagram rendered by one shared component (no per-page SVG duplication, no new heavy dependency). | Must | Single `FlowDiagram`-style component feeds all 5 diagrams; readable at 320px (scroll within container or vertical stack). |
-| REQ-13 | Skills page must be organized by domain (Languages, Frontend, Backend, Databases & BaaS, AI & ML, Infrastructure & Deployment, Engineering) with no subjective level labels; content limited to owner-brief list and project-supported items. | Must | Seven categories render as tag groups; grep shows no "Beginner/Intermediate/Expert/Basic/progress%". |
-| REQ-14 | Resume page must replace the objective with a systems-focused professional summary, reuse the skills data source, and separate Experience / Client Projects / Personal Projects (no fabricated employment). | Must | Resume imports from same data modules as Skills page; summary contains AI-solution + full-stack-systems framing; section headers present. |
-| REQ-15 | About page must describe what he builds, his engineering workflow (Understand → Model → Design → Build → Test → Deploy → Monitor → Improve), and problem types he solves, without generic passion statements. | Must | No "passionate about technology"; workflow steps rendered as process, not school timeline. |
-| REQ-16 | Every routed page must export page-specific `title`/`description` metadata (server wrapper around client pages where needed). | Must | `/skills`, `/resume`, `/contact`, `/projects`, case studies each return unique `<title>` and meta description in built HTML. |
-| REQ-17 | Sitemap must include all static routes plus every `/projects/[slug]`; blog index and posts included or consciously excluded. | Must | `sitemap.ts` output contains each flagship slug. |
-| REQ-18 | No horizontal page overflow at 320/375/430/tablet(768)/laptop(1280)/desktop(1600); navigation, cards, tags, diagrams usable at each. | Must | Playwright check: `document.documentElement.scrollWidth <= viewport width` at all six widths on all changed pages. |
-| REQ-19 | Accessibility: single h1 per page, alt text on all images, visible focus rings, AA contrast in both themes, labeled form controls. | Must | axe/manual pass on changed pages; no decorative animation traps keyboard focus. |
-| REQ-20 | `npm run lint` → 0 errors; `npm run build` → all pages prerender; zero console errors on visited pages. | Must | CI-equivalent local runs, exit code 0. |
-| REQ-21 | Visual additions (sections, cards, diagrams) must reuse existing design tokens/primitives; no new gradients/glass/glow/particle gimmicks. | Must | Review confirms shared primitives (`SectionHeading`, glass-card patterns) used; theme toggle affects new components correctly. |
-| REQ-22 | Organization/person names must have a single canonical source across experience, education, and certifications; the "Bayanaihan" vs "bayanihan-intern" spelling conflict must be resolved to one form (owner confirmation required; default `Bayanihan`). | Must | Given grep of all name strings in `src/data/`, when compared, then every occurrence of each entity is byte-identical and derives from one constant. |
-| REQ-23 | Primary navigation must present the target structure Home · Projects · Skills · About · Resume · Contact; secondary routes remain reachable via footer/links but leave primary nav. | Must | Header renders the six items at desktop + mobile menu; removed routes still return 200 and appear in sitemap. |
+| Hiring manager / studio lead | Desktop, <60s attention, judges craft by feel | Immediate visual impression of sophistication | Lands on URL, watches hero, scrolls work, decides to contact |
+| Prospective client | Evaluates competence for systems work | Evidence of shipped end-to-end projects | Reads project storytelling + verified links |
+| Mobile visitor | Touch, variable network | Designed (not compressed) experience, fast load | Same arc, recomposed layout, no hover dependencies |
+| Maintainer (owner) | Edits repo, adds projects | One-entry-per-project data model | Adds array entry in `src/data/`, rebuild deploys |
 
-## User Experience Requirements
-- Information architecture: Home · Projects (+ case studies) · Skills · About · Resume · Contact primary; secondary GitHub-mirror routes stay reachable but are not reworked unless cheap wins appear.
-- Content tone: precise engineering language; short sentences; no buzzword soup; screenshots at consistent aspect ratio.
-- Motion: keep existing restrained reveals; remove nothing that currently works well; no new animation categories.
-
-## Data and Integration Requirements
-- Single source: extended `src/data/projects.ts` (`slug`, `featured`, `highlights`, structured `caseStudy` incl. `workflowSteps`, `architectureNodes`, `metrics`, `links`).
-- Skills single source `src/data/skills.ts` consumed by Skills page and Resume.
-- GitHub live-data routes unchanged (React Query client fetches); no build-time secrets.
-- Images: reuse `next/image` with existing screenshot assets; new `public/` images only for the three added flagships if owner supplies, else documented placeholders-free layout (no fake screenshots).
-
-## Non-Functional Requirements
-| Category | Requirement | Target |
-|---|---|---|
-| Performance | Static prerender (SSG) for all new routes; optimized images; no new heavy deps | Lighthouse (production, desktop): Accessibility ≥ 90, SEO ≥ 90, Best Practices ≥ 90; Performance score recorded as observation against current baseline |
-| Reliability | Existing pages keep working; no route removals without decision | 21 existing routes reachable post-change |
-| Security | No secrets; external links only from verified data; no user input surfaces added | Review pass |
-| Maintainability | Shared `FlowDiagram` + case-study layout components; data-driven content | ≤1 layout component per page family |
-| Compatibility | Next.js 16 conventions verified against bundled `node_modules/next/dist/docs/` before coding | Doc citations in phase-3 report |
-
-## Risks and Open Questions
-| Item | Impact | Owner | Resolution Needed |
+### Goals & Success Metrics (SMART, verified at Phase 6)
+| Goal | Metric | Target | Monitoring Method |
 |---|---|---|---|
-| Vision/PRIME/UBMS facts are owner-asserted; no public repos | Credibility claims could be unverifiable | Owner | Owner confirms brief facts; links omitted meanwhile |
-| No screenshots exist for Vision/PRIME/UBMS | Cards/case studies look empty | Owner | Supply screenshots or accept text-first layout |
-| UMS has zero public detail | Featured slot thin | Owner | Provide highlights or keep at 5 flagships |
-| 21-route sprawl vs recruiter focus | Diluted narrative | Orchestrator | Default: keep routes, tighten nav; revisit in Design |
-| Next.js 16 route/metadata API drift | Build breakage | Builder | Read bundled docs before implementation (R: NFR) |
-| Canonical spelling of "Bayanaihan/Bayanihan Network Inc." unknown | Wrong legal-ish name on resume | Owner | Owner confirms exact company name (default `Bayanihan` per `bayanihan-intern` id) |
+| Cinematic first impression | Staged hero sequence completes; headline ≥6vw desktop | Verified via Playwright screenshots desktop/tablet/mobile | Phase 6 browser verification |
+| Projects are the attraction | 4 featured projects as editorial showcases, varied composition | 1:1 count + visual review passes | Phase 6 quality review |
+| Trust preserved | 100% visible facts traceable to whitelist | grep audit vs `prime/state/fact-whitelist.md` | Build/Verify gate (existing practice) |
+| Performance | Static export; LCP < 2.5s; JS budget respected | no three/r3f; gsap+lenis ≈32KB gzip | Lighthouse + bundle inspect at Phase 6 |
+| Accessibility | WCAG AA contrast; keyboard nav; reduced-motion full usability | axe-core pass; reduced-motion screenshot parity check | Phase 6 E2E + a11y |
 
-## Success Metrics
-- Recruiter test: identity-understandable-in-5-seconds on hero (human check).
-- 5–6 flagship case studies with diagrams; 0 whitelist violations.
-- Lint/build/console: 0 errors; metadata coverage 100% of routed pages; overflow checks pass at 6 widths.
-- Baseline: cycle-3 browser pass rate 64/68 → cycle-4 checks ≥95% with new surfaces included.
+## Solution Overview
+One long-scroll page: staged hero with cursor-reactive canvas visual → pinned editorial project showcases (01–04) → oversized about statement → typographic skills list → experience list → dramatic contact close → minimal footer. Warm/cool off-white canvas, near-black display type, hairline rules, one restrained accent. Framer Motion (micro) + GSAP ScrollTrigger (pinning) + Lenis (smooth scroll). Static export to Cloudflare Pages, unchanged CI.
 
-## Traceability
-| Requirement | Source | Verification |
+### Scope Decisions
+- Replaces the 19 secondary routes (about, blog, resume, stats, …). Owner directed rebuild "from scratch" (R4/charter); removal is in scope, content that mattered is folded into the single page (experience, education→about, skills). Legacy-URL handling: static export cannot redirect — `not-found.tsx` retained with links to the new home; flagged for owner acknowledgment at Phase 7 handoff. Contact form (web3forms) → replaced by direct email/LinkedIn/GitHub links (W19/W26); form itself not required by brief.
+- GitHub live-stats widgets dropped: not requested by the brief, and removal serves the performance mandate (keeps first-load JS minimal). (Owner may request them back; data layer unchanged.)
+- Existing 3 secondary projects (University MS, Dish Manager, AI SaaS Landing) shown as a compact supporting row/index within Work (data retained in array).
+
+## Requirements — Functional (MoSCoW; pain point → requirement traceability in §6)
+
+| ID | Requirement (must/should/could) | Acceptance Criteria (GIVEN/WHEN/THEN) |
 |---|---|---|
-| REQ-1–REQ-5 | Owner brief Phases 2–3; P1–P5 | Phase 6 browser + grep checks |
-| REQ-6–REQ-9 | Owner brief Phases 5–6; P6–P9 | Build + DOM inspection |
-| REQ-10–REQ-12 | Owner brief Phases 7–8, 11; P8–P9 | Build page manifest, whitelist review, screenshots |
-| REQ-13–REQ-15 | Owner brief Phases 4, 9–10; P2–P3, P10–P11 | Content review, grep |
-| REQ-16–REQ-17 | P12; SEO audit | Built HTML inspection, sitemap.xml output |
-| REQ-18–REQ-20 | Owner brief Phases 14–15, Final Validation; P13 | Playwright + lint/build logs |
-| REQ-21 | Owner brief Phase 13 | Visual review in Verify |
-| REQ-22 | P11 (name/date inconsistency) | Grep canonical-source check |
-| REQ-23 | P13; owner brief Final Portfolio Structure | Header DOM + route reachability check |
+| FR-01 | Site SHALL be a single-page composition: Nav, Hero, Work, About, Skills, Experience, Contact, Footer. | GIVEN a fresh visit WHEN the page loads THEN all eight regions exist in order in the DOM with semantic landmarks; WHEN a nav link is clicked THEN the viewport scrolls to the target section. |
+| FR-02 | Navigation SHALL be minimal fixed bar (name left; Work/About/Contact right) that compacts/changes appearance after scroll, with subtle hover animation. | GIVEN scroll position 0 WHEN user scrolls >~80px THEN nav gains compact state (blurred/hairline treatment); GIVEN keyboard WHEN Tab reaches nav THEN focus ring visible. |
+| FR-03 | Hero SHALL stage a load sequence: background → nav → headline lines reveal → central visual scales in → metadata fade → settle. | GIVEN prefers-reduced-motion is NOT set WHEN first paint completes THEN sequence runs once (~≤2.5s total) and settles; all hero text present in server HTML regardless. |
+| FR-04 | Hero typography SHALL be oversized (≈6–10vw desktop), stacked short lines, near-black on off-white, tight leading/tracking; content from whitelisted positioning (W19/W21: "AI Solution Developer | Full-Stack Systems Developer"; headline copy derived per W24/W25 rules — no invented claims). | GIVEN desktop 1440 WHEN rendered THEN headline font-size ≥ 86px and ≤ 10vw; GIVEN 375px THEN recomposed smaller scale, no horizontal overflow. |
+| FR-05 | Hero SHALL include one central interactive visual (custom 2D canvas) reacting subtly to cursor movement; lazy, GPU-friendly, pointer-fine only. | GIVEN pointer:fine WHEN cursor moves THEN visual offsets ≤~3% of viewport following pointer with eased lag; GIVEN coarse pointer THEN static/absent fallback, no jank; canvas creation gated to mount (client) and reduced-motion off. |
+| FR-06 | Hero SHALL include a small scroll indicator near bottom. | GIVEN hero fills ≥85vh WHEN loaded THEN indicator visible within first viewport; it does not repeat infinite bounce >2 loops and is aria-hidden. |
+| FR-07 | Work section SHALL present the 4 featured projects as large editorial showcases numbered 01–04, each with visual, name, short description, technologies/category. | GIVEN data array of 4 featured projects WHEN rendered THEN 4 showcases, each with index label, image/visual, title, ≤2-line description, tech list, and available link (dead anchors forbidden, see projects.ts interface rule). |
+| FR-08 | Scroll behavior per showcase SHALL use pinned/large-visual treatment: image scales slightly (≈1–3%), text moves subtly, number/typography animate on entry (GSAP ScrollTrigger). | GIVEN desktop pointer WHEN scrolling through a showcase THEN transform-only animations (no layout thrash); GIVEN reduced-motion THEN showcase fully visible statically. |
+| FR-09 | Each showcase composition SHALL differ (browser preview / floating interfaces / full-width image / experimental typographic-visual), per brief; Vision auditor visual MUST be labeled honestly as diagram (W28). | GIVEN 4 showcases rendered THEN no two share identical layout structure; WHEN vision project visual renders THEN no caption/alt claims it is a product screenshot. |
+| FR-10 | Project hover (desktop) SHALL be refined: slight preview scale (1–3%), subtle title shift/metadata reveal, cursor affordance change. | GIVEN pointer:fine WHEN hovering a showcase THEN scale change ≤1.03 with eased transition ≤300ms; GIVEN coarse pointer THEN no hover-dependent content hidden. |
+| FR-11 | About SHALL be an editorial large statement + concise metadata block: bio (restating W21/W25 whitelisted facts), location "Philippines" (data files), education (BSIT, ISPSC, 2025–2026), role experience (Bayanihan Network internship 2026-02→04), specialties (W21 categories), technologies (W22), current focus (nowData verbatim). No "years of experience" claims (explicitly non-whitelisted). | GIVEN About renders THEN every sentence traces to whitelist entry; text reveals on viewport entry (motion optional, content never motion-gated). |
+| FR-12 | Skills SHALL render as a typographic domain list (Design-adjacent domains per W22 set: Languages, Frontend, Backend, Databases & BaaS, AI & ML, Infrastructure & Deployment, Engineering) with hover-reveal detail; NO badge cloud. | GIVEN pointer WHEN hovering a domain line THEN its technology list reveals (≤300ms); GIVEN coarse/keyboard THEN focus/tap reveals equivalently; all items reachable. |
+| FR-13 | Experience SHALL be a minimal editorial list (YEAR / ROLE / COMPANY / DESCRIPTION) with hairline separators and hover response. | GIVEN render THEN single verified entry displays year "2026" with months "Feb 2026 – Apr 2026" (data: 2026-02→2026-04), role, company, location, tech; no fabricated entries. |
+| FR-14 | Contact SHALL be dramatic close: oversized statement (e.g. "LET'S BUILD SOMETHING." — generic invitation copy, not a claim), then Email / LinkedIn / GitHub links + one large interactive CTA. | GIVEN render THEN three links hrefs equal siteConfig values (W19/W26); mailto opens; external links `target=_blank rel=noopener`; CTA hover animation ≤300ms and keyboard-activatable. |
+| FR-15 | Footer SHALL be minimal: name, © YEAR, location, social links. | GIVEN render THEN footer contains exactly those element classes; © uses current year. |
+| FR-16 | Projects/data SHALL remain plain typed arrays in `src/data/` decoupled from components; adding an entry renders a new showcase/row without component changes. | GIVEN a new entry appended to featured list WHEN rebuilt THEN a 5th showcase appears using the same primitives; no hardcoded project names in components. |
+| FR-17 | All visible facts/URLs/metrics MUST trace to `prime/state/fact-whitelist.md` (W1–W28). | WHEN whitelist grep audit runs at Phase 6 THEN zero unsourced claims; unknown = not shown. |
+| FR-18 | `prefers-reduced-motion: reduce` MUST neutralize decorative motion (pinning scrub, canvas, reveals) while preserving all content and navigation. | GIVEN reduced-motion flag WHEN page loads THEN zero continuous animations; all sections readable; Lenis disabled or instant. |
+| FR-19 | Route cleanup: home page replaced by new composition; obsolete route dirs removed; robots/sitemap/manifest updated to single-page anchors. | GIVEN `next build` (static export) WHEN complete THEN `out/` contains index.html without links to deleted routes; sitemap lists canonical root. |
+
+## Non-Functional Requirements (measurable)
+- NFR-01 Performance: static export (`output:'export'`) preserved; first-load JS: Framer Motion + gsap(+ScrollTrigger) + lenis only; three/r3f forbidden (Phase 1 §C). Lazy-load below-fold images (`loading="lazy"`), hero visual canvas mounts client-side only.
+- NFR-02 Compatibility: evergreen desktop/mobile browsers; breakpoints modeled on 425/767/1024/1440 bands; no `window` access at module scope (export guard rule).
+- NFR-03 Accessibility: WCAG 2.1 AA contrast (near-black `#121317`-class on off-white `#f8f9fc`-class); semantic landmarks; visible focus; axe-core 0 critical violations.
+- NFR-04 Motion quality: micro ≤300ms eased; macro slow; linear forbidden; no simultaneous competing animations per viewport.
+- NFR-05 Reliability/build: `npm run build` + `npm run lint` exit 0; Turbopack-compatible (no webpack config additions).
+- NFR-06 Deploy parity: Cloudflare Pages CI unchanged (`out/` artifact); wrangler flow untouched.
+
+## Critical Journeys
+```json
+[
+ {"journey_id":"J1","name":"Landing impression","category":"primary_view_flow","steps":[{"step":1,"action":"Load /","actor":"user"},{"step":2,"action":"Hero sequence completes (bg→nav→type→visual→metadata→settle)","actor":"system"},{"step":3,"action":"Headline + visual + scroll cue visible in first viewport","actor":"system"}],"success_criteria":"Single screenshot at t+3s shows settled hero; text present in server HTML","priority":"critical","mode_requirement":["standard","polish","autopilot"]},
+ {"journey_id":"J2","name":"Work showcase scroll","category":"primary_content_flow","steps":[{"step":1,"action":"Scroll to Work","actor":"user"},{"step":2,"action":"Showcases 01–04 reveal/pin correctly","actor":"system"},{"step":3,"action":"Links: project live/GitHub hrefs correct","actor":"user"}],"success_criteria":"All 4 showcases render with data, varied composition, no dead anchors","priority":"critical","mode_requirement":["standard","polish","autopilot"]},
+ {"journey_id":"J3","name":"Contact close","category":"conversion_flow","steps":[{"step":1,"action":"Nav → Contact","actor":"user"},{"step":2,"action":"Lenis smooth scroll lands section (scroll-behavior reconciliation)","actor":"system"},{"step":3,"action":"Email/LinkedIn/GitHub links functional","actor":"user"}],"success_criteria":"Anchor scroll arrives; hrefs match siteConfig","priority":"critical","mode_requirement":["standard","polish","autopilot"]},
+ {"journey_id":"J4","name":"Reduced-motion visit","category":"accessibility_flow","steps":[{"step":1,"action":"Emulate prefers-reduced-motion","actor":"tester"},{"step":2,"action":"Full content + nav usable, no decorative motion","actor":"system"}],"success_criteria":"Static parity of all section content","priority":"critical","mode_requirement":["polish","autopilot"]},
+ {"journey_id":"J5","name":"Mobile arc","category":"responsive_flow","steps":[{"step":1,"action":"375px viewport load","actor":"user"},{"step":2,"action":"No horizontal overflow, stacked showcases, tap-friendly links, no hover-gated content","actor":"system"}],"success_criteria":"Full-page screenshot review passes; scroll smooth","priority":"high","mode_requirement":["polish","autopilot"]}
+]
+```
+
+## Traceability (pain point → requirement → success criterion)
+| Charter pain point | Requirements | Success criteria |
+|---|---|---|
+| PP1 template look | FR-01/03/04/06/07/09/11/12/14/15 | S1, S2 |
+| PP2 route fragmentation | FR-01, FR-19, §Scope Decisions | S1 |
+| PP3 visuals underserved | FR-02/05/07/08/09/10, FR-16 | S1, S7 |
+| PP4 trust constraint | FR-17, FR-04/11/13 copy rules | S3 |
+| (mobile/perf/a11y criteria) | FR-18, NFR-01..04 | S4, S5, S6 |
+
+## Constraints & Assumptions
+- Constraints: Next 16.3.3 + React 19.2.4 + Tailwind 4 + static export; AGENTS.md bundled-docs rule; scroll-stack (Lenis ↔ Next 16 `data-scroll-behavior` ↔ globals.css) resolved in Phase 3 design; lucide-react installed — upgrade to 1.48.0 allowed (Phase 3 decision); framer-motion stays 12.x unless a bug demands major bump (upgrade to 13 = should, decision Phase 3).
+- Assumptions (flagged): headline/section microcopy will be original generic invitations ("LET'S BUILD SOMETHING.") that assert no professional facts; © YEAR dynamic; testimonials/now/blog content mostly dropped from single-page except nowData current-focus line in About.
+
+## Out of Scope / Won't (this cycle)
+Copy of any Google/antigravity assets, logos, text; invented experience/clients/awards/metrics; CMS; analytics dashboards; WebGL/three.js (rejected by Phase 1 evidence); multi-page architecture; dark/light toggle (design system picks one primary canvas; invert is Won't this cycle).

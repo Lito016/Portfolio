@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "cycle": 5,
+  "source": "docs/PRD.md#critical-journeys",
+  "journeys": [
+    {"journey_id":"J1","name":"Landing impression","category":"primary_view_flow","steps":[{"step":1,"action":"Load /","actor":"user"},{"step":2,"action":"Hero sequence completes (bg→nav→type→visual→metadata→settle)","actor":"system"},{"step":3,"action":"Headline + visual + scroll cue visible in first viewport","actor":"system"}],"success_criteria":"Single screenshot at t+3s shows settled hero; text present in server HTML","priority":"critical","mode_requirement":["standard","polish","autopilot"]},
+    {"journey_id":"J2","name":"Work showcase scroll","category":"primary_content_flow","steps":[{"step":1,"action":"Scroll to Work","actor":"user"},{"step":2,"action":"Showcases 01-04 reveal/pin correctly","actor":"system"},{"step":3,"action":"Links: project live/GitHub hrefs correct","actor":"user"}],"success_criteria":"All 4 showcases render with data, varied composition, no dead anchors","priority":"critical","mode_requirement":["standard","polish","autopilot"]},
+    {"journey_id":"J3","name":"Contact close","category":"conversion_flow","steps":[{"step":1,"action":"Nav to Contact","actor":"user"},{"step":2,"action":"Lenis smooth scroll lands section (scroll-behavior reconciliation)","actor":"system"},{"step":3,"action":"Email/LinkedIn/GitHub links functional","actor":"user"}],"success_criteria":"Anchor scroll arrives; hrefs match siteConfig","priority":"critical","mode_requirement":["standard","polish","autopilot"]},
+    {"journey_id":"J4","name":"Reduced-motion visit","category":"accessibility_flow","steps":[{"step":1,"action":"Emulate prefers-reduced-motion","actor":"tester"},{"step":2,"action":"Full content + nav usable, no decorative motion","actor":"system"}],"success_criteria":"Static parity of all section content","priority":"critical","mode_requirement":["polish","autopilot"]},
+    {"journey_id":"J5","name":"Mobile arc","category":"responsive_flow","steps":[{"step":1,"action":"375px viewport load","actor":"user"},{"step":2,"action":"No horizontal overflow, stacked showcases, tap-friendly links, no hover-gated content","actor":"system"}],"success_criteria":"Full-page screenshot review passes; scroll smooth","priority":"high","mode_requirement":["polish","autopilot"]}
+  ]
+}

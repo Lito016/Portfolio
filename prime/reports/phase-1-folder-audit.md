@@ -1,19 +1,16 @@
 # Project Folder Structure Audit
 
-- **Date:** 2026-09-23T01:46:41.629Z
+- **Date:** 2026-09-27T13:21:59.177Z
 - **Project root:** C:\Projects\Portfolio
 - **Project type(s):** node
-- **Root files:** 15
-- **Root directories:** 4
-- **Root directories list:** out, prime, public, src
+- **Root files:** 16
+- **Root directories:** 7
+- **Root directories list:** docs, out, prime, public, scripts, src, tests
 
 ## Result: Needs Organization
 
-Found **2** issue(s):
+Found **1** issue(s):
 
 ### [~] [MEDIUM] Source files at root: next-env.d.ts
 - **Suggested action:** Move to src/, lib/, app/, or similar directory
-
-### [i] [LOW] Multiple doc files at root (2): AGENTS.md, CLAUDE.md…
-- **Suggested action:** Create docs/ and consolidate documentation files
 

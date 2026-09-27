@@ -1,46 +1,49 @@
-# Phase 2 Quality Review
-- reviewer: independent subagent (quality-review)
-- date: 2026-09-23
+# Phase 2 (Define) — Independent Quality Review — Cycle 5
 
-## Coverage Matrix
-- P1 (junior education blurb) — R2
-- P2 (school timeline) — R2, R15
-- P3 (role inconsistency) — R1
-- P4 (hero CTAs/value line) — R3, R4
-- P5 (no "What I Build") — R5
-- P6 (missing flagships, flat data) — R6, R7
-- P7 (positional slice) — R6, R8
-- P8 (dead caseStudy data) — R8, R9, R10
-- P9 (no diagrams) — R12
-- P10 (skills domains) — R13
-- P11 (data inconsistencies) — dates: R2; "Bayanaihan" org-name conflict: MISSING
-- P12 (metadata/sitemap) — R16, R17
-- P13 (route sprawl) — no R#; deferred to Design as open question (acceptable, document decision)
-- P14 (metrics discipline) — R11
-Owner phases (positioning/homepage/skills/curation/cards/case studies/resume/about/diagrams/credibility/visual/mobile/perf-SEO) all mapped; only P11-half and P13 lack explicit R#.
+Reviewer: separate quality-review subagent (not the PRD/spec author). Contract baseline: `prime-method-35.1.4/contracts/phase-2.json` (frozen = template, drift report `drifted: false`). Reviewer re-ran `scripts/gate-check.mjs` from project root 2026-09-27.
 
-## Issues
-1. **Major** — P11's "Bayanaihan Network Inc." vs `bayanihan-intern` inconsistency has no acceptance criterion anywhere; add a Must requiring experience/certification names to match one source of truth.
-2. **Major** — R11 whitelist scope is case studies only; metrics/links can also appear in cards (R9), "What I Build" (R5), and resume (R14) without whitelist coverage. Extend to all site-visible numbers/URLs. Also `fact-whitelist.md` does not yet exist (Design dependency) — R11 is unenforceable until authored; record as prerequisite.
-3. **Major** — NFR "Lighthouse a11y/SEO ≥ prior baseline" is unverifiable; no numeric baseline exists (cycle-3 baseline is browser pass rate). Define measurable target or drop.
-4. **Minor** — Featured count: R12 fixes "5 diagrams" while charter/success metrics allow 5–6 (conditional UMS, R7); reconcile count language.
-5. **Minor** — R3 "exactly three CTAs" vs charter SC5 "≤3 CTAs"; align.
-6. **Minor** — R17 "consciously excluded" and R4 "reviewer can answer from hero alone" are human-judgment criteria; acceptable but mark as reviewer sign-off checks.
-7. **Nit** — PRD traceability maps R10–R12 to P8–P9 only; R11's source is P14 — fix mapping.
-8. **Nit** — Canonical URL (assumption A4) is carried but no R#/AC verifies it in metadata.
-
-Anti-fabrication: R7/R10/R11 discipline is structurally sound (whitelist, omit-not-fill, no-fake-screenshots); no requirement invites invention.
-
-## Verdict
 verdict: request changes
-+ Solid coverage; fix P11 gap, whitelist scope, and the unmeasurable Lighthouse target before Design.
 
-## Re-review (post-fix)
-- Issue 1 (P11 org-name, Major) — **resolved**. R22: "the 'Bayanaihan' vs 'bayanihan-intern' spelling conflict must be resolved to one form (owner confirmation required; default `Bayanihan`)"; AC requires byte-identical names from one constant. Traceability row "R22 | P11"; risk row added.
-- Issue 2 (whitelist scope, Major) — **resolved**. R11 now covers "all site-visible numbers, URLs, and project claims — case studies, project cards, 'What I Build', hero stats, resume, about". Prerequisite recorded: "created in Design".
-- Issue 3 (route-sprawl R#, Minor/P13) — **resolved**. R23 fixes nav structure with AC; traceability "R23 | P13"; risk row retained for Design revisit.
-- Issue 4 (Lighthouse NFR, Major) — **resolved**. NFR now numeric: "Accessibility ≥ 90, SEO ≥ 90, Best Practices ≥ 90; Performance score recorded as observation against current baseline".
+## Gate validation
 
-Minor items 4–8 (featured count, ≤3 CTAs, judgment criteria, R11 traceability mapping, canonical URL) were not part of the fix scope and remain open as non-blocking.
+| Gate | Outcome genuinely met? | Runnable check result (reviewer-executed) | Evidence / note |
+|---|---|---|---|
+| G1 | YES structurally (§1.1 Problem, §2 Solution, §3 Functional Requirements, §2.1 Scope) — but the contract command FAILS | **GATE-FAIL** | `pattern docs/PRD.md "#+\\s*(problem|solution|overview|requirement|scope|goal)"` — all PRD headings are numbered (`## 1. …`, `### 1.1 Problem / Background`), so the keyword never follows `#+\\s*` directly. Fix by retitling ≥1 heading (e.g. `### Problem / Background` without leading number) or restructure heading text. |
+| G2 | YES | GATE-PASS (3723 B ≥ 200) | define report records methodology, decisions D1–D6, risks, skill summary |
+| G3 | YES | GATE-PASS | GIVEN/WHEN/THEN present for all 19 FRs; spot-checked testability below |
+| G4 | n/a pre-write; satisfied by this file | pattern `verdict:` → line 3 of this report | contract lists this artifact as required |
+| G5 | YES | GATE-PASS | cites phase-1-research.md, npm/bundlephobia verified figures, whitelist |
+| G6 | YES | GATE-PASS | `[x]` rows with evidence for elicitation/pain-mapping/recall |
 
-verdict: pass
+Substantive verification (reviewer-read, all accurate): 4 featured + 3 secondary projects = `src/data/projects.ts` ✓; 7 skill domains in FR-12 = `src/data/skills.ts` ✓ (no Redis per W22 ✓); experience = single entry 2026-02→2026-04 Bayanihan ✓; education BSIT/ISPSC 2025–2026 ✓; now.ts exists ✓; site.ts hrefs (email/LinkedIn/GitHub) = FR-14/FR-11 claims ✓; 19 route dirs + home = 20 ✓; `globals.css:340 html{scroll-behavior:smooth}` confirms R5/J3/§7 scroll-stack claim ✓; `next.config.ts` prod-only `output:'export'` ✓; package.json: framer-motion 12.42.2, lucide 1.23.0, no gsap/lenis/three ✓ (NFR-01/§7 consistent). FR-17 discipline: no FR forces a non-whitelisted claim; FR-04 cites W19/W21/W24/W25 only; FR-11 explicitly bans "years of experience"; FR-13 "no fabricated entries"; FR-14 example copy is claim-free invitation; "must not appear" list ("X+ years", invented metrics) not contradicted anywhere in PRD/spec. Self-check counts honest: FRs counted 19/19 ✓, NFRs 6 ✓, journeys 5 ✓.
+
+## Findings
+
+**Critical** — none.
+
+**Major**
+- docs/PRD.md:G1: contract runnable `GATE-FAIL`s because numbered headings break `#+\\s*(problem|…)`; fix: retitle at least one heading so the keyword directly follows the hashes (e.g. `### Problem / Background`, `## Solution Overview`) — outcome text otherwise already satisfies the gate.
+- docs/PRD.md:6 (traceability table): FR-02 (nav), FR-05 (hero canvas), FR-06 (scroll cue), FR-15 (footer) map to no pain point or criterion row (FR-05/06 belong under PP1/S2, FR-02/15 under S1/PP1); fix: add them to §6 rows and mirror in requirements-spec.md derivation map.
+- docs/PRD.md:60 (FR-15) / §7 assumption: "© YEAR dynamic" fine, but FR-15 acceptance "footer contains exactly those element classes" is under-specified (which classes?); fix: name the four item types as the checkable assertion. (Borderline; fold into the §6 traceability fix.)
+
+**Minor**
+- prime/state: CRITICAL-JOURNEY-MATRIX §1 says "Record in prime/state/critical-journeys.json" at Phase 2; journeys live only embedded in PRD §5; fix: emit the JSON file (or note deferral to Phase 6 in define report).
+- docs/PRD.md:57 (FR-13): acceptance renders "2026 — 2026 Q2" for data 2026-02→2026-04 — internally inconsistent (start omits quarter; 2026-02 is Q1); fix: state exact rule, e.g. "2026 Q1 — 2026 Q2".
+- docs/PRD.md:37 (§2.1): "brief mandates no data dashboards" overstates attribution — brief/charter exclude *analytics* dashboards (charter Out-of-Scope); GitHub stats widgets are not literally that; fix: cite charter out-of-scope as D3 basis instead of "brief mandates".
+- docs/PRD.md:37 + prime/reports/phase-2-define.md:7: Phase 1 open item required "explicit acknowledgment" for removing Blog/Resume routes (R4); D1 records owner intent as inferred from "from scratch" with no explicit sign-off logged; fix: log a one-line owner confirmation (or brief quote) before Phase 3 executes deletion.
+- docs/PRD.md:63 (FR-19): deleted routes will 404 for inbound/external links; static export forbids `redirects` (Phase 1 §B) but Cloudflare Pages `_redirects` is available and unmentioned; fix: either require a `_redirects`→`/` fallback in FR-19 or record 404 as accepted.
+- docs/PRD.md:65–71 (NFRs): NFR-02 "evergreen browsers" has no version floor; NFR-04 "macro slow" has no ms bound; fix: name floors (e.g. last-2-versions) and a macro ceiling for measurability.
+- docs/PRD.md:74–81 (journeys): categories `primary_view_flow`/`conversion_flow`/etc. are not from the matrix taxonomy table (template `primary_read_flow` family); acceptable for a content site but "per template" claim in define report is slightly generous; fix: mark as adapted-taxonomy or map to nearest template categories.
+- docs/PRD.md:46–49: `>~80px`, `~≤2.5s`, `≤~3%` — tildes make exact assertion ambiguous at Phase 6; fix: drop `~` and state one number.
+
+**Nit**
+- docs/PRD.md:27 vs :48: goal says headline "≥6vw desktop" (=86.4px at 1440); FR-04 AC "≥86px" is 0.4px looser; align.
+- docs/PRD.md:56: "Design-adjacent domains per W22" — skills.ts domains are not design-focused; wording noise.
+
+## Independence note
+
+Author of PRD.md/requirements-spec.md/phase-2-define.md: prime-requirement runtime. This review was produced by a separate quality-review subagent with no shared context with the author; all judgments above come from reading the artifacts, the contract JSON, gate-check.mjs executed by this reviewer at cwd project root, and direct reads of src/config/site.ts, src/data/{projects,experience,skills,now,education}.ts, next.config.ts, src/app/globals.css, package.json, and the fact whitelist. No claim was accepted on citation alone — W19/W21/W22/W28, the 4+3 project counts, the scroll-behavior:smooth claim, and the version pins were each re-verified against source files.
+
+## Verdict rationale
+
+Content quality is high: 19 FRs carry GIVEN/WHEN/THEN criteria, whitelist discipline (FR-17) holds under line-by-line audit against the "must not appear" list, scope decisions D1–D3 are consistent with the owner brief's section/contact lists rather than contradicting it, and every spot-checked data claim matches the real files. However, the G1 contract check genuinely fails as executable (numbered headings defeat the pattern), four FRs lack pain-point/criterion traceability the audit mandate requires, and the journey record artifact (critical-journeys.json) is missing per the matrix protocol. These are small, bounded fixes; none indicates a wrong requirement, but all are gate-blocking or traceability-blocking at Polish rigor. Re-review after fixes should be a formality.

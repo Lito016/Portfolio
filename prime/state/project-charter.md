@@ -1,50 +1,58 @@
-# Project Charter — Portfolio Repositioning (Cycle 4)
+# Project Charter — Portfolio Rebuild (Cinematic / antigravity-inspired)
 
-## Project
-Reposition the existing Next.js 16 portfolio at `C:\Projects\Portfolio` so visitors (recruiters, clients, technical reviewers) understand within seconds that the owner is an **AI Solution Developer | Full-Stack Systems Developer** who builds business systems, AI-powered tools, developer tooling, automation, and computer vision applications.
+Project: Portfolio — Manolito Almaden Jr. (Lito016)
+Cycle: 5 (rebuild from scratch, PRIME Full lifecycle, autopilot quality mode; prior cycle: Cycle 4)
+Date: 2026-09-27
+Owner: Lito016 (site owner, sole stakeholder)
 
-## Owner / Persona
-Manolito Almaden Jr. (`Lito016`) — AI Solution Developer, full-stack systems builder. Fresh-graduate history is real and must not be fabricated away; presentation shifts from school-portfolio tone to systems-engineer tone.
+## Problem Statement
 
-## Target Audience
-1. Technical recruiters — need identity + proof in seconds.
-2. Potential clients — need business-system capability evidence.
-3. Technical reviewers / engineers — need architecture, tradeoffs, real metrics.
+The current portfolio (Next.js 16 multi-page, dark/light theme, card grids, GitHub API widgets) reads as a conventional developer portfolio. The owner wants the first impression to communicate: "This person builds sophisticated digital experiences." The site itself must *demonstrate* that claim — it should feel like a high-end interactive product experience, designed rather than assembled.
 
-## Scope
-- Positioning consistency across hero, bio, resume, about, metadata.
-- Homepage content hierarchy: hero message + CTAs (View Projects / GitHub / Resume) + "What I Build" 3-category section.
-- Featured vs Other project split; add missing flagships: Vision Video Auditor, PRIME Method, UBMS.
-- Dedicated case-study pages at `/projects/[slug]` for flagships (Overview, Problem, Architecture, Workflow, Challenges, Tech Decisions, Metrics, Stack, Screenshots, Links). **No invented metrics** — only facts from `src/data/projects.ts`, the owner's brief, or verifiable sources.
-- Skills page re-organized by domain (Languages, Frontend, Backend, Databases & BaaS, AI & ML, Infrastructure, Engineering) without subjective levels.
-- Resume + About rewrites aligned to positioning.
-- Architecture diagrams for each flagship (rendered as clean React/SVG or HTML flow components; no new heavy deps without justification).
-- SEO/metadata per page, sitemap coverage, accessibility, mobile responsiveness (320–desktop), performance.
+## Users & Personas
 
-## Out of Scope (unless approved)
-- Framework/stack change (stays Next.js 16 + React 19 + Tailwind 4).
-- Full visual redesign of strong existing surfaces (Linear-inspired hero banner, theme system).
-- Deployment/publication (Tier C — requires explicit user approval).
+- **P1 — Hiring manager / studio lead (primary).** Skims in <60s. Judges craft by feel: typography, motion, composition. Needs: immediate visual impression, projects as the main attraction, fast load, clear contact path.
+- **P2 — Prospective client / collaborator.** Wants evidence that complex systems (business platforms, AI tooling, CV pipelines) were actually designed and shipped end to end. Needs: project storytelling (problem → solution), real links, honest visuals.
+- **P3 — The owner (maintainer).** Needs projects/content in a plain data structure so adding/removing a project is a one-entry edit.
+- **P4 — Mobile visitor.** Gets a recomposed, touch-first experience — not a shrunk desktop.
+
+## Pain Points (evidence-based)
+
+1. **Template look.** Existing home page is hero + marquee + card grid + CTA — the exact "generic developer portfolio" pattern the owner rejects. (evidence: `src/app/page.tsx`, README "Home: Hero with cover photo, tech stack marquee, featured projects, contact CTA")
+2. **20 routes dilute the showcase.** Home + 19 route pages (about, achievements, activity, blog, certifications, contact, contributions, education, experience, featured, now, open-source, projects, resume, skills, stats, tech-stack, testimonials, uses) fragment the story; scrolling never builds momentum. (evidence: `src/app/` directory listing, verified 2026-09-27)
+3. **Content is strong but visually underserved.** 4 featured projects with case studies, screenshots, and verified links exist, yet render as uniform cards (`public/project-*.png`, `src/data/projects.ts`). The projects do not feel like the main attraction.
+4. **Trust constraint.** Prior cycles produced a strict fact whitelist (`prime/state/fact-whitelist.md`, W1–W28): no invented experience, clients, metrics, awards. Any redesign must reuse verified content only.
+
+## Desired Outcome (from owner brief, verbatim intent)
+
+Premium, experimental, motion-driven single experience inspired by the *feeling* of antigravity.google — cinematic, futuristic, minimal, playful, spacious, polished — with NO copying of Google assets/branding/text. Editorial layouts, oversized typography, scroll-pinned project showcases, restrained palette (warm off-white canvas, near-black type), purposeful motion, designed mobile, high performance, accessibility (reduced-motion, keyboard, contrast).
 
 ## Constraints
-- `AGENTS.md`: this Next.js version has breaking changes vs. prior training data — read `node_modules/next/dist/docs/` before writing code.
-- Do not invent experience, metrics, or technologies.
-- Reuse components; avoid duplicated data; keep maintainable.
-- Verify incrementally: lint + build + browser verification after major slices.
+
+- Keep deployable stack: Next.js 16.3.3 static export (`output: 'export'` → `out/`) on Cloudflare Pages via GitHub Actions (`next.config.ts`, `.github/`, `wrangler.toml`).
+- React 19.2.4, Tailwind CSS 4, TypeScript. AGENTS.md: this Next version has breaking changes vs. training data — read `node_modules/next/dist/docs/` before coding.
+- Content limited to fact whitelist W1–W28 + existing `src/data/` files. No new claims.
+- Motion: Framer Motion + GSAP/ScrollTrigger + Lenis as appropriate; Three.js/R3F only where it genuinely improves the experience; Lucide icons.
+- No Git history destruction: rebuild happens on this repo's main (prior work committed at 546bf63).
 
 ## Success Criteria (measurable)
-1. Every page conveys the single positioning statement; zero junior phrases ("Fresh graduate…" objective tone, "Basic", school-timeline framing) remain in primary content.
-2. 5–6 flagship projects render as cards with highlights + links to case-study pages; simple projects grouped under "Other Projects".
-3. Each flagship case study includes an architecture/workflow diagram and only verified metrics.
-4. Skills organized by domain, no subjective labels; consistent between Skills page and Resume.
-5. Homepage hero: identity, what-I-build message, value line, ≤3 CTAs.
-6. Lint 0 errors, production build passes, browser verification at desktop/tablet/mobile (320/375/430px) with no overflow or console errors.
-7. Metadata + sitemap cover all pages including case studies.
 
-## Key Risks
-- Metric fabrication temptation — mitigated by sourcing every number from `src/data/projects.ts` (Quill: 49 tools, 16 memory types) or omitting.
-- Scope size (15 sub-phases) — mitigated by guard-enforced lifecycle with checkpoints.
-- Next.js 16 API drift — mitigated by reading bundled docs before Build.
+- S1: Single-page scroll experience with Hero → Work (4 featured, editorial/pinned) → About → Skills (typographic reveal list) → Experience → Contact → Footer.
+- S2: First-paint impression: oversized display typography + one central interactive visual reacting to cursor; load sequence staged (bg → nav → type lines → visual → metadata → settle).
+- S3: Every rendered fact/URL/metric traces to fact-whitelist entry.
+- S4: Desktop/tablet/mobile verified via full-page screenshots at 3 viewports; hover interactions only on pointer devices; no cursor-dependent functionality on touch.
+- S5: `prefers-reduced-motion`: full content and navigation usable, animations neutralized.
+- S6: Build passes (`next build`, static export), lint passes, images lazy-loaded, heavy scenes code-split; no layout jank in scroll playback.
+- S7: Projects data remains a plain array so a new project = one entry added.
 
-## Quality Mode / Lifecycle
-Autopilot · Full lifecycle · Guarded (prime-guard.mjs). Prior cycle (3) artifacts archived in `prime/state/cycle3-archive/`.
+## Risks
+
+- R1: Motion libs inflate bundle → mitigated by evidence (Phase 1 §C): adopt GSAP+ScrollTrigger+Lenis (~32KB gzip), reject three/r3f (+236KB); hero = custom 2D canvas, lazy, reduced-motion gated.
+- R2: "Experimental" drifts to gimmicky → mitigate: motion principles in brief (fast micro / slow macro, eased, purposeful) enforced in review passes.
+- R3: Design research via fetch of antigravity.google — DONE via curl fallback (WebFetch rate-limited); rendered visual appearance not screenshot-verified, only source HTML/CSS.
+- R4: Single-page rebuild removes existing pages the owner may still value (Blog/Resume) → decision recorded in Phase 2 scope.
+- R5: Scroll-stack conflict: Lenis requires `scroll-behavior:auto`, Next 16 adds `data-scroll-behavior` opt-in, existing globals.css sets smooth → Phase 3 must define one owner of scrolling.
+
+## Out of Scope (unless owner directs later)
+
+Copy of any Google/antigravity assets, logos, text, or proprietary imagery; new professional claims; CMS/admin; analytics dashboards beyond existing Cloudflare-provided data.

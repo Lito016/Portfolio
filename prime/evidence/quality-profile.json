@@ -1,10 +1,11 @@
 {
   "schema_version": "1.0",
-  "run_id": "Portfolio-mudfzb2m-r7nuxe",
+  "run_id": "Portfolio-mujuklfd-ttnhoj",
   "profiles_selected": [],
   "selection_rationale": "Auto-detected from project files",
   "capabilities_effective": [
     "autopilot_mode",
+    "has_docs",
     "has_runtime_server",
     "has_ui",
     "has_website"
@@ -34,6 +35,9 @@
     "G29",
     "G3",
     "G30",
+    "G31",
+    "G32",
+    "G33",
     "G36",
     "G37",
     "G38",
@@ -53,6 +57,7 @@
     "G54",
     "G55",
     "G56",
+    "G57",
     "G6",
     "G7",
     "G8",
@@ -74,10 +79,6 @@
     {
       "id": "G21",
       "reason": "has_data_ai not detected"
-    },
-    {
-      "id": "G22",
-      "reason": "has_docs not detected"
     },
     {
       "id": "G23",
@@ -102,10 +103,6 @@
     {
       "id": "G32",
       "reason": "has_data_ai not detected"
-    },
-    {
-      "id": "G33",
-      "reason": "has_docs not detected"
     },
     {
       "id": "G34",
@@ -141,5 +138,5 @@
     }
   ],
   "evidence_paths": {},
-  "generated_at": "2026-09-23T01:46:22.036Z"
+  "generated_at": "2026-09-27T13:21:26.912Z"
 }

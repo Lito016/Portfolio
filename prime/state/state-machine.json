@@ -13,66 +13,60 @@
     6,
     7
   ],
-  "current_phase": 7,
-  "status": "done",
+  "current_phase": 2,
+  "status": "running",
   "completed_phases": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7
+    1
   ],
   "phases": {
     "1": {
       "status": "passed",
       "attempt": 1,
-      "entered_at": "2026-09-23T01:46:41.520Z",
-      "completed_at": "2026-09-23T01:57:02.676Z",
+      "entered_at": "2026-09-27T13:21:40.314Z",
+      "completed_at": "2026-09-27T13:34:31.838Z",
       "gate_result": "prime/state/gate-results/phase-1-gates.json"
     },
     "2": {
-      "status": "passed",
+      "status": "running",
       "attempt": 1,
-      "entered_at": "2026-09-23T01:57:10.046Z",
-      "completed_at": "2026-09-23T02:02:55.461Z",
-      "gate_result": "prime/state/gate-results/phase-2-gates.json"
+      "entered_at": "2026-09-27T13:34:38.391Z",
+      "completed_at": null,
+      "gate_result": null
     },
     "3": {
-      "status": "passed",
-      "attempt": 1,
-      "entered_at": "2026-09-23T02:02:55.538Z",
-      "completed_at": "2026-09-23T02:16:46.872Z",
-      "gate_result": "prime/state/gate-results/phase-3-gates.json"
+      "status": "pending",
+      "attempt": 0,
+      "entered_at": null,
+      "completed_at": null,
+      "gate_result": null
     },
     "4": {
-      "status": "passed",
-      "attempt": 1,
-      "entered_at": "2026-09-23T02:16:46.949Z",
-      "completed_at": "2026-09-23T02:29:28.192Z",
-      "gate_result": "prime/state/gate-results/phase-4-gates.json"
+      "status": "pending",
+      "attempt": 0,
+      "entered_at": null,
+      "completed_at": null,
+      "gate_result": null
     },
     "5": {
-      "status": "passed",
-      "attempt": 1,
-      "entered_at": "2026-09-23T02:37:39.211Z",
-      "completed_at": "2026-09-23T04:19:40.888Z",
-      "gate_result": "prime/state/gate-results/phase-5-gates.json"
+      "status": "pending",
+      "attempt": 0,
+      "entered_at": null,
+      "completed_at": null,
+      "gate_result": null
     },
     "6": {
-      "status": "passed",
-      "attempt": 1,
-      "entered_at": "2026-09-23T04:20:12.916Z",
-      "completed_at": "2026-09-23T08:09:58.813Z",
-      "gate_result": "prime/state/gate-results/phase-6-gates.json"
+      "status": "pending",
+      "attempt": 0,
+      "entered_at": null,
+      "completed_at": null,
+      "gate_result": null
     },
     "7": {
-      "status": "passed",
-      "attempt": 1,
-      "entered_at": "2026-09-23T08:12:13.311Z",
-      "completed_at": "2026-09-23T08:44:19.762Z",
-      "gate_result": "prime/state/gate-results/phase-7-gates.json"
+      "status": "pending",
+      "attempt": 0,
+      "entered_at": null,
+      "completed_at": null,
+      "gate_result": null
     }
   }
 }

@@ -1,0 +1,25 @@
+{
+  "phase": 1,
+  "agent": "prime-problem",
+  "agent_note": "prime-problem role assumed in main agent (no native registration); independent quality-review executed as separate subagent invocation",
+  "invocations": [
+    {
+      "skill": "quality-review",
+      "status": "applied",
+      "evidence": ["prime/reports/phase-1-quality-review.md"],
+      "note": "separate general-purpose subagent reviewed charter/discovery/folder-audit against code; verdict pass; reviewer findings applied (P3 citation fix, evidence-snapshot note, next-env.d.ts recommendation rejected)"
+    },
+    {
+      "skill": "caveman",
+      "status": "applied",
+      "evidence": ["prime/reports/phase-1-caveman-digest.md"],
+      "note": "caveman lite applied to discovery recovery digest; skill loaded via Skill tool"
+    },
+    {
+      "skill": "research",
+      "status": "applied",
+      "evidence": ["prime/reports/phase-1-research.md"],
+      "note": "GitHub API + raw source verification of flagship repos, UMS README check, local repo inspection"
+    }
+  ]
+}
