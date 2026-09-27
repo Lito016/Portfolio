@@ -11,7 +11,7 @@
     "quality-review",
     "caveman",
     "research",
-    "software-architecture"
+    "backend"
   ],
   "core_skills": [
     "quality-review",
@@ -25,7 +25,7 @@
     "database",
     "baas",
     "security-testing",
-    "document",
+    "doc-forge",
     "cross-platform",
     "data-ai",
     "data-engineering"
@@ -132,6 +132,15 @@
       "check": "node scripts/gate-check.mjs pattern docs/DESIGN.canvas.tsx \"(design token|--[a-z]+-[a-z]+|oklch|hsl|clamp|type scale|modular scale|4px|8px|spacing scale|radius|shadow|elevation|z-index|motion|transition|easing|duration|breakpoint|grid|container query)\"",
       "expect": "GATE-PASS",
       "manual_followup": "Verify the design document records specific design token values (not just 'choose a color palette'). The design should show evidence of consulting DESIGN-QUALITY.md references: specific spacing scales, typography scales, color systems (oklch/hsl), responsive breakpoints, and motion patterns. Generic descriptions like 'use a modern color palette' indicate the reference was not loaded. N/A for projects with no UI."
+    },
+    {
+      "id": "G13",
+      "outcome": "docs/DESIGN.canvas.tsx is conformant with a registered proven base system, or records an explicit user-approved bespoke design",
+      "kind": "runnable",
+      "applicable_when": "has_ui",
+      "check": "node scripts/gate-check.mjs base-system docs/DESIGN.canvas.tsx skills/frontend/data/design-systems/registry.json",
+      "expect": "GATE-PASS",
+      "manual_followup": "If custom_approval is used, verify the quoted user request genuinely authorizes a bespoke design. N/A for projects with no UI."
     }
   ]
 }

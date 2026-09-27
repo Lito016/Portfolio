@@ -6,6 +6,7 @@
   "invocations": [
     { "skill": "research", "status": "applied", "evidence": ["prime/reports/phase-1-research.md", "prime/reports/phase-2-define.md"], "note": "verified Phase 1 online/local research consumed and cited; no invented evidence" },
     { "skill": "quality-review", "status": "applied", "evidence": ["prime/reports/phase-2-quality-review.md"], "note": "separate subagent pass on docs/PRD.md + requirements-spec.md" },
-    { "skill": "caveman", "status": "applied", "evidence": ["prime/reports/phase-2-define.md", "prime/state/requirements-spec.md"], "note": "compression discipline on prose artifacts; substance retained" }
+    { "skill": "caveman", "status": "applied", "evidence": ["prime/reports/phase-2-define.md", "prime/state/requirements-spec.md"], "note": "compression discipline on prose artifacts; substance retained" },
+    { "skill": "software-architecture", "status": "applied", "evidence": ["prime/reports/phase-2-define.md", "docs/PRD.md"], "note": "architect procedure (prime-requirement-architect runtime): Define-level system architecture sketch — 3-layer static architecture, one-way data flow, client-island boundaries, failure surface; recorded in phase-2-define.md 'System architecture sketch' + PRD Solution Overview" }
   ]
 }

@@ -1,9 +1,9 @@
 {
   "sessions": {
     "9f270955-b52b-4e91-9886-c734a57c61a1": {
-      "blocks": 0,
-      "last_state": "3b8a91eb53d3cd257e5e05b9ca7488faabb6a0ddc116480eafaada3417c12b9b",
-      "last_gate_count": 9
+      "blocks": 1,
+      "last_state": "f7aae66fe3dea947ccc3554f6095c56aebbb68919c016cc2dea9e0fafbbc5109",
+      "last_gate_count": 16
     }
   }
 }

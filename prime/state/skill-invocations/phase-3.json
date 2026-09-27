@@ -1,0 +1,13 @@
+{
+  "phase": 3,
+  "cycle": 5,
+  "agent": "prime-requirement+prime-make",
+  "agent_note": "prime-requirement (design authority) + prime-make (design-execution procedure prime-make-design) roles assumed in main agent; host has no native PRIME agent registration. Independent quality review executed as separate subagent invocations (pass 1 + re-verification pass 2).",
+  "invocations": [
+    { "skill": "frontend", "status": "applied", "evidence": ["docs/DESIGN.canvas.tsx", "prime/reports/phase-3-design.md", "prime/reports/phase-3-parts-evidence.md"], "references": ["skills/frontend/references/core/design-quality-routing.md", "skills/frontend/references/design/quality-parts/index.json", "skills/frontend/scripts/ui-ux-pro-max/search.py"], "note": "design-quality-routing comprehensive route; UI/UX Pro Max selector run (scripts/ui-ux-pro-max/search.py --design-system) with override log; all design/quality-parts loaded via references/design/quality-parts/index.json (27-part brief + focused 4-part pass); Design Benchmark Record in report §2; antiDefaults + behaviorStates + measured tokens in canvas" },
+    { "skill": "research", "status": "applied", "evidence": ["prime/reports/phase-3-design.md", "prime/reports/phase-1-research.md"], "note": "Phase 1 fetched evidence reused with citations; 10 unique source URLs with decision rationale (G9); SplitText claim fact-checked and corrected at remediation" },
+    { "skill": "backend", "status": "applied", "evidence": ["prime/reports/phase-3-design.md"], "note": "negative-surface analysis per skill exclusion conditions: static export, zero API/auth/queue surface documented in report §5; no backend work in scope" },
+    { "skill": "quality-review", "status": "applied", "evidence": ["prime/reports/phase-3-quality-review.md", "prime/reports/phase-3-checkpoint-review.md"], "note": "separate subagent invocation, two passes; pass 1 request-changes findings 1-9 remediated at checkpoint 10; pass 2 appended re-verification" },
+    { "skill": "caveman", "status": "applied", "evidence": ["prime/reports/phase-3-design.md", "prime/reports/phase-3-checkpoint-review.md"], "note": "evidence-dense compressed artifact prose; technical substance, code, hexes and URLs preserved verbatim" }
+  ]
+}

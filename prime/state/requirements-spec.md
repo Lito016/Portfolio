@@ -3,9 +3,9 @@
 Authoritative text: `docs/PRD.md`. This file records derivation and decisions only.
 
 ## Derivation map (strategy: attempt 1 — from Phase 1 pain points + charter success criteria)
-- PP1 → FR-01,03,04,07,09,11,12,14 (anti-template composition)
-- PP2 → FR-01, FR-19, PRD §2.1 (single page; route removal decision)
-- PP3 → FR-07..10, FR-16 (editorial showcases, varied composition, data-driven)
+- PP1 → FR-01,03,04,06,07,09,11,12,14,15 (anti-template composition)
+- PP2 → FR-01, FR-19, PRD §Scope Decisions (single page; route removal decision)
+- PP3 → FR-02,05,07,08,09,10, FR-16 (editorial showcases, varied composition, data-driven)
 - PP4 → FR-17 + per-FR copy rules (whitelist W1–W28; "unknown = not shown")
 - S4/S5/S6 (charter) → FR-18, NFR-01..06, J4/J5
 

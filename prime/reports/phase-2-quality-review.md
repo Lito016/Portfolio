@@ -2,7 +2,7 @@
 
 Reviewer: separate quality-review subagent (not the PRD/spec author). Contract baseline: `prime-method-35.1.4/contracts/phase-2.json` (frozen = template, drift report `drifted: false`). Reviewer re-ran `scripts/gate-check.mjs` from project root 2026-09-27.
 
-verdict: request changes
+verdict: pass
 
 ## Gate validation
 
@@ -47,3 +47,22 @@ Author of PRD.md/requirements-spec.md/phase-2-define.md: prime-requirement runti
 ## Verdict rationale
 
 Content quality is high: 19 FRs carry GIVEN/WHEN/THEN criteria, whitelist discipline (FR-17) holds under line-by-line audit against the "must not appear" list, scope decisions D1–D3 are consistent with the owner brief's section/contact lists rather than contradicting it, and every spot-checked data claim matches the real files. However, the G1 contract check genuinely fails as executable (numbered headings defeat the pattern), four FRs lack pain-point/criterion traceability the audit mandate requires, and the journey record artifact (critical-journeys.json) is missing per the matrix protocol. These are small, bounded fixes; none indicates a wrong requirement, but all are gate-blocking or traceability-blocking at Polish rigor. Re-review after fixes should be a formality.
+
+## Re-verification (pass 2)
+
+Reviewer re-executed `node gate-check.mjs` (plugin prime-method-35.1.4) from project root 2026-09-27 and re-read live files. All six claimed fixes verified:
+
+| # | Claim | Result | Evidence |
+|---|---|---|---|
+| 1 | G1 de-numbered | **PASS (genuine)** | All PRD headings un-numbered (`### Problem & Background`:13, `## Solution Overview`:33, `### Scope Decisions`:36, `## Requirements — Functional`:41); pattern `#+\s*(problem|…)` matches keyword directly after hashes |
+| 2 | Traceability §6 | **PASS** | PRD §Traceability:87–89 — FR-06/FR-15 in PP1 row, FR-02/FR-05 in PP3 row; all 19 FRs mapped to a pain-point row |
+| 3 | critical-journeys.json | **PASS** | `prime/state/critical-journeys.json` exists, valid JSON, J1–J5 identical to PRD §Critical Journeys (ASCII arrow variance only); define report row 10 and spec self-check cite it |
+| 4 | FR-13 date rule | **PASS** | PRD:57 — displays year "2026" + months "Feb 2026 – Apr 2026"; matches `src/data/experience.ts` 2026-02→2026-04; no quarter token |
+| 5 | D3 attribution | **PASS** | PRD:38 — "not requested by the brief, and removal serves the performance mandate"; spec D3 rationale consistent |
+| 6 | Route-removal acknowledgment | **PASS** | PRD:37 — legacy-URL handling (`not-found.tsx` retained; file exists, links to `/`) + "flagged for owner acknowledgment at Phase 7 handoff"; resolves prior `_redirects`/404 minor as accepted-and-recorded |
+
+Gates re-run: G1 GATE-PASS, G2 GATE-PASS (3822 B), G3 GATE-PASS, G4 GATE-PASS (verdict line 3), G5 GATE-PASS, G6 GATE-PASS.
+
+Residuals (non-blocking): (a) requirements-spec.md derivation map (lines 6–9) still omits FR-02/05/06/15 — PRD §6 is authoritative and complete; mirror recommended in Phase 3 housekeeping; (b) FR-15 AC still says "exactly those element classes" but now enumerates the four item types, making it checkable; (c) earlier Minor/Nit items (tildes in FR-02/03/05, NFR-02/04 floors, journey-category taxonomy note) remain open as agreed Phase 3 polish, none gate-blocking.
+
+**Summary (≤100 words):** All six claimed fixes hold against live files; gates G1–G6 re-executed and genuinely pass, including the previously failing G1 pattern (headings de-numbered). FR-02/05/06/15 traceability present, critical-journeys.json emitted and matches PRD, FR-13 date rule corrected, D3 attribution reworded, legacy-URL handling and Phase 7 owner-acknowledgment logged with not-found.tsx retained. Three non-blocking residuals noted. Verdict changed to **pass**.

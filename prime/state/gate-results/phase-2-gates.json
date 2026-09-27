@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.1",
+  "phase": 2,
+  "cycle": 5,
+  "verdict": "pass",
+  "generated_at": "2026-09-27",
+  "generation": "gate-check.mjs (plugin oracle) executed per contract gate_contracts on 2026-09-27; independent review verdict 'pass' after pass-2 re-verification (prime/reports/phase-2-quality-review.md)",
+  "checks": [
+    { "name": "requirements-review", "status": "pass", "evidence": ["prime/reports/phase-2-quality-review.md", "prime/reports/phase-2-define.md"] },
+    { "name": "G1", "status": "pass", "evidence": ["docs/PRD.md"], "exit_code": 0 },
+    { "name": "G2", "status": "pass", "evidence": ["prime/reports/phase-2-define.md"], "exit_code": 0, "note": "3822 bytes >= 200" },
+    { "name": "G3", "status": "pass", "evidence": ["docs/PRD.md"], "exit_code": 0 },
+    { "name": "G4", "status": "pass", "evidence": ["prime/reports/phase-2-quality-review.md"], "exit_code": 0, "note": "verdict: pass" },
+    { "name": "G5", "status": "pass", "evidence": ["prime/reports/phase-2-define.md"], "exit_code": 0 },
+    { "name": "G6", "status": "pass", "evidence": ["prime/reports/phase-2-define.md"], "exit_code": 0 }
+  ]
+}

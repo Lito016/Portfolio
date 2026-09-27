@@ -11,6 +11,13 @@ Owner: prime-requirement runtime (assumed in main agent; independent review by s
 - [x] **Research/reference evidence**: derived from verified Phase 1 research sources — live antigravity.google HTML/CSS evidence (`prime/reports/phase-1-research.md`), Next 16 bundled docs reference, npm/bundlephobia benchmarks; requirements cite file-level sources (whitelist, data files). No new online research needed this phase; none invented.
 - [x] **Prior knowledge recall**: cycle-4 artifacts (fact-whitelist W1–W28, projects data model) treated as authoritative constraints, verified against `prime/state/cycle4-archive` boundary (whitelist deliberately kept active).
 
+## System architecture sketch (software-architecture procedure output)
+Three-boundary static architecture, decided at Define level (detail belongs to Phase 3):
+1. **Content layer** — typed data arrays (`src/data/projects.ts` et al.) + `src/config/site.ts`; pure TS, build-time only, whitelist-gated. No runtime fetching (GitHub widgets dropped, D3).
+2. **Presentation layer** — one server-component page composition (`src/app/page.tsx`) assembling section components; sections are client islands only where motion/interaction demands ('use client' boundaries at: smooth-scroll provider, hero canvas, pinned showcases, nav).
+3. **Interaction layer** — Lenis (scroll owner), GSAP+ScrollTrigger (pinning/scrub), Framer Motion (micro/mount), all read/write CSS transforms; reduced-motion switch at provider level disables layers 3-a/b/c coherently.
+Data flow is strictly one-way (data → components); no state store, no API routes, no middleware — consistent with `output:'export'`. Failure surface minimal: build-time TypeScript + static export; runtime risks are animation jank and scroll-stack conflict (assigned to Phase 3).
+
 ## Key decisions (see requirements-spec.md D1–D6)
 Single-page replacement with route removal (D1); contact via direct links, web3forms dropped (D2); GitHub live-stats dropped (D3); 3 secondary projects as supporting row (D4); original claim-free microcopy (D5); Vision visual diagram-honest presentation (D6).
 

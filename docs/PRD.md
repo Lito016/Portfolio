@@ -40,6 +40,8 @@ One long-scroll page: staged hero with cursor-reactive canvas visual → pinned 
 
 ## Requirements — Functional (MoSCoW; pain point → requirement traceability in §6)
 
+Canonical trace ids: REQ-01 (≡FR-01), REQ-02 (≡FR-02), REQ-03 (≡FR-03), REQ-04 (≡FR-04), REQ-05 (≡FR-05), REQ-06 (≡FR-06), REQ-07 (≡FR-07), REQ-08 (≡FR-08), REQ-09 (≡FR-09), REQ-10 (≡FR-10), REQ-11 (≡FR-11), REQ-12 (≡FR-12), REQ-13 (≡FR-13), REQ-14 (≡FR-14), REQ-15 (≡FR-15), REQ-16 (≡FR-16), REQ-17 (≡FR-17), REQ-18 (≡FR-18), REQ-19 (≡FR-19), REQ-N01 (≡NFR-01), REQ-N02 (≡NFR-02), REQ-N03 (≡NFR-03), REQ-N04 (≡NFR-04), REQ-N05 (≡NFR-05), REQ-N06 (≡NFR-06). Phase 3+ traceability gates key on these ids.
+
 | ID | Requirement (must/should/could) | Acceptance Criteria (GIVEN/WHEN/THEN) |
 |---|---|---|
 | FR-01 | Site SHALL be a single-page composition: Nav, Hero, Work, About, Skills, Experience, Contact, Footer. | GIVEN a fresh visit WHEN the page loads THEN all eight regions exist in order in the DOM with semantic landmarks; WHEN a nav link is clicked THEN the viewport scrolls to the target section. |
