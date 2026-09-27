@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { navAnchorItems } from '@/config/navigation';
 import { siteConfig } from '@/config/site';
+import { AnchorLink } from '@/components/shared/anchor-link';
 
 /** Fixed minimal navigation: name left, anchor links right (FR-02). */
 export function Header() {
@@ -41,13 +42,13 @@ export function Header() {
         </Link>
         <nav className="flex items-center gap-2 sm:gap-6" aria-label="Main navigation">
           {navAnchorItems.map((item) => (
-            <a
+            <AnchorLink
               key={item.href}
               href={item.href}
               className="nav-link inline-flex items-center px-2 text-sm sm:px-0"
             >
               {item.title}
-            </a>
+            </AnchorLink>
           ))}
         </nav>
       </div>

@@ -1,9 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, Building2, Bot, Video } from 'lucide-react';
 import type { ProjectCategory, WhatIBuildCategory } from '@/data/projects';
+import { AnchorLink } from '@/components/shared/anchor-link';
 
 const categoryIcons: Record<ProjectCategory, React.ComponentType<{ className?: string }>> = {
   'business-systems': Building2,
@@ -15,7 +15,7 @@ export interface WhatIBuildProps {
   items: WhatIBuildCategory[];
 }
 
-/** Homepage capability categories; each card links to its /projects anchor (finding 4). */
+/** Homepage capability categories; each card links to the #work anchor. */
 export function WhatIBuild({ items }: WhatIBuildProps) {
   return (
     <section id="what-i-build" aria-labelledby="what-i-build-heading" className="py-20">
@@ -62,13 +62,13 @@ export function WhatIBuild({ items }: WhatIBuildProps) {
                     </li>
                   ))}
                 </ul>
-                <Link
+                <AnchorLink
                   href="#work"
                   className="mt-5 inline-flex w-fit items-center gap-1 text-sm font-medium text-[var(--primary)] transition-opacity hover:opacity-80"
                 >
                   See projects
                   <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-                </Link>
+                </AnchorLink>
               </motion.div>
             );
           })}

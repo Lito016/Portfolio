@@ -78,6 +78,12 @@ html {
   scroll-padding-top: calc(var(--nav-h) + 16px);
 }
 
+/* Under Lenis, in-app scroll handlers apply the nav offset via scrollTo({ offset: -80 });
+ * zero the CSS padding there so native hash jumps and reduced-motion path keep it without doubling. */
+html.lenis {
+  scroll-padding-top: 0;
+}
+
 body {
   background: var(--bg-canvas);
   color: var(--ink);

@@ -2,12 +2,12 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { teamMembers } from '@/data/team';
 import { siteConfig, POSITIONING } from '@/config/site';
 import { InteractiveBackground } from '@/components/shared/interactive-background';
 import { TextReveal } from '@/components/shared/text-reveal';
+import { AnchorLink } from '@/components/shared/anchor-link';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
@@ -103,14 +103,14 @@ export function Hero() {
                     {cta.label}
                   </a>
                 ) : (
-                  <Link
+                  <AnchorLink
                     key={cta.label}
                     href={cta.href}
                     className={`inline-flex items-center gap-2 ${ctaClasses[cta.kind]}`}
                   >
                     {cta.label}
                     {cta.kind === 'primary' && <ArrowRight className="h-4 w-4" aria-hidden="true" />}
-                  </Link>
+                  </AnchorLink>
                 )
               )}
             </motion.div>
