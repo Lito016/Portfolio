@@ -2,11 +2,17 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { navAnchorItems } from '@/config/navigation';
 import { siteConfig } from '@/config/site';
 import { AnchorLink } from '@/components/shared/anchor-link';
+import {
+  EASE_EXPO_OUT,
+  HERO_NAV_DELAY_MS,
+  HERO_NAV_DURATION_MS,
+} from '@/config/hero-timeline';
 
 /** Fixed minimal navigation: name left, anchor links right (FR-02). */
 export function Header() {
@@ -30,7 +36,10 @@ export function Header() {
           : 'fixed inset-x-0 top-0 z-50 border-b border-transparent bg-transparent transition-colors'
       }
     >
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: HERO_NAV_DELAY_MS / 1000, duration: HERO_NAV_DURATION_MS / 1000, ease: EASE_EXPO_OUT }}
         className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-[var(--gutter)]"
         style={{ height: 'var(--nav-h)' }}
       >
@@ -51,7 +60,7 @@ export function Header() {
             </AnchorLink>
           ))}
         </nav>
-      </div>
+      </motion.div>
     </header>
   );
 }

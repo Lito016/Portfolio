@@ -244,26 +244,25 @@ header {
   }
 }
 
-/* ===== Transitional styles for sections awaiting rewrite (M4-M7) ===== */
-.portfolio-hero,
+/* ===== Transitional styles for sections awaiting rewrite (M5-M7) ===== */
 .featured-projects,
 .contact-cta {
   position: relative;
   padding-block: var(--section-rhythm);
 }
 
-.portfolio-hero {
-  padding-top: clamp(2rem, 5vw, 4.5rem);
+/* Hero lattice canvas (ADR-3.3): JS paint loop when capable; static sunk
+ * dot-grid for coarse pointer and reduced motion (no rAF ever mounted). */
+.hero-canvas {
+  background-color: var(--surface-sunk);
+  background-image: radial-gradient(circle at center, color-mix(in srgb, var(--ink-3) 20%, transparent) 1px, transparent 1.2px);
+  background-size: 46px 46px;
 }
 
-.team-banner {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  width: 100%;
-  border-block: 1px solid var(--rule);
-  background: var(--surface-sunk);
-  contain: layout style paint;
+@media (prefers-reduced-motion: no-preference) {
+  .hero-canvas:not([data-static]) {
+    background-image: none;
+  }
 }
 
 .glass-card {
