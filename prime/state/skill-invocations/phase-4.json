@@ -1,0 +1,35 @@
+{
+  "phase": 4,
+  "cycle": 4,
+  "agent": "prime-instruct",
+  "agent_note": "Orchestrator assumed the prime-instruct role for plan authoring; independent quality review dispatched as separate prime-instruct-lineage reviewer invocations (passes 1-4).",
+  "invocations": [
+    {
+      "skill": "quality-review",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-4-quality-review.md",
+        "prime/reports/phase-4-checkpoint-review.md"
+      ],
+      "note": "Four converge cycles: pass 1 (request changes, F1-F14), pass 2 (9/14 closed, N1-N3), pass 3 (9/9 closed, N4/N5), pass 4 (final confirmation, verdict pass). Each later pass executed as a separate reviewer invocation that re-derived closures from source."
+    },
+    {
+      "skill": "caveman",
+      "status": "applied",
+      "evidence": [
+        "docs/PRP.md",
+        "prime/reports/phase-4-plan.md"
+      ],
+      "note": "Evidence-dense compressed plan prose maintained through all remediation rounds; user-visible strings untouched."
+    },
+    {
+      "skill": "research",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-4-plan.md",
+        "prime/reports/threat-model.md"
+      ],
+      "note": "npm view currency re-runs (gsap 3.15.0, lenis 1.3.26, lucide-react 1.48.0), in-repo fact verification (ci.yml trigger, process.env inventory, data-file importers, route census), 7-URL citation set in docs/PRP.md."
+    }
+  ]
+}

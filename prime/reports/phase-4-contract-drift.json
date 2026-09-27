@@ -3,7 +3,7 @@
   "schema_version": "1.0",
   "marker": "NEXT-RUN EFFECTIVE",
   "phase": 4,
-  "timestamp": "2026-09-27T14:25:58.835Z",
+  "timestamp": "2026-09-27T14:57:19.233Z",
   "explanation": "The run's frozen dispatch contract differs from the live template contract. The run is graded against its frozen baseline; template changes take effect on the next run.",
   "template_contract_sha256": "46c7693c573142d6c91667ddba81531f868cfbdae62caaff16f3e4e5ec04efce",
   "frozen_contract_sha256": "34bff309575095032ae19e23456014d2585008df0deb39bf9b0b7e7e2fe63f4b",

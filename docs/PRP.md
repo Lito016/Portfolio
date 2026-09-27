@@ -1,70 +1,97 @@
-# PRP — Implementation Plan: Portfolio Repositioning (Cycle 4)
+# PRP — Implementation Plan: Cinematic Portfolio Rebuild (Cycle 5)
 
-Inputs: `docs/PRD.md` (REQ-1…REQ-23), `docs/DESIGN.canvas.tsx` (D-schema, §1–§6), `prime/state/fact-whitelist.md`, `prime/reports/phase-3-design.md`.
-Constraints honored: static `output:'export'` build (verified against https://nextjs.org/docs/app/guides/static-exports), no new production dependencies, preserve working surfaces, no fabrication (whitelist-gated content), no deployment (Tier C).
+Inputs: `docs/PRD.md` (REQ-01…REQ-19, REQ-N01…REQ-N06, journeys J1–J5), `docs/DESIGN.canvas.tsx` (ANTIGRAVITY-EDITORIAL tokens, module schemas, behaviorStates), `prime/reports/phase-3-design.md` (ADR-3.1…ADR-3.9), `prime/reports/phase-3-quality-review.md` (verdict pass + carry-overs), `prime/state/fact-whitelist.md` (W1–W28).
+Constraints honored: static `output:'export'` preserved (https://nextjs.org/docs/app/guides/static-exports); Cloudflare Pages `out/` artifact parity (PRD REQ-N06); Next 16 Turbopack — bundled docs re-read at each milestone before touching framework behavior (AGENTS.md law); exactly 2 new runtime deps gsap@3.15.0 + lenis@1.3.26 (~32KB gzip, Phase-1 bundlephobia evidence) and one pre-approved minor bump lucide-react 1.23.0→1.48.0 (ADR-3.8; `npm view` re-verified current 2026-09-27); framer-motion stays 12.42.2 (ADR-3.8); three/r3f stay forbidden (ADR-3.3).
 
 ## Assumptions & Prerequisites
-- A1/A3/A4 from Phase 1 stand (owner-brief facts; UMS minimal; canonical URL). Assumption: owner supplies no new assets during Build → text-first variants for Vision/PRIME.
-- Prereqs: Node 26 + deps installed (present); PRIME plugin prerequisite checkpoint `node <prime-plugin>/scripts/check-prereqs.mjs --project-root .` must pass before Build work (per PRIME Phase 5 route; not a repo script).
-- Dependency constraint: `docs/*.tsx` is type-checked; keep DESIGN.canvas.tsx compiling when editing schema notes.
+- A-P1: owner supplies no new assets during Build → rebuild uses only `public/project-*.png`, `profile.png` and existing whitelisted facts; unknown = not shown (W-rule).
+- A-P2: the 19 secondary routes are deleted in the same slice as the new home page (owner brief said "from scratch"); Phase 7 obtains explicit route-removal acknowledgment before deploy (risk R-7).
+- A-P3: no deployment happens in Phase 5–6; publishing remains a separate user-authorized act. Mechanism stated explicitly (finding F10): `.github/workflows/ci.yml` triggers the Cloudflare deploy on `push: branches: [main]`, so A-P3 holds only while cycle-5 commits stay on `feat/cycle5-rebuild` — M0 step 1 branches after the Phase 3/4 artifact commits land on main; merge to main is itself the Phase 7 user-authorized deploy act.
+- Prereq: `node <prime-plugin>/scripts/check-prereqs.mjs` currently returns `PREREQ-BLOCKED [PREREQ_RUN_CONTEXT_FINGERPRINT_MISSING]` — Phase 5 entry must re-run it with the task-fingerprint run context before any code; recorded as gate G0-Build, not a plan defect.
+- Dependency constraint: `docs/*.tsx` is type-checked — `npx tsc --noEmit` must stay exit 0 through every milestone (cycle-4 precedent + Phase-3 checkpoint 7).
+- Carry-in (quality-review finding 10): REQ-02 "subtle hover animation" (M2), REQ-12 "NO badge cloud" (M6 Skills; also bound where tech lists render, M5 step 4), REQ-13 location+tech line (M6 Experience), REQ-N02 "evergreen browsers" (M2/M8) clauses are truncated in canvas AC strings — re-read verbatim from docs/PRD.md at the milestone named; they bind as full PRD acceptance criteria.
 
 ## Risks & Mitigations
-| Risk | Impact | Mitigation |
-|---|---|---|
-| Empty `image`/`url` breaks prerender or leaves dead anchors | Build failure / broken UI | Component rules in DESIGN §3 (key=slug, no `<Image>` when '', no anchor wrap) + build check in M2 |
-| Union type churn breaks existing consumers of `HostedProject` | Compile errors across pages | Convert consumers in same commit slice as schema (M1); tsc gate |
-| Copy drift from whitelist during content authoring | Credibility damage (Critical) | Every content task cites W# ids; grep audit in M5; phase-6 whitelist conformance check |
-| Next 16 metadata/layout subtleties | Build/warning noise | Bundled docs already read (Phase 3); re-read 14-metadata doc at M3 before wrappers |
-| Scope creep via 15 secondary routes | Timeline slip | Explicit non-goals; nav/footer-only treatment (REQ-23) |
-| Responsive regressions from new sections | Mobile quality | Per-milestone browser spot check + full matrix in Phase 6 (REQ-18) |
+| ID | Risk | Impact | Mitigation |
+|---|---|---|---|
+| R-1 | Lenis/GSAP/Next scroll interplay jank or double-smoothing | Critical UX | ADR-3.1 single owner; delete `scroll-behavior: smooth` (globals.css:340) in M2; `lenis.on('scroll', ScrollTrigger.update)`; `ScrollTrigger.refresh()` after `document.fonts.ready` (M3 verify step); https://github.com/darkroomengineering/lenis integration pattern |
+| R-2 | ScrollTrigger pin breaks mobile/iOS | Major | matchMedia coarse guard: zero pins on coarse pointers (ADR-3.5); CSS-only fallbacks specced per showcase |
+| R-3 | Static-export violations (window at module scope, unsupported loaders) | Build failure | all motion code in `'use client'` leaves; guards inside effects; prod build with `output:'export'` run at every milestone; docs re-read per AGENTS.md |
+| R-4 | Ghost numeral copied from canvas sample without aria-hidden law | a11y AA fail (finding 1) | M5 task text restates the law; Phase 6 axe + analyze_layout check contrast of labels, numerals excluded as decorative |
+| R-5 | Copy drift from whitelist during content authoring | Credibility (Critical) | every content string cites W# in task comment; whitelist conformance grep at M8 |
+| R-6 | HeroCanvas rAF drains battery / competes with scroll | Major | IntersectionObserver + document.hasFocus + pointer:fine gates; DPR≤2; pauses when hero off-screen (canvas §architecture Hero schema) |
+| R-7 | Route deletion surprises owner post-build | Trust | explicit acknowledgment step in Phase 7 ship report before deploy (A-P2) |
+| R-8 | Dependency currency moves during long build | Minor | lockfile-pinned installs at M0; `npm ls` recorded; no floating ranges added |
 
 ## Milestones (ordered, with effort estimates and verification points)
 
-### M1 — Data foundation (est. 4–5h) → REQ-1,2,6,7,11,13,21,22
-1. `src/lib/types.ts` or projects.ts: union schema (FeaturedProject/OtherProject) per DESIGN §2.
-2. Author 6 project entries (Quill, Barangay, Vision, PRIME, UBMS, UMS) + 2 others (Dish, AI SaaS) strictly from W1–W22 and the W23 derivation rule (workflow/architecture node labels may only restate owner-brief pipeline descriptions and existing projects.ts caseStudy text — no new claims); slugs, categories, highlights, links, case studies.
-3. Skills: 7 domain groups per owner Phase 4 list ∩ whitelist.
-4. Positioning strings single-sourced (siteConfig/team); canonical org-name constant (Bayanihan default, flagged to owner); fix education/experience date conflicts.
-5. `config/navigation.ts`: 6 primary items, secondary→footer list.
-6. Defensive interim patch to existing consumers so M1 stays build-green before ProjectCard exists (review finding 1): `featured-projects.tsx` + `projects-client.tsx` — hide `<Image>` when `image===''`, no-anchor card when `url===''`, `key={slug}` (M2 then replaces both with the shared card).
-Verify: `npx tsc --noEmit`, `npm run lint`, `npm run build` green; grep: no non-whitelisted URL in src/data.
+### M0 — Prereqs, branch & dependency install (est. 0.5h)
+1. `git checkout -b feat/cycle5-rebuild` (D-4.2: branch must exist before any build commit; main stays deployable).
+2. Re-run `check-prereqs.mjs` with run-context fingerprint.
+3. `npm i --save-exact gsap@3.15.0 lenis@1.3.26 && npm i --save-exact lucide-react@1.48.0` (exact pins, no caret ranges — D-4.3/R-8; M2's dep-GC step removes orphaned packages from the same lockfile delta).
+4. Read bundled Next 16 docs: static-exports, font, image, metadata (AGENTS.md).
+Verify: `npm ls gsap lenis lucide-react` exit 0; `package.json` shows exact pins; `npm run build` still green pre-change (baseline); prereq receipt stored; `git branch --show-current` = feat/cycle5-rebuild.
 
-### M2 — Shared components (est. 4–5h) → REQ-3,4,5,9,12,18,19,21
-1. `components/projects/project-card.tsx` (featured/compact variants, rules per §3).
-2. `components/projects/flow-diagram.tsx` (workflow steps + architecture lanes, `<ol>` semantics, token styles, mobile vertical stack, reduced-motion safe).
-3. `components/sections/what-i-build.tsx` + homepage insert (REQ-5) with `#cat-*` links.
-4. Hero: positioning line (REQ-1), supporting message (REQ-4), 3 CTAs from siteConfig (REQ-3; replace draft literal GitHub URL).
-Verify: build + dev-server browser spot check desktop/375px (hero, card variants, diagram both kinds).
+### M1 — Data layer reconciliation (est. 2h) → REQ-07, REQ-08, REQ-16
+1. `src/data/projects.ts`: one entry per project (S7), keep 4 featured + 3 secondary, image/slug/live/github fields per canvas schema; delete the UBMS-era leftovers already replaced (inventory screenshots exist).
+2. `testimonials.ts` dropped from the render surface (not in cycle-5 PRD scope); **`now.ts` stays — FR-11 requires the current-focus metadata line from `nowData` verbatim (quality-review finding F1); consumed by M6.**
+3. skills/experience/education arrays verified against W21/W22/W19-class whitelist entries.
+4. REQ-16 decoupling invariant asserted: no hardcoded project names in components; featured-array entry drives showcase count (tested by temporary 5th entry in M5 verify, reverted after).
+Verify: `npx tsc --noEmit` 0; `npm run build` exit 0 (R-3); grep: no non-whitelisted URL/claim in `src/data`.
 
-### M3 — Routes & metadata (est. 4–5h) → REQ-8,10,16,17
-1. `/projects/[slug]` server page (generateStaticParams from featured w/ caseStudy, generateMetadata, notFound), CaseStudyLayout rendering conditional sections + diagrams + metrics + screenshots + links.
-2. `/projects` page: Featured (by category subgroups with ids) / Other split using flag; homepage FeaturedProjects filters flag.
-3. Server metadata wrappers for client-only pages (skills, resume, contact, projects list + secondary pages where trivial).
-4. sitemap.ts: all static routes + slugs + blog posts.
-Verify: build emits N case-study pages (count in build output); static-export checks (finding 4): `out/404.html` exists and `out/projects/<slug>/index.html` count matches the build manifest (no server-side notFound behavior under export); curl prerendered HTML titles unique.
+### M2 — Shell, tokens, route cleanup, dep-GC (est. 3h) → REQ-01, REQ-02, REQ-15, REQ-19, REQ-N01…REQ-N06, REQ-N02 (+FR-13 carry-in lands in M6)
+1. `globals.css`: light-only token block from canvas `cssVariables` (each hex + role verbatim); **G32 parity: file carries the verbatim `custom_approval` quote comment + min-width band queries crossing compact(≤767)/medium(768–1023)/expanded(≥1024)**; remove `scroll-behavior: smooth` (line 340) and dark-theme blocks; Tailwind 4 `@theme inline` mapping kept.
+2. `layout.tsx`: remove theme flash script + `dark` class + theme Providers; keep Geist/Geist_Mono `next/font` vars, metadata, JSON-LD, skip-link; single-page `page.tsx` server composition (Section order per canvas §architecture).
+3. New `Header` (fixed minimal, compacts >~80px via Lenis→ScrollTrigger wiring or IO sentinel — no raw scroll listener), `Footer` minimal per FR-15 element list (name, © YEAR, location, social links), remove `BackToTop` particles/marquee carry-overs; carry-in clause: "subtle hover animation" per PRD FR-02.
+4. Delete the 19 secondary route dirs — including `src/app/contact/`, which carries the legacy web3forms `contact-client.tsx` and its `process.env` reads out at this slice — keep `not-found.tsx`, `robots.ts`, `sitemap.ts`, `manifest.ts`; sitemap rewrite drops its `src/data/blog` import → single URL + anchors documented (REQ-19 route-cleanup acceptance: `out/` has index.html with zero links to deleted routes).
+5. Dependency GC (quality-review Minor): `npm uninstall next-themes react-hook-form zod` (+ any package left import-free by the deletions — check `npx depcheck`); data-file GC (finding F8): delete `src/data/blog.ts`, `achievements.ts`, `certifications.ts`, `uses.ts` — grep confirms their only importers are the route dirs removed in step 4 (blog importer `sitemap.ts` fixed in step 4); `team.ts` stays until M4 drops hero's import, then is deleted in the same M4 slice. Lockfile delta after M2 must equal: +gsap +lenis, lucide-react bump, −dropped packages (threat-model invariant 5 updated to match).
+6. `public/_headers` CSP tightening (finding F4): `connect-src 'self'` (api.github.com/api.web3forms.com consumers are gone); drop `https://avatars.githubusercontent.com` from img-src once testimonials are unrendered; keep remaining headers; verify by reading the file diff.
+Verify: `npm run build` + `npm run lint` exit 0; grep dark/theme = 0 in shell files (defined set: `src/app/globals.css`, `src/app/layout.tsx`, `src/app/page.tsx`, `src/components/layout/**`); keyboard Tab reaches header/footer controls with visible focus ring (FR-02 AC; the M2 half of the carry-in — nav hover clause bound in step 3, focus check here); `out/index.html` renders server-side full text (no-JS row of behaviorStates); `_headers` diff reviewed; depcheck output recorded; `git grep` for the four deleted data files returns 0 importers.
 
-### M4 — Content rewrites (est. 2–3h) → REQ-1,2,14,15,22
-1. About: engineering-workflow narrative replacing school timeline; keep profile photo/section.
-2. Resume: summary (no objective), domain skills import, Experience/Client/Personal sections.
-3. Education/experience blurbs de-juniorized (truth preserved: 2026 graduation stays).
-Verify: grep ban-list (fresh graduate|beginner|basic|passionate|looking for|web development fundamentals|Bayanaihan) = 0 hits in content files; build green.
+### M3 — Scroll core (est. 2h) → REQ-01, REQ-18
+1. `SmoothScrollProvider` client leaf: Lenis constructed only when `!prefers-reduced-motion`; `lagSmoothing(0)`; `gsap.ticker` drives `lenis.raf`; `lenis.on('scroll', ScrollTrigger.update)`; `ScrollTrigger.refresh()` on `document.fonts.ready` + load; expose `scrollTo(target, opts)` honoring ~80px nav offset; native `href` remains fallback.
+Verify: dev-server smoke desktop + reduced-motion emulation (no Lenis instance; `getComputedStyle(document.documentElement).scrollBehavior === 'auto'`); `npm run build` exit 0 (R-3).
 
-### M5 — Polish & pre-Verify sweep (est. 1–2h) → REQ-18,19,20,21
-1. Responsive audit of new surfaces at 320/375/430/768/1280/1600 (dev server).
-2. Link integrity: external URL 200-checks (W5/W17/W18/W15/W19) via HEAD requests; mechanical audit (finding 6): script grep that every `target=_blank` anchor also carries `rel="noopener noreferrer"`, and zero occurrences of `dangerouslySetInnerHTML` in `src/`.
-3. Console error sweep; alt text; contrast spot checks; heading order on new pages.
-4. Whitelist conformance grep (W1–W23): every number/URL/claim in changed `src/data` + content files resolves to a whitelist entry; report written to prime/reports.
-Verify: lint 0, build 0, scripted checks report → evidence in prime/reports.
+### M4 — Hero (est. 3h) → REQ-03, REQ-04, REQ-05, REQ-06
+1. Staged sequence per canvas timeline: bg 400 → nav 150 → headline lines 700 (stagger 120; pre-wrapped server `<span>` lines, weight 400 at ≥64px) → visual 900 scale-in from 0.94 + opacity (never scale(0)) → meta 300 → settle; serial ceiling 2450ms (FR-03 ≤2.5s); headline ≥86px ≤10vw at 1440 (REQ-04).
+2. `HeroCanvas`: 2D lattice, DPR≤2, `useMotionValue`+`useSpring(stiffness:100, damping:10)` pointer lag ≤3vw, IO+focus+pointer:fine gates, `aria-hidden`; coarse-pointer static typographic composition.
+3. `ScrollIndicator` first viewport, ≤2 loops, `aria-hidden` (user-instruction override kept bounded).
+4. Delete `src/data/team.ts` — the hero rewrite in this slice removes its last importer (GC chain from M2 step 5, finding F8).
+Verify: t+3s full-page screenshot shows settled hero (browser dev-server spot check; Playwright evidence matrix deferred to Phase 6); server HTML contains all hero strings; reduced-motion static parity; `npm run build` exit 0 (R-3).
 
-Total adjusted estimate: 15–20h (see calibration). Full Playwright matrix, independent quality-review, and Autopilot depth extensions belong to Phase 6, not Build.
+### M5 — Work showcases (est. 4h) → REQ-07, REQ-08, REQ-09, REQ-10
+1. `Work` + `variantFor(index % 4)` per ADR-3.5: 01 pinned browser-preview (the single GSAP pin; scrub image scale 1→1.025 in overflow-hidden wrapper); 02 full-bleed clip-path wipe + parallax yPercent ≤8 decorative; 03 ghost-number scrub + Vision diagram with hard-coded "System diagram" label (W28); 04 CSS sticky fan-out of 4 inventory screenshots (no ScrollTrigger pin).
+2. Numeral law (finding 1): display numeral `aria-hidden` ghost tone; readable labelLarge mono index at ≥#45474D beside it in all four variants.
+3. Hover: scale ≤1.03, `:active` scale 0.97/150ms, `@media (hover:hover) and (pointer:fine)` gated; live/GitHub hrefs from data, `rel="noopener noreferrer"`.
+4. Secondary row (3 projects) typographic, no card-grid monotony; carry-in: PRD FR-12 "NO badge cloud" verbatim constraint on tech rendering. All below-fold images carry `loading="lazy"` (NFR-01 clause, finding F3); hero visual above fold loads eagerly.
+5. REQ-16 proof: append a temporary 5th featured entry, rebuild, confirm a fifth showcase renders with zero component edits, revert (M1 assertion).
+Verify: J2 walkthrough desktop+mobile dev server; grep zero `target=_blank` without noopener; grep every below-fold `<img>`/`<Image>` has loading="lazy"; anchors all resolve; `npm run build` exit 0 (R-3).
+
+### M6 — About / Skills / Experience (est. 2h) → REQ-11, REQ-12, REQ-13
+1. Editorial About: asymmetric split, statement from W21/W24 material only; metadata block per FR-11 verbatim fields: location "Philippines", education (BSIT, ISPSC, 2025–2026), role experience (Bayanihan internship 2026-02→04), specialties (W21 categories), technologies (W22), **current focus line taken verbatim from `src/data/now.ts` nowData (finding F1; W-rule: no paraphrase)**.
+2. Skills (REQ-12): 7-domain typographic list — carry-in verbatim constraint applies HERE (and in M5 tech lines): "NO badge cloud"; hover detail reveal with always-visible server text for AT (no hover-gated information). Experience (REQ-13): single Bayanihan entry with FR-13's full element list — year (2026), role (Web Developer Intern), company (Bayanihan), location (Philippines; W-rule verbatim), technologies line (W22) — exact dates, no invented stats.
+Verify: whitelist conformance grep on all new strings (W-id per line); reduced-motion: reveals collapse per canvas floor (opacity ≤200ms only); `npm run build` exit 0 (R-3).
+
+### M7 — Contact + close (est. 1.5h) → REQ-14, REQ-15
+1. Inverse panel #121317, "LET'S BUILD SOMETHING." display statement, links #8AB4F8 (ADR-3.9), mailto/GitHub/LinkedIn direct anchors, CTA pill radius 9999px, focus rings on-ink variant. No web3forms: the legacy `contact/contact-client.tsx` (and its `process.env` reads) is already gone — deleted with its route dir at M2 step 4 (finding N5 correction); this slice builds the replacement section only.
+Verify: J3 check; contrast pair #8AB4F8/#121317 recomputed in M8 sweep; `npm run build` exit 0 (R-3).
+
+### M8 — Build-phase sweep & handoff evidence (est. 2h) → REQ-17, REQ-18, REQ-19, REQ-N01…REQ-N06
+1. `npm run build` + `npm run lint` + `npx tsc --noEmit` exit 0; prod `out/` checks (404 present, single index.html). Env leakage close-out (finding F7): all `process.env` readers are gone by now — contact-client and footer at M2, hero at M4 (timing corrected per N5) — so delete the dead `env: { NEXT_PUBLIC_BASE_PATH: '' }` block from `next.config.ts` and assert `grep -r "process\.env" src/` = 0 hits.
+2. §14 62-item preflight pass against `prime/reports/phase-3-parts-evidence.md` (spec-completion gate); em-dash grep 0 in user-visible strings; `dangerouslySetInnerHTML` audit (JSON-LD only, static config input).
+3. `prime/reports/output-intent.json` written; bundle size recorded (`out/_next/static` first-load JS).
+Verify: all three commands + checklist report; this document's trace table re-run through the traceability oracle.
+
+Total: raw sums to 20.0h (0.5+2+3+2+3+4+2+1.5+2 — arithmetic fixed after quality-review Minor on an earlier 18.5h mis-sum; pass-2 re-check re-derived the same sum); **adjusted estimate 24–30h** (see calibration). Full Playwright matrix, axe, ASVS pass and independent quality review belong to Phase 6, not Build.
 
 ## Estimation Calibration
-Historical actuals: cycle 2+3 (archived reports) delivered comparable change sets — 12 fixes + site-wide E2E verified in ~2 working sessions each, suggesting ~1.3× variance vs first-pass estimates. Rebalanced after review finding 5: M1 4–5h (heaviest content authoring), M2 4–5h, M3 4–5h, M4 2–3h, M5 1–2h. Total adjusted estimate 15–20h, derived from PERT mean (o=11, m=15, p=24 → (11+4·15+24)/6 ≈ 15.8h) scaled by the 1.3× historical variance factor, rounded to the range above. Calibration basis recorded per G8.
+Historical bias: cycle-4 plan estimated 15–20h for a smaller change set and ran ~1.3× variance vs actuals (recorded in the cycle-4 PRP calibration, superseded by this file). This rebuild replaces 20 routes + shell and adds a motion system — no comparable single actual exists for full scope, so: PERT on milestone sums (o=15h, m=20h, p=30h → (15+4·20+30)/6 ≈ 20.8h) scaled by the 1.3× historical variance factor → 24–30h adjusted estimate. Uncertainty concentrated in M4/M5 (canvas + pin variants); rollback slices are per-milestone so overrun is bounded.
 
 ## Requirement → Milestone Traceability (G12)
-REQ-1: M1,M2,M4 · REQ-2: M1,M4 · REQ-3: M2 · REQ-4: M2 · REQ-5: M2 · REQ-6: M1,M3 · REQ-7: M1 · REQ-8: M3 · REQ-9: M2 · REQ-10: M1,M3 · REQ-11: M1,M5 · REQ-12: M2,M3 · REQ-13: M1 · REQ-14: M1,M4 · REQ-15: M4 · REQ-16: M3 · REQ-17: M3 · REQ-18: M2,M5 · REQ-19: M2,M5 · REQ-20: M1–M5 · REQ-21: M2,M5 · REQ-22: M1 · REQ-23: M1.
-DESIGN decisions traced: D1→M3, D2→M2, D3→M1, D4→M3, D5→M1, D6→M1, D7→M2/M3.
-External refs consulted: https://nextjs.org/docs/app/guides/static-exports ; https://nextjs.org/docs/app/getting-started/updating-metadata ; https://www.w3.org/WAI/tutorials/menus/structure/ (nav secondary pattern).
+REQ-01: M2,M3 · REQ-02: M2 (+FR-02 hover clause carry-in) · REQ-03: M4 · REQ-04: M4 · REQ-05: M4 · REQ-06: M4 · REQ-07: M1,M5 · REQ-08: M1,M5 · REQ-09: M5 · REQ-10: M5 · REQ-11: M6 · REQ-12: M5,M6 (+FR-12 badge-cloud carry-in: Skills primary, showcase tech lines bound) · REQ-13: M6 (+FR-13 location/tech carry-in, Experience element list) · REQ-14: M7 · REQ-15: M2,M7 (footer built in shell M2, FR-15 element-list verify at M7) · REQ-16: M1,M5 (data decoupling — 5th-showcase proof) · REQ-17: M6,M8 · REQ-18: M3,M4,M5,M6,M8 · REQ-19: M2,M8 (route cleanup executed in M2; M1 carries no route task) · REQ-N01: M2,M3,M5 (lazy below-fold clause, finding F3) · REQ-N02: M2,M8 (+evergreen-browsers carry-in) · REQ-N03: M2–M7,M8(a11y sweep) · REQ-N04: M3–M7,M8 · REQ-N05: M0,M8 · REQ-N06: M0,M2,M8.
+DESIGN decisions traced: ADR-3.1→M2/M3 · ADR-3.2→M4/M5 · ADR-3.3→M4 · ADR-3.4(G13 bespoke)→M2 tokens · ADR-3.5→M5 · ADR-3.6→M2/M4 · ADR-3.7→M7 · ADR-3.8→M0 · ADR-3.9→M7; G32 parity→M2; behaviorStates→M2/M4/M5; finding-1 numeral law→M5.
+Journeys: J1→M4 verify · J2→M5 verify · J3→M7 verify · J4→M3+M6 reduced-motion verifies · J5 mobile arc→M5/M6 mobile dev-server checks (full matrix Phase 6).
+External refs consulted (rationale at point of use): https://nextjs.org/docs/app/guides/static-exports (export support matrix, constraints line) · https://gsap.com/docs/v3/Plugins/ScrollTrigger/ (pin/scrub API + refresh semantics, R-1) · https://github.com/darkroomengineering/lenis (ScrollTrigger update wiring, R-1) · https://motion.dev/docs/react-reduced-motion (MotionConfig reducedMotion='user', M4) · https://gsap.com/blog/3-13/ (SplitText now free — still unused, ADR-3.2 a11y rationale) · https://nextjs.org/docs/app/api-reference/components/font (self-hosted export-safe fonts, M2).
 
 ## Rollback
-All work on branch `feat/repositioning-cycle4` (Tier A branch). Per-milestone commits; revert-forward per slice; no data/destructive ops (files-only change set).
+Work on branch `feat/cycle5-rebuild` (Tier A); per-milestone commits (M0–M8); revert-forward per slice; route deletion isolated in its own commit inside M2 so a single revert restores the old site; no data/destructive ops beyond file changes; main branch stays deployable at all times.
