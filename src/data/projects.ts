@@ -272,9 +272,7 @@ export const hostedProjects: HostedProject[] = [
     description:
       'Computer-vision audit pipeline: YOLO detection over CCTV and video input, timestamped events, automated FFmpeg clip extraction, and an auditor review interface.',
     url: '',
-    image: '/project-vision.png',
-    imageAlt:
-      'Vision Video Auditor architecture diagram: Ingest, Detection, Evidence, and Review pipeline (generated system diagram, not a product screenshot)',
+    image: '',
     tags: ['Python', 'FastAPI', 'React', 'YOLO'],
     category: 'computer-vision-automation',
     highlights: [
@@ -330,7 +328,6 @@ export const hostedProjects: HostedProject[] = [
       ],
       architectureNote: 'FastAPI serves the detection and extraction backend; React serves the auditor frontend.',
       metrics: [],
-      screenshots: ['/project-vision.png'],
     },
   },
   {

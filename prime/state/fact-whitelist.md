@@ -15,12 +15,7 @@ Rule: any metric, external URL, or hard technical claim rendered on the portfoli
 
 ## Vision Video Auditor — source: owner brief Phases 3/8 ONLY (no repo, no URL, no metrics)
 - W8 claims: YOLO detection; CCTV/video processing; event detection w/ timestamps; automated FFmpeg clip extraction; clip storage; auditor interface; alert workflow; FastAPI backend; React frontend
-- W9 links: NONE permitted. Metrics: NONE permitted (no mAP/latency data supplied). Image: see W28 — generated architecture diagram, not product UI
-
-## W28 — Vision Video Auditor card image (added at the 4-up grid fix)
-- /project-vision.png is a RENDERED DIAGRAM built from the W8 node labels already in projects.ts (Ingest → Detection → Evidence → Review). It is NOT a screenshot of running software and must never be described as one.
-- No new technical claim: every label on the graphic traces to W8 or to the existing caseStudy workflow/architecture/architectureNote text.
-- The card has no live URL, so the diagram is the only honest visual available until the owner supplies a real capture.
+- W9 links: NONE permitted. Metrics: NONE permitted (no mAP/latency data supplied). Image: none (no asset)
 
 ## W29 — now.ts "Now" statements surfaced in the About metadata block (added at the Phase 5 quality review, MIN-6)
 - The About rows "Current focus", "Learning", "Exploring" and "Last updated" restate owner-declared soft statements from `src/data/now.ts` carried forward from the existing portfolio — `building`, `learning`, `exploring` and `lastUpdated` verbatim. These are stated activities/interests, NOT metrics, awards, clients or employment claims.
