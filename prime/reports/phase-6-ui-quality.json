@@ -1,0 +1,120 @@
+{
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "tool_identity": "playwright",
+  "timestamp": "2026-09-28T00:48:58.364Z",
+  "url": "http://127.0.0.1:61741",
+  "pages_assessed": [
+    {
+      "route": "/",
+      "viewport": "desktop",
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "viewport": "tablet",
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "viewport": "mobile",
+      "status": "pass"
+    },
+    {
+      "route": "/404",
+      "viewport": "desktop",
+      "status": "pass"
+    },
+    {
+      "route": "/404",
+      "viewport": "tablet",
+      "status": "pass"
+    },
+    {
+      "route": "/404",
+      "viewport": "mobile",
+      "status": "pass"
+    }
+  ],
+  "viewports_tested": [
+    "desktop",
+    "tablet",
+    "mobile"
+  ],
+  "dimensions": {
+    "design_tokens": {
+      "mismatches": [],
+      "expected": {
+        "--bg-canvas": "#F8F9FC",
+        "--surface": "#FFFFFF",
+        "--ink": "#121317",
+        "--ink-muted": "#45474D",
+        "--rule": "#DDE3EC",
+        "--accent": "#1A73E8",
+        "--accent-deep": "#0B57D0",
+        "--inverse-bg": "#121317",
+        "--inverse-fg": "#F8F9FC",
+        "--inverse-link": "#8AB4F8"
+      },
+      "actual": {
+        "--bg-canvas": "#f8f9fc",
+        "--surface": "#fff",
+        "--ink": "#121317",
+        "--ink-muted": "#45474d",
+        "--rule": "#dde3ec",
+        "--accent": "#1a73e8",
+        "--accent-deep": "#0b57d0",
+        "--inverse-bg": "#121317",
+        "--inverse-fg": "#f8f9fc",
+        "--inverse-link": "#8ab4f8",
+        "--nav-h": "64px",
+        "_font_body": "Geist, \"Geist Fallback\", \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-s"
+      },
+      "checks": 10
+    },
+    "accessibility": {
+      "axe_violations_deferred": "see phase-6-a11y-audit.json (a11y mode)",
+      "keyboard_nav_verified": true,
+      "skip_link": true
+    },
+    "responsive_layout": {
+      "horizontal_overflow_failures": [],
+      "viewports": [
+        "desktop",
+        "tablet",
+        "mobile"
+      ],
+      "verdict": "pass"
+    },
+    "visual_consistency": {
+      "forbidden_label_failures": 0,
+      "single_theme_no_toggle": true,
+      "verdict": "pass"
+    },
+    "component_quality": {
+      "nav_anchors": 3,
+      "featured_showcases": true,
+      "verdict": "pass"
+    }
+  },
+  "screenshots": [
+    "prime/evidence/screenshots/p6v-home-desktop.png",
+    "prime/evidence/screenshots/p6v-home-tablet.png",
+    "prime/evidence/screenshots/p6v-home-mobile.png",
+    "prime/evidence/screenshots/p6v-notfound-desktop.png",
+    "prime/evidence/screenshots/p6v-notfound-tablet.png",
+    "prime/evidence/screenshots/p6v-notfound-mobile.png",
+    "prime/evidence/screenshots/p6v-C-005-header.png",
+    "prime/evidence/screenshots/p6v-C-003-layout.png",
+    "prime/evidence/screenshots/p6v-C-004-footer.png",
+    "prime/evidence/screenshots/p6v-C-008-work.png",
+    "prime/evidence/screenshots/p6v-C-007-skills.png",
+    "prime/evidence/screenshots/p6v-C-006-experience.png"
+  ],
+  "analysis": {
+    "verdict": "pass",
+    "overall_score": 92,
+    "notes": {
+      "img_alt_warnings": []
+    }
+  }
+}

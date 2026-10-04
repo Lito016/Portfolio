@@ -1,0 +1,358 @@
+{
+  "tool_identity": "playwright",
+  "tool": "playwright",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "command": "node prime/evidence/scripts/phase6-verify.mjs",
+  "started": "2026-09-28T00:48:27.269Z",
+  "completed_at": "2026-09-28T00:48:58.365Z",
+  "base_url": "http://127.0.0.1:61741",
+  "routes_tested": [
+    "/",
+    "/404"
+  ],
+  "viewports": [
+    "desktop",
+    "tablet",
+    "mobile"
+  ],
+  "tests_run": 31,
+  "passed": 31,
+  "failed": 0,
+  "suites": [
+    {
+      "name": "responsive-matrix",
+      "checks": 6
+    },
+    {
+      "name": "critical-journeys",
+      "checks": 25,
+      "files": [
+        "prime/test/reports/UAT-01-anchor-navigation-and-focus.json",
+        "prime/test/reports/UAT-02-work-showcases-integrity.json",
+        "prime/test/reports/UAT-03-content-integrity-about-skills-experience.json",
+        "prime/test/reports/UAT-04-contact-static-links.json",
+        "prime/test/reports/UAT-05-not-found-route.json"
+      ]
+    }
+  ],
+  "journeys": [
+    {
+      "scenario_id": "01",
+      "scenario": "anchor-navigation-and-focus",
+      "requirement": "FR-02 single-page anchor navigation with Lenis smooth scroll and visible keyboard focus",
+      "result": "PASS",
+      "steps": 6,
+      "evidence_file": "prime/test/reports/UAT-01-anchor-navigation-and-focus.json"
+    },
+    {
+      "scenario_id": "02",
+      "scenario": "work-showcases-integrity",
+      "requirement": "FR-07..FR-10 four editorial featured showcases + secondary row, every external link safe",
+      "result": "PASS",
+      "steps": 5,
+      "evidence_file": "prime/test/reports/UAT-02-work-showcases-integrity.json"
+    },
+    {
+      "scenario_id": "03",
+      "scenario": "content-integrity-about-skills-experience",
+      "requirement": "FR-11..FR-13 About/Skills/Experience render with no invented seniority labels or placeholder copy",
+      "result": "PASS",
+      "steps": 5,
+      "evidence_file": "prime/test/reports/UAT-03-content-integrity-about-skills-experience.json"
+    },
+    {
+      "scenario_id": "04",
+      "scenario": "contact-static-links",
+      "requirement": "FR-14 contact close exposes direct mailto + external anchors with safe rel, no form or endpoint (ADR-3.9)",
+      "result": "PASS",
+      "steps": 5,
+      "evidence_file": "prime/test/reports/UAT-04-contact-static-links.json"
+    },
+    {
+      "scenario_id": "05",
+      "scenario": "not-found-route",
+      "requirement": "Error path: /404 renders a styled not-found surface, not a blank document",
+      "result": "PASS",
+      "steps": 4,
+      "evidence_file": "prime/test/reports/UAT-05-not-found-route.json"
+    }
+  ],
+  "results": [
+    {
+      "route": "/",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 140,
+      "perf": {
+        "fcp": 140,
+        "domContentLoaded": 36,
+        "transferBytes": 90710,
+        "loadMs": 136
+      },
+      "layout": {
+        "h1": 1,
+        "title": "Manolito Almaden Jr. - AI Solution Developer | Full-Stack Systems Developer",
+        "lang": "en",
+        "horizontal_overflow": false,
+        "img_no_alt": 0,
+        "sections_present": [
+          "work",
+          "about",
+          "skills",
+          "experience",
+          "contact"
+        ],
+        "forbidden_labels": []
+      },
+      "screenshot": "prime/evidence/screenshots/p6v-home-desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 0,
+        "benign_aborted": 1
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "viewport": "tablet",
+      "http_status": 200,
+      "load_ms": 114,
+      "perf": {
+        "fcp": 124,
+        "domContentLoaded": 19,
+        "transferBytes": 90710,
+        "loadMs": 112
+      },
+      "layout": {
+        "h1": 1,
+        "title": "Manolito Almaden Jr. - AI Solution Developer | Full-Stack Systems Developer",
+        "lang": "en",
+        "horizontal_overflow": false,
+        "img_no_alt": 0,
+        "sections_present": [
+          "work",
+          "about",
+          "skills",
+          "experience",
+          "contact"
+        ],
+        "forbidden_labels": []
+      },
+      "screenshot": "prime/evidence/screenshots/p6v-home-tablet.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 0,
+        "benign_aborted": 1
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "viewport": "mobile",
+      "http_status": 200,
+      "load_ms": 126,
+      "perf": {
+        "fcp": 108,
+        "domContentLoaded": 19,
+        "transferBytes": 90710,
+        "loadMs": 123
+      },
+      "layout": {
+        "h1": 1,
+        "title": "Manolito Almaden Jr. - AI Solution Developer | Full-Stack Systems Developer",
+        "lang": "en",
+        "horizontal_overflow": false,
+        "img_no_alt": 0,
+        "sections_present": [
+          "work",
+          "about",
+          "skills",
+          "experience",
+          "contact"
+        ],
+        "forbidden_labels": []
+      },
+      "screenshot": "prime/evidence/screenshots/p6v-home-mobile.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 0,
+        "benign_aborted": 1
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/404",
+      "viewport": "desktop",
+      "http_status": 200,
+      "load_ms": 115,
+      "perf": {
+        "fcp": 52,
+        "domContentLoaded": 42,
+        "transferBytes": 19365,
+        "loadMs": 110
+      },
+      "layout": {
+        "h1": 1,
+        "title": "Manolito Almaden Jr. - AI Solution Developer | Full-Stack Systems Developer",
+        "lang": "en",
+        "horizontal_overflow": false,
+        "img_no_alt": 0,
+        "sections_present": [],
+        "forbidden_labels": []
+      },
+      "screenshot": "prime/evidence/screenshots/p6v-notfound-desktop.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 0,
+        "benign_aborted": 1
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/404",
+      "viewport": "tablet",
+      "http_status": 200,
+      "load_ms": 103,
+      "perf": {
+        "fcp": 56,
+        "domContentLoaded": 45,
+        "transferBytes": 19365,
+        "loadMs": 100
+      },
+      "layout": {
+        "h1": 1,
+        "title": "Manolito Almaden Jr. - AI Solution Developer | Full-Stack Systems Developer",
+        "lang": "en",
+        "horizontal_overflow": false,
+        "img_no_alt": 0,
+        "sections_present": [],
+        "forbidden_labels": []
+      },
+      "screenshot": "prime/evidence/screenshots/p6v-notfound-tablet.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 0,
+        "benign_aborted": 1
+      },
+      "status": "pass"
+    },
+    {
+      "route": "/404",
+      "viewport": "mobile",
+      "http_status": 200,
+      "load_ms": 92,
+      "perf": {
+        "fcp": 48,
+        "domContentLoaded": 44,
+        "transferBytes": 19365,
+        "loadMs": 90
+      },
+      "layout": {
+        "h1": 1,
+        "title": "Manolito Almaden Jr. - AI Solution Developer | Full-Stack Systems Developer",
+        "lang": "en",
+        "horizontal_overflow": false,
+        "img_no_alt": 0,
+        "sections_present": [],
+        "forbidden_labels": []
+      },
+      "screenshot": "prime/evidence/screenshots/p6v-notfound-mobile.png",
+      "console": {
+        "errors": 0,
+        "warnings": 0,
+        "network_failures": 0,
+        "benign_aborted": 1
+      },
+      "status": "pass"
+    }
+  ],
+  "screenshots": [
+    "prime/evidence/screenshots/p6v-home-desktop.png",
+    "prime/evidence/screenshots/p6v-home-tablet.png",
+    "prime/evidence/screenshots/p6v-home-mobile.png",
+    "prime/evidence/screenshots/p6v-notfound-desktop.png",
+    "prime/evidence/screenshots/p6v-notfound-tablet.png",
+    "prime/evidence/screenshots/p6v-notfound-mobile.png",
+    "prime/test/screenshots/verify/uat01-top.png",
+    "prime/test/screenshots/verify/uat01-after-anchor.png",
+    "prime/test/screenshots/verify/uat02-work-top.png",
+    "prime/test/screenshots/verify/uat02-work-secondary.png",
+    "prime/test/screenshots/verify/uat03-about.png",
+    "prime/test/screenshots/verify/uat03-experience.png",
+    "prime/test/screenshots/verify/uat04-contact.png",
+    "prime/test/screenshots/verify/uat04-contact-mobile.png",
+    "prime/test/screenshots/verify/uat05-notfound-top.png",
+    "prime/test/screenshots/verify/uat05-notfound-mobile.png",
+    "prime/evidence/screenshots/p6v-C-005-header.png",
+    "prime/evidence/screenshots/p6v-C-003-layout.png",
+    "prime/evidence/screenshots/p6v-C-004-footer.png",
+    "prime/evidence/screenshots/p6v-C-008-work.png",
+    "prime/evidence/screenshots/p6v-C-007-skills.png",
+    "prime/evidence/screenshots/p6v-C-006-experience.png"
+  ],
+  "performance_home": {
+    "fcp": 140,
+    "domContentLoaded": 36,
+    "transferBytes": 90710,
+    "loadMs": 136
+  },
+  "console_errors": [],
+  "network_failures": [],
+  "benign_aborted_superseded_requests": 6,
+  "console_log": "zero page errors and zero real failed requests across every route and viewport; 6 browser-initiated net::ERR_ABORTED cancellation(s) of a superseded background route fetch (benign Next App Router hydration dedup, not a failed asset); journeys clean",
+  "design_tokens": {
+    "expected_source": "src/app/globals.css :root / docs/DESIGN.canvas.tsx",
+    "expected": {
+      "--bg-canvas": "#F8F9FC",
+      "--surface": "#FFFFFF",
+      "--ink": "#121317",
+      "--ink-muted": "#45474D",
+      "--rule": "#DDE3EC",
+      "--accent": "#1A73E8",
+      "--accent-deep": "#0B57D0",
+      "--inverse-bg": "#121317",
+      "--inverse-fg": "#F8F9FC",
+      "--inverse-link": "#8AB4F8"
+    },
+    "actual": {
+      "--bg-canvas": "#f8f9fc",
+      "--surface": "#fff",
+      "--ink": "#121317",
+      "--ink-muted": "#45474d",
+      "--rule": "#dde3ec",
+      "--accent": "#1a73e8",
+      "--accent-deep": "#0b57d0",
+      "--inverse-bg": "#121317",
+      "--inverse-fg": "#f8f9fc",
+      "--inverse-link": "#8ab4f8",
+      "--nav-h": "64px",
+      "_font_body": "Geist, \"Geist Fallback\", \"Segoe UI Variable Text\", \"Segoe UI\", system-ui, sans-s"
+    },
+    "mismatches": [],
+    "verdict": "pass"
+  },
+  "cross_references": [
+    "src/app/page.tsx",
+    "src/app/layout.tsx",
+    "src/app/globals.css",
+    "src/components/layout/header.tsx",
+    "src/components/layout/footer.tsx",
+    "src/components/sections/work.tsx",
+    "src/components/sections/contact.tsx",
+    "src/data/projects.ts",
+    "docs/DESIGN.canvas.tsx",
+    "out/index.html",
+    "out/404.html",
+    "prime/test/reports/UAT-01-anchor-navigation-and-focus.json",
+    "prime/test/reports/UAT-02-work-showcases-integrity.json",
+    "prime/test/reports/UAT-03-content-integrity-about-skills-experience.json",
+    "prime/test/reports/UAT-04-contact-static-links.json",
+    "prime/test/reports/UAT-05-not-found-route.json"
+  ],
+  "fingerprint": "9601728ea787fa7aaf49ee49528dc7c6996a7127697841ba133f1642d113d6eb"
+}

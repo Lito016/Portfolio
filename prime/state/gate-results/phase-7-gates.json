@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.1",
+  "phase": 7,
+  "cycle": 5,
+  "verdict": "pass",
+  "generated_at": "2026-09-28T02:28:45.475Z",
+  "checks": [
+    {
+      "name": "documentation-review",
+      "status": "pass",
+      "evidence": [
+        "prime/reports/phase-7-ship.md",
+        "prime/reports/phase-7-quality-review.md",
+        "prime/reports/phase-7-review-sidecar.json"
+      ],
+      "note": "independent subagent reviewed all cycle-5 ship artifacts against primary evidence; 0 blocking findings; 5 corrections applied in-cycle (incl. QR7-003 test-count reconciliation)"
+    },
+    {
+      "name": "delivery-verification",
+      "status": "pass",
+      "evidence": [
+        "prime/reports/production-readiness.json",
+        "prime/reports/output-quality-scorecard.json",
+        "prime/state/gate-results/phase-6-gates.json"
+      ],
+      "note": "Phase 6 closed 47/47 applicable gates with clean fabrication scan; deliverable (static export) verified; publication intentionally deferred to explicit owner authorization — nothing deployed or claimed live"
+    },
+    {
+      "name": "retrospective-complete",
+      "status": "pass",
+      "evidence": [
+        "prime/reports/retrospective.md",
+        "prime/evidence/estimation-calibration.json",
+        "prime/evidence/agent-effectiveness.json"
+      ],
+      "note": "went-well/went-wrong/lessons/next-cycle present; estimate 24-30h vs wall-clock 11.68h recorded with explicit non-equivalence caveat; agent effectiveness + review interventions quantified"
+    },
+    {
+      "name": "G1",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-7-ship.md is 4816 bytes (min 200)"
+      ]
+    },
+    {
+      "name": "G2",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/retrospective.md matches /lesson|learn|improve|went well|went wrong|next/i"
+      ]
+    },
+    {
+      "name": "G3",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-7-ship.md matches /deploy|release|publish|deliver|ship|version|tag|live/i"
+      ]
+    },
+    {
+      "name": "G4",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-7-quality-review.md matches /verdict:\\s*(pass|block|request changes)/i"
+      ]
+    },
+    {
+      "name": "G5",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/retrospective.md matches /estimated.*actual|actual.*estimated|variance|estimation bias/i"
+      ]
+    },
+    {
+      "name": "G6",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/evidence/estimation-calibration.json contains substantive fields: project_type, estimated, actual, variance_percent, recorded_at"
+      ]
+    },
+    {
+      "name": "G7",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/evidence/agent-effectiveness.json contains substantive fields: agents, review_interventions, outcome"
+      ]
+    },
+    {
+      "name": "G8",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-7-ship.md matches /methodology checklist|steps applied|\\[x\\].*(deploy|document|retrospect|deliver)/i"
+      ]
+    },
+    {
+      "name": "G9",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-7-ship.md matches /(deploy|rollback|monitor|backup|health check|alert|incident|runbook|on-call|canary|blue.green|zero.downtime)/i"
+      ]
+    },
+    {
+      "name": "G10",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/reports/phase-7-ship.md matches /(cdn|dns|ssl|tls|certificate|domain|propagation|lighthouse|performance monitor|uptime|page speed|cache|edge)/i"
+      ]
+    },
+    {
+      "name": "G11",
+      "status": "na",
+      "evidence": [
+        "GATE-SKIP: not applicable — capabilities_effective [autopilot_mode,has_docs,has_runtime_server,has_ui,has_website] lacks has_api"
+      ]
+    },
+    {
+      "name": "G12",
+      "status": "na",
+      "evidence": [
+        "GATE-SKIP: not applicable — capabilities_effective [autopilot_mode,has_docs,has_runtime_server,has_ui,has_website] lacks has_database"
+      ]
+    },
+    {
+      "name": "G13",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/state/guard-events.jsonl exists (10033 bytes)"
+      ]
+    },
+    {
+      "name": "G14",
+      "status": "pass",
+      "evidence": [
+        "GATE-PASS: prime/state/guard-events.jsonl exists (10033 bytes)"
+      ]
+    }
+  ]
+}

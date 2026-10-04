@@ -1,0 +1,209 @@
+{
+  "desktop": {
+    "overflow": "none",
+    "sections": {
+      "about": {
+        "pt": 72,
+        "pb": 72
+      },
+      "skills": {
+        "pt": 72,
+        "pb": 72
+      },
+      "experience": {
+        "pt": 72,
+        "pb": 72
+      },
+      "contact": {
+        "pt": 72,
+        "pb": 144
+      },
+      "work": {
+        "pt": 0,
+        "pb": 0
+      }
+    },
+    "gaps": {
+      "work→firstShowcase": 0,
+      "lastShowcase→secondary": 72,
+      "work→about": 0,
+      "about→skills": 0,
+      "skills→experience": 0,
+      "experience→contact": 0,
+      "contact→footer": 0
+    },
+    "showcases": [
+      {
+        "kind": "pinned-browser",
+        "pt": 72,
+        "pb": 72
+      },
+      {
+        "kind": "full-bleed",
+        "pt": 72,
+        "pb": 72
+      },
+      {
+        "kind": "typographic-diagram",
+        "pt": 72,
+        "pb": 72
+      },
+      {
+        "kind": "sticky-stack",
+        "pt": 72,
+        "pb": 72
+      }
+    ],
+    "rows": {
+      "metaRow": 16,
+      "skillRow": 24,
+      "secondaryRow": null,
+      "experienceRow": 32
+    },
+    "h2": {
+      "work-heading": 72,
+      "about-heading": 100.8,
+      "skills-heading": 72,
+      "experience-heading": 72,
+      "contact-heading": 100.8
+    }
+  },
+  "tablet": {
+    "overflow": "none",
+    "sections": {
+      "about": {
+        "pt": 81.92,
+        "pb": 81.92
+      },
+      "skills": {
+        "pt": 81.92,
+        "pb": 81.92
+      },
+      "experience": {
+        "pt": 81.92,
+        "pb": 81.92
+      },
+      "contact": {
+        "pt": 81.92,
+        "pb": 163.84
+      },
+      "work": {
+        "pt": 0,
+        "pb": 0
+      }
+    },
+    "gaps": {
+      "work→firstShowcase": 0,
+      "lastShowcase→secondary": 82,
+      "work→about": 0,
+      "about→skills": 0,
+      "skills→experience": 0,
+      "experience→contact": 0,
+      "contact→footer": 0
+    },
+    "showcases": [
+      {
+        "kind": "pinned-browser",
+        "pt": 81.92,
+        "pb": 81.92
+      },
+      {
+        "kind": "full-bleed",
+        "pt": 81.92,
+        "pb": 81.92
+      },
+      {
+        "kind": "typographic-diagram",
+        "pt": 81.92,
+        "pb": 81.92
+      },
+      {
+        "kind": "sticky-stack",
+        "pt": 81.92,
+        "pb": 81.92
+      }
+    ],
+    "rows": {
+      "metaRow": 16,
+      "skillRow": 24,
+      "secondaryRow": null,
+      "experienceRow": 32
+    },
+    "h2": {
+      "work-heading": 40,
+      "about-heading": 53.76,
+      "skills-heading": 40,
+      "experience-heading": 40,
+      "contact-heading": 53.76
+    }
+  },
+  "mobile": {
+    "overflow": "none",
+    "sections": {
+      "about": {
+        "pt": 64.96,
+        "pb": 64.96
+      },
+      "skills": {
+        "pt": 64.96,
+        "pb": 64.96
+      },
+      "experience": {
+        "pt": 64.96,
+        "pb": 64.96
+      },
+      "contact": {
+        "pt": 64.96,
+        "pb": 129.92
+      },
+      "work": {
+        "pt": 0,
+        "pb": 0
+      }
+    },
+    "gaps": {
+      "work→firstShowcase": 0,
+      "lastShowcase→secondary": 65,
+      "work→about": 0,
+      "about→skills": 0,
+      "skills→experience": 0,
+      "experience→contact": 0,
+      "contact→footer": 0
+    },
+    "showcases": [
+      {
+        "kind": "pinned-browser",
+        "pt": 64.96,
+        "pb": 64.96
+      },
+      {
+        "kind": "full-bleed",
+        "pt": 64.96,
+        "pb": 64.96
+      },
+      {
+        "kind": "typographic-diagram",
+        "pt": 64.96,
+        "pb": 64.96
+      },
+      {
+        "kind": "sticky-stack",
+        "pt": 64.96,
+        "pb": 64.96
+      }
+    ],
+    "rows": {
+      "metaRow": 16,
+      "skillRow": 24,
+      "secondaryRow": null,
+      "experienceRow": 32
+    },
+    "h2": {
+      "work-heading": 40,
+      "about-heading": 40,
+      "skills-heading": 40,
+      "experience-heading": 40,
+      "contact-heading": 40
+    }
+  }
+}

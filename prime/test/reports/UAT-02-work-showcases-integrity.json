@@ -1,0 +1,57 @@
+{
+  "scenario_id": "02",
+  "scenario": "work-showcases-integrity",
+  "requirement": "FR-07..FR-10 four editorial featured showcases + secondary row, every external link safe",
+  "tool": "playwright",
+  "result": "PASS",
+  "started_at": "2026-09-28T00:48:45.621Z",
+  "finished_at": "2026-09-28T00:48:49.857Z",
+  "project_analysis": {
+    "framework": "Next.js 16 (static export)",
+    "start_command": "next build; node prime/evidence/scripts/phase6-verify.mjs (serves out/ on an ephemeral port)",
+    "login_route": "none — no authentication surface (ADR-3.9 static portfolio)",
+    "auth_state_expected": "none",
+    "credential_source": "n/a — no credentials in a static marketing site"
+  },
+  "checks": {
+    "featured_showcases_rendered": true,
+    "external_links_well_formed": true,
+    "project_images_have_alt": true,
+    "no_console_errors": true,
+    "no_failed_requests": true
+  },
+  "screenshots": [
+    "prime/test/screenshots/verify/uat02-work-top.png",
+    "prime/test/screenshots/verify/uat02-work-secondary.png"
+  ],
+  "steps": [
+    {
+      "name": "featured_showcases_rendered",
+      "status": "pass",
+      "detail": "project images in #work: 7"
+    },
+    {
+      "name": "external_links_well_formed",
+      "status": "pass",
+      "detail": "[]"
+    },
+    {
+      "name": "project_images_have_alt",
+      "status": "pass",
+      "detail": "project images missing alt: 0"
+    },
+    {
+      "name": "no_console_errors",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "no_failed_requests",
+      "status": "pass",
+      "detail": ""
+    }
+  ],
+  "console_errors": [],
+  "network_failures": [],
+  "benign_aborted_requests": 1
+}

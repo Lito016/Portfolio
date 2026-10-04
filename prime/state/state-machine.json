@@ -13,14 +13,16 @@
     6,
     7
   ],
-  "current_phase": 6,
-  "status": "running",
+  "current_phase": 7,
+  "status": "done",
   "completed_phases": [
     1,
     2,
     3,
     4,
-    5
+    5,
+    6,
+    7
   ],
   "phases": {
     "1": {
@@ -59,18 +61,18 @@
       "gate_result": "prime/state/gate-results/phase-5-gates.json"
     },
     "6": {
-      "status": "pending",
-      "attempt": 0,
-      "entered_at": null,
-      "completed_at": null,
-      "gate_result": null
+      "status": "passed",
+      "attempt": 1,
+      "entered_at": "2026-09-27T18:30:00.511Z",
+      "completed_at": "2026-09-28T01:14:45.502Z",
+      "gate_result": "prime/state/gate-results/phase-6-gates.json"
     },
     "7": {
-      "status": "pending",
-      "attempt": 0,
-      "entered_at": null,
-      "completed_at": null,
-      "gate_result": null
+      "status": "passed",
+      "attempt": 1,
+      "entered_at": "2026-09-28T02:15:03.329Z",
+      "completed_at": "2026-09-28T02:29:05.813Z",
+      "gate_result": "prime/state/gate-results/phase-7-gates.json"
     }
   }
 }

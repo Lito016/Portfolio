@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-09-27T18:33:21.208Z",
+  "project_root": "C:\\Projects\\Portfolio",
+  "fingerprint": "474469af0d5aa334",
+  "enrichment": {
+    "added_by": "phase-6 verification (P6-B)",
+    "reason": "discover-surface enumerates dynamic routes, API endpoints and models; for a Next.js 16 static export it reports routes:0 because prerendered pages are not dynamic routes. The keys below reconcile the inventory against the rendered static export (out/index.html, out/404.html) verified by the Phase-6 browser matrix.",
+    "rendered_static_routes": ["/", "/404"],
+    "original_discover_surface_fingerprint_preserved": true
+  },
+  "total_routes": 1,
+  "total_api_endpoints": 0,
+  "total_data_models": 0,
+  "total_components": 8,
+  "summary": {
+    "total": 8,
+    "routes": 1,
+    "api_endpoints": 0,
+    "models": 0,
+    "interactive_components": 8,
+    "by_subtype": {
+      "data_table": 1,
+      "navigation": 7
+    }
+  },
+  "items": [
+    {
+      "id": "C-001",
+      "type": "interactive",
+      "subtype": "data_table",
+      "name": "DESIGN.canvas (table)",
+      "source": "docs\\DESIGN.canvas.tsx",
+      "count": 1
+    },
+    {
+      "id": "C-002",
+      "type": "interactive",
+      "subtype": "navigation",
+      "name": "DESIGN.canvas (nav)",
+      "source": "docs\\DESIGN.canvas.tsx",
+      "count": 1
+    },
+    {
+      "id": "C-003",
+      "type": "interactive",
+      "subtype": "navigation",
+      "name": "layout (nav)",
+      "source": "src\\app\\layout.tsx",
+      "count": 1
+    },
+    {
+      "id": "C-004",
+      "type": "interactive",
+      "subtype": "navigation",
+      "name": "footer (nav)",
+      "source": "src\\components\\layout\\footer.tsx",
+      "count": 1
+    },
+    {
+      "id": "C-005",
+      "type": "interactive",
+      "subtype": "navigation",
+      "name": "header (nav)",
+      "source": "src\\components\\layout\\header.tsx",
+      "count": 2
+    },
+    {
+      "id": "C-006",
+      "type": "interactive",
+      "subtype": "navigation",
+      "name": "experience (nav)",
+      "source": "src\\components\\sections\\experience.tsx",
+      "count": 1
+    },
+    {
+      "id": "C-007",
+      "type": "interactive",
+      "subtype": "navigation",
+      "name": "skills (nav)",
+      "source": "src\\components\\sections\\skills.tsx",
+      "count": 1
+    },
+    {
+      "id": "C-008",
+      "type": "interactive",
+      "subtype": "navigation",
+      "name": "work (nav)",
+      "source": "src\\components\\sections\\work.tsx",
+      "count": 1
+    }
+  ]
+}

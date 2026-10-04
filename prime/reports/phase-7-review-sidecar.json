@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "phase": 7,
+  "reviewer_invocation": "independent general-purpose subagent, read-only, no artifact authorship",
+  "reviewed_files": [
+    "prime/reports/phase-7-ship.md",
+    "prime/reports/retrospective.md",
+    "prime/evidence/estimation-calibration.json",
+    "prime/evidence/agent-effectiveness.json",
+    "prime/state/guard-events.jsonl",
+    "prime/reports/phase-6-e2e-results.json",
+    "prime/reports/phase-6-a11y-audit.json",
+    "prime/reports/production-readiness.json",
+    "prime/reports/phase-6-review-sidecar.json",
+    "prime/reports/phase-4-plan.md",
+    "prime/reports/threat-model.md",
+    "prime/reports/phase-5-test-results.json"
+  ],
+  "verdict": "pass",
+  "findings": [
+    { "id": "QR7-001", "severity": "none", "title": "Phase durations verified against guard-events.jsonl", "detail": "12.86/13.16/32.32/31.35/206.31/404.75 min recomputed; reported values match rounding. Sum 700.8 min = 11.68 h; P6/(P5+P6) = 66.2%.", "status": "verified" },
+    { "id": "QR7-002", "severity": "nit", "title": "Transfer size unit wording", "detail": "ship.md said 88.5 KB for 90,710 B (88.6 KiB). Corrected to byte-exact value in ship.md.", "status": "fixed" },
+    { "id": "QR7-003", "severity": "minor", "title": "Unit-test count not reproducible as 13", "detail": "Sealed phase-5-test-results.json records 12 subtests; fresh re-run 2026-09-28 confirms 12 pass / 0 fail. The 13/44 headline came from prose suite-boundary ambiguity in phase-6-verify.md.", "status": "fixed — corrected counts to 43 (31 browser + 12 unit) in phase-6-verify.md, evaluation-report.md, phase-7-ship.md and the gate-results runner note; sealed JSONs left untouched per receipt-hash integrity rule" },
+    { "id": "QR7-004", "severity": "none", "title": "a11y and readiness counts verified", "detail": "0 violations / 75 passes / 1 incomplete; production-readiness verdict pass.", "status": "verified" },
+    { "id": "QR7-005", "severity": "none", "title": "Sidecar severity counts and follow-ups verified", "detail": "2 minor + 3 nit + 1 informational matches agent-effectiveness record; QR-003/004/005 follow-up text faithful.", "status": "verified" },
+    { "id": "QR7-006", "severity": "none", "title": "Effort estimate basis verified", "detail": "D-4.6 arithmetic (20.0 h raw -> PERT 20.8 h -> x1.3 -> 24-30 h) recomputes; variance -56.7% vs 27 h midpoint correct.", "status": "verified" },
+    { "id": "QR7-007", "severity": "minor", "title": "Receipt chain claim overstated", "detail": "Only n25 carries a prior_receipt_ref; n23/n24 have no link field. 'Chained n22->n23->n24->n25' overstates the mechanism.", "status": "fixed — reworded in agent-effectiveness.json and ship.md to 'sequential nonces, review receipt chained to e2e receipt'" },
+    { "id": "QR7-008", "severity": "nit", "title": "Misleading calibration key name", "detail": "total_hours_p1_enter_to_p6_advance = 11.68 is the SUM of per-phase deltas; literal enter->advance span is 11.88 h.", "status": "fixed — key renamed to total_hours_sum_of_phase_deltas with both values stated" },
+    { "id": "QR7-009", "severity": "nit", "title": "Wrong lesson cross-reference", "detail": "variance_note cited 'retrospective.md lesson 4' for the bias caveat; the caveat lives in the Estimate vs actual section.", "status": "fixed" },
+    { "id": "QR7-010", "severity": "none", "title": "Release-safety verified", "detail": "No artifact claims deployment; publish steps conditional; post-publish checklist item left unchecked; Lighthouse honestly labelled not-run; threat model negative runtime surface confirmed.", "status": "verified" },
+    { "id": "QR7-011", "severity": "none", "title": "Zero phase re-entries and 5 P5 validate-fails verified", "detail": "guard-events.jsonl shows exactly 5 P5 validate-fail events 18:11-18:19:52 and one enter/advance pair per phase; gate counts consistent at 47 pass / 10 na / 57 across artifacts.", "status": "verified" }
+  ],
+  "dimensions": {
+    "accuracy": "pass — all load-bearing numbers recomputed from primary evidence; the one unreproducible headline (QR7-003) is corrected",
+    "consistency": "pass — four artifacts agree on durations, gates, findings and severities after nits fixed",
+    "honesty_of_uncertainty": "pass — wall-clock-vs-effort caveat prominent; bias labelled 'probable, not proven'; deferred items disclosed",
+    "release_safety": "pass — publication gated on explicit owner authorization; nothing deployed or claimed live"
+  },
+  "blocking_findings": 0,
+  "generated_at": "2026-09-28T02:40:00Z"
+}

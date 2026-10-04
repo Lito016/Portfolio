@@ -1,0 +1,23 @@
+{
+  "receipt_version": "1.0",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "run_context_valid": true,
+  "invocation_id": "d13cb9672ae28fab10ff55c05926b84e0dc2210afc0dad4dfa2ffccdb577d4c4",
+  "tool_identity": "npm-audit",
+  "tool_family": "security-scanner",
+  "tool_version": null,
+  "arguments_digest": "dff7bd39e6f7fa39273c7878e5efb27d2ad23def1f3e68f187ac792565556283",
+  "start_timestamp": "2026-09-28T00:49:22.277Z",
+  "end_timestamp": "2026-09-28T00:49:23.554Z",
+  "exit_status": 0,
+  "stdout_digest": "fdcd0ed8198c73c50b43df99f5058fb03e034723b824e5251e3e73c3b6a52292",
+  "stderr_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "input_artifact_hashes": {},
+  "output_artifact_hashes": {
+    "prime/reports/phase-6-security-scan.json": "8c539e2153447d6f991b1f8d8c47227d9ef114d0e9c50eb0bc0bd4aae3ccbe5c"
+  },
+  "working_directory": "C:\\Projects\\Portfolio",
+  "principal_identity": "trusted-runner",
+  "nonce": 24,
+  "signature": "071d9745d39d8ea17695b97f805881174e6bd581016cc58754cacfdf761859d4"
+}

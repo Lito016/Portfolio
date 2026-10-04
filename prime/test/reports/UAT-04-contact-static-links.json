@@ -1,0 +1,57 @@
+{
+  "scenario_id": "04",
+  "scenario": "contact-static-links",
+  "requirement": "FR-14 contact close exposes direct mailto + external anchors with safe rel, no form or endpoint (ADR-3.9)",
+  "tool": "playwright",
+  "result": "PASS",
+  "started_at": "2026-09-28T00:48:52.877Z",
+  "finished_at": "2026-09-28T00:48:56.594Z",
+  "project_analysis": {
+    "framework": "Next.js 16 (static export)",
+    "start_command": "next build; node prime/evidence/scripts/phase6-verify.mjs (serves out/ on an ephemeral port)",
+    "login_route": "none — no authentication surface (ADR-3.9 static portfolio)",
+    "auth_state_expected": "none",
+    "credential_source": "n/a — no credentials in a static marketing site"
+  },
+  "checks": {
+    "mailto_present": true,
+    "no_contact_form": true,
+    "external_links_safe_rel": true,
+    "no_console_errors": true,
+    "no_failed_requests": true
+  },
+  "screenshots": [
+    "prime/test/screenshots/verify/uat04-contact.png",
+    "prime/test/screenshots/verify/uat04-contact-mobile.png"
+  ],
+  "steps": [
+    {
+      "name": "mailto_present",
+      "status": "pass",
+      "detail": "mailto anchors: 2"
+    },
+    {
+      "name": "no_contact_form",
+      "status": "pass",
+      "detail": "form elements in #contact: 0"
+    },
+    {
+      "name": "external_links_safe_rel",
+      "status": "pass",
+      "detail": "[\"noopener noreferrer\",\"noopener noreferrer\"]"
+    },
+    {
+      "name": "no_console_errors",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "no_failed_requests",
+      "status": "pass",
+      "detail": ""
+    }
+  ],
+  "console_errors": [],
+  "network_failures": [],
+  "benign_aborted_requests": 1
+}

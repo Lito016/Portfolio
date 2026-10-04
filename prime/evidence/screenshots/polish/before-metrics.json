@@ -1,0 +1,563 @@
+{
+ "desktop": {
+  "rows": [
+   {
+    "sel": "#work",
+    "padTop": "0px",
+    "padBottom": "0px",
+    "rectTop": 889
+   },
+   {
+    "sel": "#about",
+    "padTop": "96px",
+    "padBottom": "96px",
+    "rectTop": 5349
+   },
+   {
+    "sel": "#skills",
+    "padTop": "0px",
+    "padBottom": "96px",
+    "rectTop": 6327
+   },
+   {
+    "sel": "#experience",
+    "padTop": "0px",
+    "padBottom": "96px",
+    "rectTop": 7117
+   },
+   {
+    "sel": "#contact",
+    "padTop": "140px",
+    "padBottom": "140px",
+    "rectTop": 7576
+   },
+   {
+    "sel": "pinned-browser",
+    "padTop": "96px",
+    "padBottom": "96px",
+    "borderTop": "1px"
+   },
+   {
+    "sel": "full-bleed",
+    "padTop": "96px",
+    "padBottom": "96px",
+    "borderTop": "1px"
+   },
+   {
+    "sel": "typographic-diagram",
+    "padTop": "96px",
+    "padBottom": "96px",
+    "borderTop": "1px"
+   },
+   {
+    "sel": "sticky-stack",
+    "padTop": "96px",
+    "padBottom": "96px",
+    "borderTop": "1px"
+   },
+   {
+    "sel": "secondary",
+    "padTop": "0px",
+    "padBottom": "0px",
+    "borderTop": "0px"
+   },
+   {
+    "sel": "h2:Selected work",
+    "fs": "72px",
+    "ls": "-1.44px",
+    "lh": "72px",
+    "fw": "500"
+   },
+   {
+    "sel": "h2:AI Solution Develo",
+    "fs": "100.8px",
+    "ls": "-3.024px",
+    "lh": "90.72px",
+    "fw": "500"
+   },
+   {
+    "sel": "h2:Capabilities",
+    "fs": "72px",
+    "ls": "-1.44px",
+    "lh": "72px",
+    "fw": "500"
+   },
+   {
+    "sel": "h2:Experience",
+    "fs": "72px",
+    "ls": "-1.44px",
+    "lh": "72px",
+    "fw": "500"
+   },
+   {
+    "sel": "h2:LET’S BUILD SOMETH",
+    "fs": "100.8px",
+    "ls": "-3.024px",
+    "lh": "90.72px",
+    "fw": "500"
+   },
+   {
+    "sel": "row:University Man",
+    "padY": "24px/24px"
+   },
+   {
+    "sel": "row:Dish Manager",
+    "padY": "24px/24px"
+   },
+   {
+    "sel": "row:AI SaaS Landin",
+    "padY": "24px/24px"
+   },
+   {
+    "sel": "row:Location",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Education",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Experience",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Specialties",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Technologies",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Current focus",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Learning",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Exploring",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Last updated",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Languages",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:Frontend",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:Backend",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:Databases & Ba",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:AI & ML",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:Infrastructure",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:Engineering",
+    "padY": "20px/20px"
+   }
+  ],
+  "doc": {
+   "scrollW": 1440,
+   "innerW": 1440
+  },
+  "containers": [
+   "0|1440px",
+   "58|1440px",
+   "58|1440px",
+   "58|1440px",
+   "58|1440px",
+   "58|1440px"
+  ]
+ },
+ "tablet": {
+  "rows": [
+   {
+    "sel": "#work",
+    "padTop": "0px",
+    "padBottom": "0px",
+    "rectTop": 871
+   },
+   {
+    "sel": "#about",
+    "padTop": "61.44px",
+    "padBottom": "61.44px",
+    "rectTop": 5521
+   },
+   {
+    "sel": "#skills",
+    "padTop": "0px",
+    "padBottom": "61.44px",
+    "rectTop": 6740
+   },
+   {
+    "sel": "#experience",
+    "padTop": "0px",
+    "padBottom": "61.44px",
+    "rectTop": 7412
+   },
+   {
+    "sel": "#contact",
+    "padTop": "76.8px",
+    "padBottom": "76.8px",
+    "rectTop": 7921
+   },
+   {
+    "sel": "pinned-browser",
+    "padTop": "61.44px",
+    "padBottom": "61.44px",
+    "borderTop": "1px"
+   },
+   {
+    "sel": "full-bleed",
+    "padTop": "61.44px",
+    "padBottom": "61.44px",
+    "borderTop": "1px"
+   },
+   {
+    "sel": "typographic-diagram",
+    "padTop": "61.44px",
+    "padBottom": "61.44px",
+    "borderTop": "1px"
+   },
+   {
+    "sel": "sticky-stack",
+    "padTop": "61.44px",
+    "padBottom": "61.44px",
+    "borderTop": "1px"
+   },
+   {
+    "sel": "secondary",
+    "padTop": "0px",
+    "padBottom": "0px",
+    "borderTop": "0px"
+   },
+   {
+    "sel": "h2:Selected work",
+    "fs": "40px",
+    "ls": "-0.8px",
+    "lh": "40px",
+    "fw": "500"
+   },
+   {
+    "sel": "h2:AI Solution Develo",
+    "fs": "53.76px",
+    "ls": "-1.6128px",
+    "lh": "48.384px",
+    "fw": "500"
+   },
+   {
+    "sel": "h2:Capabilities",
+    "fs": "40px",
+    "ls": "-0.8px",
+    "lh": "40px",
+    "fw": "500"
+   },
+   {
+    "sel": "h2:Experience",
+    "fs": "40px",
+    "ls": "-0.8px",
+    "lh": "40px",
+    "fw": "500"
+   },
+   {
+    "sel": "h2:LET’S BUILD SOMETH",
+    "fs": "53.76px",
+    "ls": "-1.6128px",
+    "lh": "48.384px",
+    "fw": "500"
+   },
+   {
+    "sel": "row:University Man",
+    "padY": "24px/24px"
+   },
+   {
+    "sel": "row:Dish Manager",
+    "padY": "24px/24px"
+   },
+   {
+    "sel": "row:AI SaaS Landin",
+    "padY": "24px/24px"
+   },
+   {
+    "sel": "row:Location",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Education",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Experience",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Specialties",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Technologies",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Current focus",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Learning",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Exploring",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Last updated",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Languages",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:Frontend",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:Backend",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:Databases & Ba",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:AI & ML",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:Infrastructure",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:Engineering",
+    "padY": "20px/20px"
+   }
+  ],
+  "doc": {
+   "scrollW": 768,
+   "innerW": 768
+  },
+  "containers": [
+   "0|100%",
+   "31|100%",
+   "31|100%",
+   "31|100%",
+   "31|100%",
+   "31|100%"
+  ]
+ },
+ "mobile": {
+  "rows": [
+   {
+    "sel": "#work",
+    "padTop": "0px",
+    "padBottom": "0px",
+    "rectTop": 808
+   },
+   {
+    "sel": "#about",
+    "padTop": "48px",
+    "padBottom": "48px",
+    "rectTop": 5666
+   },
+   {
+    "sel": "#skills",
+    "padTop": "0px",
+    "padBottom": "48px",
+    "rectTop": 7214
+   },
+   {
+    "sel": "#experience",
+    "padTop": "0px",
+    "padBottom": "48px",
+    "rectTop": 7872
+   },
+   {
+    "sel": "#contact",
+    "padTop": "64px",
+    "padBottom": "64px",
+    "rectTop": 8545
+   },
+   {
+    "sel": "pinned-browser",
+    "padTop": "48px",
+    "padBottom": "48px",
+    "borderTop": "1px"
+   },
+   {
+    "sel": "full-bleed",
+    "padTop": "48px",
+    "padBottom": "48px",
+    "borderTop": "1px"
+   },
+   {
+    "sel": "typographic-diagram",
+    "padTop": "48px",
+    "padBottom": "48px",
+    "borderTop": "1px"
+   },
+   {
+    "sel": "sticky-stack",
+    "padTop": "48px",
+    "padBottom": "48px",
+    "borderTop": "1px"
+   },
+   {
+    "sel": "secondary",
+    "padTop": "0px",
+    "padBottom": "0px",
+    "borderTop": "0px"
+   },
+   {
+    "sel": "h2:Selected work",
+    "fs": "40px",
+    "ls": "-0.8px",
+    "lh": "40px",
+    "fw": "500"
+   },
+   {
+    "sel": "h2:AI Solution Develo",
+    "fs": "40px",
+    "ls": "-1.2px",
+    "lh": "36px",
+    "fw": "500"
+   },
+   {
+    "sel": "h2:Capabilities",
+    "fs": "40px",
+    "ls": "-0.8px",
+    "lh": "40px",
+    "fw": "500"
+   },
+   {
+    "sel": "h2:Experience",
+    "fs": "40px",
+    "ls": "-0.8px",
+    "lh": "40px",
+    "fw": "500"
+   },
+   {
+    "sel": "h2:LET’S BUILD SOMETH",
+    "fs": "40px",
+    "ls": "-1.2px",
+    "lh": "36px",
+    "fw": "500"
+   },
+   {
+    "sel": "row:University Man",
+    "padY": "24px/24px"
+   },
+   {
+    "sel": "row:Dish Manager",
+    "padY": "24px/24px"
+   },
+   {
+    "sel": "row:AI SaaS Landin",
+    "padY": "24px/24px"
+   },
+   {
+    "sel": "row:Location",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Education",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Experience",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Specialties",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Technologies",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Current focus",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Learning",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Exploring",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Last updated",
+    "padY": "16px/16px"
+   },
+   {
+    "sel": "row:Languages",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:Frontend",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:Backend",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:Databases & Ba",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:AI & ML",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:Infrastructure",
+    "padY": "20px/20px"
+   },
+   {
+    "sel": "row:Engineering",
+    "padY": "20px/20px"
+   }
+  ],
+  "doc": {
+   "scrollW": 375,
+   "innerW": 375
+  },
+  "containers": [
+   "0|100%",
+   "20|100%",
+   "20|100%",
+   "20|100%",
+   "20|100%",
+   "20|100%"
+  ]
+ }
+}

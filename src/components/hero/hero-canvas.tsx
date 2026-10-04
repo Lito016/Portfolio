@@ -68,12 +68,15 @@ export function HeroCanvas() {
       const fy = (oy / 18) * gap;
       const pxPx = ((ox / 24 + 1) / 2) * width;
       const pyPx = ((oy / 18 + 1) / 2) * height;
+      const hasCursor = px.get() !== 0 || py.get() !== 0;
+      // Collect accent dots near cursor for connection lines
+      const accentDots: { x: number; y: number; k: number }[] = [];
       for (let c = 0; c < cols; c += 1) {
         for (let r = 0; r < rows; r += 1) {
           const x = c * gap - gap + (r % 2 === 0 ? 0 : gap / 2) + Math.sin(t / 2600 + r * 0.55) * 2.5 + fx;
           const y = r * gap - gap + oy * 0.25 + fy * 0.4;
           const dist = Math.hypot(x - pxPx, y - pyPx);
-          const near = dist < 150 && (px.get() !== 0 || py.get() !== 0);
+          const near = dist < 150 && hasCursor;
           const k = 1 - dist / 150;
           const col = near ? ACCENT_COLOR : DOT_COLOR;
           const alpha = near ? 0.18 + k * 0.55 : 0.14;
@@ -82,6 +85,27 @@ export function HeroCanvas() {
           ctx.arc(x, y, radius, 0, Math.PI * 2);
           ctx.fillStyle = `rgba(${col.r},${col.g},${col.b},${alpha})`;
           ctx.fill();
+          if (near && k > 0.3) accentDots.push({ x, y, k });
+        }
+      }
+      // Connection lines between accent dots within 80px of each other
+      if (accentDots.length > 1) {
+        const maxLineDist = 80;
+        ctx.lineWidth = 0.5;
+        for (let i = 0; i < accentDots.length; i += 1) {
+          for (let j = i + 1; j < accentDots.length; j += 1) {
+            const a = accentDots[i];
+            const b = accentDots[j];
+            const d = Math.hypot(a.x - b.x, a.y - b.y);
+            if (d < maxLineDist) {
+              const lineAlpha = 0.04 * (1 - d / maxLineDist) * Math.min(a.k, b.k);
+              ctx.strokeStyle = `rgba(${ACCENT_COLOR.r},${ACCENT_COLOR.g},${ACCENT_COLOR.b},${lineAlpha})`;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.stroke();
+            }
+          }
         }
       }
     };

@@ -1,52 +1,42 @@
 import { featuredProjects, otherProjects } from '@/data/projects';
 import type { FeaturedProject } from '@/data/projects';
-import { ShowcasePinnedBrowser } from '@/components/work/showcase-pinned-browser';
-import { ShowcaseFullBleed } from '@/components/work/showcase-full-bleed';
-import { ShowcaseTypographicDiagram } from '@/components/work/showcase-typographic-diagram';
-import { ShowcaseStickyStack } from '@/components/work/showcase-sticky-stack';
+import { FeaturedCard } from '@/components/work/featured-card';
 import { SecondaryRow } from '@/components/work/secondary-row';
+import { ScrollHeading } from '@/components/shared/mask-reveal';
 
 /**
- * Work section (FR-07…FR-10, FR-16): four editorial showcase variants
- * assigned positionally (ADR-3.5, index % 4). Adding a data entry renders
- * another showcase through the same primitives — zero component edits.
+ * Work section (FR-07…FR-10, FR-16): featured projects as compact cards in a
+ * 2x2 grid (single column on compact band), hairline rows for the rest.
+ * Adding a data entry renders another card through the same primitive.
  */
-function variantFor(index: number) {
-  switch (index % 4) {
-    case 0:
-      return ShowcasePinnedBrowser;
-    case 1:
-      return ShowcaseFullBleed;
-    case 2:
-      return ShowcaseTypographicDiagram;
-    default:
-      return ShowcaseStickyStack;
-  }
-}
-
 export function Work() {
   return (
-    <section id="work" aria-labelledby="work-heading" className="px-[var(--gutter)]">
+    <section id="work" aria-labelledby="work-heading" className="section-band px-[var(--gutter)]">
       <div className="mx-auto w-full max-w-[var(--content-wide)]">
-      <header className="grid items-end gap-4 pt-[clamp(48px,8vw,96px)] lg:grid-cols-[minmax(0,7ch)_minmax(0,1fr)]">
-        <p className="label-mono">Work</p>
-        <div>
-          <h2
-            id="work-heading"
-            className="font-medium tracking-[-0.02em] text-[var(--ink)] text-[clamp(2.5rem,5vw,4.5rem)] leading-none"
-          >
-            Selected work
-          </h2>
-          <p className="mt-4 max-w-[52ch] text-[15px] leading-relaxed text-[var(--ink-muted)]">
-            Systems that run operations — designed, built, tested, and deployed end to end.
-          </p>
-        </div>
+      <header className="grid items-end gap-4 lg:grid-cols-[minmax(0,7ch)_minmax(0,1fr)]">
+        <ScrollHeading>
+          <p className="label-mono">Work</p>
+        </ScrollHeading>
+        <ScrollHeading delay={60}>
+          <div>
+            <h2
+              id="work-heading"
+              className="font-medium tracking-[-0.02em] text-[var(--ink)] text-[clamp(2.5rem,5vw,4.5rem)] leading-none"
+            >
+              Selected work
+            </h2>
+            <p className="mt-4 max-w-[52ch] text-[15px] leading-relaxed text-[var(--ink-muted)]">
+              Systems that run operations — designed, built, tested, and deployed end to end.
+            </p>
+          </div>
+        </ScrollHeading>
       </header>
 
-      {featuredProjects.map((project: FeaturedProject, index: number) => {
-        const Variant = variantFor(index);
-        return <Variant key={project.slug} project={project} index={index} />;
-      })}
+      <div className="mt-8 grid gap-6 md:grid-cols-2 lg:gap-8">
+        {featuredProjects.map((project: FeaturedProject, index: number) => (
+          <FeaturedCard key={project.slug} project={project} index={index} />
+        ))}
+      </div>
 
       <SecondaryRow items={otherProjects} />
       </div>

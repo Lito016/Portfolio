@@ -10,7 +10,7 @@ import { ShowcaseTech } from '@/components/work/showcase-ui';
 export function SecondaryRow({ items }: { items: OtherProject[] }) {
   if (items.length === 0) return null;
   return (
-    <div data-secondary-row className="mt-[clamp(48px,8vw,96px)]">
+    <div data-secondary-row className="mt-[calc(var(--section-rhythm)/2)]">
       <h3 className="label-mono">Also shipped</h3>
       <ul className="mt-6 border-t border-[var(--rule)]">
         {items.map((project) => (

@@ -4,6 +4,7 @@ import { nowData } from '@/data/now';
 import { skillCategories } from '@/data/skills';
 import { whatIBuildCategories } from '@/data/projects';
 import { Reveal } from '@/components/shared/reveal';
+import { ScrollHeading } from '@/components/shared/mask-reveal';
 import { formatMonthYear } from '@/lib/dates';
 
 const [firstExperience] = experiences;
@@ -18,37 +19,43 @@ const [firstEducation] = education;
  */
 export function About() {
   return (
-    <section id="about" aria-labelledby="about-heading" className="px-[var(--gutter)] py-[clamp(48px,8vw,96px)]">
+    <section id="about" aria-labelledby="about-heading" className="section-band px-[var(--gutter)]">
       <div className="mx-auto w-full max-w-[var(--content-wide)]">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
-          <Reveal>
-            <p className="label-mono">About</p>
-            <h2
-              id="about-heading"
-              className="mt-4 font-medium leading-[0.9] tracking-[-0.03em] text-[var(--ink)] text-[clamp(2.5rem,7vw,7rem)]"
-            >
-              AI Solution Developer.
-              <br />
-              Full-Stack Systems Developer.
-            </h2>
-            <div className="mt-8 max-w-[56ch] space-y-4 text-[15px] leading-relaxed text-[var(--ink-3)]">
-              {/* W21 categories + W24 end-to-end framing */}
-              <p>I design and build end to end.</p>
-              <p>
-                Operational systems that model real workflows, infrastructure that makes AI usable in production, and
-                detection pipelines that turn raw video into events and clips.
-              </p>
-              {/* education.description + experience description lines */}
-              <p>
-                My foundation is a BS Information Technology program with coursework in web development, mobile
-                development, database management, and software engineering.
-              </p>
-              <p>
-                At {firstExperience.company}, AI-powered tools supported development tasks: code generation, testing,
-                debugging, and documentation.
-              </p>
-            </div>
-          </Reveal>
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
+          <div>
+            <ScrollHeading>
+              <p className="label-mono">About</p>
+            </ScrollHeading>
+            <ScrollHeading delay={60}>
+              <h2
+                id="about-heading"
+                className="mt-4 font-medium leading-[0.9] tracking-[-0.03em] text-[var(--ink)] text-[clamp(2.5rem,7vw,7rem)]"
+              >
+                AI Solution Developer.
+                <br />
+                Full-Stack Systems Developer.
+              </h2>
+            </ScrollHeading>
+            <Reveal delay={0.08}>
+              <div className="mt-8 max-w-[56ch] space-y-4 text-[15px] leading-relaxed text-[var(--ink-3)]">
+                {/* W21 categories + W24 end-to-end framing */}
+                <p>I design and build end to end.</p>
+                <p>
+                  Operational systems that model real workflows, infrastructure that makes AI usable in production, and
+                  detection pipelines that turn raw video into events and clips.
+                </p>
+                {/* education.description + experience description lines */}
+                <p>
+                  My foundation is a BS Information Technology program with coursework in web development, mobile
+                  development, database management, and software engineering.
+                </p>
+                <p>
+                  At {firstExperience.company}, AI-powered tools supported development tasks: code generation, testing,
+                  debugging, and documentation.
+                </p>
+              </div>
+            </Reveal>
+          </div>
 
           <Reveal delay={0.08}>
             <dl className="border-t border-[var(--rule)]">

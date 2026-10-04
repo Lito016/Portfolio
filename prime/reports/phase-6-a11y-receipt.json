@@ -1,0 +1,23 @@
+{
+  "receipt_version": "1.0",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "run_context_valid": true,
+  "invocation_id": "d3b85108206608e1f6123f84d865c3f840c19f618ea93a5aec22c4922863d7c1",
+  "tool_identity": "axe",
+  "tool_family": "accessibility-auditor",
+  "tool_version": null,
+  "arguments_digest": "32a2411bf36a46ed8ee84eea63a60e0d1b0c415e63ce3f02f867d9ef37d9514e",
+  "start_timestamp": "2026-09-28T00:49:06.095Z",
+  "end_timestamp": "2026-09-28T00:49:10.639Z",
+  "exit_status": 0,
+  "stdout_digest": "858501f84dab93b0aed5ced4103f7081c0ea9c2ac350755b5edc69ff2660a4d3",
+  "stderr_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "input_artifact_hashes": {},
+  "output_artifact_hashes": {
+    "prime/reports/phase-6-a11y-audit.json": "4e09768a74b137fb8ab306fcaf8ceb1feca1e124c16bc48cfddd5d2da3644eb5"
+  },
+  "working_directory": "C:\\Projects\\Portfolio",
+  "principal_identity": "trusted-runner",
+  "nonce": 23,
+  "signature": "83ad64ca06fd5d3740a9eb0e28393dbcaf09f054e1f2196a78c7d62f01094b02"
+}

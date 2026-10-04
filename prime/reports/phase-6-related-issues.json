@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "generated_at": "2026-09-28T01:50:00.000Z",
+  "capability": "related_issue_scan",
+  "patterns_identified": [
+    "a11y fix 1: inverse-ramp contrast pairs (bg #121317 with fg #f8f9fc family) — every occurrence of the inverse token pair in src/ searched for sibling under-contrast combinations",
+    "a11y fix 2: focus-visible ring class on anchor controls — all interactive anchor elements scanned for missing or overridden focus styles",
+    "QR-001 annotation defect class: evidence JSONs whose prose claims were cross-checked against the actual out/_headers CSP string — all other sealed claims re-verified consistent"
+  ],
+  "scope_searched": "src/components/**, src/app/** (grep over token class combos and focus utilities), out/_headers vs security-scan annotations, docs/DESIGN.canvas.tsx comments",
+  "matches_classified": {
+    "same_defect_siblings": 0,
+    "fixed_instances": 2,
+    "annotation_corrections_carried": 1,
+    "false_positives_reviewed": 3
+  },
+  "fixes_or_deferred": "Both a11y fixes confirmed complete with zero sibling occurrences (independent review Pass 3 / QR-006 re-check executed in browser matrix). No broader fix required; QR-005 whitelist prune deferred with documented owner.",
+  "verdict": "pass"
+}

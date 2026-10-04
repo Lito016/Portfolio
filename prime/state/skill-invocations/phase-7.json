@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "phase": 7,
+  "cycle": 5,
+  "agent": "prime-make+prime-evaluate",
+  "agent_note": "Orchestrator assumed both contract owner roles; independent reviewer dispatched as separate subagent invocation (see quality-review entry).",
+  "invocations": [
+    {
+      "skill": "quality-review",
+      "status": "applied",
+      "independent_invocation": true,
+      "evidence": [
+        "prime/reports/phase-7-quality-review.md",
+        "prime/reports/phase-7-review-sidecar.json"
+      ],
+      "note": "Independent read-only subagent (no artifact authorship) reviewed ship notes, retrospective and both cycle-5 evidence JSONs against primary sources; 11 findings (0 critical/major), all actionable items fixed in-cycle (QR7-002/003/007/008/009); verdict pass recorded in structured sidecar."
+    },
+    {
+      "skill": "caveman",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-7-ship.md",
+        "prime/reports/retrospective.md"
+      ],
+      "note": "Session-wide terse-response mode (caveman:full) held for all conversational updates; artifacts themselves written in normal register per skill boundary rules (docs/commits not compressed)."
+    },
+    {
+      "skill": "doc-forge",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-7-ship.md",
+        "prime/reports/retrospective.md"
+      ],
+      "note": "Routed via artifact-type guide references/artifact-types/handoff.md (release/retrospective package). Validated ship.md against executive-summary IA (what built / key decisions / test results / deployment status / known issues / next steps — all present) and runbook IA (deploy, rollback, backup, health-check, recovery — all present); retrospective validated against report-type went-well/went-wrong/lessons/next structure. No office-format conversion in scope; markdown is the contract artifact format, so DOCX/PDF export steps marked not applicable rather than silently skipped. One gap noted and accepted: no Troubleshooting section (static site, owner-operated, health checks cover the surface)."
+    },
+    {
+      "skill": "git-workflow",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-7-ship.md",
+        "prime/reports/retrospective.md",
+        "prime/reports/phase-7-contract-drift.json"
+      ],
+      "note": "Rollback/recovery section of ship notes authored from git reality: linear main, one revertible commit per milestone slice (verified in git log by the independent reviewer), out/ regenerable and uncommitted. Phase-7 evidence commit follows gate approval; no push/PR action taken (none requested; publication separately gated on owner authorization)."
+    }
+  ]
+}

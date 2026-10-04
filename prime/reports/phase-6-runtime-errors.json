@@ -1,0 +1,16 @@
+{
+  "tool_identity": "next-dev-server",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "timestamp": "2026-09-28T00:41:43.421Z",
+  "project_root": "C:\\Projects\\Portfolio",
+  "start_command": "next dev -p 4195",
+  "url": "http://127.0.0.1:4195/",
+  "startup_success": true,
+  "http_status": 200,
+  "error_count": 0,
+  "errors": [],
+  "stdout_tail": "▲ Next.js 16.3.3 (Turbopack)\n- Local:         http://localhost:4195\n- Network:       http://192.168.1.9:4195\n✓ Ready in 467ms\n✓ Running next.config.ts took 31ms\n- Experiments (use with caution):\n  · optimizePackageImports\n\n GET / 200 in 955ms (next.js: 675ms, application-code: 280ms)\n GET /404 404 in 332ms (next.js: 302ms, application-code: 30ms)\n",
+  "stderr_tail": "",
+  "verdict": "pass",
+  "note": "The deliverable is a static export (output: export); the deployed artifact is verified through the browser matrix. This runtime check boots the Next dev server to confirm the application starts and serves 2xx without server-side errors."
+}

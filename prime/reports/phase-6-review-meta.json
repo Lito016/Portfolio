@@ -1,0 +1,10 @@
+{
+  "review_file": "prime/reports/phase-6-quality-review.md",
+  "review_sha256": "1134936d55a38167272a6c898b5423ca59969b695f83d077d409cbb95f8e6387",
+  "verdict": "missing",
+  "char_count": 9690,
+  "path_citation_tokens": 45,
+  "chained_e2e_receipt_invocation": "6e0527fec0cba79f91fd09ec50a2c103a41c0920c1e4cf7828f8dc01276b10ed",
+  "chained_e2e_receipt_nonce": 22,
+  "captured_at": "2026-09-28T01:08:15.009Z"
+}

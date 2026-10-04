@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "generated_at": "2026-09-28T01:42:00.000Z",
+  "output_type": "website",
+  "artifact_inspected": "Cycle-5 static-export single-page portfolio (out/ export served via dev matrix): hero sequence, anchor navigation, four editorial work showcases, about/skills/experience inverse ramp, contact close, styled /404",
+  "quality_bar": "Premium, cinematic single-page portfolio: whitelisted factual content only, WCAG AA contrast, no render-blocking external fonts, measured static-export bundle, motion that degrades gracefully under reduced-motion",
+  "evidence_paths": [
+    "prime/evidence/screenshots/p6v-home-desktop.png",
+    "prime/evidence/screenshots/p6v-home-tablet.png",
+    "prime/evidence/screenshots/p6v-home-mobile.png",
+    "prime/evidence/screenshots/p6v-notfound-desktop.png",
+    "prime/evidence/screenshots/p6v-notfound-mobile.png",
+    "prime/evidence/screenshots/p6v-a11y-home-desktop.png",
+    "prime/evidence/screenshots/p6v-C-003-layout.png",
+    "prime/evidence/screenshots/p6v-C-005-header.png",
+    "prime/evidence/screenshots/p6v-C-008-work.png",
+    "prime/reports/phase-6-verify.md",
+    "prime/reports/phase-6-e2e-results.json",
+    "prime/reports/phase-6-ui-quality.json",
+    "prime/reports/phase-6-a11y-audit.json",
+    "prime/reports/phase-6-browser-console.json",
+    "prime/reports/phase-6-runtime-errors.json",
+    "prime/reports/coverage-map.json",
+    "prime/reports/phase-6-quality-review.md"
+  ],
+  "ui_specific": {
+    "screenshots_reference": true,
+    "viewports_tested": ["desktop", "tablet", "mobile"],
+    "overlap_clipping_checked": "Playwright analyze-layout pass over 12 screenshots: zero overlap or clipping failures on hero index numerals, showcase rows, sticky nav and inverse contact block at any viewport; horizontal overflow failures recorded as empty in phase-6-ui-quality.json.",
+    "responsive_layout_checked": "31 browser checks across routes / and /404 at desktop/tablet/mobile; featured showcases hold one row at ≥1024px and stack without horizontal scroll at 375px; nav compacts to its blurred sticky state; all dispositions in coverage-map.json.",
+    "text_legibility_checked": true,
+    "text_legibility_note": "Rendered text readability verified by direct screenshot inspection at every viewport (not only overflow/token checks): ghost index numerals are aria-hidden decoration with a legible label beside them (contrast 8.82:1 canvas / 9.29:1 surface), body ink #121317 on #f8f9fc, muted ink #45474d at 7:1 or better, inverse ramp #f8f9fc on #121317; smallest rendered labels (11px uppercase index label, nav links) measured readable at 375px, 768px and 1440px captures; axe reported 0 color-contrast violations with incomplete items disclosed and reviewed."
+  },
+  "defects_found": [
+    {
+      "description": "QR-001 (from independent review): phase-6-security-scan.json annotation claimed script-src without 'unsafe-inline'; actual CSP correctly includes it for Next.js static-export inline runtime. Evidence-annotation defect only; corrected in phase-6-verify.md Security Findings.",
+      "severity": "low",
+      "status": "corrected-in-report"
+    },
+    {
+      "description": "QR-002: axe color-contrast 'incomplete' nodes on / were initially omitted from headline claims; disclosed in a11y audit and verify report.",
+      "severity": "low",
+      "status": "disclosed"
+    },
+    {
+      "description": "QR-003: /404 served with HTTP 200 in the dev matrix (static export convention); host must map real 404 status at publish.",
+      "severity": "low",
+      "status": "deferred-to-phase-7"
+    },
+    {
+      "description": "QR-004: footer year is frozen at build time.",
+      "severity": "low",
+      "status": "deferred-to-phase-7"
+    },
+    {
+      "description": "QR-005: stale fact-whitelist entries for removed features remain in the whitelist document (site copy unaffected).",
+      "severity": "low",
+      "status": "deferred-to-phase-7"
+    },
+    {
+      "description": "No site-behavior, layout, contrast or motion defects found: 31/31 browser checks passed, 0 token mismatches, 0 axe violations, 0 console errors.",
+      "severity": "none",
+      "status": "clean"
+    }
+  ],
+  "refinement_actions": [
+    "Re-ran the full browser matrix after the two a11y fixes (inverse-ramp contrast + focus-visible) and re-generated every Phase 6 evidence JSON post-fix; QR-006 regression check confirmed the fixes with no sibling occurrences.",
+    "Corrected the CSP evidence annotation in prose (phase-6-verify.md) instead of rewriting the sealed signed JSON, preserving receipt integrity.",
+    "Retained per-surface screenshots named by coverage item id (p6v-C-003..C-008) so every passed item maps 1:1 to visual evidence.",
+    "Carried QR-003/QR-004/QR-005 into production-readiness.json open_items_non_blocking for the Phase 7 publish checklist.",
+    "Verified text legibility directly on rendered screenshots at 375/768/1440px, beyond overflow and token comparison."
+  ],
+  "final_rating": "excellent",
+  "rating_rationale": "Zero application defects across matrix, a11y, console, runtime and coverage; remaining findings are evidence-annotation or publish-time items with owners recorded. Design fidelity to docs/DESIGN.canvas.tsx measured at 100% token match.",
+  "design_benchmark_record": {
+    "task_type": "redesign",
+    "sources_consulted": [
+      {
+        "name": "antigravity.google",
+        "url": "https://antigravity.google",
+        "purpose": "Benchmark feeling-level design mechanics: cool near-white canvas, layered near-black ink ramp, sub-1.0 display leading with negative tracking, hairline borders, blurred compacting sticky nav and scroll-pinned media sequencing",
+        "available": true
+      },
+      {
+        "name": "Next.js next/font documentation",
+        "url": "https://nextjs.org/docs/app/api-reference/components/font",
+        "purpose": "Confirm build-time self-hosting of Geist and Geist Mono so no render-blocking Google Fonts link ships in the static export",
+        "available": true
+      }
+    ],
+    "unavailable_sources": [
+      {
+        "name": "linear.app / apple.com / lusion.co",
+        "reason": "Consulted from prior knowledge only this cycle and not re-fetched, so used for directional inspiration with no token adopted"
+      }
+    ],
+    "patterns_adopted": [
+      "Cool near-white canvas with a layered near-black ink ramp instead of pure black-on-white",
+      "Sub-1.0 line-height display type carrying hierarchy through weight restraint and negative tracking",
+      "Hairline structural borders with a blurred compacting sticky navigation bar",
+      "Scroll-pinned media sequencing under a 300ms micro / eased macro motion budget"
+    ],
+    "local_design_decisions": [
+      "Geist and Geist Mono stand in for the proprietary Google Sans Flex, self-hosted via next/font",
+      "The measured antigravity.google mechanics were re-expressed through project tokens in docs/DESIGN.canvas.tsx rather than copied values",
+      "Four editorial showcase variants replace the benchmark's single-media sequence to cover portfolio breadth",
+      "Inverse-ramp contact close adapts the dark-band pattern to the whitelist-only static contact (no form)"
+    ],
+    "patterns_rejected": [
+      "Generic dashboard/product-template card grids would reintroduce the templated look the rebuild was commissioned to remove",
+      "Render-blocking external Google Fonts embed like the benchmark site uses would break the measured performance budget"
+    ]
+  }
+}

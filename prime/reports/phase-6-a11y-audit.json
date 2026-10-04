@@ -1,0 +1,50 @@
+{
+  "tool_identity": "axe",
+  "tool": "axe",
+  "audit_tool": "axe",
+  "tool_version": "4.13.0",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "started": "2026-09-28T00:49:06.171Z",
+  "wcag": "2.1 AA",
+  "pages": [
+    {
+      "route": "/",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": [
+        "color-contrast"
+      ],
+      "pass_count": 42,
+      "screenshot": "prime/evidence/screenshots/p6v-a11y-home-desktop.png"
+    },
+    {
+      "route": "/404",
+      "violations": 0,
+      "violation_rules": [],
+      "incomplete": [],
+      "pass_count": 33,
+      "screenshot": "prime/evidence/screenshots/p6v-a11y-notfound-desktop.png"
+    }
+  ],
+  "evidence_paths": [
+    "prime/evidence/screenshots/p6v-a11y-home-desktop.png",
+    "prime/evidence/screenshots/p6v-a11y-notfound-desktop.png"
+  ],
+  "violations_total": 0,
+  "passes_total": 75,
+  "incomplete_total": 1,
+  "completed_at": "2026-09-28T00:49:10.584Z",
+  "compliance": "pass",
+  "violations": 0,
+  "passes": 75,
+  "cross_references": [
+    "src/app/layout.tsx",
+    "src/components/layout/header.tsx",
+    "src/components/layout/footer.tsx",
+    "docs/DESIGN.canvas.tsx",
+    "src/app/globals.css",
+    "out/index.html",
+    "out/404.html"
+  ],
+  "fingerprint": "a1806d87b2cbab8147abe37cf31455edf843b10141797b742e59019b4833528a"
+}

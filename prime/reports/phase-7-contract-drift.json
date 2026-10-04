@@ -1,0 +1,15 @@
+{
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "schema_version": "1.0",
+  "marker": "NEXT-RUN EFFECTIVE",
+  "phase": 7,
+  "timestamp": "2026-09-28T02:29:04.721Z",
+  "explanation": "The run's frozen dispatch contract differs from the live template contract. The run is graded against its frozen baseline; template changes take effect on the next run.",
+  "template_contract_sha256": "9aec24726529a7c58c9005d02fbce7cd6fd8a0621f7bebf368319c9b50396e00",
+  "frozen_contract_sha256": "9aec24726529a7c58c9005d02fbce7cd6fd8a0621f7bebf368319c9b50396e00",
+  "gates_added_in_template": [],
+  "gates_removed_from_template": [],
+  "gate_fields_changed": [],
+  "entries_added_in_template": [],
+  "drifted": false
+}

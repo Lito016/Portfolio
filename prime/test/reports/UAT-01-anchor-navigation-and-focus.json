@@ -1,0 +1,63 @@
+{
+  "scenario_id": "01",
+  "scenario": "anchor-navigation-and-focus",
+  "requirement": "FR-02 single-page anchor navigation with Lenis smooth scroll and visible keyboard focus",
+  "tool": "playwright",
+  "result": "PASS",
+  "started_at": "2026-09-28T00:48:42.188Z",
+  "finished_at": "2026-09-28T00:48:45.615Z",
+  "project_analysis": {
+    "framework": "Next.js 16 (static export)",
+    "start_command": "next build; node prime/evidence/scripts/phase6-verify.mjs (serves out/ on an ephemeral port)",
+    "login_route": "none — no authentication surface (ADR-3.9 static portfolio)",
+    "auth_state_expected": "none",
+    "credential_source": "n/a — no credentials in a static marketing site"
+  },
+  "checks": {
+    "skip_link_present": true,
+    "nav_anchors_rendered": true,
+    "anchor_scrolls_to_contact": true,
+    "focus_visible_on_nav_link": true,
+    "no_console_errors": true,
+    "no_failed_requests": true
+  },
+  "screenshots": [
+    "prime/test/screenshots/verify/uat01-top.png",
+    "prime/test/screenshots/verify/uat01-after-anchor.png"
+  ],
+  "steps": [
+    {
+      "name": "skip_link_present",
+      "status": "pass",
+      "detail": "skip-link count 1"
+    },
+    {
+      "name": "nav_anchors_rendered",
+      "status": "pass",
+      "detail": "[\"#work\",\"#about\",\"#contact\"]"
+    },
+    {
+      "name": "anchor_scrolls_to_contact",
+      "status": "pass",
+      "detail": "scrollY 0->7495, #contact top=81"
+    },
+    {
+      "name": "focus_visible_on_nav_link",
+      "status": "pass",
+      "detail": "{\"tag\":\"A\",\"outline\":\"solid 3px\",\"shadow\":false}"
+    },
+    {
+      "name": "no_console_errors",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "no_failed_requests",
+      "status": "pass",
+      "detail": ""
+    }
+  ],
+  "console_errors": [],
+  "network_failures": [],
+  "benign_aborted_requests": 1
+}

@@ -1,0 +1,83 @@
+{
+  "verdict": "pass",
+  "reviewer": "independent-quality-review",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "timestamp": "2026-09-28T00:54:14Z",
+  "findings": [
+    {
+      "id": "QR-001",
+      "severity": "minor",
+      "title": "Security-scan evidence misstates CSP script-src",
+      "detail": "phase-6-security-scan.json sets script_src_no_unsafe_inline: true and its threat note claims script-src has no unsafe-inline, but the recorded CSP string and the real out/_headers both contain script-src 'self' 'unsafe-inline'. The CSP choice is correct and unavoidable for a Next.js static export (built HTML ships 4 framework inline runtime scripts; no user input, no third-party scripts, remaining directives strong), but the evidence boolean/note is factually wrong and should be corrected."
+    },
+    {
+      "id": "QR-002",
+      "severity": "minor",
+      "title": "axe incomplete color-contrast on / omitted from headline claims",
+      "detail": "phase-6-a11y-audit.json records incomplete: ['color-contrast'] for the home page (likely the fixed grain overlay blocking axe background resolution). '0 violations' remains accurate; reviewer manually verified all text tokens meet their applicable WCAG band (body >=8.8:1, ghost numerals 3.43:1 white / 3.26:1 canvas at >=48px display scale)."
+    },
+    {
+      "id": "QR-003",
+      "severity": "nit",
+      "title": "/404 recorded as HTTP 200 in browser matrix",
+      "detail": "The harness static server serves out/404.html at the literal /404 path with status 200; real CDN behavior (Cloudflare Pages) returns 404 for unmatched routes. Not a site defect; the evidence should note the nuance."
+    },
+    {
+      "id": "QR-004",
+      "severity": "nit",
+      "title": "Footer year is build-time frozen",
+      "detail": "new Date().getFullYear() in src/components/layout/footer.tsx freezes at export time; acceptable for a static portfolio but goes stale without periodic rebuilds."
+    },
+    {
+      "id": "QR-005",
+      "severity": "nit",
+      "title": "Stale fact-whitelist entries for removed features",
+      "detail": "prime/state/fact-whitelist.md still documents W20 (live GitHub stats) and W26 (web3forms contact endpoint) which no longer exist in the rebuilt site (correctly removed per ADR-3.9). Documentation hygiene only."
+    },
+    {
+      "id": "QR-006",
+      "severity": "none",
+      "title": "a11y-fix regression check passed",
+      "detail": "Both session fixes verified independently: zero role= attributes remain anywhere in src (presentation-on-li fully removed); all four showcase variants share ShowcaseGhostIndex now using --ghost-ink #858B94 (computed contrast 3.43:1/3.26:1, AA large-text at 48-192px); every --rule-deep/--rule usage is border/divider/background only, never text ink; docs/DESIGN.canvas.tsx updated in lockstep; out/index.html contains ghost-ink and evidence timestamps (00:41-00:49Z) postdate the fix (00:39Z) and rebuild (00:40Z). Screenshots are real full-page PNGs (1440x8397, 773KB) and one was visually inspected showing genuine rendered content. Content claims trace to whitelist entries (W2/W3/W23/W27 verbatim); no forbidden labels, no invented seniority (single honest 'Software Developer Intern' entry); all target=_blank anchors carry rel=noopener noreferrer; lang, h1 count, skip link, focus ring, reduced-motion layers, and single-theme posture all confirmed."
+    }
+  ],
+  "reviewed_files": [
+    "src/app/globals.css",
+    "src/app/layout.tsx",
+    "src/components/layout/header.tsx",
+    "src/components/layout/footer.tsx",
+    "src/components/sections/work.tsx",
+    "src/components/sections/contact.tsx",
+    "src/components/sections/experience.tsx",
+    "src/components/sections/skills.tsx",
+    "src/components/sections/about.tsx",
+    "src/components/sections/hero.tsx",
+    "src/components/hero/hero-motion.tsx",
+    "src/components/work/showcase-ui.tsx",
+    "src/components/work/showcase-typographic-diagram.tsx",
+    "src/components/work/showcase-pinned-browser.tsx",
+    "src/components/work/secondary-row.tsx",
+    "src/components/providers.tsx",
+    "src/components/shared/anchor-link.tsx",
+    "src/data/projects.ts",
+    "src/data/experience.ts",
+    "src/config/site.ts",
+    "docs/DESIGN.canvas.tsx",
+    "package.json",
+    "prime/reports/phase-6-e2e-results.json",
+    "prime/reports/phase-6-a11y-audit.json",
+    "prime/reports/phase-6-ui-quality.json",
+    "prime/reports/phase-6-browser-console.json",
+    "prime/reports/phase-6-runtime-errors.json",
+    "prime/reports/phase-6-security-scan.json",
+    "prime/reports/coverage-map.json",
+    "prime/reports/application-surface.json",
+    "prime/test/reports/UAT-01-anchor-navigation-and-focus.json",
+    "prime/test/reports/UAT-02-work-showcases-integrity.json",
+    "prime/test/reports/UAT-03-content-integrity-about-skills-experience.json",
+    "prime/state/fact-whitelist.md",
+    "out/_headers",
+    "out/index.html"
+  ],
+  "summary": "Independent adversarial review of Phase 6: evidence is genuine and internally consistent (real Playwright/axe runs post-fix, non-trivial full-page screenshots verified on disk and visually, reconciled check counts, signed receipts). Both a11y fixes are correct and complete with no sibling occurrences (zero role= attributes in src; ghost numerals independently measured >=3:1 AA large-text; --rule-deep never used as text). Content is whitelist-traceable with no invented facts or forbidden labels; security posture is sound for a static export. Two minor evidence-annotation inaccuracies (CSP unsafe-inline misstatement in the scan JSON; omitted axe incomplete) and three nits recorded; none affect site behavior or block the phase. Verdict: pass."
+}

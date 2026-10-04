@@ -1,5 +1,6 @@
 import { experiences } from '@/data/experience';
 import { Reveal } from '@/components/shared/reveal';
+import { ScrollHeading } from '@/components/shared/mask-reveal';
 import { formatMonthYear } from '@/lib/dates';
 
 /**
@@ -10,9 +11,9 @@ import { formatMonthYear } from '@/lib/dates';
  */
 export function Experience() {
   return (
-    <section id="experience" aria-labelledby="experience-heading" className="px-[var(--gutter)] pb-[clamp(48px,8vw,96px)]">
+    <section id="experience" aria-labelledby="experience-heading" className="section-band px-[var(--gutter)]">
       <div className="mx-auto w-full max-w-[var(--content-wide)]">
-        <Reveal>
+        <ScrollHeading>
           <header className="grid items-end gap-4 lg:grid-cols-[minmax(0,7ch)_minmax(0,1fr)]">
             <p className="label-mono">Career</p>
             <h2
@@ -22,10 +23,10 @@ export function Experience() {
               Experience
             </h2>
           </header>
-        </Reveal>
+        </ScrollHeading>
 
         <Reveal delay={0.06}>
-          <div className="mt-10 border-t border-[var(--rule)]">
+          <div className="mt-8 border-t border-[var(--rule)]">
             {experiences.map((item) => (
               <article
                 key={item.id}

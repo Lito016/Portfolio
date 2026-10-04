@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "phase": 6,
+  "cycle": 5,
+  "agent": "prime-evaluate",
+  "agent_note": "Orchestrator assumed the prime-evaluate role for verification aggregation; the quality review was executed by a separate independent reviewer invocation (own sidecar + chained signed receipt), satisfying the phase independence requirement (min_distinct_invocations: 2).",
+  "invocations": [
+    {
+      "skill": "testing",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-6-e2e-results.json",
+        "prime/reports/phase-6-e2e-receipt.json",
+        "prime/test/reports/UAT-01-anchor-navigation-and-focus.json",
+        "prime/test/reports/UAT-02-work-showcases-integrity.json",
+        "prime/test/reports/UAT-03-content-integrity-about-skills-experience.json",
+        "prime/test/reports/UAT-04-contact-static-links.json",
+        "prime/test/reports/UAT-05-not-found-route.json",
+        "prime/reports/phase-6-verify.md"
+      ],
+      "note": "Real-browser E2E over the running export: 31 Playwright checks (6 responsive-matrix + 25 awaited journey steps incl. keyboard focus traversal), signed via trusted-runner (playwright, nonce 22). Screenshot-only checks explicitly rejected; each UAT report carries 2+ screenshots, console checks and diagnostics. Phase 5 node --test harnesses re-executed pre-freeze (12/12 subtests, corrected per QR7-003)."
+    },
+    {
+      "skill": "security-testing",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-6-security-scan.json",
+        "prime/reports/phase-6-security-receipt.json",
+        "prime/reports/threat-model.md",
+        "out/_headers"
+      ],
+      "note": "ASVS L1 review for a statically-exported public site (no auth/PII/persistence): npm audit executed and signed (0 advisories), secrets sweep, CSP/HSTS/header audit against the shipped _headers, injection-surface analysis (none: no user input, no API, no db). OWASP A01-A10 walked in threat-model; QR-001 script-src annotation corrected in the verify report."
+    },
+    {
+      "skill": "code-quality",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-6-ui-quality.json",
+        "prime/reports/phase-6-implementation-quality.json",
+        "prime/reports/phase-6-related-issues.json",
+        "prime/reports/phase-6-review-sidecar.json"
+      ],
+      "note": "Aggregated 7/7 quality assessments (score 98, verdict pass) via check-implementation-quality.mjs; UI quality matrix over 12 screenshots with zero token mismatches; related-issue sibling scan for both a11y fixes (0 recurrences); review findings triaged minor/nit with dispositions."
+    },
+    {
+      "skill": "quality-review",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-6-quality-review.md",
+        "prime/reports/phase-6-review-sidecar.json",
+        "prime/reports/phase-6-review-receipt.json",
+        "prime/reports/phase-6-review-meta.json"
+      ],
+      "note": "Independent six-pass review executed as a separate invocation (36 reviewed files recorded in the sidecar): evidence-integrity arithmetic, a11y-fix regression, content whitelist, design fidelity, security sanity. Verdict pass, zero blocking findings; prose verdict cross-checked by the verdict-sidecar oracle; receipt chained to the E2E receipt (different invocation_id, different tool_identity, same run) proving execution separation."
+    },
+    {
+      "skill": "caveman",
+      "status": "applied",
+      "evidence": [
+        "prime/reports/phase-6-verify.md",
+        "prime/reports/evaluation-report.md"
+      ],
+      "note": "Evidence-dense compressed report prose maintained; site copy untouched (whitelist respected)."
+    },
+    {
+      "skill": "frontend",
+      "status": "applied",
+      "references": [
+        "skills/frontend/references/core/design-quality-routing.md",
+        "skills/frontend/references/domains/responsive-cross-browser.md",
+        "skills/frontend/references/design/quality-parts/index.json",
+        "skills/frontend/scripts/ui-ux-pro-max/search.py"
+      ],
+      "evidence": [
+        "prime/reports/phase-6-ui-quality.json",
+        "prime/reports/output-quality-scorecard.json",
+        "prime/evidence/uiux-selector-output.md",
+        "prime/evidence/screenshots/p6v-home-desktop.png",
+        "prime/evidence/screenshots/p6v-home-tablet.png",
+        "prime/evidence/screenshots/p6v-home-mobile.png",
+        "docs/DESIGN.canvas.tsx"
+      ],
+      "note": "Rendered UI verified at desktop/tablet/mobile against docs/DESIGN.canvas.tsx: computed-token comparison (expected vs actual, zero mismatches), overlap/clipping + horizontal-overflow scan, text legibility inspected on rendered screenshots at every viewport, design-benchmark record carried into the scorecard; canvas re-passed the G57 structure oracle."
+    }
+  ]
+}

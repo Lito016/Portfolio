@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "timestamp": "2026-09-28T00:47:19.486Z",
+  "source_of_denominator": "prime/reports/application-surface.json (C-001..C-008)",
+  "coverage_percent": 100,
+  "denominator": 8,
+  "total_tracked": 8,
+  "passed": 6,
+  "failed": 0,
+  "inspected": 8,
+  "tested": 6,
+  "blocked": 0,
+  "not_applicable": 2,
+  "reconciliation": "Each discovered surface item maps to exactly one final disposition. The 6 browser-rendered navigation surfaces are passed with on-disk screenshots (filenames embed the item id). C-001/C-002 are not_applicable because they are the design-spec canvas, not a runtime surface; both are audited via the canvas-structure and design-benchmark gates.",
+  "items": [
+    {
+      "id": "C-001",
+      "name": "DESIGN.canvas data table",
+      "source": "docs/DESIGN.canvas.tsx",
+      "status": "not_applicable",
+      "requires_screenshot": false,
+      "not_applicable_reason": "docs/DESIGN.canvas.tsx is the design-spec canvas (a build-time artifact), not a browser-rendered surface; it has no runtime screenshot. Functionally audited via G57 canvas-structure (JSX spec sheet, headings, degradable fonts) and referenced by the G39 design-benchmark record.",
+      "evidence": [
+        "docs/DESIGN.canvas.tsx"
+      ]
+    },
+    {
+      "id": "C-002",
+      "name": "DESIGN.canvas navigation",
+      "source": "docs/DESIGN.canvas.tsx",
+      "status": "not_applicable",
+      "requires_screenshot": false,
+      "not_applicable_reason": "Design-canvas navigation spec — not a browser surface; audited via G57 canvas-structure, not screenshot testing.",
+      "evidence": [
+        "docs/DESIGN.canvas.tsx"
+      ]
+    },
+    {
+      "id": "C-003",
+      "name": "layout navigation shell",
+      "source": "src/app/layout.tsx",
+      "status": "passed",
+      "requires_screenshot": true,
+      "evidence": [
+        "prime/evidence/screenshots/p6v-C-003-layout.png",
+        "prime/evidence/screenshots/p6v-home-desktop.png"
+      ],
+      "method": "browser matrix + journey 01"
+    },
+    {
+      "id": "C-004",
+      "name": "footer navigation",
+      "source": "src/components/layout/footer.tsx",
+      "status": "passed",
+      "requires_screenshot": true,
+      "evidence": [
+        "prime/evidence/screenshots/p6v-C-004-footer.png"
+      ],
+      "method": "per-item screenshot + journey 04"
+    },
+    {
+      "id": "C-005",
+      "name": "header navigation",
+      "source": "src/components/layout/header.tsx",
+      "status": "passed",
+      "requires_screenshot": true,
+      "evidence": [
+        "prime/evidence/screenshots/p6v-C-005-header.png",
+        "prime/test/reports/UAT-01-anchor-navigation-and-focus.json"
+      ],
+      "method": "journey 01 (anchors, skip-link, focus-visible)"
+    },
+    {
+      "id": "C-006",
+      "name": "experience section nav",
+      "source": "src/components/sections/experience.tsx",
+      "status": "passed",
+      "requires_screenshot": true,
+      "evidence": [
+        "prime/evidence/screenshots/p6v-C-006-experience.png",
+        "prime/test/reports/UAT-03-content-integrity-about-skills-experience.json"
+      ],
+      "method": "journey 03"
+    },
+    {
+      "id": "C-007",
+      "name": "skills section nav",
+      "source": "src/components/sections/skills.tsx",
+      "status": "passed",
+      "requires_screenshot": true,
+      "evidence": [
+        "prime/evidence/screenshots/p6v-C-007-skills.png",
+        "prime/test/reports/UAT-03-content-integrity-about-skills-experience.json"
+      ],
+      "method": "journey 03"
+    },
+    {
+      "id": "C-008",
+      "name": "work section nav",
+      "source": "src/components/sections/work.tsx",
+      "status": "passed",
+      "requires_screenshot": true,
+      "evidence": [
+        "prime/evidence/screenshots/p6v-C-008-work.png",
+        "prime/test/reports/UAT-02-work-showcases-integrity.json"
+      ],
+      "method": "journey 02"
+    }
+  ],
+  "rendered_routes": [
+    {
+      "route": "/",
+      "status": "passed",
+      "evidence": [
+        "prime/evidence/screenshots/p6v-home-desktop.png",
+        "prime/evidence/screenshots/p6v-home-tablet.png",
+        "prime/evidence/screenshots/p6v-home-mobile.png"
+      ]
+    },
+    {
+      "route": "/404",
+      "status": "passed",
+      "evidence": [
+        "prime/evidence/screenshots/p6v-notfound-desktop.png",
+        "prime/evidence/screenshots/p6v-notfound-mobile.png"
+      ],
+      "journey": "prime/test/reports/UAT-05-not-found-route.json"
+    }
+  ],
+  "ui_audit": {
+    "navigation": {
+      "status": "pass",
+      "count": 6,
+      "evidence": [
+        "prime/evidence/screenshots/p6v-C-005-header.png",
+        "prime/test/reports/UAT-01-anchor-navigation-and-focus.json"
+      ],
+      "note": "header/nav anchors, skip link, Lenis anchor scroll and keyboard focus verified"
+    },
+    "forms": {
+      "status": "not_applicable",
+      "count": 0,
+      "not_applicable_reason": "no form elements by design (ADR-3.9 static mailto/anchor contact); journey 04 asserts form count === 0"
+    },
+    "data_display": {
+      "status": "pass",
+      "count": 6,
+      "evidence": [
+        "prime/evidence/screenshots/p6v-C-008-work.png",
+        "prime/evidence/screenshots/p6v-C-007-skills.png",
+        "prime/evidence/screenshots/p6v-C-006-experience.png"
+      ],
+      "note": "work showcases, skills, experience, project images render with alt text and real content"
+    },
+    "actions": {
+      "status": "pass",
+      "count": 5,
+      "evidence": [
+        "prime/evidence/screenshots/p6v-C-004-footer.png",
+        "prime/test/reports/UAT-04-contact-static-links.json"
+      ],
+      "note": "mailto + external links (rel=noopener) + anchor scroll verified; no destructive or network-writing actions"
+    },
+    "modals": {
+      "status": "not_applicable",
+      "count": 0,
+      "not_applicable_reason": "no modal/dialog surfaces in this single-page design"
+    },
+    "states": {
+      "status": "pass",
+      "count": 3,
+      "evidence": [
+        "prime/evidence/screenshots/p6v-notfound-desktop.png"
+      ],
+      "note": "default, focus-visible, and /404 error state verified; reduced-motion respected"
+    }
+  },
+  "fingerprint": "dc1f53b437aad343e5ff87afe827bebdd552ef54684c7cb27168ed691bbbc05f"
+}

@@ -27,7 +27,7 @@ export function ShowcaseGhostIndex({ index, className }: { index: number; classN
     <span
       aria-hidden="true"
       data-ghost-index={indexText(index)}
-      className={`pointer-events-none select-none font-mono leading-none text-[var(--rule-deep)] ${className ?? ''}`}
+      className={`pointer-events-none select-none font-mono leading-none text-[var(--ghost-ink)] ${className ?? ''}`}
     >
       {indexText(index)}
     </span>

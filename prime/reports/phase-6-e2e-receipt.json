@@ -1,0 +1,25 @@
+{
+  "receipt_version": "1.0",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "run_context_valid": true,
+  "invocation_id": "6e0527fec0cba79f91fd09ec50a2c103a41c0920c1e4cf7828f8dc01276b10ed",
+  "tool_identity": "playwright",
+  "tool_family": "e2e-runner",
+  "tool_version": "1.62.0",
+  "arguments_digest": "a749e836ebffa3eb11960b55f62afc4274b54f631802bec6a597716bb009ced5",
+  "start_timestamp": "2026-09-28T00:48:27.198Z",
+  "end_timestamp": "2026-09-28T00:48:58.384Z",
+  "exit_status": 0,
+  "stdout_digest": "86bfd0bfbb16dd432d99b3087f58e447eca165ad5ab2a1eb7e5cefab323be141",
+  "stderr_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "input_artifact_hashes": {},
+  "output_artifact_hashes": {
+    "prime/reports/phase-6-e2e-results.json": "9387e5313490191f8c3e003ed91902c32d544c86910c471844219fec816fa76f",
+    "prime/reports/phase-6-browser-console.json": "258eec634d89b31f7178be1009850a26c4d6b05ce1219551bed53872229487cd",
+    "prime/reports/phase-6-ui-quality.json": "71fb6801c2b80f335075ff97b151bdde1baa67b7cfa97dcc87644f002c8dc4f2"
+  },
+  "working_directory": "C:\\Projects\\Portfolio",
+  "principal_identity": "trusted-runner",
+  "nonce": 22,
+  "signature": "46608e5408840dda8b071fda973732fe07cd6c43cd56de24033eb658de105d2b"
+}

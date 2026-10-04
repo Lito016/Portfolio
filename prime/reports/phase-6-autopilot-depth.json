@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "generated_at": "2026-09-28T01:53:00.000Z",
+  "quality_mode": "autopilot",
+  "summary": "Autopilot Depth Extensions verdict for Phase 6. Reader-facing summary lives in prime/reports/phase-6-verify.md section 'Autopilot Depth Extensions'. Each pass cites executed, run-bound evidence (JSON reports and signed receipts whose artifacts hash-match on disk).",
+  "capabilities": [
+    {
+      "id": "autonomous_test_generation",
+      "status": "pass",
+      "evidence_artifacts": [
+        "prime/reports/phase-6-e2e-results.json",
+        "prime/reports/phase-6-e2e-receipt.json",
+        "prime/reports/phase-5-test-results.json"
+      ],
+      "note": "Coverage gap analysis (surface inventory 8 items -> 6 browser-dispositioned) drove generation of the 31-check Playwright matrix + 5 UAT journey scenarios and the Phase 5 regression harnesses; all executed with results recorded (31 passed / 0 failed, 13/13 unit subtests)."
+    },
+    {
+      "id": "autonomous_scanning",
+      "status": "pass",
+      "evidence_artifacts": [
+        "prime/reports/phase-6-security-scan.json",
+        "prime/reports/phase-6-security-receipt.json"
+      ],
+      "note": "Scan set selected for a static export: npm audit (0 advisories, executed and signed), secrets sweep, header/CSP audit. Findings classified; new-vs-preexisting distinction recorded (QR-001 annotation correction is evidence-only, introduced and resolved within this run)."
+    },
+    {
+      "id": "autonomous_documentation",
+      "status": "pass",
+      "evidence_artifacts": [
+        "prime/reports/phase-6-doc-impact.json"
+      ],
+      "note": "Doc impact assessed per surface (PRD, design canvas, phase records, whitelist); updates created where contract-required, not_required verdicts carry verification rationale, one deferral documented."
+    },
+    {
+      "id": "related_issue_scan",
+      "status": "pass",
+      "evidence_artifacts": [
+        "prime/reports/phase-6-related-issues.json",
+        "prime/reports/phase-6-a11y-audit.json"
+      ],
+      "note": "For both a11y fixes the defect class was pattern-identified, scope searched across src/, matches classified (0 sibling occurrences), and the re-check executed in the browser matrix (QR-006)."
+    },
+    {
+      "id": "post_test_state_integrity",
+      "status": "not_applicable",
+      "reason": "No persistent state exists: static read-only site, zero database/file writes during browser runs beyond retained evidence artifacts; every harness tears down its own dev server and the orphan-port sweep confirmed zero leftover listeners (see phase-6-verify.md 'Cleanup and Teardown')."
+    },
+    {
+      "id": "autonomous_checkpoints",
+      "status": "pass",
+      "evidence_artifacts": [
+        "prime/reports/phase-6-checkpoints.json"
+      ],
+      "note": "Checkpoints recorded at every meaningful recovery boundary (phase gates, milestone commits, cycle archives, receipt seals, this session's compaction) each carrying resume context."
+    }
+  ]
+}

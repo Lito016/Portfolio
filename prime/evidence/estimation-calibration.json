@@ -1,19 +1,22 @@
 {
   "schema_version": "1.0",
-  "project_type": "Next.js static-export portfolio repositioning (docs-heavy UI, full PRIME shape, autopilot)",
-  "estimated": "not recorded (see estimation_note)",
-  "estimation_note": "No effort estimates were recorded in the Phase-4 execution plan (prime/state/execution-plan.md); variance is therefore undefined and was NOT fabricated. Lesson recorded in prime/reports/retrospective.md lesson 1.",
-  "actual": {
-    "source": "prime/state/guard-events.jsonl (enter→advance deltas, guarded session 2026-09-23)",
-    "phase_minutes": { "1": 10.4, "2": 5.7, "3": 13.9, "4": 12.7, "5": 102.0, "6": 229.8 },
-    "total_hours_enter_p1_to_advance_p6": 6.39,
-    "total_basis": "2026-09-23T01:46:41Z (P1 enter) -> 2026-09-23T08:09:58Z (P6 advance) = 6h23m17s = 6.388h",
-    "detail": "P1 enter 01:46:41Z advance 01:57:02Z; P2 advance 02:02:55Z; P3 advance 02:16:46Z; P4 advance 02:29:28Z; P5 enter 02:37:39Z advance 04:19:40Z; P6 enter 04:20:12Z advance 08:09:58Z"
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "cycle": 5,
+  "project_type": "Next.js 16 static-export portfolio rebuild (docs-heavy UI, full PRIME shape, autopilot)",
+  "estimated": {
+    "source": "prime/reports/phase-4-plan.md decision D-4.6",
+    "basis": "milestone sums 20.0h raw -> PERT (15/20/30) = 20.8h -> x1.3 cycle-4 historical variance factor",
+    "range_hours": [24, 30],
+    "midpoint_hours": 27
   },
-  "variance_percent": "not computable (no baseline estimate recorded)",
-  "variance_note": "Undefined without a baseline estimate; first measured cycle to seed the next estimate.",
-  "recorded_at": "2026-09-23T08:20:00Z",
-  "observations": [
-    "Within the build+verify work window (sum of P5 and P6 enter-to-advance deltas = 102.0 + 229.8 = 331.8 min), Phase 6 verification consumed 229.8 min = 69.3%. Verification depth at Autopilot rigor dominated implementation time; future estimates should budget verify >= 2x build."
-  ]
+  "actual": {
+    "source": "prime/state/guard-events.jsonl (enter->advance deltas, cycle-5 run 2026-09-27T13:21Z -> 2026-09-28T01:14Z)",
+    "phase_minutes": { "1": 12.9, "2": 13.2, "3": 32.3, "4": 31.4, "5": 206.3, "6": 404.7 },
+    "total_hours_sum_of_phase_deltas": 11.68,
+    "total_basis": "700.8 min summed enter-to-advance deltas across phases 1-6 (note: the literal P1-enter -> P6-advance wall-clock span is 11.88 h; the 0.2 h difference is inter-phase idle)",
+    "caveat": "Wall-clock spans two sessions with an overnight idle gap inside Phase 6 and includes context-compaction recovery; continuous working effort was not separately instrumented, so this actual and the 24-30h effort estimate do not measure the same quantity."
+  },
+  "variance_percent": -56.7,
+  "variance_note": "Computed against the 27h midpoint as wall-clock vs effort estimate; probable over-estimation, not proven bias (see actual.caveat and the Estimate-vs-actual section of retrospective.md). Verify-phase share of build+verify window: P6 / (P5+P6) = 404.7 / 611.0 = 66.2% — confirms the cycle-4 observation that Autopilot verify >= build time.",
+  "recorded_at": "2026-09-28T02:30:00Z"
 }

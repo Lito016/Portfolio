@@ -1,0 +1,28 @@
+{
+  "receipt_version": "1.0",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "run_context_valid": true,
+  "invocation_id": "c1374ed42b9ce4868b19d40ef0cb4d46d1ec9609d949c9cc4147102c38464b3a",
+  "tool_identity": "quality-review",
+  "tool_family": "quality-reviewer",
+  "tool_version": null,
+  "arguments_digest": "c8bb0ba2c4c0ee5b903b293a73602fa01b5ce9a7087480ed8faf26579b4bef02",
+  "start_timestamp": "2026-09-28T01:08:14.954Z",
+  "end_timestamp": "2026-09-28T01:08:15.022Z",
+  "exit_status": 0,
+  "stdout_digest": "b8a42ebc8c954a4761644ea1fef2ea8b38f20fa5ecd32ee70c9957a9bb184bae",
+  "stderr_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "input_artifact_hashes": {
+    "prime/reports/phase-6-e2e-receipt.json": "6778981c2e38c6c2d92008fed673771d5c6a24e5c5b1756c60e0a5e21da7f960"
+  },
+  "output_artifact_hashes": {
+    "prime/reports/phase-6-review-meta.json": "9d46ebfff535ec6b159d125e0c14a66afe85b51870894c595ca4a505db6c18e0",
+    "prime/reports/phase-6-quality-review.md": "1134936d55a38167272a6c898b5423ca59969b695f83d077d409cbb95f8e6387",
+    "prime/reports/phase-6-review-sidecar.json": "d19c77ec15a98c50ab019e60db824d373f2fff7db4302076b7a6cc26e288f285"
+  },
+  "working_directory": "C:\\Projects\\Portfolio",
+  "principal_identity": "trusted-runner",
+  "nonce": 25,
+  "prior_receipt_ref": "6e0527fec0cba79f91fd09ec50a2c103a41c0920c1e4cf7828f8dc01276b10ed",
+  "signature": "463dac2defe48e812cbcdc90a543d0eee8cbd5197eb04721075954a78cf9807f"
+}

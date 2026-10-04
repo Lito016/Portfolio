@@ -1,0 +1,51 @@
+{
+  "scenario_id": "05",
+  "scenario": "not-found-route",
+  "requirement": "Error path: /404 renders a styled not-found surface, not a blank document",
+  "tool": "playwright",
+  "result": "PASS",
+  "started_at": "2026-09-28T00:48:56.598Z",
+  "finished_at": "2026-09-28T00:48:58.325Z",
+  "project_analysis": {
+    "framework": "Next.js 16 (static export)",
+    "start_command": "next build; node prime/evidence/scripts/phase6-verify.mjs (serves out/ on an ephemeral port)",
+    "login_route": "none — no authentication surface (ADR-3.9 static portfolio)",
+    "auth_state_expected": "none",
+    "credential_source": "n/a — no credentials in a static marketing site"
+  },
+  "checks": {
+    "not_found_http": true,
+    "not_found_visible_content": true,
+    "no_console_errors": true,
+    "no_failed_requests": true
+  },
+  "screenshots": [
+    "prime/test/screenshots/verify/uat05-notfound-top.png",
+    "prime/test/screenshots/verify/uat05-notfound-mobile.png"
+  ],
+  "steps": [
+    {
+      "name": "not_found_http",
+      "status": "pass",
+      "detail": "status 200"
+    },
+    {
+      "name": "not_found_visible_content",
+      "status": "pass",
+      "detail": "heads=1 textlen=203"
+    },
+    {
+      "name": "no_console_errors",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "no_failed_requests",
+      "status": "pass",
+      "detail": ""
+    }
+  ],
+  "console_errors": [],
+  "network_failures": [],
+  "benign_aborted_requests": 1
+}

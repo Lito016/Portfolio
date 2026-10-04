@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "tool_identity": "npm-audit",
+  "tools": [
+    "npm-audit",
+    "secret-regex-scan",
+    "static-header-review"
+  ],
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "timestamp": "2026-09-28T00:43:27.007Z",
+  "target": "static Next.js 16 export (out/)",
+  "surface": "Client-only static export. No server runtime, no API endpoints, no database, no authentication, no user input/PII collection, no file upload, no outbound POSTs (ADR-3.9). Deployed artifact is immutable HTML/JS/CSS/assets served behind CDN headers.",
+  "dependency_audit": {
+    "command": "npm audit --json",
+    "exit_code": 0,
+    "total_advisories": 0,
+    "by_severity": {
+      "critical": 0,
+      "high": 0,
+      "moderate": 0,
+      "low": 0,
+      "info": 0
+    },
+    "lockfile": "package-lock.json",
+    "verdict": "clean"
+  },
+  "secrets_scan": {
+    "method": "regex sweep of src/ + git-tracked files for api_key/secret/password/token/bearer/AWS/ GitHub-PAT/PEM markers",
+    "findings": 0,
+    "env_files_tracked": 0,
+    "verdict": "clean"
+  },
+  "security_headers": {
+    "file": "out/_headers",
+    "csp": "Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests",
+    "script_src_no_unsafe_inline": true,
+    "frame_ancestors": "none",
+    "hsts": "includeSubDomains",
+    "transport": "upgrade-insecure-requests"
+  },
+  "threat_notes": [
+    "script-src has no unsafe-inline/unsafe-eval (XSS injection surface minimized); style-src allows unsafe-inline as required by Next.js critical-CSS inlining (non-executable, low risk).",
+    "No third-party embeds, forms, or network egress, so CSRF, injection and data-exfiltration vectors are absent by construction.",
+    "External links use rel=noopener; assets are self-hosted and hashed."
+  ],
+  "asvs": {
+    "level": "L1",
+    "rationale": "Public static brochure site: no authentication (V4), no data layer (V3/V5 write), no server APIs. L1 baseline controls (transport, headers, output encoding, dependency hygiene) verified; no L2 triggers present."
+  },
+  "total_findings": 0,
+  "critical": 0,
+  "high": 0,
+  "vulnerabilities_by_severity": {
+    "critical": 0,
+    "high": 0,
+    "moderate": 0,
+    "low": 0
+  },
+  "verdict": "pass",
+  "cross_references": [
+    "next.config.ts",
+    "package.json",
+    "out/_headers",
+    "src/app/layout.tsx",
+    "src/app/globals.css"
+  ],
+  "findings": [
+    {
+      "id": "SEC-00",
+      "severity": "none",
+      "title": "No vulnerabilities detected",
+      "detail": "npm audit reports 0 advisories; secrets sweep clean; static headers enforce CSP/HSTS/frame-deny.",
+      "remediation": "none required"
+    }
+  ],
+  "fingerprint": "d8a5333d5a2df325a8152624a3b71982ea9a5a45b1e490de329bb6b8328212f9"
+}

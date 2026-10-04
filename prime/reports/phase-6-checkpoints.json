@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "generated_at": "2026-09-28T01:52:00.000Z",
+  "capability": "autonomous_checkpoints",
+  "checkpoints_at_recovery_boundaries": [
+    {
+      "boundary": "Phase completion (1-5)",
+      "record": "prime/state/state-machine.json + prime/reports/phase-N-*.md",
+      "resume_context": "Each phase writes gate-results JSON, a phase report with decisions/evidence paths/unresolved risks, and a contract-drift record; a new session resumes by reading state-machine.json plus the latest phase report only."
+    },
+    {
+      "boundary": "Milestone commits M0-M8 (Phase 5)",
+      "record": "git history on feat branch, one logical commit per milestone",
+      "resume_context": "Commit messages + prime/reports/phase-5-build.md milestone sections identify exactly where implementation stopped; MAJ-1 correction line records a falsifiable post-deletion receipt so a resumed session can re-check claims."
+    },
+    {
+      "boundary": "Cycle archives (3, 4)",
+      "record": "prime/state/cycle3-archive/ and prime/state/cycle4-archive/",
+      "resume_context": "Superseded working state was archived rather than deleted at prior compaction boundaries, keeping full audit history while shrinking resume context."
+    },
+    {
+      "boundary": "Phase 6 evidence seal points",
+      "record": "prime/reports/phase-6-{e2e,security,a11y}-receipt.json with issuance watermark prime/state/receipt-nonce",
+      "resume_context": "Receipts hash their artifacts at signing time; a resumed session re-runs verify-receipt to detect any post-compaction tampering before trusting evidence. Review receipt signs last per the finalize-then-sign order."
+    },
+    {
+      "boundary": "Session compaction (this session)",
+      "record": "task list (#16-#19 completed slices, #20-#22 remaining) + this file",
+      "resume_context": "Remaining Phase 6 scope after compaction was reconstructable from state-machine.json, the guard Validate output, and the frozen dispatch contract without re-doing executed checks."
+    }
+  ],
+  "verdict": "pass"
+}

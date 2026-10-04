@@ -134,6 +134,7 @@ export const designTokens = {
         "--surface-sunk": PALETTE_LIGHT.surfaceVariant,
         "--rule": PALETTE_LIGHT.border,
         "--rule-deep": PALETTE_LIGHT.muted,
+        "--ghost-ink": "#858B94",   // decorative ghost numerals: 3.43:1 white / 3.26:1 canvas (AA large-text); --rule-deep is divider-only
         "--ink": PALETTE_LIGHT.foreground,
         "--ink-2": "#202124",      // 15.29:1 subheads
         "--ink-3": "#3C4043",      // 9.94:1 strong body
@@ -350,7 +351,7 @@ const canvasStyles = `
   .dc-frame-bar i { width: 8px; height: 8px; border-radius: 50%; background: ${t.colors.muted}; }
   .dc-frame-body { padding: 22px; }
   .dc-showcase { display: grid; grid-template-columns: minmax(0,7ch) minmax(0,1fr); gap: 24px; align-items: end; }
-  .dc-index { font: 400 clamp(48px, 6vw, 88px)/1 ${t.typography.numericFamily}; color: ${t.colors.muted}; } /* ghost tone = decorative; aria-hidden; legible index label beside it (finding 1) */
+  .dc-index { font: 400 clamp(48px, 6vw, 88px)/1 ${t.typography.numericFamily}; color: var(--ghost-ink); } /* ghost tone = decorative; aria-hidden; --ghost-ink meets AA large-text (3:1); legible index label beside it (finding 1) */
   .dc-index-label { font: 500 11px/1.4 ${t.typography.numericFamily}; letter-spacing: .1em; text-transform: uppercase; color: ${t.colors.mutedForeground}; margin-top: 6px; } /* 8.82:1 canvas / 9.29:1 surface - AA large+small */
   .dc-showcase h3 { margin: 0 0 6px; font: 500 clamp(22px, 2.6vw, 34px)/1 ${t.typography.displayFamily}; letter-spacing: -.02em; }
   .dc-showcase p { margin: 0 0 8px; color: ${t.colors.mutedForeground}; font-size: 14px; line-height: 1.55; max-width: 52ch; }

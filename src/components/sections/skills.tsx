@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { skillCategories } from '@/data/skills';
 import { Reveal } from '@/components/shared/reveal';
+import { ScrollHeading } from '@/components/shared/mask-reveal';
 
 /**
  * Skills (FR-12/REQ-12): typographic domain list, NO badge cloud. Each
@@ -20,9 +21,9 @@ export function Skills() {
   const [open, setOpen] = useState<Record<string, boolean>>({});
 
   return (
-    <section id="skills" aria-labelledby="skills-heading" className="px-[var(--gutter)] pb-[clamp(48px,8vw,96px)]">
+    <section id="skills" aria-labelledby="skills-heading" className="section-band px-[var(--gutter)]">
       <div className="mx-auto w-full max-w-[var(--content-wide)]">
-        <Reveal>
+        <ScrollHeading>
           <header className="grid items-end gap-4 lg:grid-cols-[minmax(0,7ch)_minmax(0,1fr)]">
             <p className="label-mono">Skills</p>
             <h2
@@ -32,10 +33,10 @@ export function Skills() {
               Capabilities
             </h2>
           </header>
-        </Reveal>
+        </ScrollHeading>
 
         <Reveal delay={0.06}>
-          <ul className="mt-10 border-t border-[var(--rule)]">
+          <ul className="mt-8 border-t border-[var(--rule)]">
             {skillCategories.map((domain) => {
               const id = domainId(domain.name);
               const expanded = Boolean(open[domain.name]);
@@ -51,7 +52,7 @@ export function Skills() {
                       aria-expanded={expanded}
                       aria-controls={id}
                       onClick={() => setOpen((state) => ({ ...state, [domain.name]: !expanded }))}
-                      className="flex w-full items-baseline justify-between gap-6 py-5 text-left"
+                      className="flex w-full items-baseline justify-between gap-6 py-6 text-left"
                     >
                       <span className="font-medium tracking-[-0.01em] text-[var(--ink)] text-[clamp(1.25rem,2.2vw,1.75rem)]">
                         {domain.name}
@@ -63,7 +64,7 @@ export function Skills() {
                   </h3>
                   <div id={id} className="skill-panel">
                     <div className="overflow-hidden">
-                      <p className="label-mono pb-5 leading-relaxed text-[var(--ink-3)]">
+                      <p className="label-mono pb-6 leading-relaxed text-[var(--ink-3)]">
                         {domain.skills.map((skill) => skill.name).join(', ')}
                       </p>
                     </div>

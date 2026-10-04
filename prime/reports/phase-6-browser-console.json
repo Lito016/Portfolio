@@ -1,0 +1,66 @@
+{
+  "run_id": "Portfolio-mujy1le3-fva1hv",
+  "tool_identity": "playwright",
+  "timestamp": "2026-09-28T00:48:58.364Z",
+  "url": "http://127.0.0.1:61741",
+  "pages_checked": [
+    {
+      "route": "/",
+      "viewport": "desktop",
+      "http_status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "network_failures": 0
+    },
+    {
+      "route": "/",
+      "viewport": "tablet",
+      "http_status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "network_failures": 0
+    },
+    {
+      "route": "/",
+      "viewport": "mobile",
+      "http_status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "network_failures": 0
+    },
+    {
+      "route": "/404",
+      "viewport": "desktop",
+      "http_status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "network_failures": 0
+    },
+    {
+      "route": "/404",
+      "viewport": "tablet",
+      "http_status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "network_failures": 0
+    },
+    {
+      "route": "/404",
+      "viewport": "mobile",
+      "http_status": 200,
+      "errors": 0,
+      "warnings": 0,
+      "network_failures": 0
+    }
+  ],
+  "console_messages": [],
+  "network_failures": [],
+  "benign_aborted_superseded_requests": 6,
+  "analysis": {
+    "verdict": "pass",
+    "error_count": 0,
+    "warning_count": 0,
+    "network_failure_count": 0,
+    "note": "6 browser-initiated net::ERR_ABORTED cancellation(s) of a superseded background document fetch (Next App Router self-cancels one duplicate route request during hydration on a static export). These are client cancellations, not failed assets: every chunk, RSC payload, image and font returned 2xx and no real network failure was observed."
+  }
+}

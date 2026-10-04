@@ -21,7 +21,8 @@
   --surface: #FFFFFF;          /* cards/frames lifted on canvas; ink 18.56:1 */
   --surface-sunk: #EFF2F7;     /* sunk panels */
   --rule: #DDE3EC;             /* hairline borders: 1px rules, never layout walls */
-  --rule-deep: #E6EAF0;        /* deep rules/dividers; ghost numeral ink */
+  --rule-deep: #E6EAF0;        /* deep rules/dividers only; never text ink */
+  --ghost-ink: #858B94;        /* decorative ghost numerals: 3.43:1 white / 3.26:1 canvas (AA large-text) */
   --ink: #121317;              /* near-black ink: 17.63:1 on canvas (AAA), never #000000 */
   --ink-2: #202124;            /* subheads: 15.29:1 */
   --ink-3: #3C4043;            /* strong body: 9.94:1 */
@@ -207,6 +208,14 @@ header {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-muted);
+}
+
+/* ===== Section block rhythm (canvas spacing.sectionRhythm) =====
+ * Each section-level block yields half of --section-rhythm per side, so every
+ * adjacent gap measures exactly one rhythm and bordered showcases keep the
+ * hairline centred. Replaces the per-component clamp() one-offs. */
+.section-band {
+  padding-block: calc(var(--section-rhythm) / 2);
 }
 
 /* ===== Band layers (min-width only; compact is the base above) ===== */

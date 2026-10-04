@@ -1,0 +1,57 @@
+{
+  "scenario_id": "03",
+  "scenario": "content-integrity-about-skills-experience",
+  "requirement": "FR-11..FR-13 About/Skills/Experience render with no invented seniority labels or placeholder copy",
+  "tool": "playwright",
+  "result": "PASS",
+  "started_at": "2026-09-28T00:48:49.861Z",
+  "finished_at": "2026-09-28T00:48:52.874Z",
+  "project_analysis": {
+    "framework": "Next.js 16 (static export)",
+    "start_command": "next build; node prime/evidence/scripts/phase6-verify.mjs (serves out/ on an ephemeral port)",
+    "login_route": "none — no authentication surface (ADR-3.9 static portfolio)",
+    "auth_state_expected": "none",
+    "credential_source": "n/a — no credentials in a static marketing site"
+  },
+  "checks": {
+    "sections_present": true,
+    "no_invented_or_placeholder_labels": true,
+    "section_headings_rendered": true,
+    "no_console_errors": true,
+    "no_failed_requests": true
+  },
+  "screenshots": [
+    "prime/test/screenshots/verify/uat03-about.png",
+    "prime/test/screenshots/verify/uat03-experience.png"
+  ],
+  "steps": [
+    {
+      "name": "sections_present",
+      "status": "pass",
+      "detail": "[\"about\",\"skills\",\"experience\"]"
+    },
+    {
+      "name": "no_invented_or_placeholder_labels",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "section_headings_rendered",
+      "status": "pass",
+      "detail": "[\"Selected work\",\"AI Solution Developer.Full-Stack Systems Developer.\",\"Capabilities\",\"Experience\",\"LET’S BUILD SOMETHING.\"]"
+    },
+    {
+      "name": "no_console_errors",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "no_failed_requests",
+      "status": "pass",
+      "detail": ""
+    }
+  ],
+  "console_errors": [],
+  "network_failures": [],
+  "benign_aborted_requests": 1
+}

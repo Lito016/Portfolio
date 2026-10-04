@@ -11,7 +11,7 @@
   "mandatory_skills": [
     "quality-review",
     "caveman",
-    "document",
+    "doc-forge",
     "git-workflow"
   ],
   "core_skills": [
@@ -25,7 +25,6 @@
     "business",
     "frontend",
     "cross-platform",
-    "doc-forge",
     "session-continuity"
   ],
   "required_artifacts": [

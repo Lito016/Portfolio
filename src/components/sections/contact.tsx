@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 import { Reveal } from '@/components/shared/reveal';
+import { ScrollHeading } from '@/components/shared/mask-reveal';
 
 /**
  * Contact close (FR-14/REQ-14): the single tonal inversion (ADR-3.7).
@@ -19,10 +20,10 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="on-ink bg-[var(--inverse-bg)] px-[var(--gutter)] py-[clamp(64px,10vw,140px)] text-[var(--inverse-fg)]"
+      className="section-band on-ink bg-[var(--inverse-bg)] px-[var(--gutter)] text-[var(--inverse-fg)]"
     >
       <div className="mx-auto w-full max-w-[var(--content-wide)]">
-        <Reveal>
+        <ScrollHeading>
           <p className="label-mono">Contact</p>
           <h2
             id="contact-heading"
@@ -30,10 +31,10 @@ export function Contact() {
           >
             LET&rsquo;S BUILD SOMETHING.
           </h2>
-        </Reveal>
+        </ScrollHeading>
 
         <Reveal delay={0.08}>
-          <div className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-3">
+          <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3">
             {contactLinks.map((link) => (
               <a
                 key={link.label}
@@ -47,7 +48,7 @@ export function Contact() {
           </div>
           <a
             href={siteConfig.email}
-            className="cta-pill mt-10 inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--inverse-fg)] px-7 py-3 text-[15px] font-medium text-[var(--ink)]"
+            className="cta-pill mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-[var(--inverse-fg)] px-7 py-3 text-[15px] font-medium text-[var(--ink)]"
           >
             Start a conversation
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
